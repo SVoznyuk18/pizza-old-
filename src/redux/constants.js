@@ -4,3 +4,7 @@ export const SET_PIZZA_LOADING = "SET_PIZZA_LOADING";
 export const SET_PIZZA_ERROR = "SET_PIZZA_ERROR";
 
 export const SET_PIZZA_CART = "SET_PIZZA_CART";
+
+export const SORT_BY = "SORT_BY";
+
+export const FILTER_CATEGORY = "FILTER_CATEGORY";

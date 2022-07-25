@@ -1,4 +1,12 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { sortBy } from "../redux/actions/filter";
+
 const Sort = () => {
+    const sort = ["популярности", "цене", "алфавиту"];
+    const [sortActive, setSortActive] = useState(0);
+    const dispatch = useDispatch();
+
     return (
         <div className="sort">
             <div className="sort__label">
@@ -15,13 +23,26 @@ const Sort = () => {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span>популярности</span>
+                <span>{sort[sortActive]}</span>
             </div>
             <div className="sort__popup">
                 <ul>
-                    <li className="active">популярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li>
+                    {
+                        sort.map((item, index) => {
+                            return (
+                                <li
+                                    className={sortActive === index ? "active" : ""}
+                                    key={index}
+                                    onClick={() => {
+                                        setSortActive(index);
+                                        dispatch(sortBy(item));
+                                    }}
+                                >
+                                    {item}
+                                </li>
+                            )
+                        })
+                    }
                 </ul>
             </div>
         </div>
