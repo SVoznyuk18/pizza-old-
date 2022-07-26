@@ -4,11 +4,14 @@ import { sortBy } from "../redux/actions/filter";
 
 const Sort = () => {
     const sort = ["популярности", "цене", "алфавиту"];
+    const [activeSortModal, setActiveSortModal] = useState(false);
     const [sortActive, setSortActive] = useState(0);
     const dispatch = useDispatch();
 
     return (
-        <div className="sort">
+        <div className="sort"
+            onClick={() => setActiveSortModal(!activeSortModal)}
+        >
             <div className="sort__label">
                 <svg
                     width="10"
@@ -25,7 +28,7 @@ const Sort = () => {
                 <b>Сортировка по:</b>
                 <span>{sort[sortActive]}</span>
             </div>
-            <div className="sort__popup">
+            <div className={`sort__popup ${activeSortModal ? "disable" : ""}`}>
                 <ul>
                     {
                         sort.map((item, index) => {
