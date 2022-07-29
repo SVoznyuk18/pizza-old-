@@ -1,7 +1,66 @@
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { incPizzaAmount, decPizzaAmount, deletePizzaItem } from '../redux/actions/cart';
 import CartItem from '../components/CartItem';
+
+
 const Cart = () => {
+
+    const { cart } = useSelector(state => state.cart);
+    const dispatch = useDispatch();
+
+    const totalPrice = (arrCart) => {
+        let total;
+        if(arrCart.length === 0) {
+            total = 0;
+            return total;
+        } else{
+            total = arrCart.reduce((accum, item) => {
+                return accum + item.price * item.amountPizzas;
+            }, 0)
+            return total;
+        }
+    }
+
+    const totalAmount = (arrCart) =>{
+        let total;
+        if(arrCart.length === 0) {
+            total = 0;
+            return total;
+        } else{
+            total = arrCart.reduce((accum, item) => {
+                return accum + item.amountPizzas;
+            }, 0)
+            return total;
+        }
+    }
+
+    const onIncPizzaAmount = (item) => {
+        const newItem = {
+            id: item.id,
+            amountPizzas: item.amountPizzas + 1
+        }
+        dispatch(incPizzaAmount(newItem));
+    }
+
+    const onDecPizzaAmount = (item) => {
+        if (item.amountPizzas !== 0) {
+            const newItem = {
+                id: item.id,
+                amountPizzas: item.amountPizzas - 1
+            }
+            dispatch(decPizzaAmount(newItem))
+        } else{
+            dispatch(deletePizzaItem(item))
+        }
+    }
+
+    const onDeletePizzaItem = id => {
+        dispatch(deletePizzaItem(id))
+    }
+
+
     return (
         <div className="wrapper">
             <div className="content">
@@ -77,12 +136,16 @@ const Cart = () => {
                             </div>
                         </div>
                         <div className="content__items">
-                            <CartItem />
+                            {
+                                cart.map((item, index) => {
+                                    return <CartItem key={index} cartItem={item} onIncPizzaAmount={onIncPizzaAmount} onDecPizzaAmount={onDecPizzaAmount} onDeletePizzaItem={onDeletePizzaItem}/>
+                                })
+                            }
                         </div>
                         <div className="cart__bottom">
                             <div className="cart__bottom-details">
-                                <span> Всего пицц: <b>3 шт.</b> </span>
-                                <span> Сумма заказа: <b>900 ₽</b> </span>
+                                <span> Всего пицц: <b>{`${totalAmount(cart)} шт.`}</b> </span>
+                                <span> Сумма заказа: <b>{`${totalPrice(cart)} ₽`}</b> </span>
                             </div>
                             <div className="cart__bottom-buttons">
                                 <Link to="/" className="button button--outline button--add go-back-btn">

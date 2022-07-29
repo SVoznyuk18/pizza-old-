@@ -4,7 +4,7 @@ import { sortBy } from "../redux/actions/filter";
 
 const Sort = () => {
     const sort = ["популярности", "цене", "алфавиту"];
-    const [activeSortModal, setActiveSortModal] = useState(false);
+    const [activeSortModal, setActiveSortModal] = useState(true);
     const [sortActive, setSortActive] = useState(0);
     const dispatch = useDispatch();
 

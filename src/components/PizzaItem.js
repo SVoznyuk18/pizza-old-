@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-
-import { setPizzaCart } from "../redux/actions/cart";
+import { useSelector } from "react-redux";
+import { setPizzaCart, updatePizzaCartItem } from "../redux/actions/cart";
 
 const PizzaItem = (props) => {
     const { id, imageUrl, name, types, sizes, price } = props.pizzaItem;
+    const { cart } = useSelector(state => state.cart)
 
     const avaliableTypes = ["тонкое", "традиционное"];
     const avaliableSizes = [26, 30, 40];
@@ -21,17 +22,34 @@ const PizzaItem = (props) => {
         setSelectSize(size);
     }
 
-    const addItemToCart = () => {
+    const addItemToCart = (pizzaId, pizzaType, pizzaSize, arrCard) => {
         const order = {
             id,
             imageUrl,
             name,
             type: avaliableTypes[selectType],
             size: selectSize,
-            price
+            price,
+            amountPizzas: 1
         }
-        dispatch(setPizzaCart(order));
+        if (arrCard.length !== 0) {
+            const index = arrCard.findIndex(item => item.id === pizzaId)
+            const indicateType = arrCard.find(item => item.type === pizzaType)
+            const indicateSize = arrCard.find(item => item.size === pizzaSize)
+            if (index !== -1) {
+                order.amountPizzas = arrCard[index].amountPizzas + 1;
+                dispatch(updatePizzaCartItem(order));
+            } else if (index !== -1 && (indicateType || indicateSize)) {
+                dispatch(setPizzaCart(order));
+            }
+            else {
+                dispatch(setPizzaCart(order));
+            }
+        } else {
+            dispatch(setPizzaCart(order));
+        }
     }
+
     return (
         <div className="pizza-block">
             <img
@@ -74,7 +92,7 @@ const PizzaItem = (props) => {
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">{`от ${price} ₽`}</div>
                 <div className="button button--outline button--add"
-                    onClick={() => addItemToCart()}>
+                    onClick={() => addItemToCart(id, types, sizes, cart)}>
                     <svg
                         width="12"
                         height="12"
