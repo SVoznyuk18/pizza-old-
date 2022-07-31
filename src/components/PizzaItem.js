@@ -24,7 +24,7 @@ const PizzaItem = (props) => {
 
     const addItemToCart = (pizzaId, pizzaType, pizzaSize, arrCard) => {
         const order = {
-            id,
+            id: pizzaId,
             imageUrl,
             name,
             type: avaliableTypes[selectType],
@@ -34,15 +34,11 @@ const PizzaItem = (props) => {
         }
         if (arrCard.length !== 0) {
             const index = arrCard.findIndex(item => item.id === pizzaId)
-            const indicateType = arrCard.find(item => item.type === pizzaType)
-            const indicateSize = arrCard.find(item => item.size === pizzaSize)
+
             if (index !== -1) {
                 order.amountPizzas = arrCard[index].amountPizzas + 1;
                 dispatch(updatePizzaCartItem(order));
-            } else if (index !== -1 && (indicateType || indicateSize)) {
-                dispatch(setPizzaCart(order));
-            }
-            else {
+            } else {
                 dispatch(setPizzaCart(order));
             }
         } else {
@@ -74,7 +70,7 @@ const PizzaItem = (props) => {
                     })}
                 </ul>
                 <ul>
-                    {avaliableSizes.map((size, index) => {
+                    {avaliableSizes.map(size => {
                         return (
                             <li className={
                                 `   ${!sizes.includes(size) ? "disabled" : ""}
@@ -92,7 +88,7 @@ const PizzaItem = (props) => {
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">{`от ${price} ₽`}</div>
                 <div className="button button--outline button--add"
-                    onClick={() => addItemToCart(id, types, sizes, cart)}>
+                    onClick={() => addItemToCart(`${id}${selectSize}${selectType}`, selectType, selectSize, cart)}>
                     <svg
                         width="12"
                         height="12"

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { incPizzaAmount, decPizzaAmount, deletePizzaItem } from '../redux/actions/cart';
+import { incPizzaAmount, decPizzaAmount, deletePizzaItem, cleanCart } from '../redux/actions/cart';
 import CartItem from '../components/CartItem';
 
 
@@ -132,7 +132,7 @@ const Cart = () => {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                <span>Очистить корзину</span>
+                                <span onClick={() => dispatch(cleanCart())}>Очистить корзину</span>
                             </div>
                         </div>
                         <div className="content__items">

@@ -1,4 +1,4 @@
-import { SET_PIZZA_CART, UPDATE_PIZZA_CART_ITEM, INC_PIZZA_AMOUNT, DEC_PIZZA_AMOUNT, DELETE_PIZZA_ITEM} from "../constants";
+import { SET_PIZZA_CART, UPDATE_PIZZA_CART_ITEM, INC_PIZZA_AMOUNT, DEC_PIZZA_AMOUNT, DELETE_PIZZA_ITEM, CLEAN_CART} from "../constants";
 
 export const setPizzaCart = (payload) => {
     return {
@@ -32,5 +32,11 @@ export const deletePizzaItem = (payload) => {
     return {
         type: DELETE_PIZZA_ITEM,
         payload
+    }
+}
+
+export const cleanCart = () => {
+    return {
+        type: CLEAN_CART
     }
 }

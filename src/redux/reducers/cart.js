@@ -1,4 +1,4 @@
-import { SET_PIZZA_CART, UPDATE_PIZZA_CART_ITEM, INC_PIZZA_AMOUNT, DEC_PIZZA_AMOUNT, DELETE_PIZZA_ITEM } from "../constants";
+import { SET_PIZZA_CART, UPDATE_PIZZA_CART_ITEM, INC_PIZZA_AMOUNT, DEC_PIZZA_AMOUNT, DELETE_PIZZA_ITEM, CLEAN_CART } from "../constants";
 
 const initialState = {
     cart: []
@@ -50,6 +50,10 @@ const cart = (state = initialState, action) => {
             return {
                 ...state,
                 cart: state.cart.filter(item => item.id !== action.payload.id)
+            }
+        case CLEAN_CART:
+            return {
+                cart: []
             }
         default:
             return state;
