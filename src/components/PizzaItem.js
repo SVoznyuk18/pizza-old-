@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { setPizzaCart, updatePizzaCartItem } from "../redux/actions/cart";
@@ -22,7 +22,7 @@ const PizzaItem = (props) => {
         setSelectSize(size);
     }
 
-    const addItemToCart = (pizzaId, pizzaType, pizzaSize, arrCard) => {
+    const addItemToCart = (pizzaId, arrCard) => {
         const order = {
             id: pizzaId,
             imageUrl,
@@ -88,7 +88,7 @@ const PizzaItem = (props) => {
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">{`от ${price} ₽`}</div>
                 <div className="button button--outline button--add"
-                    onClick={() => addItemToCart(`${id}${selectSize}${selectType}`, selectType, selectSize, cart)}>
+                    onClick={() => addItemToCart(`${id}${selectSize}${selectType}`, cart)}>
                     <svg
                         width="12"
                         height="12"
@@ -109,4 +109,4 @@ const PizzaItem = (props) => {
     )
 }
 
-export default PizzaItem;
+export default memo(PizzaItem);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { useDispatch } from "react-redux";
 import { sortBy } from "../redux/actions/filter";
 
@@ -52,4 +52,4 @@ const Sort = () => {
     )
 }
 
-export default Sort;
+export default memo(Sort);

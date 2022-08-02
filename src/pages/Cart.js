@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
+import {memo} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { incPizzaAmount, decPizzaAmount, deletePizzaItem, cleanCart } from '../redux/actions/cart';
 import CartItem from '../components/CartItem';
-
 
 const Cart = () => {
 
@@ -59,7 +59,6 @@ const Cart = () => {
     const onDeletePizzaItem = id => {
         dispatch(deletePizzaItem(id))
     }
-
 
     return (
         <div className="wrapper">
@@ -164,4 +163,4 @@ const Cart = () => {
     )
 }
 
-export default Cart;
+export default memo(Cart);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { filterCategory } from "../redux/actions/filter";
 import { useDispatch } from "react-redux";
 
@@ -32,6 +32,6 @@ const Categories = () => {
     )
 }
 
-export default Categories;
+export default memo(Categories);
 
 

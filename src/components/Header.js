@@ -1,9 +1,7 @@
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
-
 import { Link } from 'react-router-dom';
 import logoSvg from '../assets/svg/pizza-logo.svg';
-
-
 
 const Header = () => {
 
@@ -86,4 +84,4 @@ const Header = () => {
     )
 }
 
-export default Header;
+export default memo(Header);

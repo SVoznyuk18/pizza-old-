@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const CartItem = (props) => {
     const { cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem } = props;
 
@@ -78,4 +80,4 @@ const CartItem = (props) => {
     )
 }
 
-export default CartItem;
+export default memo(CartItem);

@@ -5,16 +5,20 @@ import { getPizza } from '../redux/actions/pizza';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaItem from '../components/PizzaItem';
+import Spiner from '../components/Spiner';
+import ErrorMessage from '../components/errorMessage/ErrorMessage';
 
 const Main = () => {
+    const categories = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"];
     const dispatch = useDispatch();
-    const { pizza } = useSelector(state => state.pizza);
+    const { pizza, pizzaLoading, pizzaError } = useSelector(state => state.pizza);
     const { idActiveCategory } = useSelector(state => state.filters);
     const { sortBy } = useSelector(state => state.filters);
 
     useEffect(() => {
         dispatch(getPizza());
     }, [dispatch])
+
 
     const filteredPizzaSelector = (arrPizza, category, sort) => {
         let filteredPizza = arrPizza;
@@ -40,6 +44,21 @@ const Main = () => {
     }
     const filteredPizza = filteredPizzaSelector(pizza, idActiveCategory, sortBy);
 
+    const renderPizza = () => {
+        if (pizzaLoading === true && pizzaError === false) {
+            return <Spiner />
+        } else if (pizzaLoading === false && pizzaError === false) {
+            return <div className="content__items">
+                {filteredPizza.map(item => {
+                    return <PizzaItem key={item.id} pizzaItem={item} />
+                })}
+            </div>
+        } else {
+            return <ErrorMessage />
+        }
+    }
+
+    const element = renderPizza();
     return (
         <div className="content">
             <div className="container">
@@ -47,12 +66,9 @@ const Main = () => {
                     <Categories />
                     <Sort />
                 </div>
-                <h2 className="content__title">Все пиццы</h2>
-                <div className="content__items">
-                    {filteredPizza.map(item => {
-                        return <PizzaItem key={item.id} pizzaItem={item} />
-                    })}
-                </div>
+                <h2 className="content__title"> {`${categories[idActiveCategory]} пиццы`}</h2>
+                
+                {element}
             </div>
         </div>
     )
