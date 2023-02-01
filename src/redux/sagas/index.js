@@ -2,29 +2,24 @@ import { takeEvery, put, call } from 'redux-saga/effects'
 
 import { GET_PIZZA } from '../constants';
 import { setPizza, setPizzaLoading, setPizzaError } from '../actions/pizza';
-import { http } from '../../api/http';
+import { getPizzaApiRequest } from '../../api/http';
 
-const { request } = http();
-
-
-export function* handlePizza() {
+export function* watchGetPizzaRequest() {
     try {
         yield put(setPizzaLoading(true))
-        const pizza = yield call(request, "http://localhost:3001/pizzas");
+        const pizza = yield call(getPizzaApiRequest);
         yield put(setPizzaLoading(false));
-        yield put(setPizza(pizza));
+        yield put(setPizza(pizza.data));
     } catch {
         yield put(setPizzaError(true));
     }
-
-
 }
 
-export function* watcherPizza() {
-    yield takeEvery(GET_PIZZA, handlePizza)
+export function* watchPizza() {
+    yield takeEvery(GET_PIZZA, watchGetPizzaRequest);
 }
 
 export default function* rootSaga() {
-    yield watcherPizza()
+    yield watchPizza();
 }
 

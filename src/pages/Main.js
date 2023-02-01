@@ -23,20 +23,20 @@ const Main = () => {
     const filteredPizzaSelector = (arrPizza, category, sort) => {
         let filteredPizza = arrPizza;
         if (category) {
-            filteredPizza = filteredPizza.filter(item => item.category === category);
+            filteredPizza = filteredPizza?.filter(item => item.category === category);
         }
         if (sort === "популярности") {
-            filteredPizza = filteredPizza.sort((a, b) => {
+            filteredPizza = filteredPizza?.sort((a, b) => {
                 return b.rating - a.rating;
             })
         }
         if (sort === "цене") {
-            filteredPizza = filteredPizza.sort((a, b) => {
+            filteredPizza = filteredPizza?.sort((a, b) => {
                 return a.price - b.price;
             })
         }
         if (sort === "алфавиту") {
-            filteredPizza = filteredPizza.sort((a, b) => {
+            filteredPizza = filteredPizza?.sort((a, b) => {
                 return a.name[0].localeCompare(b.name[0])
             })
         }

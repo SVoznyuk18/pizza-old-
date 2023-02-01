@@ -1,17 +1,6 @@
-export const http = () => {
-    const request = async (url, method = 'GET', body = null, headers = { 'Content-Type': 'application/json' }) => {
-        try {
-            const response = await fetch(url, { method, body, headers });
-            if (!response.ok) {
-                throw new Error('error');
-            }
-            const data = await response.json();
-            return data;
-        }
-        catch (e) {
-            throw (e)
-        }
-    }
-    return { request };
-}
+import axios from "axios";
 
+export const getPizzaApiRequest = () => axios({
+    method: "GET",
+    url: "http://localhost:3001/pizzas"
+});
