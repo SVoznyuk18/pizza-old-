@@ -2,10 +2,12 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import IconSVG from '../components/IconSVG/IconSVG';
+import IconSVG from '../../components/IconSVG/IconSVG';
+import BassicButton from '../BassicButton/BassicButton';
+import {HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle} from './StyledComponents';
 
-import logoSvg from '../assets/svg/pizza-logo.svg';
-import cartSvg from '../assets/svg/cart.svg';
+import logoSvg from '../../assets/svg/pizza-logo.svg';
+import cartSvg from '../../assets/svg/cart.svg';
 
 
 const Header = () => {
@@ -39,17 +41,25 @@ const Header = () => {
     }
 
     return (
-        <div className="header">
-            <div className="container">
-                <Link to="/" className="header__logo">
-                    <img width="38" src={logoSvg} alt="Pizza logo" />
-                    <div>
-                        <h1>React Pizza</h1>
-                        <p>самая вкусная пицца во вселенной</p>
-                    </div>
+        <HeaderWrapper>
+            <HeaderContainer>
+                <Link to="/">
+                    <HeaderLogoWrapper>
+                        <img width="38" src={logoSvg} alt="Pizza logo" />
+                        <HeaderLogoDescription>
+                            <HeaderTitle>React Pizza</HeaderTitle>
+                            <HeaderSubTitle>самая вкусная пицца во вселенной</HeaderSubTitle>
+                        </HeaderLogoDescription>
+                    </HeaderLogoWrapper>
                 </Link>
-                <div  className="header__cart">
-                    <Link to={"/cart"} className="button button--cart">
+                <Link to={"/cart"}>
+                    <BassicButton
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        padding="12px 25px"
+                        backgroundColor="#fe5f1e"
+                    > 
                         <span>{`${totalPrice(cart)} ₽`}</span>
                         <div className="button__delimiter"></div>
                         <IconSVG 
@@ -59,11 +69,11 @@ const Header = () => {
                             margin="0px 8px 1px 0px"
                         />
                         <span>{totalAmount(cart)}</span>
-                    </Link>
-                </div>
-            </div>
-        </div>
-    )
+                    </BassicButton>
+                </Link>
+            </HeaderContainer>
+        </HeaderWrapper>
+    );
 }
 
 export default memo(Header);

@@ -57,7 +57,7 @@ const PizzaItem = (props) => {
                 <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={sizes} selectedType={selectSize} />
             </SelectorSection>
 
-            <BassicButton />
+            <BassicButton backgroundColor="#ffff" />
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">{`от ${price} ₽`}</div>
                 <div className="button button--outline button--add"

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPizza } from '../redux/actions/pizza';
-import Categories from '../components/Categories';
+import Categories from '../components/Categories/Categories';
 import Sort from '../components/Sort';
 import PizzaItem from '../components/PizzaItem/PizzaItem';
 import Spiner from '../components/Spiner';
@@ -63,7 +63,7 @@ const Main = () => {
         <div className="content">
             <div className="container">
                 <div className="content__top">
-                    <Categories />
+                    <Categories handleDispatch={dispatch} />
                     <Sort />
                 </div>
                 <h2 className="content__title"> {`${categories[idActiveCategory]} пиццы`}</h2>
