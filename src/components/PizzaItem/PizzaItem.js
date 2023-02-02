@@ -1,7 +1,13 @@
 import { useState, memo } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setPizzaCart, updatePizzaCartItem } from "../redux/actions/cart";
+
+import { setPizzaCart, updatePizzaCartItem } from "../../redux/actions/cart";
+
+import Selector from "../Selector/Selector";
+import BassicButton from "../BassicButton/BassicButton";
+
+import {PizzaBlock, PizzaImg, Title, SelectorSection} from "./StyledComponents";
 
 const PizzaItem = (props) => {
     const { id, imageUrl, name, types, sizes, price } = props.pizzaItem;
@@ -10,17 +16,9 @@ const PizzaItem = (props) => {
     const avaliableTypes = ["тонкое", "традиционное"];
     const avaliableSizes = [26, 30, 40];
 
-    const [selectType, setSelectType] = useState(0);
-    const [selectSize, setSelectSize] = useState(26)
+    const [selectType, setSelectType] = useState("тонкое");
+    const [selectSize, setSelectSize] = useState(26);
     const dispatch = useDispatch();
-
-    const onSelectType = (index) => {
-        setSelectType(index);
-    }
-
-    const onSelectSize = (size) => {
-        setSelectSize(size);
-    }
 
     const addItemToCart = (pizzaId, arrCard) => {
         const order = {
@@ -47,44 +45,19 @@ const PizzaItem = (props) => {
     }
 
     return (
-        <div className="pizza-block">
-            <img
-                className="pizza-block__image"
-                src={imageUrl}
+        <PizzaBlock>
+            <PizzaImg 
+                src={imageUrl} 
                 alt={`pizza ${name}`}
+                width="260px"
             />
-            <h4 className="pizza-block__title">{name}</h4>
-            <div className="pizza-block__selector">
-                <ul>
-                    {avaliableTypes.map((type, index) => {
-                        return (
-                            <li className={
-                                `   ${!types.includes(index) ? "disabled" : ""}
-                                    ${selectType === index ? "active" : ""}
-                                `
-                            }
-                                key={type}
-                                onClick={() => onSelectType(index)}
-                            >{type}</li>
-                        )
-                    })}
-                </ul>
-                <ul>
-                    {avaliableSizes.map(size => {
-                        return (
-                            <li className={
-                                `   ${!sizes.includes(size) ? "disabled" : ""}
-                                    ${selectSize === size ? "active" : ""} 
-                                `
-                            }
-                                key={size}
-                                onClick={() => onSelectSize(size)}
-                            >{`${size} см.`}</li>
-                        )
-                    })}
+            <Title>{name}</Title>
+            <SelectorSection>
+                <Selector avaliableItems={avaliableTypes} handleSelect={setSelectType} types={types} selectedType={selectType} />
+                <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={sizes} selectedType={selectSize} />
+            </SelectorSection>
 
-                </ul>
-            </div>
+            <BassicButton />
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">{`от ${price} ₽`}</div>
                 <div className="button button--outline button--add"
@@ -105,7 +78,8 @@ const PizzaItem = (props) => {
                     <i>2</i>
                 </div>
             </div>
-        </div>
+        </PizzaBlock>
+    
     )
 }
 

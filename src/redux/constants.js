@@ -13,3 +13,13 @@ export const CLEAN_CART = "CLEAN_CART";
 export const SORT_BY = "SORT_BY";
 
 export const FILTER_CATEGORY = "FILTER_CATEGORY";
+
+// export const PIZZA_SIZE = Object.freeze({
+//     M: 26,
+//     S: 30,
+//     L: 40
+// });
+
+// export const PIZZA_TYPES = Object.freeze({
+
+// });
