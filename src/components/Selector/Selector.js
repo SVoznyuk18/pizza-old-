@@ -2,7 +2,7 @@ import React, {memo} from "react";
 
 import {List, ListItem, ListItemActive, ListItemDisable} from './StyledComponents';
 
-const Selector = memo(({avaliableItems, handleSelect, types, selectedType }) => {
+const Selector = ({avaliableItems, handleSelect, types, selectedType }) => {
     return (
         <List>
             {avaliableItems && avaliableItems.map((type, index) => {
@@ -12,6 +12,6 @@ const Selector = memo(({avaliableItems, handleSelect, types, selectedType }) => 
             })}
         </List>
     );
-});
+};
 
-export default Selector;
+export default memo(Selector);
