@@ -3,7 +3,7 @@ import {memo} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { incPizzaAmount, decPizzaAmount, deletePizzaItem, cleanCart } from '../redux/actions/cart';
-import CartItem from '../components/CartItem';
+import CartItem from '../components/CartItem/CartItem';
 
 const Cart = () => {
 

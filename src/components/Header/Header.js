@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import IconSVG from '../../components/IconSVG/IconSVG';
+import Img from '../../components/Img/Img';
 import BassicButton from '../BassicButton/BassicButton';
 import {HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle} from './StyledComponents';
 
@@ -45,7 +45,7 @@ const Header = () => {
             <HeaderContainer>
                 <Link to="/">
                     <HeaderLogoWrapper>
-                        <img width="38" src={logoSvg} alt="Pizza logo" />
+                        <Img width="38px" src={logoSvg} alt="Pizza logo" />
                         <HeaderLogoDescription>
                             <HeaderTitle>React Pizza</HeaderTitle>
                             <HeaderSubTitle>самая вкусная пицца во вселенной</HeaderSubTitle>
@@ -57,12 +57,13 @@ const Header = () => {
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
+                        width="175px"
                         padding="12px 25px"
                         backgroundColor="#fe5f1e"
                     > 
                         <span>{`${totalPrice(cart)} ₽`}</span>
                         <div className="button__delimiter"></div>
-                        <IconSVG 
+                        <Img 
                             src={cartSvg} 
                             alt="cart icon" 
                             width="18px" 

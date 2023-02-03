@@ -2,7 +2,7 @@ import React, {memo} from "react";
 
 import { Icon } from "./StyledComponents";
 
-const IconSVG = ({src, alt, width, height, margin}) => {
+const Img = ({src, alt, width, height, margin}) => {
     return (
         <Icon 
             src={src} 
@@ -14,4 +14,4 @@ const IconSVG = ({src, alt, width, height, margin}) => {
     );
 }
 
-export default memo(IconSVG);
+export default memo(Img);

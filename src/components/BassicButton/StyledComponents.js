@@ -8,7 +8,8 @@ export const Button = styled.button`
     color: #fe5f1e;
     border-radius: 30px;
     padding: ${props => (props.padding ? props.padding : '10px 20px')} ;
-    min-width: 100px;
+    width: ${props => (props.width ? props.width : '100px')};
+    height: ${props => props.height};
     text-align: center;
     line-height: ${props => props.lineHeight};
     cursor: pointer;
