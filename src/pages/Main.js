@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getPizza } from '../redux/actions/pizza';
 import Categories from '../components/Categories/Categories';
-import Sort from '../components/Sort';
+import Sort from '../components/Sort/Sort';
 import PizzaItem from '../components/PizzaItem/PizzaItem';
 import Spiner from '../components/Spiner';
 import ErrorMessage from '../components/errorMessage/ErrorMessage';
