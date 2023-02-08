@@ -1,9 +1,9 @@
 import { useState, memo } from "react";
 import { filterCategory } from "../../redux/actions/filter";
 
-import {CategoriesWrapper, CategoriesList, ListItem, ListItemActive} from './StyledComponents';
+import { CategoriesWrapper, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 
-const Categories = ({handleDispatch}) => {
+const Categories = ({ handleDispatch }) => {
     const categories = ["Все", "Мясные", "Вегетарианская", "Гриль", "Острые", "Закрытые"];
 
     const [activeClass, setActiveClass] = useState(0)
@@ -11,34 +11,34 @@ const Categories = ({handleDispatch}) => {
     return (
         <CategoriesWrapper>
             <CategoriesList>
-            {categories.map((item, index) => {
-                if (activeClass === index) {
-                    return (
-                        <ListItemActive 
-                            key={index}
-                            onClick={() => {
+                {categories.map((item, index) => {
+                    if (activeClass === index) {
+                        return (
+                            <ListItemActive
+                                key={index}
+                                onClick={() => {
                                     setActiveClass(index);
                                     handleDispatch(filterCategory(index));
                                 }
-                            }
-                        >
-                            {item}
-                        </ListItemActive>
-                    ) 
-                }
-                return (
-                    <ListItem
-                        key={index}
-                        onClick={() => {
+                                }
+                            >
+                                {item}
+                            </ListItemActive>
+                        )
+                    }
+                    return (
+                        <ListItem
+                            key={index}
+                            onClick={() => {
                                 setActiveClass(index);
                                 handleDispatch(filterCategory(index));
                             }
-                        }
-                    >
-                        {item}
-                    </ListItem>
-                )
-            })}
+                            }
+                        >
+                            {item}
+                        </ListItem>
+                    )
+                })}
             </CategoriesList>
         </CategoriesWrapper>
     )

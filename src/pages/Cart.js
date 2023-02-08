@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
-import {memo} from 'react';
+import { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { incPizzaAmount, decPizzaAmount, deletePizzaItem, cleanCart } from '../redux/actions/cart';
-
-import {IconCustom} from './StyledComponents';
-import SVG from '../components/SVG/SVG';
-import CartItem from '../components/CartItem/CartItem';
+import { IconCustom } from './StyledComponents';
+import { CartItem, SVG } from '../components/index';
 
 import iconSvg from '../assets/svg/iconSvg';
 
@@ -17,10 +15,10 @@ const Cart = () => {
 
     const totalPrice = (arrCart) => {
         let total;
-        if(arrCart.length === 0) {
+        if (arrCart.length === 0) {
             total = 0;
             return total;
-        } else{
+        } else {
             total = arrCart.reduce((accum, item) => {
                 return accum + item.price * item.amountPizzas;
             }, 0)
@@ -28,12 +26,12 @@ const Cart = () => {
         }
     }
 
-    const totalAmount = (arrCart) =>{
+    const totalAmount = (arrCart) => {
         let total;
-        if(arrCart.length === 0) {
+        if (arrCart.length === 0) {
             total = 0;
             return total;
-        } else{
+        } else {
             total = arrCart.reduce((accum, item) => {
                 return accum + item.amountPizzas;
             }, 0)
@@ -57,7 +55,7 @@ const Cart = () => {
                 amountPizzas: item.amountPizzas - 1
             }
             dispatch(decPizzaAmount(newItem))
-        } else{
+        } else {
             dispatch(deletePizzaItem(item))
         }
     }
@@ -143,7 +141,7 @@ const Cart = () => {
                         <div className="content__items">
                             {
                                 cart.map((item, index) => {
-                                    return <CartItem key={index} cartItem={item} onIncPizzaAmount={onIncPizzaAmount} onDecPizzaAmount={onDecPizzaAmount} onDeletePizzaItem={onDeletePizzaItem}/>
+                                    return <CartItem key={index} cartItem={item} onIncPizzaAmount={onIncPizzaAmount} onDecPizzaAmount={onDecPizzaAmount} onDeletePizzaItem={onDeletePizzaItem} />
                                 })
                             }
                         </div>

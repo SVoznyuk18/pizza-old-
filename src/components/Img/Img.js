@@ -1,14 +1,14 @@
-import React, {memo} from "react";
+import React, { memo } from "react";
 
 import { Icon } from "./StyledComponents";
 
-const Img = ({src, alt, width, height, margin}) => {
+const Img = ({ src, alt, width, height, margin }) => {
     return (
-        <Icon 
-            src={src} 
-            alt={alt} 
-            width={width} 
-            height={height} 
+        <Icon
+            src={src}
+            alt={alt}
+            width={width}
+            height={height}
             margin={margin}
         />
     );

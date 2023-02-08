@@ -2,11 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getPizza } from '../redux/actions/pizza';
-import Categories from '../components/Categories/Categories';
-import Sort from '../components/Sort/Sort';
-import PizzaItem from '../components/PizzaItem/PizzaItem';
-import Spiner from '../components/Spiner';
-import ErrorMessage from '../components/errorMessage/ErrorMessage';
+import { Categories, Sort, PizzaItem, Spiner, ErrorMessage } from '../components/index';
 
 const Main = () => {
     const categories = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"];
@@ -67,7 +63,7 @@ const Main = () => {
                     <Sort />
                 </div>
                 <h2 className="content__title"> {`${categories[idActiveCategory]} пиццы`}</h2>
-                
+
                 {element}
             </div>
         </div>

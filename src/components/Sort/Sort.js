@@ -1,11 +1,10 @@
-import React, { useState, memo } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { sortBy } from "../../redux/actions/filter";
 
-import Img from '../../components/Img/Img';
-import {SortWrapper, SortLabel, SortPopUp, SortList, SortItem} from './StyledComponents';
+import { SortWrapper, SortLabel, SortPopUp, SortList, SortItem } from './StyledComponents';
 
-export const Sort = ({}) => {
+export const Sort = () => {
     const sort = ["популярности", "цене", "алфавиту"];
     const [activeSortModal, setActiveSortModal] = useState(false);
     const [sortActive, setSortActive] = useState(0);

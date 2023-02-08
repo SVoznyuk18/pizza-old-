@@ -1,17 +1,17 @@
 import React from "react";
 
-import {Button} from "./StyledComponents";
+import { Button } from "./StyledComponents";
 
-export const BassicButton = ({display, width, height, backgroundColor, alignItems, justifyContent, lineHeight, padding, onClick, children}) => {
-    return(
-        <Button 
-            display={display} 
+export const BassicButton = ({ display, width, height, backgroundColor, alignItems, justifyContent, lineHeight, padding, onClick, children }) => {
+    return (
+        <Button
+            display={display}
             width={width}
             height={height}
-            backgroundColor={backgroundColor} 
-            alignItems={alignItems} 
-            justifyContent={justifyContent} 
-            lineHeight={lineHeight} 
+            backgroundColor={backgroundColor}
+            alignItems={alignItems}
+            justifyContent={justifyContent}
+            lineHeight={lineHeight}
             padding={padding}
             onClick={onClick}
         >

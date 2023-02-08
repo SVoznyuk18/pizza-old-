@@ -4,10 +4,9 @@ import { useSelector } from "react-redux";
 
 import { setPizzaCart, updatePizzaCartItem } from "../../redux/actions/cart";
 
-import Selector from "../Selector/Selector";
-import BassicButton from "../BassicButton/BassicButton";
+import { Selector, BassicButton } from '../index';
 
-import {PizzaBlock, PizzaImg, Title, SelectorSection} from "./StyledComponents";
+import { PizzaBlock, PizzaImg, Title, SelectorSection } from "./StyledComponents";
 
 const PizzaItem = (props) => {
     const { id, imageUrl, name, types, sizes, price } = props.pizzaItem;
@@ -46,8 +45,8 @@ const PizzaItem = (props) => {
 
     return (
         <PizzaBlock>
-            <PizzaImg 
-                src={imageUrl} 
+            <PizzaImg
+                src={imageUrl}
                 alt={`pizza ${name}`}
                 width="260px"
             />
@@ -79,7 +78,7 @@ const PizzaItem = (props) => {
                 </div>
             </div>
         </PizzaBlock>
-    
+
     )
 }
 

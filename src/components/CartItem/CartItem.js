@@ -1,12 +1,7 @@
 import { memo } from "react";
 
-import Img from '../Img/Img';
-import SVG from '../SVG/SVG';
-// import BassicButton from '../BassicButton/BassicButton';
-import {BassicButton} from '../index';
-
-import {CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom} from './StyledComponents';
-
+import { BassicButton, Img, SVG } from '../index';
+import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom } from './StyledComponents';
 import iconSvg from '../../assets/svg/iconSvg';
 
 const CartItem = (props) => {
@@ -31,7 +26,7 @@ const CartItem = (props) => {
                     height="32px"
                     padding="initial"
                     onClick={() => onDecPizzaAmount(cartItem)}
-                >   
+                >
                     <IconCustom
                         width='100%'
                         height='100%'
@@ -47,7 +42,7 @@ const CartItem = (props) => {
                     </IconCustom>
                 </BassicButton>
                 <b>{cartItem.amountPizzas}</b>
-                <BassicButton 
+                <BassicButton
                     width="32px"
                     height="32px"
                     padding="initial"
@@ -72,13 +67,13 @@ const CartItem = (props) => {
                 <b>{`${cartItem.amountPizzas * cartItem.price} ₽`}</b>
             </PriceSection>
             <RemoveSection>
-                <BassicButton 
+                <BassicButton
                     width="32px"
                     height="32px"
                     padding="initial"
-                    onClick={()=> onDeletePizzaItem(cartItem)}
+                    onClick={() => onDeletePizzaItem(cartItem)}
                 >
-                     <IconCustom
+                    <IconCustom
                         width='100%'
                         height='100%'
                         fill='#EB5A1E'
@@ -88,7 +83,7 @@ const CartItem = (props) => {
                             width='10'
                             height='10'
                             viewBox='0 0 10 10'
-                          
+
                             path={iconSvg.cancel}
                         />
                     </IconCustom>
