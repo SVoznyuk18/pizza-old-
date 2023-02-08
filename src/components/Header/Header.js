@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 
 import Img from '../../components/Img/Img';
 import BassicButton from '../BassicButton/BassicButton';
-import {HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle} from './StyledComponents';
+import {HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom} from './StyledComponents';
 
 import logoSvg from '../../assets/svg/pizza-logo.svg';
-import cartSvg from '../../assets/svg/cart.svg';
+import SVG from '../SVG/SVG';
+import iconSvg from '../../assets/svg/iconSvg';
 
 
 const Header = () => {
@@ -63,12 +64,18 @@ const Header = () => {
                     > 
                         <span>{`${totalPrice(cart)} ₽`}</span>
                         <div className="button__delimiter"></div>
-                        <Img 
-                            src={cartSvg} 
-                            alt="cart icon" 
-                            width="18px" 
-                            margin="0px 8px 1px 0px"
-                        />
+                        <IconCustom
+                            width='18'
+                            height='18'
+                            margin='0px 8px 1px 0px'
+                        >
+                            <SVG
+                                width='18'
+                                height='18'
+                                viewBox='0 0 18 18'
+                                path={iconSvg.cart}
+                            />
+                        </IconCustom>
                         <span>{totalAmount(cart)}</span>
                     </BassicButton>
                 </Link>

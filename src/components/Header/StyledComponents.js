@@ -38,3 +38,22 @@ export const HeaderSubTitle = styled.p`
     line-height: 19px;
     color: #7B7B7B;
 `;
+
+export const IconCustom = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: ${props => props.margin};
+    width: ${props => props.width};
+    height: ${props => props.height};
+
+    svg {
+        fill: ${props => props.fill};
+    }
+
+    &:hover {
+        svg {
+            fill: ${props => props.fillHover};
+        }
+    }
+`;

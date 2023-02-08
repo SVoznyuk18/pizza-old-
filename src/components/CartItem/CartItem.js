@@ -1,12 +1,13 @@
 import { memo } from "react";
 
 import Img from '../Img/Img';
-import BassicButton from '../BassicButton/BassicButton';
+import SVG from '../SVG/SVG';
+// import BassicButton from '../BassicButton/BassicButton';
+import {BassicButton} from '../index';
 
-import {CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection} from './StyledComponents';
-import minus from '../../assets/svg/minus.svg';
-import plus from '../../assets/svg/plus.svg';
-import cancel from '../../assets/svg/cancel.svg';
+import {CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom} from './StyledComponents';
+
+import iconSvg from '../../assets/svg/iconSvg';
 
 const CartItem = (props) => {
     const { cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem } = props;
@@ -30,23 +31,41 @@ const CartItem = (props) => {
                     height="32px"
                     padding="initial"
                     onClick={() => onDecPizzaAmount(cartItem)}
-                >
-                    <Img
-                        src={minus}
-                        alt="Minus"
-                    />
+                >   
+                    <IconCustom
+                        width='100%'
+                        height='100%'
+                        fill='#EB5A1E'
+                        fillHover='#fff'
+                    >
+                        <SVG
+                            width='10'
+                            height='10'
+                            viewBox='0 0 10 10'
+                            path={iconSvg.minus}
+                        />
+                    </IconCustom>
                 </BassicButton>
                 <b>{cartItem.amountPizzas}</b>
                 <BassicButton 
                     width="32px"
                     height="32px"
                     padding="initial"
-                    onClick={() => { onIncPizzaAmount(cartItem)}}
+                    onClick={() => onIncPizzaAmount(cartItem)}
                 >
-                    <Img
-                        src={plus}
-                        alt="plus"
-                    />
+                    <IconCustom
+                        width='100%'
+                        height='100%'
+                        fill='#EB5A1E'
+                        fillHover='#fff'
+                    >
+                        <SVG
+                            width='10'
+                            height='10'
+                            viewBox='0 0 10 10'
+                            path={iconSvg.plus}
+                        />
+                    </IconCustom>
                 </BassicButton>
             </CountSection>
             <PriceSection>
@@ -59,10 +78,20 @@ const CartItem = (props) => {
                     padding="initial"
                     onClick={()=> onDeletePizzaItem(cartItem)}
                 >
-                    <Img
-                        src={cancel}
-                        alt="cancel"
-                    />
+                     <IconCustom
+                        width='100%'
+                        height='100%'
+                        fill='#EB5A1E'
+                        fillHover='#fff'
+                    >
+                        <SVG
+                            width='10'
+                            height='10'
+                            viewBox='0 0 10 10'
+                          
+                            path={iconSvg.cancel}
+                        />
+                    </IconCustom>
                 </BassicButton>
             </RemoveSection>
         </CarItemWrapper>
