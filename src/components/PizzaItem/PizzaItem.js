@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 
 import { setPizzaCart, updatePizzaCartItem } from "../../redux/actions/cart";
 
-import { Selector, BassicButton } from '../index';
-
-import { PizzaBlock, PizzaImg, Title, SelectorSection } from "./StyledComponents";
+import { Selector, BassicButton, SVG } from '../index';
+import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, IconCustom, Price } from "./StyledComponents";
+import iconSvg from '../../assets/svg/iconSvg';
 
 const PizzaItem = (props) => {
     const { id, imageUrl, name, types, sizes, price } = props.pizzaItem;
@@ -55,12 +55,42 @@ const PizzaItem = (props) => {
                 <Selector avaliableItems={avaliableTypes} handleSelect={setSelectType} types={types} selectedType={selectType} />
                 <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={sizes} selectedType={selectSize} />
             </SelectorSection>
-
-            <BassicButton backgroundColor="#ffff" />
-            <div className="pizza-block__bottom">
+            <BottomSection>
+                <Price>{`от ${price} ₽`}</Price>
+                <BassicButton 
+                    display='flex'
+                    padding='10px 20px'
+                    width='130px'
+                    backgroundColor="#ffff"
+                    alignItems='center'
+                    justifyContent='center'
+                    fontWeight='600'
+                    fontSize='16px'
+                    onClick={() => addItemToCart(`${id}${selectSize}${selectType}`, cart)}
+                >
+                    <IconCustom
+                        width='12px'
+                        height='12px'
+                        fill='#EB5A1E'
+                        fillHover='#fff'
+                        margin='0 2px 0 0'
+                    >
+                        <SVG
+                            width='12'
+                            height='12'
+                            viewBox='0 0 10 10'
+                            path={iconSvg.plus}
+                        />
+                    </IconCustom>
+                    Добавить
+                </BassicButton>
+            </BottomSection>
+            
+            {/* <div className="pizza-block__bottom">
                 <div className="pizza-block__price">{`от ${price} ₽`}</div>
                 <div className="button button--outline button--add"
                     onClick={() => addItemToCart(`${id}${selectSize}${selectType}`, cart)}>
+                      
                     <svg
                         width="12"
                         height="12"
@@ -74,9 +104,8 @@ const PizzaItem = (props) => {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
                 </div>
-            </div>
+            </div> */}
         </PizzaBlock>
 
     )

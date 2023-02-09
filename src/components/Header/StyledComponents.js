@@ -57,3 +57,11 @@ export const IconCustom = styled.div`
         }
     }
 `;
+
+export const Delimiter = styled.div`
+    width: 1px;
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.25);
+    margin-left: 14px;
+    margin-right: 14px;
+`;

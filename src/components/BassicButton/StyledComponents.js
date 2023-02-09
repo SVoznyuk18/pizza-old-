@@ -5,21 +5,27 @@ export const Button = styled.button`
     align-items: ${props => props.alignItems};
     justify-content: ${props => props.justifyContent};
     background-color: ${props => props.backgroundColor};
-    color: #fe5f1e;
+    color: ${props => props.color};
     border-radius: 30px;
     padding: ${props => (props.padding ? props.padding : '10px 20px')} ;
     width: ${props => (props.width ? props.width : '100px')};
     height: ${props => props.height};
+    font-weight: ${props => props.fontWeight};
+    font-size: ${props => props.fontSize};
     text-align: center;
     line-height: ${props => props.lineHeight};
     cursor: pointer;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     border: 1px solid transparent;
-    border-color: #fe5f1e;
+    border-color: ${props => props.borderColor};
 
     &:hover {
-        background-color: #fe5f1e;
-        color: #ffff;
+        background-color: ${props => props.hoverBackgroundColor};
+        color: ${props => props.hoverColor};
+        border-color: ${props => props.hoverBorderColor}; 
+        svg {
+            fill: #ffff;
+        }
     }
     
     &:active {

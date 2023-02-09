@@ -2,7 +2,7 @@ import React from "react";
 
 import { Button } from "./StyledComponents";
 
-export const BassicButton = ({ display, width, height, backgroundColor, alignItems, justifyContent, lineHeight, padding, onClick, children }) => {
+export const BassicButton = ({ display, width, height, backgroundColor, alignItems, color, justifyContent, lineHeight, padding, fontWeight, fontSize, borderColor, hoverBackgroundColor, hoverColor, hoverBorderColor, onClick, children }) => {
     return (
         <Button
             display={display}
@@ -12,7 +12,14 @@ export const BassicButton = ({ display, width, height, backgroundColor, alignIte
             alignItems={alignItems}
             justifyContent={justifyContent}
             lineHeight={lineHeight}
+            fontWeight={fontWeight}
+            fontSize={fontSize}
             padding={padding}
+            borderColor={borderColor}
+            color={color}
+            hoverBorderColor={hoverBorderColor}
+            hoverBackgroundColor={hoverBackgroundColor}
+            hoverColor={hoverColor}
             onClick={onClick}
         >
             {children}

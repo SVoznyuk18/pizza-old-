@@ -25,6 +25,7 @@ const CartItem = (props) => {
                     width="32px"
                     height="32px"
                     padding="initial"
+                    hoverBackgroundColor='#fe5f1e'
                     onClick={() => onDecPizzaAmount(cartItem)}
                 >
                     <IconCustom
@@ -46,6 +47,7 @@ const CartItem = (props) => {
                     width="32px"
                     height="32px"
                     padding="initial"
+                    hoverBackgroundColor='#fe5f1e'
                     onClick={() => onIncPizzaAmount(cartItem)}
                 >
                     <IconCustom
@@ -71,6 +73,7 @@ const CartItem = (props) => {
                     width="32px"
                     height="32px"
                     padding="initial"
+                    hoverBackgroundColor='#fe5f1e'
                     onClick={() => onDeletePizzaItem(cartItem)}
                 >
                     <IconCustom

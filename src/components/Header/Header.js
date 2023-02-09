@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Img, BassicButton, SVG } from '../index';
-import { HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom } from './StyledComponents';
+import { HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter } from './StyledComponents';
 
 import logoSvg from '../../assets/svg/pizza-logo.svg';
 import iconSvg from '../../assets/svg/iconSvg';
@@ -61,7 +61,7 @@ const Header = () => {
                         backgroundColor="#fe5f1e"
                     >
                         <span>{`${totalPrice(cart)} ₽`}</span>
-                        <div className="button__delimiter"></div>
+                        <Delimiter/>
                         <IconCustom
                             width='18'
                             height='18'
