@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getPizza } from '../redux/actions/pizza';
 import { Categories, Sort, PizzaItem, Spiner, ErrorMessage } from '../components/index';
+import {Content, Container, ContentTop, MainTitle, ContentItems} from './StyledComponents';
 
 const Main = () => {
     const categories = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"];
@@ -44,11 +45,11 @@ const Main = () => {
         if (pizzaLoading === true && pizzaError === false) {
             return <Spiner />
         } else if (pizzaLoading === false && pizzaError === false) {
-            return <div className="content__items">
+            return <ContentItems>
                 {filteredPizza.map(item => {
                     return <PizzaItem key={item.id} pizzaItem={item} />
                 })}
-            </div>
+            </ContentItems>
         } else {
             return <ErrorMessage />
         }
@@ -56,17 +57,17 @@ const Main = () => {
 
     const element = renderPizza();
     return (
-        <div className="content">
-            <div className="container">
-                <div className="content__top">
+        <Content>
+            <Container>
+                <ContentTop>
                     <Categories handleDispatch={dispatch} />
                     <Sort />
-                </div>
-                <h2 className="content__title"> {`${categories[idActiveCategory]} пиццы`}</h2>
+                </ContentTop>
+                <MainTitle> {`${categories[idActiveCategory]} пиццы`}</MainTitle>
 
                 {element}
-            </div>
-        </div>
+            </Container>
+        </Content>
     )
 }
 

@@ -65,7 +65,6 @@ const Cart = () => {
     }
 
     return (
-        <Wrapper>
             <Content>
                 <ContainerCart>
             
@@ -156,7 +155,7 @@ const Cart = () => {
                   
                 </ContainerCart>
             </Content>
-        </Wrapper>
+
     )
 }
 

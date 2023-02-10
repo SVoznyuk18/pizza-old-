@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-    width: $container-width;
+    width: 90%;
     margin: 0 auto;
 `;
 
@@ -26,11 +26,21 @@ export const Content = styled.div`
     padding: 40px 0;
 `;
 
+export const ContentTop = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;
+
 export const ContentItems = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0;
+`;
+
+export const MainTitle = styled.h2`
+    margin: 35px 0;
 `;
 
 export const CartTitle = styled.h2`

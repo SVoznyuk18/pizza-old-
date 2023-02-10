@@ -4,6 +4,8 @@ import { BassicButton, Img, SVG } from '../index';
 import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom } from './StyledComponents';
 import iconSvg from '../../assets/svg/iconSvg';
 
+import { colors } from "../../configs/colors";
+
 const CartItem = (props) => {
     const { cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem } = props;
 
@@ -25,14 +27,16 @@ const CartItem = (props) => {
                     width="32px"
                     height="32px"
                     padding="initial"
-                    hoverBackgroundColor='#fe5f1e'
+                    backgroundColor={colors.white}
+                    hoverBackgroundColor={colors.orange}
+                    borderColor={colors.orange}
                     onClick={() => onDecPizzaAmount(cartItem)}
                 >
                     <IconCustom
                         width='100%'
                         height='100%'
-                        fill='#EB5A1E'
-                        fillHover='#fff'
+                        fill={colors.orange}
+                        fillHover={colors.white}
                     >
                         <SVG
                             width='10'
@@ -47,14 +51,16 @@ const CartItem = (props) => {
                     width="32px"
                     height="32px"
                     padding="initial"
-                    hoverBackgroundColor='#fe5f1e'
+                    backgroundColor={colors.white}
+                    hoverBackgroundColor={colors.orange}
+                    borderColor={colors.orange}
                     onClick={() => onIncPizzaAmount(cartItem)}
                 >
                     <IconCustom
                         width='100%'
                         height='100%'
-                        fill='#EB5A1E'
-                        fillHover='#fff'
+                        fill={colors.orange}
+                        fillHover={colors.white}
                     >
                         <SVG
                             width='10'
@@ -73,20 +79,21 @@ const CartItem = (props) => {
                     width="32px"
                     height="32px"
                     padding="initial"
-                    hoverBackgroundColor='#fe5f1e'
+                    backgroundColor={colors.white}
+                    hoverBackgroundColor={colors.orange}
+                    borderColor={colors.orange}
                     onClick={() => onDeletePizzaItem(cartItem)}
                 >
                     <IconCustom
                         width='100%'
                         height='100%'
-                        fill='#EB5A1E'
-                        fillHover='#fff'
+                        fill={colors.orange}
+                        fillHover={colors.white}
                     >
                         <SVG
                             width='10'
                             height='10'
                             viewBox='0 0 10 10'
-
                             path={iconSvg.cancel}
                         />
                     </IconCustom>
