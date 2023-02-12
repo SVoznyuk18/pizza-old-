@@ -1,9 +1,10 @@
-import { useState, memo } from "react";
+import React, { useState, memo } from "react";
+import PropTypes from 'prop-types';
 import { filterCategory } from "../../redux/actions/filter";
 
 import { CategoriesWrapper, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 
-const Categories = ({ handleDispatch }) => {
+const Categories = memo(({ handleDispatch }) => {
     const categories = ["Все", "Мясные", "Вегетарианская", "Гриль", "Острые", "Закрытые"];
 
     const [activeClass, setActiveClass] = useState(0)
@@ -42,6 +43,14 @@ const Categories = ({ handleDispatch }) => {
             </CategoriesList>
         </CategoriesWrapper>
     )
+});
+
+Categories.propTypes = {
+    handleDispatch: PropTypes.func
+};
+
+Categories.defaultProps = {
+    handleDispatch: () => {}
 }
 
-export default memo(Categories);
+export default Categories;

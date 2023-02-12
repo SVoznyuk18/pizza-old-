@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getPizza } from '../redux/actions/pizza';
 import { Categories, Sort, PizzaItem, Spiner, ErrorMessage } from '../components/index';
-import {Content, Container, ContentTop, MainTitle, ContentItems} from './StyledComponents';
+import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
 
 const Main = () => {
     const categories = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"];

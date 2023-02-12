@@ -1,8 +1,10 @@
 import React, { memo } from "react";
+import PropTypes from 'prop-types';
 
 import { List, ListItem, ListItemActive, ListItemDisable } from './StyledComponents';
 
-const Selector = ({ avaliableItems, handleSelect, types, selectedType }) => {
+const Selector = memo(({ avaliableItems, handleSelect, types, selectedType }) => {
+    console.log('types', types);
     return (
         <List>
             {avaliableItems && avaliableItems.map((type, index) => {
@@ -12,6 +14,20 @@ const Selector = ({ avaliableItems, handleSelect, types, selectedType }) => {
             })}
         </List>
     );
+});
+
+Selector.propTypes = {
+    avaliableItems: PropTypes.arrayOf(PropTypes.string),
+    handleSelect: PropTypes.func,
+    types: PropTypes.arrayOf(PropTypes.string),
+    selectedType: PropTypes.string
 };
 
-export default memo(Selector);
+Selector.defaultProps = {
+    avaliableItems: [],
+    handleSelect: () => { },
+    types: [],
+    selectedType: ''
+};
+
+export default Selector;

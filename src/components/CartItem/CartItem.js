@@ -1,4 +1,5 @@
-import { memo } from "react";
+import React, { memo } from "react";
+import PropTypes from 'prop-types';
 
 import { BassicButton, Img, SVG } from '../index';
 import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom } from './StyledComponents';
@@ -6,8 +7,7 @@ import iconSvg from '../../assets/svg/iconSvg';
 
 import { colors } from "../../configs/colors";
 
-const CartItem = (props) => {
-    const { cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem } = props;
+const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
 
     return (
         <CarItemWrapper>
@@ -15,12 +15,12 @@ const CartItem = (props) => {
                 width="80px"
                 height="80px"
                 margin="0 15px 0 0"
-                src={cartItem.imageUrl}
+                src={cartItem?.imageUrl}
                 alt="Pizza"
             />
             <CartItemInfo>
-                <h3>{cartItem.name}</h3>
-                <p>{`${cartItem.type}, ${cartItem.size} см.`}</p>
+                <h3>{cartItem?.name}</h3>
+                <p>{`${cartItem?.type}, ${cartItem?.size} см.`}</p>
             </CartItemInfo>
             <CountSection>
                 <BassicButton
@@ -72,7 +72,7 @@ const CartItem = (props) => {
                 </BassicButton>
             </CountSection>
             <PriceSection>
-                <b>{`${cartItem.amountPizzas * cartItem.price} ₽`}</b>
+                <b>{`${cartItem?.amountPizzas * cartItem?.price} ₽`}</b>
             </PriceSection>
             <RemoveSection>
                 <BassicButton
@@ -101,6 +101,28 @@ const CartItem = (props) => {
             </RemoveSection>
         </CarItemWrapper>
     )
+});
+
+CartItem.propTypes = {
+    cartItem: PropTypes.shape({
+        amountPizzas: PropTypes.number,
+        id: PropTypes.string,
+        imageUrl: PropTypes.string,
+        name: PropTypes.string,
+        price: PropTypes.number,
+        size: PropTypes.string,
+        type: PropTypes.string
+    }),
+    onIncPizzaAmount: PropTypes.func,
+    onDecPizzaAmount: PropTypes.func,
+    onDeletePizzaItem: PropTypes.func
 }
 
-export default memo(CartItem);
+CartItem.defaultProps = {
+    cartItem: {},
+    onIncPizzaAmount: () => { },
+    onDecPizzaAmount: () => { },
+    onDeletePizzaItem: () => { }
+}
+
+export default CartItem;

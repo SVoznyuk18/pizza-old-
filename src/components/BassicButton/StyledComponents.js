@@ -8,7 +8,7 @@ export const Button = styled.button`
     color: ${props => props.color};
     border-radius: 30px;
     padding: ${props => (props.padding ? props.padding : '10px 20px')} ;
-    width: ${props => (props.width ? props.width : '100px')};
+    width: ${props => props.width};
     height: ${props => props.height};
     font-weight: ${props => props.fontWeight};
     font-size: ${props => props.fontSize};

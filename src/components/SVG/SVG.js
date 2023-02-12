@@ -1,6 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
+import PropTypes from 'prop-types';
 
-const SVG = ({ width, height, viewBox, fill, path }) => {
+const SVG = memo(({ width, height, viewBox, fill, path }) => {
     return (
         <svg
             width={width}
@@ -15,6 +16,21 @@ const SVG = ({ width, height, viewBox, fill, path }) => {
             />
         </svg>
     )
-}
+});
+
+SVG.propTypes = {
+    width: PropTypes.string,
+    height: PropTypes.string,
+    viewBox: PropTypes.string,
+    fill: PropTypes.string,
+    path: PropTypes.string.isRequired
+};
+
+SVG.defaultProps = {
+    width: '',
+    height: '',
+    viewBox: '',
+    fill: '',
+};
 
 export default SVG;
