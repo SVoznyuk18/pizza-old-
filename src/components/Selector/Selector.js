@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { List, ListItem, ListItemActive, ListItemDisable } from './StyledComponents';
 
 const Selector = memo(({ avaliableItems, handleSelect, types, selectedType }) => {
-    console.log('types', types);
     return (
         <List>
             {avaliableItems && avaliableItems.map((type, index) => {

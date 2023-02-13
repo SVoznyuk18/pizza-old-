@@ -1,4 +1,4 @@
-import { SET_PIZZA, SET_PIZZA_LOADING, SET_PIZZA_ERROR } from "../constants";
+import * as Types from '../../configs/constants';
 
 const initialState = {
     pizza: [],
@@ -6,23 +6,35 @@ const initialState = {
     pizzaError: false
 }
 
+const getPizzaSuccess = (state, action) => {
+    return {
+        ...state,
+        pizza: action.payload
+    }
+};
+
+const getPizzaLoading = (state, action) => {
+    return {
+        ...state,
+        pizzaLoading: action.payload
+    }
+};
+
+const getPizzaFailure = (state, action) => {
+    return {
+        ...state,
+        pizzaError: action.payload
+    }
+}
+
 const pizza = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PIZZA:
-            return {
-                ...state,
-                pizza: action.payload
-            }
-        case SET_PIZZA_LOADING:
-            return {
-                ...state,
-                pizzaLoading: action.payload
-            }
-        case SET_PIZZA_ERROR:
-            return {
-                ...state,
-                pizzaError: action.type
-            }
+        case Types.GET_PIZZA_SUCCESS:
+            return getPizzaSuccess(state, action)
+        case Types.GET_PIZZA_LOADING:
+            return getPizzaLoading(state, action)
+        case Types.GET_PIZZA_FAILURE:
+            return getPizzaFailure(state, action)
         default:
             return state
     }

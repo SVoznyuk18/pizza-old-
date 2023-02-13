@@ -1,6 +1,6 @@
 import React, { useState, memo } from "react";
 import PropTypes from 'prop-types';
-import { filterCategory } from "../../redux/actions/filter";
+import {filterCategory} from '../../redux/actions';
 
 import { CategoriesWrapper, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 

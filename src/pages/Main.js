@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getPizza } from '../redux/actions/pizza';
-import { Categories, Sort, PizzaItem, Spiner, ErrorMessage } from '../components/index';
+
+import {getPizzaRequest} from '../redux/actions';
+
+import { Categories, Sort, PizzaItem, Spiner, ErrorMessage } from '../components';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
 
 const Main = () => {
@@ -13,7 +15,7 @@ const Main = () => {
     const { sortBy } = useSelector(state => state.filters);
 
     useEffect(() => {
-        dispatch(getPizza());
+        dispatch(getPizzaRequest());
     }, [dispatch])
 
 

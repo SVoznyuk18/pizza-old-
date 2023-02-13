@@ -1,66 +1,125 @@
-import { SET_PIZZA_CART, UPDATE_PIZZA_CART_ITEM, INC_PIZZA_AMOUNT, DEC_PIZZA_AMOUNT, DELETE_PIZZA_ITEM, CLEAN_CART } from "../constants";
+import * as Types from '../../configs/constants';
 
 const initialState = {
-    cart: []
+    cart: [],
+    totalPrice: 0,
+    totalAmount: 0
 }
+
+const addPizzaToCartSuccess = (state, action) => {
+    const cart = state.cart;
+    let totalPrice = state.totalPrice;
+    let totalAmount = state.totalAmount;
+
+    totalPrice = cart.reduce((accum, item) => {
+        return accum + item.price * item.amountPizzas;
+    }, 0);
+
+    totalAmount = cart.reduce((accum, item) => {
+        return accum + item.amountPizzas;
+    }, 0);
+
+    return {
+        ...state,
+        cart: [...state.cart, action.payload],
+        totalPrice,
+        totalAmount
+    }
+};
+
+const increasePizzaAmountSuccess = (state, action) => {
+    const cart = state.cart;
+    let totalPrice = state.totalPrice;
+    let totalAmount = state.totalAmount;
+    const index = cart.findIndex(item => item.id === action.payload);
+
+    if (index !== -1) cart[index].amountPizzas += 1;
+
+    totalPrice = cart.reduce((accum, item) => {
+        return accum + item.price * item.amountPizzas;
+    }, 0);
+
+    totalAmount = cart.reduce((accum, item) => {
+        return accum + item.amountPizzas;
+    }, 0);
+
+    return {
+        ...state,
+        cart,
+        totalPrice,
+        totalAmount
+    }
+}
+
+const decreasePizzaAmountSuccess = (state, action) => {
+    const cart = state.cart;
+    let totalPrice = state.totalPrice;
+    let totalAmount = state.totalAmount;
+    const index = cart.findIndex(item => item.id === action.payload);
+
+    if (index !== -1) cart[index].amountPizzas -= 1;
+
+    totalPrice = cart.reduce((accum, item) => {
+        return accum + item.price * item.amountPizzas;
+    }, 0);
+
+    totalAmount = cart.reduce((accum, item) => {
+        return accum + item.amountPizzas;
+    }, 0);
+
+    return {
+        ...state,
+        cart,
+        totalPrice,
+        totalAmount
+    }
+}
+
+const deletePizzaItemSuccess = (state, action) => {
+    let newCart = [];
+    let totalPrice = state.totalPrice;
+    let totalAmount = state.totalAmount;
+
+    newCart = state.cart.filter(item => item.id !== action.payload);
+
+    totalPrice = newCart.reduce((accum, item) => {
+        return accum + item.price * item.amountPizzas;
+    }, 0);
+
+    totalAmount = newCart.reduce((accum, item) => {
+        return accum + item.amountPizzas;
+    }, 0);
+
+    return {
+        ...state,
+        cart: newCart,
+        totalPrice,
+        totalAmount
+    }
+};
+
+const clearCartSuccess = (state, action) => {
+    return {
+        ...state,
+        cart: []
+    }
+}
+
 const cart = (state = initialState, action) => {
     switch (action.type) {
-        case SET_PIZZA_CART:
-            return {
-                ...state,
-                cart: [...state.cart, action.payload],
-            }
-        case UPDATE_PIZZA_CART_ITEM:
-            const newItemCart = state.cart.map(item => {
-                if (item.id === action.payload.id) {
-                    return action.payload
-                } else {
-                    return item
-                }
-            });
-            return {
-                ...state,
-                cart: newItemCart
-            }
-        case INC_PIZZA_AMOUNT:
-            const newItemInc = state.cart.map((item, index) => {
-                if (item.id === action.payload.id) {
-                    return { ...item, amountPizzas: action.payload.amountPizzas }
-                } else {
-                    return item
-                }
-            })
-            return {
-                ...state,
-                cart: newItemInc
-            }
-        case DEC_PIZZA_AMOUNT:
-            const newItemDec = state.cart.map((item, index) => {
-                if (item.id === action.payload.id) {
-                    return { ...item, amountPizzas: action.payload.amountPizzas }
-                } else {
-                    return item
-                }
-            })
-            return {
-                ...state,
-                cart: newItemDec
-            }
-        case DELETE_PIZZA_ITEM:
-            return {
-                ...state,
-                cart: state.cart.filter(item => item.id !== action.payload.id)
-            }
-        case CLEAN_CART:
-            return {
-                cart: []
-            }
+        case Types.ADD_PIZZA_TO_CART_SUCCESS:
+            return addPizzaToCartSuccess(state, action)
+        case Types.INC_PIZZA_AMOUNT_SUCCESS:
+            return increasePizzaAmountSuccess(state, action)
+        case Types.DEC_PIZZA_AMOUNT_SUCCESS:
+            return decreasePizzaAmountSuccess(state, action)
+        case Types.DELETE_PIZZA_ITEM_SUCCESS:
+            return deletePizzaItemSuccess(state, action)
+        case Types.CLEAR_CART_SUCCESS:
+            return clearCartSuccess(state, action);    
         default:
             return state;
     }
 }
 
 export default cart;
-
-
-

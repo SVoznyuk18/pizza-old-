@@ -1,17 +1,14 @@
 import React, { useState, memo } from "react";
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 
-import { setPizzaCart, updatePizzaCartItem } from "../../redux/actions/cart";
+import {addPizzaToCart } from '../../redux/actions';
 
 import { Selector, BassicButton, SVG } from '../index';
 import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, IconCustom, Price } from "./StyledComponents";
 import iconSvg from '../../assets/svg/iconSvg';
 
 const PizzaItem = memo(({ pizzaItem }) => {
-
-    const { cart } = useSelector(state => state.cart)
 
     const avaliableTypes = ["тонкое", "традиционное"];
     const avaliableSizes = ['26', '30', '40'];
@@ -20,29 +17,15 @@ const PizzaItem = memo(({ pizzaItem }) => {
     const [selectSize, setSelectSize] = useState('26');
     const dispatch = useDispatch();
 
-    const addItemToCart = (pizzaId, arrCard) => {
-        const order = {
-            id: pizzaId,
-            imageUrl: pizzaItem?.imageUrl,
-            name: pizzaItem?.name,
-            type: selectType,
-            size: selectSize,
-            price: pizzaItem?.price,
-            amountPizzas: 1
-        }
-        if (arrCard.length !== 0) {
-            const index = arrCard.findIndex(item => item.id === pizzaId)
-
-            if (index !== -1) {
-                order.amountPizzas = arrCard[index].amountPizzas + 1;
-                dispatch(updatePizzaCartItem(order));
-            } else {
-                dispatch(setPizzaCart(order));
-            }
-        } else {
-            dispatch(setPizzaCart(order));
-        }
-    }
+    const orderConfig = (pizzaId) =>({
+        id: pizzaId,
+        imageUrl: pizzaItem?.imageUrl,
+        name: pizzaItem?.name,
+        type: selectType,
+        size: selectSize,
+        price: pizzaItem?.price,
+        amountPizzas: 1
+    });
 
     return (
         <PizzaBlock>
@@ -67,7 +50,7 @@ const PizzaItem = memo(({ pizzaItem }) => {
                     justifyContent='center'
                     fontWeight={600}
                     fontSize='16px'
-                    onClick={() => addItemToCart(`${pizzaItem?.id}${pizzaItem?.selectSize}${pizzaItem?.selectType}`, cart)}
+                    onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
                 >
                     <IconCustom
                         width='12px'

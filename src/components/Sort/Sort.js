@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { sortBy } from "../../redux/actions/filter";
+import { sortBy } from "../../redux/actions";
 
 import { SortWrapper, SortLabel, SortPopUp, SortList, SortItem } from './StyledComponents';
 
@@ -9,8 +9,6 @@ export const Sort = () => {
     const [activeSortModal, setActiveSortModal] = useState(false);
     const [sortActive, setSortActive] = useState(0);
     const dispatch = useDispatch();
-
-    console.log('activeSortModal', activeSortModal);
 
     return (
         <SortWrapper
