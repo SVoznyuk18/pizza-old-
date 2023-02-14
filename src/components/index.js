@@ -9,6 +9,7 @@ import Sort from './Sort/Sort';
 import SVG from './SVG/SVG';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import Spiner from './Spiner/Spiner';
+import ModalComponent from './ModalComponent/ModalComponent';
 
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorMessage, Spiner };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorMessage, Spiner, ModalComponent };

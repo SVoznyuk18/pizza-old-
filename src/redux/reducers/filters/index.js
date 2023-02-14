@@ -1,4 +1,5 @@
-import { SORT_BY, FILTER_CATEGORY } from "../constants";
+
+import * as Types from '../../../configs/constants';
 
 const initialState = {
     idActiveCategory: 0,
@@ -7,12 +8,12 @@ const initialState = {
 
 const filters = (state = initialState, action) => {
     switch (action.type) {
-        case SORT_BY:
+        case Types.SORT_BY:
             return {
                 ...state,
                 sortBy: action.payload
             }
-        case FILTER_CATEGORY:
+        case Types.FILTER_CATEGORY:
             return {
                 ...state,
                 idActiveCategory: action.payload

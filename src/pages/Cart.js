@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom';
 import { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import {increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart} from '../redux/actions';
+import {increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal} from '../redux/actions';
 import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, CartBottomDetails, CartButtonSection, IconCustom, ClearCart } from './StyledComponents';
 import { CartItem, SVG, BassicButton } from '../components/index';
+
+import {MODAL} from '../configs/constants';
+
 
 import iconSvg from '../assets/svg/iconSvg';
 
@@ -107,6 +110,7 @@ const Cart = () => {
                             hoverBackgroundColor='#FFFFFF'
                             hoverBorderColor='#FE5F1E'
                             fontWeight={600}
+                            onClick={() => dispatch(handleToggleModal(true, MODAL.ORDER_FORM))}
                         >
                             Вернуться назад
                         </BassicButton>
