@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {getPizzaRequest} from '../redux/actions';
 
-import { Categories, Sort, PizzaItem, Spiner, ErrorMessage } from '../components';
+import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from '../components';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
 
 const Main = () => {
@@ -53,7 +53,7 @@ const Main = () => {
                 })}
             </ContentItems>
         } else {
-            return <ErrorMessage />
+            return <ErrorPage />
         }
     }
 

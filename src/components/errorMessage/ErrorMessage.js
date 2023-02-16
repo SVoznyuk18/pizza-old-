@@ -1,9 +1,13 @@
-import img from './error.gif';
+import React from "react";
 
-const ErrorMessage = () => {
-    return (
-        <img style={{ display: 'block', width: "250px", height: "250px", objectFit: 'contain', margin: "0 auto" }} src={img} alt="Error" />
-    )
+import {Wrapper, ErrorLabel} from './StyledComponents';
+
+const ErrorMessage = ({errorMessagemargin, children}) => {
+    return(
+        <Wrapper margin={errorMessagemargin}>
+            <ErrorLabel >{children}</ErrorLabel>
+        </Wrapper>
+    );
 }
 
 export default ErrorMessage;

@@ -2,7 +2,7 @@ import React from "react";
 
 import {Wrapper} from './StyledComponents';
 
-const OrderForm = () => {
+const SuccessfullOrder = () => {
     return (
         <Wrapper>
             Succesfull
@@ -11,4 +11,4 @@ const OrderForm = () => {
     )
 };
 
-export default OrderForm;
+export default SuccessfullOrder;

@@ -7,6 +7,7 @@ import { colors } from "../../configs/colors";
 export const BassicButton = memo((props) => {
     
     const {
+        type,
         display, 
         alignItems, 
         justifyContent, 
@@ -23,11 +24,13 @@ export const BassicButton = memo((props) => {
         borderColor, 
         hoverBorderColor, 
         onClick, 
-        children
+        children,
+        disabled
     } = props;
 
     return (
         <Button
+            type={type}
             display={display}
             alignItems={alignItems}
             justifyContent={justifyContent}
@@ -44,6 +47,7 @@ export const BassicButton = memo((props) => {
             borderColor={borderColor}
             hoverBorderColor={hoverBorderColor}
             onClick={onClick}
+            disabled={disabled}
         >
             {children}
         </Button>
@@ -55,6 +59,7 @@ BassicButton.propTypes = {
         PropTypes.string,
         PropTypes.node
     ]).isRequired,
+    type: PropTypes.string,
     display: PropTypes.string,
     alignItems: PropTypes.string,
     justifyContent: PropTypes.string,
@@ -70,10 +75,12 @@ BassicButton.propTypes = {
     hoverColor: PropTypes.string,
     borderColor: PropTypes.string,
     hoverBorderColor: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool
 };
 
 BassicButton.defaultProps = {
+    type: 'button',
     display: 'block',
     alignItems: 'center',
     justifyContent: 'center',
@@ -89,7 +96,8 @@ BassicButton.defaultProps = {
     hoverColor: colors.white,
     borderColor: colors.orange,
     hoverBorderColor: colors.white,
-    onClick: () => { }
+    onClick: () => { },
+    disabled: false
 }
 
 export default BassicButton;

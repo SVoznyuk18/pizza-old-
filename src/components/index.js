@@ -7,9 +7,10 @@ import PizzaItem from './PizzaItem/PizzaItem';
 import Selector from './Selector/Selector';
 import Sort from './Sort/Sort';
 import SVG from './SVG/SVG';
-import ErrorMessage from './ErrorMessage/ErrorMessage';
+import ErrorPage from './ErrorPage/ErrorPage';
 import Spiner from './Spiner/Spiner';
 import ModalComponent from './ModalComponent/ModalComponent';
+import BassicInput from './BassicInput/BassicInput';
+import ErrorMessage from './ErrorMessage/ErrorMessage';
 
-
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorMessage, Spiner, ModalComponent };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage };
