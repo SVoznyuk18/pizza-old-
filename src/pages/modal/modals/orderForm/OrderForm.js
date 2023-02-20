@@ -1,12 +1,14 @@
 import React from "react";
-import {useForm} from 'react-hook-form';
+import {useForm, Controller} from 'react-hook-form';
+import DatePicker from "react-datepicker";
 
-import {Wrapper, Title, Form, ContactSection, AddressSection} from './StyledComponents';
-import {BassicInput, BassicButton} from '../../../../components';
+import {Wrapper, Title, Form, ContactSection, AddressSection, TimeSection, StyledInput, DatePickerWrapper, Label} from './StyledComponents';
+import {BassicInput, BassicButton, TimePicker} from '../../../../components';
+import { colors } from "../../../../configs/colors";
 
 const OrderForm = () => {
 
-    const {register, handleSubmit, formState: { errors, isValid, dirtyFields }, reset } = useForm( {mode: 'all'} );
+    const {register, handleSubmit, setValue , control, formState: { errors, dirtyFields }, reset } = useForm( {mode: 'all', defaultValues: {date: new Date()}} );
 
     const onSubmit = (data) => {
         console.log(data);
@@ -32,7 +34,7 @@ const OrderForm = () => {
                         height='40px'
                         margin='0 0 5px'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
+                        borderRadius='15px'
                         fontSize='16px'
                         register={register}
                         validation={{required: 'Обязательное поле', minLength: {value: 5, message: 'Должно быть более символов'}}}
@@ -55,7 +57,7 @@ const OrderForm = () => {
                         height='40px'
                         margin='0 0 5px'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
+                        borderRadius='15px'
                         fontSize='16px'
                         register={register}
                         validation={{required: 'Обязательное поле', pattern: {value: /((0[\d]{2}))([\d-]{5,8})([\d]{2})/, message: 'Неправильный формат tel'}}}
@@ -77,7 +79,7 @@ const OrderForm = () => {
                         height='40px'
                         margin='0 0 5px'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
+                        borderRadius='15px'
                         fontSize='16px'
                         register={register}
                         validation={{required: 'Обязательное поле', pattern: {value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: 'Неправильный формат email'}}}
@@ -86,8 +88,7 @@ const OrderForm = () => {
                         errorMessage={errors?.email && errors?.email?.message}
                     />
                 </ContactSection>
-
-                <Title>Address</Title>
+                <Title margin='20px 0 10px 0'>Address</Title>
                 <AddressSection>
                     <BassicInput
                         label='Street'
@@ -103,7 +104,7 @@ const OrderForm = () => {
                         height='40px'
                         margin='0 0 5px'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
+                        borderRadius='15px'
                         fontSize='16px'
                         register={register}
                         validation={{required: 'Обязательное поле', minLength: {value: 5, message: 'Должно быть более символов'}}}
@@ -111,7 +112,6 @@ const OrderForm = () => {
                         errorMessagemargin='5px'
                         errorMessage={errors?.street && errors?.street?.message}
                     />
-
                     <BassicInput
                         label='House'
                         htmlFor='house'
@@ -126,7 +126,7 @@ const OrderForm = () => {
                         height='40px'
                         margin='0 10px 5px 0'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
+                        borderRadius='15px'
                         fontSize='16px'
                         register={register}
                         validation={{required: 'Обязательное поле', min: {value: 1, message: 'Должно быть более 1'}}}
@@ -134,7 +134,6 @@ const OrderForm = () => {
                         errorMessagemargin='5px'
                         errorMessage={errors?.house && errors?.house?.message}
                     />
-
                     <BassicInput
                         label='Apartment'
                         htmlFor='apartment'
@@ -149,7 +148,7 @@ const OrderForm = () => {
                         height='40px'
                         margin='0 0 5px'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
+                        borderRadius='15px'
                         fontSize='16px'
                         register={register}
                         validation={{required: 'Обязательное поле', min: {value: 1, message: 'Должно быть более 1'}}}
@@ -157,28 +156,72 @@ const OrderForm = () => {
                         errorMessagemargin='5px'
                         errorMessage={errors?.apartment && errors?.apartment?.message}
                     />
-
-                    {/* <BassicInput
-                        label='Comment'
-                        htmlFor='comment'
+                </AddressSection>
+                <Title margin='20px 0 10px 0'>Date and time</Title>
+                <TimeSection>
+                    <TimePicker
+                        label='Time'
+                        htmlFor='time'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
                         labelLineHeight='16px'
-
-                        id='comment'
-                        type='comment'
-                        name='comment'
-                        placeholder='Comment'
-                        width='220px'
+                        id='time'
+                        type='text'
+                        name='time'
+                        placeholder='time'
+                        start='00:00'
+                        end='23:59'
+                        step={30}
+                        width='120px'
                         height='40px'
-                        margin='0 0 40px'
                         padding='5px 10px 5px 10px'
-                        borderRadius='20px'
-
+                        margin='0 10px 5px 0'
+                        borderRadius='15px'
                         fontSize='16px'
-                    /> */}
-                </AddressSection>
-
+                        register={register}
+                        setValue={setValue}
+                        validation={{required: 'Обязательное поле'}}
+                        dirtyFields={dirtyFields?.time}
+                        errorMessagemargin='5px'
+                        errorMessage={errors?.time && errors?.time?.message}
+                    />
+                    <DatePickerWrapper width='120px'>
+                        <Label 
+                            htmlFor='date'
+                            labelFontSize='16px'
+                            labelMarginBottom='5px'
+                            labelLineHeight='16px'
+                        >
+                            Date
+                        </Label>
+                        <Controller
+                            control={control}
+                            name='date'
+                            render={({ field }) => (
+                                <DatePicker
+                                    customInput={<StyledInput
+                                        width='120px'
+                                        height='40px'
+                                        margin='0 0 5px'
+                                        padding='5px 10px 5px 10px'
+                                        borderRadius='15px'
+                                        fontSize='16px'
+                                        borderColor={colors.grey}
+                                    />}
+                                    dateFormat="d MMM yyyy"
+                                    minDate={new Date()}
+                                    selected={field.value}
+                                    showTimeSelect={false}
+                                    todayButton="Today"
+                                    dropdownMode="select"
+                                    placeholderText="Click to select time"
+                                    shouldCloseOnSelect
+                                    onChange={(date) => field.onChange(date)}
+                                />
+                            )}
+                        />                
+                    </DatePickerWrapper>
+                </TimeSection>
                 <BassicButton
                     type='submit'
                     display='flex'
@@ -189,13 +232,10 @@ const OrderForm = () => {
                     justifyContent='center'
                     fontWeight={600}
                     fontSize='16px'
-                    // disabled={!isValid}
                 >
                     Замовити
-                   
                 </BassicButton>
             </Form>
-
         </Wrapper>
     )
 };

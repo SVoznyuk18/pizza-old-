@@ -12,6 +12,7 @@ export const Label = styled.div`
     font-size: ${props => props.labelFontSize};
     margin-bottom: ${props => props.labelMarginBottom};
     line-height: ${props => props.labelLineHeight};
+    font-weight: 600;
 `;
 
 export const Input = styled.input`
@@ -19,7 +20,6 @@ export const Input = styled.input`
     width: ${props => props.width};
     padding: ${props => props.padding};
     border: solid 1px ${props => props.borderColor};;
-    border-radius: ${props => props.borderRadius};
+    border-radius: ${props => props.borderRadius ? props.borderRadius  : '15px'};
     font-size: ${props => props.fontSize}
 `;
-

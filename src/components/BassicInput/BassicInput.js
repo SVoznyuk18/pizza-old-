@@ -11,10 +11,10 @@ import { colors } from "../../configs/colors";
 const getColor = (error, dirtyFields) => {
     if (error) return colors.errorMessage;
     if(!error && dirtyFields) return colors.validColor;
-    return colors.black;
+    return colors.grey;
 }
 
-const BassicInput = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, margin, borderRadius, register, validation, dirtyFields, errorMessage, errorMessagemargin, errorFontSize}) => {
+const BassicInput = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, margin, borderRadius, register, validation, dirtyFields, errorMessage, errorMessagemargin, errorFontSize, value}) => {
     return (
         <Wrapper width={width} margin={margin}>
             <Label 
@@ -32,7 +32,7 @@ const BassicInput = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLin
                 placeholder={placeholder}
                 width={width}
                 height={height}
-                
+                value={value}
                 padding={padding}
                 borderRadius={borderRadius}
                 borderColor={getColor(errorMessage, dirtyFields)}

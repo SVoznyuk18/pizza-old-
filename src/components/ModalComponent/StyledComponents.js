@@ -23,6 +23,7 @@ export const ModalContent = styled.div`
     min-height: 300px;
     padding: 40px;
     background-color: ${colors.white};
+    border-radius: 20px;
 `;
 
 export const CloseButton = styled.div`
