@@ -1,0 +1,47 @@
+{
+    "headerTitle": "Найсмачніша піца у всесвіті",
+    "categoriesPizza": {
+        "all": "Всі",
+        "meat": "М'ясні",
+        "vegetarian": "Вегетаріанська",
+        "grill": "Гриль",
+        "spicy": "Гострі",
+        "calzone": "Кальцоне"
+    },
+    "sort": {
+        "sortTitle": "Сортування за:",
+        "popularity": "популярності",
+        "price": "ціні",
+        "alphabet": "алфавіту"
+    },
+    "pizzaType": {
+        "thin": "тонке",
+        "traditional": "традиційне"
+    },
+    "pizzaName": {
+        "pepperoniFresh": "Пепероні Фреш з перцем",
+        "cheese": "Сирна",
+        "barbecuChicken": "Курча барбекю",
+        "sweetSourChicken": "Кисло-солодке курча",
+        "cheeseburger": "Чізбургер-піца",
+        "crazyPepperoni": "Крейзі пепероні",
+        "pepperoni": "Пепероні",
+        "margarita": "Маргарита",
+        "fourSeasons": "Чотири сезони",
+        "vegetablesAndMushrooms": "Овочі та гриби"
+    },
+    "button": {
+        "add": "Додати",
+        "back": "Повернутися назад",
+        "checkout": "Замовити"
+    },
+    "common": {
+        "from": "від",
+        "piece": "шт.",
+        "size": "cм."
+    },
+    "cart": "Корзина",
+    "cleanCart": "Очистити корзину",
+    "amoutPizzas": "Всього піц:",
+    "orderPrice": "Сума замовлення:"
+}

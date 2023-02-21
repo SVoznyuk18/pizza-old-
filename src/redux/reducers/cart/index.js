@@ -101,7 +101,9 @@ const deletePizzaItemSuccess = (state, action) => {
 const clearCartSuccess = (state, action) => {
     return {
         ...state,
-        cart: []
+        cart: [],
+        totalPrice: 0,
+        totalAmount: 0
     }
 }
 

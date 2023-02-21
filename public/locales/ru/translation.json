@@ -1,0 +1,59 @@
+{
+    "headerTitle": "Cамая вкусная пицца во вселенной",
+    "categoriesPizza": {
+        "all": "Все",
+        "meat": "Мясные",
+        "vegetarian": "Вегетарианская",
+        "grill": "Гриль",
+        "spicy": "Острые",
+        "calzone": "Кальцоне"
+    },
+    "sort": {
+        "sortTitle": "Сортировка по:",
+        "popularity": "популярности",
+        "price": "цене",
+        "alphabet": "алфавиту"
+    },
+    "pizzaType": {
+        "thin": "тонкое",
+        "traditional": "традиционное"
+    },
+    "pizzaName": {
+        "pepperoniFresh": "Пепперони Фреш с перцем",
+        "cheese": "Сырная",
+        "barbecuChicken": "Цыпленок барбекю",
+        "sweetSourChicken": "Кисло-сладкий цыпленок",
+        "cheeseburger": "Чизбургер-пицца",
+        "crazyPepperoni": "Крэйзи пепперони",
+        "pepperoni": "Пепперони",
+        "margarita": "Маргарита",
+        "fourSeasons": "Четыре сезона",
+        "vegetablesAndMushrooms": "Овощи и грибы"
+    },
+    "button": {
+        "add": "Добавить",
+        "back": "Вернуться назад",
+        "checkout": "Заказать"
+    },
+    "common": {
+        "from": "от",
+        "piece": "шт.",
+        "size": "cм."
+    },
+    "cart": "Корзина",
+    "cleanCart": "Очистить корзину",
+    "amoutPizzas": "Всего пицц:",
+    "orderPrice": "Сумма заказа:",
+    "form": {
+        "titleContacts": "Контакты",
+        "titleAddress": "Адрес",
+        "titleTime": "Дата и время",
+        "labelName": "Имя",
+        "placeholderName": "Имя",
+        "errorMessage": {
+            "required": "Обязательное поле",
+            "moreCharacters": "Должно быть более {count} символов"
+        }
+        
+    }
+}

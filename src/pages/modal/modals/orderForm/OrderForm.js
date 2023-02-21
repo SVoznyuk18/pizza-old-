@@ -1,12 +1,15 @@
 import React from "react";
 import {useForm, Controller} from 'react-hook-form';
 import DatePicker from "react-datepicker";
+import { useTranslation } from "react-i18next";
 
 import {Wrapper, Title, Form, ContactSection, AddressSection, TimeSection, StyledInput, DatePickerWrapper, Label} from './StyledComponents';
 import {BassicInput, BassicButton, TimePicker} from '../../../../components';
 import { colors } from "../../../../configs/colors";
 
 const OrderForm = () => {
+
+    const {t} = useTranslation();
 
     const {register, handleSubmit, setValue , control, formState: { errors, dirtyFields }, reset } = useForm( {mode: 'all', defaultValues: {date: new Date()}} );
 
@@ -18,10 +21,10 @@ const OrderForm = () => {
     return (
         <Wrapper>
             <Form onSubmit={handleSubmit(onSubmit)}>
-                <Title>Контакти</Title>
+                <Title>{t('form.titleContacts')}</Title>
                 <ContactSection>
                     <BassicInput
-                        label='Name'
+                        label={t('form.labelName')}
                         htmlFor='name'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -29,7 +32,7 @@ const OrderForm = () => {
                         id='name'
                         type='text'
                         name='name'
-                        placeholder='name'
+                        placeholder={t('form.placeholderName')}
                         width='100%'
                         height='40px'
                         margin='0 0 5px'
@@ -37,7 +40,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: 'Обязательное поле', minLength: {value: 5, message: 'Должно быть более символов'}}}
+                        validation={{required: t('form.errorMessage.required'), minLength: {value: 5, message: t('form.errorMessage.moreCharacters', {count: 5})}}}
                         dirtyFields={dirtyFields?.name}
                         errorMessagemargin='5px'
                         errorMessage={errors?.name && errors?.name?.message}

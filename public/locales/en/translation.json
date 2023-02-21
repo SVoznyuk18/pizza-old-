@@ -1,0 +1,59 @@
+{
+    "headerTitle": "The most delicious pizza in the universe",
+    "categoriesPizza": {
+        "all": "All",
+        "meat": "Meat",
+        "vegetarian": "Vegetarian",
+        "grill": "Grill",
+        "spicy": "Spicy",
+        "calzone": "Calzone"
+    },
+    "sort": {
+        "sortTitle": "Sort by:",
+        "popularity": "popularity",
+        "price": "price",
+        "alphabet": "alphabet"
+    },
+    "pizzaType": {
+        "thin": "thin",
+        "traditional": "traditional"
+    },
+    "pizzaName": {
+        "pepperoniFresh": "Pepperoni Fresh with pepper",
+        "cheese": "Cheese",
+        "barbecuChicken": "Barbecue chicken",
+        "sweetSourChicken": "Sweet and sour chicken",
+        "cheeseburger": "Cheeseburger pizza",
+        "crazyPepperoni": "Crazy pepperoni",
+        "pepperoni": "Pepperoni",
+        "margarita": "Margarita",
+        "fourSeasons": "Four seasons",
+        "vegetablesAndMushrooms": "Vegetables and mushrooms"
+    },
+    "button": {
+        "add": "Add",
+        "back": "Come back",
+        "checkout": "Order"
+    },
+    "common": {
+        "from": "from",
+        "piece": "pc.",
+        "size": "cm."
+    },
+    "cart": "Cart",
+    "cleanCart": "Clean cart",
+    "amoutPizzas": "Total pizzas:",
+    "orderPrice": "Order price:",
+    "form": {
+        "titleContacts": "Контакты",
+        "titleAddress": "Адрес",
+        "titleTime": "Дата и время",
+        "labelName": "Имя",
+        "placeholderName": "Имя",
+        "errorMessage": {
+            "required": "Обязательное поле",
+            "moreCharacters": "Должно быть более {{count}} символов"
+        }
+        
+    }
+}

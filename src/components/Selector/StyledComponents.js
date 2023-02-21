@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const List = styled.ul`
+    margin: 5px;
     display: flex;
     flex: 1;
 `;

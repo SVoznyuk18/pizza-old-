@@ -1,46 +1,26 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from "react-i18next";
 
-
-import {getPizzaRequest} from '../redux/actions';
+import { getPizzaRequest } from '../redux/actions';
+import {filteredPizzaSelector} from '../utils';
 
 import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from '../components';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
 
 const Main = () => {
-    const categories = ["Все", "Мясные", "Вегетарианские", "Гриль", "Острые", "Закрытые"];
+    const categories = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
     const dispatch = useDispatch();
     const { pizza, pizzaLoading, pizzaError } = useSelector(state => state.pizza);
     const { idActiveCategory } = useSelector(state => state.filters);
     const { sortBy } = useSelector(state => state.filters);
 
+    const { t } = useTranslation();
+
     useEffect(() => {
         dispatch(getPizzaRequest());
     }, [dispatch])
 
-
-    const filteredPizzaSelector = (arrPizza, category, sort) => {
-        let filteredPizza = arrPizza;
-        if (category) {
-            filteredPizza = filteredPizza?.filter(item => item.category === category);
-        }
-        if (sort === "популярности") {
-            filteredPizza = filteredPizza?.sort((a, b) => {
-                return b.rating - a.rating;
-            })
-        }
-        if (sort === "цене") {
-            filteredPizza = filteredPizza?.sort((a, b) => {
-                return a.price - b.price;
-            })
-        }
-        if (sort === "алфавиту") {
-            filteredPizza = filteredPizza?.sort((a, b) => {
-                return a.name[0].localeCompare(b.name[0])
-            })
-        }
-        return filteredPizza;
-    }
     const filteredPizza = filteredPizzaSelector(pizza, idActiveCategory, sortBy);
 
     const renderPizza = () => {
@@ -58,6 +38,7 @@ const Main = () => {
     }
 
     const element = renderPizza();
+    
     return (
         <Content>
             <Container>
@@ -65,8 +46,7 @@ const Main = () => {
                     <Categories handleDispatch={dispatch} />
                     <Sort />
                 </ContentTop>
-                <MainTitle> {`${categories[idActiveCategory]} пиццы`}</MainTitle>
-
+                <MainTitle>{t(`categoriesPizza.${categories[idActiveCategory]}`)}</MainTitle>
                 {element}
             </Container>
         </Content>

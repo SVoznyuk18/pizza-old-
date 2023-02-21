@@ -3,7 +3,7 @@ import * as Types from '../../../configs/constants';
 
 const initialState = {
     idActiveCategory: 0,
-    sortBy: 'популярности'
+    sortBy: 'popularity'
 }
 
 const filters = (state = initialState, action) => {

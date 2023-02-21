@@ -1,13 +1,15 @@
 import React, { useState, memo } from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from 'prop-types';
 import {filterCategory} from '../../redux/actions';
 
 import { CategoriesWrapper, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 
 const Categories = memo(({ handleDispatch }) => {
-    const categories = ["Все", "Мясные", "Вегетарианская", "Гриль", "Острые", "Закрытые"];
+    const categories = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
 
     const [activeClass, setActiveClass] = useState(0)
+    const { t } = useTranslation();
 
     return (
         <CategoriesWrapper>
@@ -23,7 +25,7 @@ const Categories = memo(({ handleDispatch }) => {
                                 }
                                 }
                             >
-                                {item}
+                                {t(`categoriesPizza.${item}`)}
                             </ListItemActive>
                         )
                     }
@@ -36,7 +38,7 @@ const Categories = memo(({ handleDispatch }) => {
                             }
                             }
                         >
-                            {item}
+                            {t(`categoriesPizza.${item}`)}
                         </ListItem>
                     )
                 })}

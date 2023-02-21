@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal} from '../redux/actions';
 import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, CartBottomDetails, CartButtonSection, IconCustom, ClearCart } from './StyledComponents';
@@ -15,6 +16,7 @@ const Cart = () => {
 
     const { cart, totalPrice, totalAmount } = useSelector(state => state.cart);
     const dispatch = useDispatch();
+    const {t} = useTranslation();
 
     const onIncPizzaAmount = (item) => {
         dispatch(increasePizzaAmount(item));
@@ -45,7 +47,7 @@ const Cart = () => {
                                 path={iconSvg.cart}
                             />
                         </IconCustom>
-                        Корзина
+                        {t('cart')}
                     </CartTitle>
                     <ClearCart onClick={() => dispatch(clearCart())}>
                         <IconCustom
@@ -62,7 +64,7 @@ const Cart = () => {
                                 path={iconSvg.trash}
                             />
                         </IconCustom>
-                        <span>Очистить корзину</span>
+                        <span>{t('cleanCart')}</span>
                     </ClearCart>
                 </CartTop>
                 <ContentItems>
@@ -74,8 +76,8 @@ const Cart = () => {
                 </ContentItems>
                 <CartBottom>
                     <CartBottomDetails>
-                        <span> Всего пицц: <b>{`${totalAmount} шт.`}</b> </span>
-                        <span> Сумма заказа: <b>{`${totalPrice} ₽`}</b> </span>
+                        <span> {t('amoutPizzas')} <b>{`${totalAmount} ${t('common.piece')}`}</b> </span>
+                        <span> {t('orderPrice')} <b>{`${totalPrice} ₽`}</b> </span>
                     </CartBottomDetails>
                     <CartButtonSection>
                         <Link to="/">
@@ -94,7 +96,7 @@ const Cart = () => {
                                 hoverBorderColor='#f6f6f6'
                                 fontWeight={600}
                             >
-                                Вернуться назад
+                               {t('button.back')}
                             </BassicButton>
                         </Link>
                         <BassicButton
@@ -112,7 +114,7 @@ const Cart = () => {
                             fontWeight={600}
                             onClick={() => dispatch(handleToggleModal(true, MODAL.ORDER_FORM))}
                         >
-                            Вернуться назад
+                            {t('button.checkout')}
                         </BassicButton>
                     </CartButtonSection>
                 </CartBottom>   

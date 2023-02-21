@@ -45,6 +45,29 @@ export const setDisableTime = (currentTime) => {
   if(milliseconds <= currentTime) return true;
 
   return false;
+};
+
+export const filteredPizzaSelector = (arrPizza, category, sort) => {
+  let filteredPizza = arrPizza;
+  if (category) {
+      filteredPizza = filteredPizza?.filter(item => item.category === category);
+  }
+  if (sort === "popularity") {
+      filteredPizza = filteredPizza?.sort((a, b) => {
+          return b.rating - a.rating;
+      })
+  }
+  if (sort === "price") {
+      filteredPizza = filteredPizza?.sort((a, b) => {
+          return a.price - b.price;
+      })
+  }
+  if (sort === "alphabet") {
+      filteredPizza = filteredPizza?.sort((a, b) => {
+          return a.name[0].localeCompare(b.name[0])
+      })
+  }
+  return filteredPizza;
 }
 
 

@@ -1,5 +1,6 @@
 import React, { memo } from "react";
 import PropTypes from 'prop-types';
+import { useTranslation } from "react-i18next";
 
 import { BassicButton, Img, SVG } from '../index';
 import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom } from './StyledComponents';
@@ -8,7 +9,8 @@ import iconSvg from '../../assets/svg/iconSvg';
 import { colors } from "../../configs/colors";
 
 const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
-
+    const {t} = useTranslation();
+    console.log(cartItem?.name);
     return (
         <CarItemWrapper>
             <Img
@@ -19,8 +21,8 @@ const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeleteP
                 alt="Pizza"
             />
             <CartItemInfo>
-                <h3>{cartItem?.name}</h3>
-                <p>{`${cartItem?.type}, ${cartItem?.size} см.`}</p>
+                <h3>{t(`pizzaName.${cartItem?.name}`)}</h3>
+                <p> {`${t(`${cartItem?.type}`)}, ${t(`${cartItem?.size}`)} ${t('common.size')}`}</p>
             </CartItemInfo>
             <CountSection>
                 <BassicButton

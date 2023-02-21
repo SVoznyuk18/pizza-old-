@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { sortBy } from "../../redux/actions";
 
 import { SortWrapper, SortLabel, SortPopUp, SortList, SortItem } from './StyledComponents';
 
 export const Sort = () => {
-    const sort = ["популярности", "цене", "алфавиту"];
+    const sort = ["popularity", "price", "alphabet"];
     const [activeSortModal, setActiveSortModal] = useState(false);
     const [sortActive, setSortActive] = useState(0);
     const dispatch = useDispatch();
+    const {t} = useTranslation();
 
     return (
         <SortWrapper
@@ -27,8 +29,8 @@ export const Sort = () => {
                         fill="#2C2C2C"
                     />
                 </svg>
-                <b>Сортировка по:</b>
-                <span>{sort[sortActive]}</span>
+                <b>{t('sort.sortTitle')}</b>
+                <span> {t(`sort.${sort[sortActive]}`)}</span>
             </SortLabel>
             <SortPopUp activePopUp={activeSortModal}>
                 <SortList>
@@ -43,7 +45,7 @@ export const Sort = () => {
                                         dispatch(sortBy(item));
                                     }}
                                 >
-                                    {item}
+                                    {t(`sort.${item}`)}
                                 </SortItem>
                             )
                         })

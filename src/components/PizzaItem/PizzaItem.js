@@ -1,6 +1,7 @@
 import React, { useState, memo } from "react";
 import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 import {addPizzaToCart } from '../../redux/actions';
 
@@ -10,12 +11,13 @@ import iconSvg from '../../assets/svg/iconSvg';
 
 const PizzaItem = memo(({ pizzaItem }) => {
 
-    const avaliableTypes = ["тонкое", "традиционное"];
+    const avaliableTypes = ["thin", "traditional"];
     const avaliableSizes = ['26', '30', '40'];
 
-    const [selectType, setSelectType] = useState("тонкое");
+    const [selectType, setSelectType] = useState("thin");
     const [selectSize, setSelectSize] = useState('26');
     const dispatch = useDispatch();
+    const {t} = useTranslation();
 
     const orderConfig = (pizzaId) =>({
         id: pizzaId,
@@ -34,13 +36,13 @@ const PizzaItem = memo(({ pizzaItem }) => {
                 alt={`pizza ${pizzaItem?.name}`}
                 width="260px"
             />
-            <Title>{pizzaItem?.name}</Title>
+            <Title>{t(`pizzaName.${pizzaItem?.name}`)}</Title>
             <SelectorSection>
                 <Selector avaliableItems={avaliableTypes} handleSelect={setSelectType} types={pizzaItem?.types} selectedType={selectType} />
-                <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={pizzaItem?.sizes} selectedType={selectSize} />
+                <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={pizzaItem?.sizes} selectedType={selectSize} selectorType='size'/>
             </SelectorSection>
             <BottomSection>
-                <Price>{`от ${pizzaItem?.price} ₽`}</Price>
+                <Price>{`${t('common.from')} ${pizzaItem?.price} ₽`}</Price>
                 <BassicButton
                     display='flex'
                     padding='10px 20px'
@@ -66,7 +68,7 @@ const PizzaItem = memo(({ pizzaItem }) => {
                             path={iconSvg.plus}
                         />
                     </IconCustom>
-                    Добавить
+                    {t('button.add')}
                 </BassicButton>
             </BottomSection>
         </PizzaBlock>

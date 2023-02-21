@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { Img, BassicButton, SVG } from '../index';
 import { HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter } from './StyledComponents';
@@ -12,6 +13,7 @@ import iconSvg from '../../assets/svg/iconSvg';
 const Header = () => {
 
     const { cart } = useSelector(state => state.cart);
+    const {t} = useTranslation();
 
     const totalPrice = (arrCart) => {
         let total;
@@ -46,8 +48,8 @@ const Header = () => {
                     <HeaderLogoWrapper>
                         <Img width="38px" src={logoSvg} alt="Pizza logo" />
                         <HeaderLogoDescription>
-                            <HeaderTitle>React Pizza</HeaderTitle>
-                            <HeaderSubTitle>самая вкусная пицца во вселенной</HeaderSubTitle>
+                            <HeaderTitle>Pizza</HeaderTitle>
+                            <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
                         </HeaderLogoDescription>
                     </HeaderLogoWrapper>
                 </Link>
