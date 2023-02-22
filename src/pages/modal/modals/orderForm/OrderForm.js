@@ -46,7 +46,7 @@ const OrderForm = () => {
                         errorMessage={errors?.name && errors?.name?.message}
                     />
                     <BassicInput
-                        label='Phone'
+                        label={t('form.labelPhone')}
                         htmlFor='phone'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -55,7 +55,7 @@ const OrderForm = () => {
                         type="tel"
                         inputmode="tel"
                         name='phone'
-                        placeholder='phone'
+                        placeholder={t('form.placeholderPhone')}
                         width='100%'
                         height='40px'
                         margin='0 0 5px'
@@ -63,13 +63,13 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: 'Обязательное поле', pattern: {value: /((0[\d]{2}))([\d-]{5,8})([\d]{2})/, message: 'Неправильный формат tel'}}}
+                        validation={{required: t('form.errorMessage.required'), pattern: {value: /((0[\d]{2}))([\d-]{5,8})([\d]{2})/, message: t('form.errorMessage.wrongPhone')}}}
                         dirtyFields={dirtyFields?.phone}
                         errorMessagemargin='5px'
                         errorMessage={errors?.phone && errors?.phone?.message}
                     />
                     <BassicInput
-                        label='Email'
+                        label={t('form.labelEmail')}
                         htmlFor='email'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -77,7 +77,7 @@ const OrderForm = () => {
                         id='email'
                         type='email'
                         name='email'
-                        placeholder='email'
+                        placeholder={t('form.placeholderEmail')}
                         width='100%'
                         height='40px'
                         margin='0 0 5px'
@@ -85,16 +85,16 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: 'Обязательное поле', pattern: {value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: 'Неправильный формат email'}}}
+                        validation={{required: t('form.errorMessage.required'), pattern: {value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: t('form.errorMessage.wrongEmail')}}}
                         dirtyFields={dirtyFields?.email}
                         errorMessagemargin='5px'
                         errorMessage={errors?.email && errors?.email?.message}
                     />
                 </ContactSection>
-                <Title margin='20px 0 10px 0'>Address</Title>
+                <Title margin='20px 0 10px 0'>{t('form.titleAddress')}</Title>
                 <AddressSection>
                     <BassicInput
-                        label='Street'
+                        label={t('form.labelStreet')}
                         htmlFor='street'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -102,7 +102,7 @@ const OrderForm = () => {
                         id='street'
                         type='text'
                         name='street'
-                        placeholder='Street'
+                        placeholder={t('form.placeholderStreet')}
                         width='100%'
                         height='40px'
                         margin='0 0 5px'
@@ -110,13 +110,13 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: 'Обязательное поле', minLength: {value: 5, message: 'Должно быть более символов'}}}
+                        validation={{required: t('form.errorMessage.required'), minLength: {value: 5, message:  t('form.errorMessage.moreCharacters', {count: 5})}}}
                         dirtyFields={dirtyFields?.street}
                         errorMessagemargin='5px'
                         errorMessage={errors?.street && errors?.street?.message}
                     />
                     <BassicInput
-                        label='House'
+                        label={t('form.labelHouse')}
                         htmlFor='house'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -124,7 +124,7 @@ const OrderForm = () => {
                         id='house'
                         type='text'
                         name='house'
-                        placeholder='House'
+                        placeholder={t('form.placeholderHouse')}
                         width='150px'
                         height='40px'
                         margin='0 10px 5px 0'
@@ -132,13 +132,13 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: 'Обязательное поле', min: {value: 1, message: 'Должно быть более 1'}}}
+                        validation={{required: t('form.errorMessage.required'), min: {value: 1, message: t('form.errorMessage.moreNumber', {count: 1})}}}
                         dirtyFields={dirtyFields?.house}
                         errorMessagemargin='5px'
                         errorMessage={errors?.house && errors?.house?.message}
                     />
                     <BassicInput
-                        label='Apartment'
+                        label={t('form.labelApartment')}
                         htmlFor='apartment'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -146,7 +146,7 @@ const OrderForm = () => {
                         id='apartment'
                         type='number'
                         name='apartment'
-                        placeholder='Apartment'
+                        placeholder={t('form.placeholderApartment')}
                         width='150px'
                         height='40px'
                         margin='0 0 5px'
@@ -154,16 +154,16 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: 'Обязательное поле', min: {value: 1, message: 'Должно быть более 1'}}}
+                        validation={{required: t('form.errorMessage.required'), min: {value: 1, message:  t('form.errorMessage.moreNumber', {count: 1})}}}
                         dirtyFields={dirtyFields?.apartment}
                         errorMessagemargin='5px'
                         errorMessage={errors?.apartment && errors?.apartment?.message}
                     />
                 </AddressSection>
-                <Title margin='20px 0 10px 0'>Date and time</Title>
+                <Title margin='20px 0 10px 0'>{t('form.titleTime')}</Title>
                 <TimeSection>
                     <TimePicker
-                        label='Time'
+                        label={t('form.labelTime')}
                         htmlFor='time'
                         labelFontSize='16px'
                         labelMarginBottom='5px'
@@ -171,7 +171,7 @@ const OrderForm = () => {
                         id='time'
                         type='text'
                         name='time'
-                        placeholder='time'
+                        placeholder={t('form.placeholderTime')}
                         start='00:00'
                         end='23:59'
                         step={30}
@@ -183,7 +183,7 @@ const OrderForm = () => {
                         fontSize='16px'
                         register={register}
                         setValue={setValue}
-                        validation={{required: 'Обязательное поле'}}
+                        validation={{required: t('form.errorMessage.required')}}
                         dirtyFields={dirtyFields?.time}
                         errorMessagemargin='5px'
                         errorMessage={errors?.time && errors?.time?.message}
@@ -195,7 +195,7 @@ const OrderForm = () => {
                             labelMarginBottom='5px'
                             labelLineHeight='16px'
                         >
-                            Date
+                            {t('form.labelDate')}
                         </Label>
                         <Controller
                             control={control}
@@ -217,7 +217,7 @@ const OrderForm = () => {
                                     showTimeSelect={false}
                                     todayButton="Today"
                                     dropdownMode="select"
-                                    placeholderText="Click to select time"
+                                    placeholderText={t('form.placeholderDate')}
                                     shouldCloseOnSelect
                                     onChange={(date) => field.onChange(date)}
                                 />
@@ -236,7 +236,7 @@ const OrderForm = () => {
                     fontWeight={600}
                     fontSize='16px'
                 >
-                    Замовити
+                    {t('button.checkout')}
                 </BassicButton>
             </Form>
         </Wrapper>

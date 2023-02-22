@@ -43,5 +43,33 @@
     "cart": "Корзина",
     "cleanCart": "Очистити корзину",
     "amoutPizzas": "Всього піц:",
-    "orderPrice": "Сума замовлення:"
+    "orderPrice": "Сума замовлення:",
+    "form": {
+        "titleContacts": "Контакти",
+        "titleAddress": "Адреса",
+        "titleTime": "Дата та час",
+        "labelName": "Ім'я",
+        "placeholderName": "Ім'я",
+        "labelPhone": "Телефон",
+        "placeholderPhone": "Телефон",
+        "labelEmail": "Email",
+        "placeholderEmail": "email",
+        "labelStreet": "Вулиця",
+        "placeholderStreet": "Вулиця",
+        "labelHouse": "Дім",
+        "placeholderHouse": "Дім",
+        "labelApartment": "Квартира",
+        "placeholderApartment": "Квартира",
+        "labelTime": "Час",
+        "placeholderTime": "Час",
+        "labelDate": "Дата",
+        "placeholderDate": "Натисніть, щоб вибрати день",
+        "errorMessage": {
+            "required": "Обов'язкове поле",
+            "moreCharacters": "Має бути більше {{count}} символів",
+            "moreNumber": "Має бути число більше, ніж {{count}}",
+            "wrongPhone": "Неправильний формат телефонного номера",
+            "wrongEmail": "Неправильний формат номера email"
+        }  
+    }
 }

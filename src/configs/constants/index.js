@@ -1,3 +1,7 @@
+import UA from '../../assets/svg/flags/ua.svg';
+import RU from '../../assets/svg/flags/ru.svg';
+import EN from '../../assets/svg/flags/en.svg';
+
 export const GET_PIZZA = 'GET_PIZZA';
 export const GET_PIZZA_SUCCESS = 'GET_PIZZA_SUCCESS';
 export const GET_PIZZA_LOADING = 'GET_PIZZA_LOADING';
@@ -42,3 +46,24 @@ export const MODAL = Object.freeze({
     FAILURE_ORDER: 'FAILURE_ORDER',
     ORDER_FORM: 'ORDER_FORM'
 });
+
+export const languages = [
+    {
+        id: 1,
+        lang: "ua",
+        title: "UA",
+        flag: UA
+    },
+    {
+        id: 2,
+        lang: "ru",
+        title: "RU",
+        flag: RU
+    },
+    {
+        id: 3,
+        lang: "en",
+        title: "EN",
+        flag: EN
+    }
+];

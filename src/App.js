@@ -12,12 +12,13 @@ import Cart from "./pages/Cart";
 function App() {
 
   const { isOpenModal, modalType, payload } = useSelector(state => state.modal);
+  const { totalPrice, totalAmount } = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
   return (
     <div className="wrapper">
       <BrowserRouter>
-        <Header />
+        <Header  totalPrice={totalPrice} totalAmount={totalAmount}/>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="cart" element={<Cart />} />

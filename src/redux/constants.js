@@ -1,3 +1,7 @@
+import UA from '../assets/svg/flags/ua.svg';
+import RU from '../assets/svg/flags/ru.svg';
+import EN from '../assets/svg/flags/en.svg';
+
 export const GET_PIZZA = "GET_PIZZA";
 export const SET_PIZZA = "SET_PIZZA";
 export const SET_PIZZA_LOADING = "SET_PIZZA_LOADING";
@@ -13,6 +17,7 @@ export const CLEAN_CART = "CLEAN_CART";
 export const SORT_BY = "SORT_BY";
 
 export const FILTER_CATEGORY = "FILTER_CATEGORY";
+
 
 // export const PIZZA_SIZE = Object.freeze({
 //     M: 26,

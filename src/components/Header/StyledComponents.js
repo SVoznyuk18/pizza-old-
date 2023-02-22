@@ -65,3 +65,9 @@ export const Delimiter = styled.div`
     margin-left: 14px;
     margin-right: 14px;
 `;
+
+export const Wrepper = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`;

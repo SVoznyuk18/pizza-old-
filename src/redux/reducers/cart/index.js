@@ -7,17 +7,13 @@ const initialState = {
 }
 
 const addPizzaToCartSuccess = (state, action) => {
-    const cart = state.cart;
+    const {price, amountPizzas} = action.payload;
     let totalPrice = state.totalPrice;
     let totalAmount = state.totalAmount;
 
-    totalPrice = cart.reduce((accum, item) => {
-        return accum + item.price * item.amountPizzas;
-    }, 0);
+    totalPrice += price;
 
-    totalAmount = cart.reduce((accum, item) => {
-        return accum + item.amountPizzas;
-    }, 0);
+    totalAmount += amountPizzas;
 
     return {
         ...state,
@@ -29,9 +25,12 @@ const addPizzaToCartSuccess = (state, action) => {
 
 const increasePizzaAmountSuccess = (state, action) => {
     const cart = state.cart;
+    const {id} = action.payload;
     let totalPrice = state.totalPrice;
     let totalAmount = state.totalAmount;
-    const index = cart.findIndex(item => item.id === action.payload);
+    const index = cart.findIndex(item => item.id === id);
+
+    console.log('action', action);
 
     if (index !== -1) cart[index].amountPizzas += 1;
 
@@ -61,11 +60,11 @@ const decreasePizzaAmountSuccess = (state, action) => {
 
     totalPrice = cart.reduce((accum, item) => {
         return accum + item.price * item.amountPizzas;
-    }, 0);
+    }, totalPrice);
 
     totalAmount = cart.reduce((accum, item) => {
         return accum + item.amountPizzas;
-    }, 0);
+    }, totalAmount);
 
     return {
         ...state,
@@ -84,11 +83,11 @@ const deletePizzaItemSuccess = (state, action) => {
 
     totalPrice = newCart.reduce((accum, item) => {
         return accum + item.price * item.amountPizzas;
-    }, 0);
+    }, totalPrice);
 
     totalAmount = newCart.reduce((accum, item) => {
         return accum + item.amountPizzas;
-    }, 0);
+    }, totalAmount);
 
     return {
         ...state,

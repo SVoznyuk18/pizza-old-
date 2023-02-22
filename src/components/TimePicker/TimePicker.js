@@ -29,7 +29,7 @@ const TimePicker = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLine
         return () => {
           window.removeEventListener('click', handleHideList);
         };
-      }, [showTimeList])
+    }, [showTimeList])
 
     return (
         <Wrapper 

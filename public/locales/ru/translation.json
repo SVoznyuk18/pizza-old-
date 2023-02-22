@@ -50,10 +50,26 @@
         "titleTime": "Дата и время",
         "labelName": "Имя",
         "placeholderName": "Имя",
+        "labelPhone": "Телефон",
+        "placeholderPhone": "Телефон",
+        "labelEmail": "Email",
+        "placeholderEmail": "email",
+        "labelStreet": "Улица",
+        "placeholderStreet": "улица",
+        "labelHouse": "Дом",
+        "placeholderHouse": "Дом",
+        "labelApartment": "Квартира",
+        "placeholderApartment": "Квартира",
+        "labelTime": "Время",
+        "placeholderTime": "Время",
+        "labelDate": "Дата",
+        "placeholderDate": "Нажмите, чтобы выбрать день",
         "errorMessage": {
             "required": "Обязательное поле",
-            "moreCharacters": "Должно быть более {count} символов"
-        }
-        
+            "moreCharacters": "Должно быть более {{count}} символов",
+            "moreNumber": "Должно быть число больше чем {{count}}",
+            "wrongPhone": "Неправильный формат номера телефона",
+            "wrongEmail": "Неправильный формат email"
+        }  
     }
 }

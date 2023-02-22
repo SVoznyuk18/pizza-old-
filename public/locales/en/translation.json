@@ -45,15 +45,31 @@
     "amoutPizzas": "Total pizzas:",
     "orderPrice": "Order price:",
     "form": {
-        "titleContacts": "Контакты",
-        "titleAddress": "Адрес",
-        "titleTime": "Дата и время",
-        "labelName": "Имя",
-        "placeholderName": "Имя",
+        "titleContacts": "Contacts",
+        "titleAddress": "Address",
+        "titleTime": "Date and time",
+        "labelName": "Name",
+        "placeholderName": "Name",
+        "labelPhone": "Telephone",
+        "placeholderPhone": "Telephone",
+        "labelEmail": "Email",
+        "placeholderEmail": "email",
+        "labelStreet": "Street",
+        "placeholderStreet": "Street",
+        "labelHouse": "House",
+        "placeholderHouse": "House",
+        "labelApartment": "Apartment",
+        "placeholderApartment": "Apartment",
+        "labelTime": "Time",
+        "placeholderTime": "Time",
+        "labelDate": "Date",
+        "placeholderDate": "Click to select a day",
         "errorMessage": {
-            "required": "Обязательное поле",
-            "moreCharacters": "Должно быть более {{count}} символов"
-        }
-        
+            "required": "Required field",
+            "moreCharacters": "Must be more than {{count}} characters",
+            "moreNumber": "Must be a number greater than {{count}}",
+            "wrongPhone": "Invalid phone number format",
+            "wrongEmail": "Invalid email format"
+        }  
     }
 }

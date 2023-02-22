@@ -13,5 +13,6 @@ import ModalComponent from './ModalComponent/ModalComponent';
 import BassicInput from './BassicInput/BassicInput';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import TimePicker from './TimePicker/TimePicker';
+import LanguagesMenu from './LanguagesMenu/LanguagesMenu';
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu };
