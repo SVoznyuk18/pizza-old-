@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
 
 import { getPizzaRequest } from '../redux/actions';
-import {filteredPizzaSelector} from '../utils';
+import { filteredPizzaSelector } from '../utils';
 
 import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from '../components';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
@@ -38,19 +38,19 @@ const Main = () => {
     }
 
     const element = renderPizza();
-    
+
     return (
         <Content>
             <Container>
                 <ContentTop>
-                    <Categories handleDispatch={dispatch} />
+                    <Categories handleDispatch={dispatch} categoriesType='popUp' />
                     <Sort />
                 </ContentTop>
                 <MainTitle>{t(`categoriesPizza.${categories[idActiveCategory]}`)}</MainTitle>
                 {element}
             </Container>
         </Content>
-    )
+    );
 }
 
 export default Main;

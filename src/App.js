@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -5,6 +6,7 @@ import { handleToggleModal } from "./redux/actions";
 
 import Main from "./pages/Main";
 import { Header } from './components/index';
+import {Wrapper} from './pages/StyledComponents';
 import Modal from './pages/modal/Modal';
 import Cart from "./pages/Cart";
 
@@ -16,8 +18,8 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <div className="wrapper">
-      <BrowserRouter>
+    <Wrapper>
+         <BrowserRouter>
         <Header  totalPrice={totalPrice} totalAmount={totalAmount}/>
         <Routes>
           <Route path="/" element={<Main />} />
@@ -30,7 +32,7 @@ function App() {
           closeModal={() => dispatch(handleToggleModal(false, modalType))}
         />
       </BrowserRouter>
-    </div>
+    </Wrapper>
   );
 }
 

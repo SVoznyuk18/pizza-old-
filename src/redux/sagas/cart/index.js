@@ -24,15 +24,15 @@ function* watchAddPizzaToCart(action) {
     } catch {
         yield put({type: Types.ADD_PIZZA_TO_CART_FAILURE, payload: true});
     }
-};
+}
 
 function* watchIncreasePizzaAmount(action) {
     try{
         yield put({type: Types.INC_PIZZA_AMOUNT_SUCCESS, payload: action.payload.id});
     }catch{
-
+        console.log('should do smt');
     }
-};
+}
 
 function* watchDecreasePizzaAmount(action) {
     try{
@@ -45,7 +45,7 @@ function* watchDecreasePizzaAmount(action) {
         }
         
     } catch {
-
+        console.log('should do smt');
     }
 }
 
@@ -53,7 +53,7 @@ function* watchDeletePizzaItem(action) {
     try{
         yield put({type: Types.DELETE_PIZZA_ITEM_SUCCESS, payload: action.payload.id});
     } catch {
-
+        console.log('should do smt');
     }
 }
 
@@ -61,7 +61,7 @@ function* watchClearCart() {
     try{
         yield put({type: Types.CLEAR_CART_SUCCESS});
     } catch {
-
+        console.log('should do smt');
     }
 }
 

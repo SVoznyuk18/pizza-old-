@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import PropTypes from 'prop-types';
 
 import { formatedTimeArray, setDisableTime } from '../../utils';
 import { ErrorMessage } from '../';
 import { colors } from "../../configs/colors"
-import {Wrapper, Label, Input, WrapperTimeList, TimeList, ListItem} from './StyledComponents';;
+import {Wrapper, Label, Input, WrapperTimeList, TimeList, ListItem} from './StyledComponents';
 
 
 const getColor = (error, dirtyFields) => {
@@ -86,6 +87,64 @@ const TimePicker = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLine
             </WrapperTimeList>
         </Wrapper>
     );
+};
+
+TimePicker.propTypes = {
+    label: PropTypes.string,
+    htmlFor: PropTypes.string,
+    labelFontSize: PropTypes.string,
+    labelMarginBottom: PropTypes.string,
+    labelLineHeight: PropTypes.string,
+    id: PropTypes.string,
+    type: PropTypes.string,
+    name: PropTypes.string,
+    placeholder: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    padding: PropTypes.string,
+    borderRadius: PropTypes.string,
+    fontSize: PropTypes.string,
+    margin: PropTypes.string,
+    register: PropTypes.func,
+    validation: PropTypes.objectOf({
+        required: PropTypes.string,
+        minLength: PropTypes.object,
+        pattern: PropTypes.object,
+        min: PropTypes.object
+    }).isRequired,
+    dirtyFields: PropTypes.bool,
+    errorMessage: PropTypes.string,
+    errorMessagemargin: PropTypes.string,
+    start: PropTypes.string,
+    end: PropTypes.string,
+    step: PropTypes.number,
+    setValue: PropTypes.func
+}
+
+TimePicker.defaultProps = {
+    label: '',
+    htmlFor: '',
+    labelFontSize: '',
+    labelMarginBottom: '',
+    labelLineHeight: '',
+    id: '',
+    type: '',
+    name: '',
+    placeholder: '',
+    width: '',
+    height: '',
+    padding: '',
+    borderRadius: '',
+    fontSize: '',
+    margin: '',
+    register: () => {},
+    dirtyFields: false,
+    errorMessage: '',
+    errorMessagemargin: '',
+    start: '00:00',
+    end: '23:59',
+    step: 30,
+    setValue: () => {}
 }
 
 export default TimePicker;

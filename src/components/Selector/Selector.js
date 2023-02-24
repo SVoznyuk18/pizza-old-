@@ -8,7 +8,7 @@ const Selector = memo(({ avaliableItems, handleSelect, types, selectedType, sele
     const {t} = useTranslation();
     return (
         <List>
-            {avaliableItems && avaliableItems.map((type, index) => {
+            {avaliableItems && avaliableItems.map(type => {
 
                 if (!types.includes(type)) return <ListItemDisable key={type} onClick={() => handleSelect(type)}>{selectorType ? type : t(`pizzaType.${type}`)}</ListItemDisable>
                 if (selectedType === type) return <ListItemActive key={type} onClick={() => handleSelect(type)}>{selectorType ? type : t(`pizzaType.${type}`)}</ListItemActive>

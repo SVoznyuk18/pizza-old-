@@ -8,7 +8,7 @@ function* watchSortBy(action) {
     } catch {
         yield put({type: Types.SORT_BY_FAILURE, payload: true});
     }
-};
+}
 
 function* watchFilterCategory(action) {
     try {

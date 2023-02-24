@@ -1,11 +1,11 @@
 import styled from "styled-components";
-
-export const CategoriesWrapper = styled.div`
-
-`;
+import {media} from '../../configs/constants';
 
 export const CategoriesList = styled.ul`
     display: flex;
+    ${media.tabletL} {
+        margin-bottom: 20px;
+    }
 `;
 
 export const ListItem = styled.li`
@@ -22,6 +22,10 @@ export const ListItem = styled.li`
     }
     &:hover{
         background-color: #f4f4f4;
+    }
+
+    ${media.tabletL} {
+        padding: 13px 20px;
     }
 `;
 

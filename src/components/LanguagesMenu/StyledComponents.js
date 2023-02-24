@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { colors } from "../../configs/colors";
 
-export const Wrapper = styled.div`
+export const LanguagesWrapper = styled.div`
     position: relative;
-    margin-right: 15px;
+    margin-left: 15px;
     width: 100px;
 `;
 export const MenuHeader = styled.div`

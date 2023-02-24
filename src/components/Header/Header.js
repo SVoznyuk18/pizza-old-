@@ -1,15 +1,14 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
-import { HeaderWrapper, HeaderContainer, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrepper } from './StyledComponents';
+import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrepper } from './StyledComponents';
 
 import logoSvg from '../../assets/svg/pizza-logo.svg';
 import iconSvg from '../../assets/svg/iconSvg';
 import { languages } from '../../configs/constants';
-
 
 const Header = ({totalPrice, totalAmount}) => {
 
@@ -21,47 +20,46 @@ const Header = ({totalPrice, totalAmount}) => {
 
     return (
         <HeaderWrapper>
-            <HeaderContainer>
-                <Link to="/">
-                    <HeaderLogoWrapper>
-                        <Img width="38px" src={logoSvg} alt="Pizza logo" />
-                        <HeaderLogoDescription>
-                            <HeaderTitle>Pizza</HeaderTitle>
-                            <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
-                        </HeaderLogoDescription>
-                    </HeaderLogoWrapper>
-                </Link>
-                <Wrepper>
-                    <LanguagesMenu menuItems={languages} changleLanguage={changleLanguage}/>
-                    <Link to={"/cart"}>
-                        <BassicButton
-                            display="flex"
-                            alignItems="center"
-                            justifyContent="center"
-                            width="175px"
-                            padding="12px 25px"
-                            backgroundColor="#fe5f1e"
+            <Link to="/">
+
+                <HeaderLogoWrapper>
+                    <Img width="38px" src={logoSvg} alt="Pizza logo" />
+                    <HeaderLogoDescription>
+                        <HeaderTitle>Pizza</HeaderTitle>
+                        <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
+                    </HeaderLogoDescription>
+                </HeaderLogoWrapper>
+            </Link>
+            <Wrepper>
+                <Link to={"/cart"}>
+                    <BassicButton
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        width="175px"
+                        padding="12px 25px"
+                        backgroundColor="#fe5f1e"
+                    >
+                        <span>{`${totalPrice} ₽`}</span>
+                        <Delimiter/>
+                        <IconCustom
+                            width='18'
+                            height='18'
+                            margin='0px 8px 1px 0px'
                         >
-                            <span>{`${totalPrice} ₽`}</span>
-                            <Delimiter/>
-                            <IconCustom
+                            <SVG
                                 width='18'
                                 height='18'
-                                margin='0px 8px 1px 0px'
-                            >
-                                <SVG
-                                    width='18'
-                                    height='18'
-                                    viewBox='0 0 18 18'
-                                    path={iconSvg.cart}
-                                />
-                            </IconCustom>
-                            <span>{totalAmount}</span>
-                        </BassicButton>
-                    </Link>
-                </Wrepper>
-               
-            </HeaderContainer>
+                                viewBox='0 0 18 18'
+                                path={iconSvg.cart}
+                            />
+                        </IconCustom>
+                        <span>{totalAmount}</span>
+                    </BassicButton>
+                </Link>
+                <LanguagesMenu menuItems={languages} changleLanguage={changleLanguage}/>
+            </Wrepper> 
+
         </HeaderWrapper>
     );
 }

@@ -1,13 +1,13 @@
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import {increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal} from '../redux/actions';
+import { increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal } from '../redux/actions';
 import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, CartBottomDetails, CartButtonSection, IconCustom, ClearCart } from './StyledComponents';
 import { CartItem, SVG, BassicButton } from '../components/index';
 
-import {MODAL} from '../configs/constants';
+import { MODAL } from '../configs/constants';
 
 
 import iconSvg from '../assets/svg/iconSvg';
@@ -16,7 +16,7 @@ const Cart = () => {
 
     const { cart, totalPrice, totalAmount } = useSelector(state => state.cart);
     const dispatch = useDispatch();
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     const onIncPizzaAmount = (item) => {
         dispatch(increasePizzaAmount(item));
@@ -96,7 +96,7 @@ const Cart = () => {
                                 hoverBorderColor='#f6f6f6'
                                 fontWeight={600}
                             >
-                               {t('button.back')}
+                                {t('button.back')}
                             </BassicButton>
                         </Link>
                         <BassicButton
@@ -117,7 +117,7 @@ const Cart = () => {
                             {t('button.checkout')}
                         </BassicButton>
                     </CartButtonSection>
-                </CartBottom>   
+                </CartBottom>
             </ContainerCart>
         </Content>
     )

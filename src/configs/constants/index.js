@@ -67,3 +67,19 @@ export const languages = [
         flag: EN
     }
 ];
+
+export const breakPoints = {
+    MOBILE: 576,
+    TABLET: 768,
+    TABLET_L: 992,
+    DESKTOP: 1024
+};
+
+const mediaQuery = (width) => `@media screen and (max-width: ${width - 1}px)`;
+
+export const media = {
+    mobile: mediaQuery(breakPoints.MOBILE),
+    tablet: mediaQuery(breakPoints.TABLET),
+    tabletL: mediaQuery(breakPoints.TABLET_L),
+    desktop: mediaQuery(breakPoints.DESKTOP),
+};

@@ -1,15 +1,21 @@
 import styled from "styled-components";
 
+import {media} from '../../configs/constants';
+
 export const HeaderWrapper = styled.div`
     border-bottom: 1px solid #f6f6f6;
-    padding: 40px 0;
-`;
-
-export const HeaderContainer = styled.div`
+    padding: 40px 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 70px;
+
+    ${media.tabletL} {
+        padding: 25px 30px;
+    }
+    ${media.mobile} {
+  
+    }
+
 `;
 
 export const HeaderLogoWrapper = styled.div`

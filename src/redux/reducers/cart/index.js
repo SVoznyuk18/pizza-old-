@@ -97,7 +97,7 @@ const deletePizzaItemSuccess = (state, action) => {
     }
 };
 
-const clearCartSuccess = (state, action) => {
+const clearCartSuccess = state => {
     return {
         ...state,
         cart: [],

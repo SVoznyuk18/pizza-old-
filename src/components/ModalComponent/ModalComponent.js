@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 import {SVG} from '..';
 import iconSvg from '../../assets/svg/iconSvg';
@@ -20,6 +21,20 @@ const ModalComponent = ({isOpenModal, onCloseModal, children}) => {
             </ModalContent>
         </ModalWrapper>
     )
+};
+
+ModalComponent.propTypes = {
+    isOpenModal: PropTypes.bool,
+    onCloseModal: PropTypes.func,
+    children: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]).isRequired
+}
+
+ModalComponent.defaultProps = {
+    isOpenModal: false,
+    onCloseModal: () => {}
 }
 
 export default ModalComponent;

@@ -1,17 +1,17 @@
 import React from "react";
-import {useForm, Controller} from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import DatePicker from "react-datepicker";
 import { useTranslation } from "react-i18next";
 
-import {Wrapper, Title, Form, ContactSection, AddressSection, TimeSection, StyledInput, DatePickerWrapper, Label} from './StyledComponents';
-import {BassicInput, BassicButton, TimePicker} from '../../../../components';
+import { Wrapper, Title, Form, ContactSection, AddressSection, TimeSection, StyledInput, DatePickerWrapper, Label } from './StyledComponents';
+import { BassicInput, BassicButton, TimePicker } from '../../../../components';
 import { colors } from "../../../../configs/colors";
 
 const OrderForm = () => {
 
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
-    const {register, handleSubmit, setValue , control, formState: { errors, dirtyFields }, reset } = useForm( {mode: 'all', defaultValues: {date: new Date()}} );
+    const { register, handleSubmit, setValue, control, formState: { errors, dirtyFields }, reset } = useForm({ mode: 'all', defaultValues: { date: new Date() } });
 
     const onSubmit = (data) => {
         console.log(data);
@@ -40,7 +40,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: t('form.errorMessage.required'), minLength: {value: 5, message: t('form.errorMessage.moreCharacters', {count: 5})}}}
+                        validation={{ required: t('form.errorMessage.required'), minLength: { value: 5, message: t('form.errorMessage.moreCharacters', { count: 5 }) } }}
                         dirtyFields={dirtyFields?.name}
                         errorMessagemargin='5px'
                         errorMessage={errors?.name && errors?.name?.message}
@@ -63,7 +63,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: t('form.errorMessage.required'), pattern: {value: /((0[\d]{2}))([\d-]{5,8})([\d]{2})/, message: t('form.errorMessage.wrongPhone')}}}
+                        validation={{ required: t('form.errorMessage.required'), pattern: { value: /((0[\d]{2}))([\d-]{5,8})([\d]{2})/, message: t('form.errorMessage.wrongPhone') } }}
                         dirtyFields={dirtyFields?.phone}
                         errorMessagemargin='5px'
                         errorMessage={errors?.phone && errors?.phone?.message}
@@ -85,7 +85,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: t('form.errorMessage.required'), pattern: {value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: t('form.errorMessage.wrongEmail')}}}
+                        validation={{ required: t('form.errorMessage.required'), pattern: { value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: t('form.errorMessage.wrongEmail') } }}
                         dirtyFields={dirtyFields?.email}
                         errorMessagemargin='5px'
                         errorMessage={errors?.email && errors?.email?.message}
@@ -110,7 +110,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: t('form.errorMessage.required'), minLength: {value: 5, message:  t('form.errorMessage.moreCharacters', {count: 5})}}}
+                        validation={{ required: t('form.errorMessage.required'), minLength: { value: 5, message: t('form.errorMessage.moreCharacters', { count: 5 }) } }}
                         dirtyFields={dirtyFields?.street}
                         errorMessagemargin='5px'
                         errorMessage={errors?.street && errors?.street?.message}
@@ -132,7 +132,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: t('form.errorMessage.required'), min: {value: 1, message: t('form.errorMessage.moreNumber', {count: 1})}}}
+                        validation={{ required: t('form.errorMessage.required'), min: { value: 1, message: t('form.errorMessage.moreNumber', { count: 1 }) } }}
                         dirtyFields={dirtyFields?.house}
                         errorMessagemargin='5px'
                         errorMessage={errors?.house && errors?.house?.message}
@@ -154,7 +154,7 @@ const OrderForm = () => {
                         borderRadius='15px'
                         fontSize='16px'
                         register={register}
-                        validation={{required: t('form.errorMessage.required'), min: {value: 1, message:  t('form.errorMessage.moreNumber', {count: 1})}}}
+                        validation={{ required: t('form.errorMessage.required'), min: { value: 1, message: t('form.errorMessage.moreNumber', { count: 1 }) } }}
                         dirtyFields={dirtyFields?.apartment}
                         errorMessagemargin='5px'
                         errorMessage={errors?.apartment && errors?.apartment?.message}
@@ -183,13 +183,13 @@ const OrderForm = () => {
                         fontSize='16px'
                         register={register}
                         setValue={setValue}
-                        validation={{required: t('form.errorMessage.required')}}
+                        validation={{ required: t('form.errorMessage.required') }}
                         dirtyFields={dirtyFields?.time}
                         errorMessagemargin='5px'
                         errorMessage={errors?.time && errors?.time?.message}
                     />
                     <DatePickerWrapper width='120px'>
-                        <Label 
+                        <Label
                             htmlFor='date'
                             labelFontSize='16px'
                             labelMarginBottom='5px'
@@ -222,7 +222,7 @@ const OrderForm = () => {
                                     onChange={(date) => field.onChange(date)}
                                 />
                             )}
-                        />                
+                        />
                     </DatePickerWrapper>
                 </TimeSection>
                 <BassicButton

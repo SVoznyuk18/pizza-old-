@@ -1,18 +1,38 @@
 import styled from "styled-components";
-
+import {media} from '../configs/constants'
 
 export const Wrapper = styled.div`
     width: calc(100vw - 100px);
     height: 100%;
     background-color: #fff;
-    margin: 50px auto;
+    margin: 50px;
     border-radius: 10px;
-    max-width: 1400px;
+    max-width: 100%;
+
+    ${media.tabletL} {
+        margin: 30px;
+        width: calc(100vw - 60px);
+    }
+    ${media.mobile} {
+        margin: 10px;
+        width: calc(100vw - 20px);
+    }
+
 `;
 
 export const Container = styled.div`
-    width: 90%;
-    margin: 0 auto;
+    padding: 0 30px;
+
+    ${media.tablet} {
+        padding: 0px 25px;
+    }
+    ${media.mobile} {
+        margin: 10px;
+        padding: 0px 10px;
+    }
+
+    
+
 `;
 
 export const Cart = styled.div``;
@@ -30,17 +50,33 @@ export const ContentTop = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    ${media.tabletL} {
+        flex-direction: column;
+       
+    }
 `;
 
 export const ContentItems = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     margin: 0;
+
+    ${media.tablet} {
+        justify-content: center;
+    }
+
+
 `;
 
 export const MainTitle = styled.h2`
     margin: 35px 0;
+
+    ${media.tablet} {
+        margin: 20px 0;
+    }
 `;
 
 export const CartTitle = styled.h2`

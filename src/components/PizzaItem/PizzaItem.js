@@ -34,7 +34,7 @@ const PizzaItem = memo(({ pizzaItem }) => {
             <PizzaImg
                 src={pizzaItem?.imageUrl}
                 alt={`pizza ${pizzaItem?.name}`}
-                width="260px"
+                width="100%"
             />
             <Title>{t(`pizzaName.${pizzaItem?.name}`)}</Title>
             <SelectorSection>
@@ -49,9 +49,9 @@ const PizzaItem = memo(({ pizzaItem }) => {
                     width='130px'
                     backgroundColor="#ffff"
                     alignItems='center'
-                    justifyContent='center'
+                    justifyContent='space-evenly'
                     fontWeight={600}
-                    fontSize='16px'
+                    fontSize='18px'
                     onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
                 >
                     <IconCustom
@@ -83,8 +83,8 @@ PizzaItem.propTypes = {
         imageUrl: PropTypes.string,
         name: PropTypes.string,
         price: PropTypes.number,
-        size: PropTypes.number,
-        type: PropTypes.string
+        sizes: PropTypes.number,
+        types: PropTypes.string
     })
 };
 

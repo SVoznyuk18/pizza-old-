@@ -1,9 +1,10 @@
 import styled from 'styled-components'
+import { colors } from '../../configs/colors';
 
 export const CarItemWrapper = styled.div`
     display: flex;
     width: 100%;
-    border-top: 1px solid $gray-line;
+    border-top: 1px solid ${colors.greyLine};
     padding-top: 30px;
     margin-top: 30px;
 `;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {media} from '../../configs/constants';
 export const List = styled.ul`
     margin: 5px;
     display: flex;
@@ -11,7 +11,13 @@ export const ListItem = styled.li`
     flex: 1;
     cursor: pointer;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 18px;
+    ${media.tablet} {
+        font-size: 20px;
+    }
+    ${media.mobile} {
+        font-size: 16px;
+    }
 `;
 
 export const ListItemActive = styled(ListItem)`

@@ -8,7 +8,7 @@ const initialState = {
 
 
 const handleToggleModal = (state, action) => {
-    const { isOpenModal, modalType, payload } = action.payload;
+    const { isOpenModal } = action.payload;
     let modalParams = state;
 
     if (isOpenModal) {

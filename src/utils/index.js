@@ -1,3 +1,4 @@
+
 import moment from 'moment';
 import localization from 'moment/locale/uk'
 
@@ -23,7 +24,7 @@ export const formatedTimeArray = (start, end, step) => {
 
   for (let ts = startTime; ts < endTime; ts += stepMilliseconds) {
     timeInterval.push(ts);
-  };
+  }
 
   const intervalArray = timeInterval?.map(intervalItem => {
 

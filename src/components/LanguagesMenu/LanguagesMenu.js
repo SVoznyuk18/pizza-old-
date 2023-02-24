@@ -1,7 +1,7 @@
 import React, {useState, useMemo} from "react";
 import PropTypes from 'prop-types';
 
-import {Wrapper, MenuHeader, MenuContent, MenuItem, Img, Title} from './StyledComponents';
+import {LanguagesWrapper, MenuHeader, MenuContent, MenuItem, Img, Title} from './StyledComponents';
 
 const lang = localStorage.getItem('i18nextLng');
 
@@ -15,7 +15,7 @@ const LanguagesMenu = ({menuItems, changleLanguage}) => {
     } , [menuItems, language]); 
 
     return (
-        <Wrapper>
+        <LanguagesWrapper>
             <MenuHeader onClick={() => setToggleMenu(!toggleMenu)}>
                 <Img src={choosenLanguage?.flag}/>
                 <Title>{choosenLanguage?.title}</Title>
@@ -34,7 +34,7 @@ const LanguagesMenu = ({menuItems, changleLanguage}) => {
                     );
                 })}
             </MenuContent>
-        </Wrapper>
+        </LanguagesWrapper>
     )
 };
 

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import PropTypes from 'prop-types';
 import {filterCategory} from '../../redux/actions';
 
-import { CategoriesWrapper, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
+import { CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 
 const Categories = memo(({ handleDispatch }) => {
     const categories = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
@@ -12,25 +12,11 @@ const Categories = memo(({ handleDispatch }) => {
     const { t } = useTranslation();
 
     return (
-        <CategoriesWrapper>
-            <CategoriesList>
-                {categories.map((item, index) => {
-                    if (activeClass === index) {
-                        return (
-                            <ListItemActive
-                                key={index}
-                                onClick={() => {
-                                    setActiveClass(index);
-                                    handleDispatch(filterCategory(index));
-                                }
-                                }
-                            >
-                                {t(`categoriesPizza.${item}`)}
-                            </ListItemActive>
-                        )
-                    }
+        <CategoriesList>
+            {categories.map((item, index) => {
+                if (activeClass === index) {
                     return (
-                        <ListItem
+                        <ListItemActive
                             key={index}
                             onClick={() => {
                                 setActiveClass(index);
@@ -39,11 +25,23 @@ const Categories = memo(({ handleDispatch }) => {
                             }
                         >
                             {t(`categoriesPizza.${item}`)}
-                        </ListItem>
+                        </ListItemActive>
                     )
-                })}
-            </CategoriesList>
-        </CategoriesWrapper>
+                }
+                return (
+                    <ListItem
+                        key={index}
+                        onClick={() => {
+                            setActiveClass(index);
+                            handleDispatch(filterCategory(index));
+                        }
+                        }
+                    >
+                        {t(`categoriesPizza.${item}`)}
+                    </ListItem>
+                )
+            })}
+        </CategoriesList>
     )
 });
 
