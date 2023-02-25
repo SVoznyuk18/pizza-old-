@@ -3,10 +3,6 @@ import {media} from '../../configs/constants';
 
 export const SortWrapper = styled.div`
     position: relative;
-    ${media.tabletL} {
-        align-self: flex-end;
-    }
-    
 `;
 
 export const SortLabel = styled.div`

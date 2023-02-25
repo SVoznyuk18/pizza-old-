@@ -44,6 +44,12 @@ export const ContainerCart = styled(Container)`
 
 export const Content = styled.div`
     padding: 40px 0;
+    ${media.tablet} {
+        padding: 20px 0;
+    }
+    ${media.mobileS} {
+        padding: 10px 0;
+    }
 `;
 
 export const ContentTop = styled.div`
@@ -53,7 +59,7 @@ export const ContentTop = styled.div`
 
     ${media.tabletL} {
         flex-direction: column;
-       
+        align-items: flex-end;
     }
 `;
 

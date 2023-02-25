@@ -12,8 +12,13 @@ export const HeaderWrapper = styled.div`
     ${media.tabletL} {
         padding: 25px 30px;
     }
+    ${media.tablet} {
+        padding: 15px 25px;
+        width: 100%;
+    }
+    
     ${media.mobile} {
-  
+        padding: 10px;
     }
 
 `;
@@ -72,8 +77,12 @@ export const Delimiter = styled.div`
     margin-right: 14px;
 `;
 
-export const Wrepper = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    ${media.tablet} {
+        width: 100%;
+    }
 `;

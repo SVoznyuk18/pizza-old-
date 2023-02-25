@@ -4,13 +4,16 @@ import { useTranslation } from "react-i18next";
 
 import { getPizzaRequest } from '../redux/actions';
 import { filteredPizzaSelector } from '../utils';
+import { breakPoints } from '../configs/constants';
 
 import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from '../components';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
 
-const Main = () => {
+const Main = ({screenWidth}) => {
+
     const categories = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
     const dispatch = useDispatch();
+
     const { pizza, pizzaLoading, pizzaError } = useSelector(state => state.pizza);
     const { idActiveCategory } = useSelector(state => state.filters);
     const { sortBy } = useSelector(state => state.filters);
@@ -19,8 +22,9 @@ const Main = () => {
 
     useEffect(() => {
         dispatch(getPizzaRequest());
-    }, [dispatch])
+    }, [dispatch]);
 
+  
     const filteredPizza = filteredPizzaSelector(pizza, idActiveCategory, sortBy);
 
     const renderPizza = () => {
@@ -43,7 +47,7 @@ const Main = () => {
         <Content>
             <Container>
                 <ContentTop>
-                    <Categories handleDispatch={dispatch} categoriesType='popUp' />
+                    <Categories handleDispatch={dispatch}  filterView= {screenWidth > breakPoints.TABLET_L ? 'default' : 'popUp' } />
                     <Sort />
                 </ContentTop>
                 <MainTitle>{t(`categoriesPizza.${categories[idActiveCategory]}`)}</MainTitle>

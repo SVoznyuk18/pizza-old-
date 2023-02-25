@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
-import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrepper } from './StyledComponents';
+import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper } from './StyledComponents';
 
 import logoSvg from '../../assets/svg/pizza-logo.svg';
 import iconSvg from '../../assets/svg/iconSvg';
-import { languages } from '../../configs/constants';
+import { languages, breakPoints } from '../../configs/constants';
 
-const Header = ({totalPrice, totalAmount}) => {
+const Header = ({totalPrice, totalAmount, screenWidth}) => {
 
     const {t, i18n} = useTranslation();
 
@@ -20,17 +20,19 @@ const Header = ({totalPrice, totalAmount}) => {
 
     return (
         <HeaderWrapper>
-            <Link to="/">
-
-                <HeaderLogoWrapper>
-                    <Img width="38px" src={logoSvg} alt="Pizza logo" />
-                    <HeaderLogoDescription>
-                        <HeaderTitle>Pizza</HeaderTitle>
-                        <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
-                    </HeaderLogoDescription>
-                </HeaderLogoWrapper>
-            </Link>
-            <Wrepper>
+            <If condition={screenWidth >= breakPoints.TABLET}>
+                <Link to="/">
+                    <HeaderLogoWrapper>
+                        <Img width="38px" src={logoSvg} alt="Pizza logo" />
+                        <HeaderLogoDescription>
+                            <HeaderTitle>Pizza</HeaderTitle>
+                            <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
+                        </HeaderLogoDescription>
+                    </HeaderLogoWrapper>
+                </Link>
+            </If>
+           
+            <Wrapper>
                 <Link to={"/cart"}>
                     <BassicButton
                         display="flex"
@@ -58,7 +60,7 @@ const Header = ({totalPrice, totalAmount}) => {
                     </BassicButton>
                 </Link>
                 <LanguagesMenu menuItems={languages} changleLanguage={changleLanguage}/>
-            </Wrepper> 
+            </Wrapper> 
 
         </HeaderWrapper>
     );
@@ -66,7 +68,8 @@ const Header = ({totalPrice, totalAmount}) => {
 
 Header.propTypes = {
     totalPrice: PropTypes.number,
-    totalAmount: PropTypes.number
+    totalAmount: PropTypes.number,
+    screenWidth: PropTypes.number.isRequired
 };
 
 Header.defaultProps = {
