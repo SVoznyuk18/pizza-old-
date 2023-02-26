@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from 'prop-types'
 
-import {Wrapper, ErrorLabel} from './StyledComponents';
+import { Wrapper, ErrorLabel } from './StyledComponents';
 
-const ErrorMessage = ({errorMessagemargin, children}) => {
-    return(
+const ErrorMessage = ({ errorMessagemargin, children }) => {
+    return (
         <Wrapper margin={errorMessagemargin}>
             <ErrorLabel >{children}</ErrorLabel>
         </Wrapper>
@@ -23,4 +23,4 @@ ErrorMessage.defaultProps = {
     errorMessagemargin: '',
 }
 
-export default ErrorMessage;
+export default memo(ErrorMessage);

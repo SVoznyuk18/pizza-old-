@@ -1,20 +1,17 @@
 import React, { useState, memo } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from 'prop-types';
-import {filterCategory} from '../../redux/actions';
+import { filterCategory } from '../../redux/actions';
 
 import { CategoriesWrapper, CategoriesLabel, CategoriesListPopUp, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 
-const Categories = memo(({ handleDispatch, filterView }) => {
-    const categories = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
+const Categories = ({ handleDispatch, filterView, categories }) => {
     const { t } = useTranslation();
 
     const [activeClass, setActiveClass] = useState(0);
     const [showList, setShowList] = useState(false);
     const [categoriesLabel, setCategoriesLabel] = useState(t(`categoriesPizza.all`));
 
-    console.log(filterView);
-    
     return (
         <CategoriesWrapper>
             <Choose>
@@ -25,17 +22,17 @@ const Categories = memo(({ handleDispatch, filterView }) => {
                             <Choose>
                                 <When condition={activeClass === index}>
                                     <ListItemActive
-                                            key={index} 
+                                        key={index}
 
-                                            onClick={() => {
-                                                setActiveClass(index);
-                                                handleDispatch(filterCategory(index));
-                                                setCategoriesLabel(t(`categoriesPizza.${item}`));
-                                                setShowList(false);
-                                            }
-                                            }
-                                        >
-                                            {t(`categoriesPizza.${item}`)}
+                                        onClick={() => {
+                                            setActiveClass(index);
+                                            handleDispatch(filterCategory(index));
+                                            setCategoriesLabel(t(`categoriesPizza.${item}`));
+                                            setShowList(false);
+                                        }
+                                        }
+                                    >
+                                        {t(`categoriesPizza.${item}`)}
                                     </ListItemActive>
                                 </When>
                                 <Otherwise>
@@ -62,14 +59,14 @@ const Categories = memo(({ handleDispatch, filterView }) => {
                             <Choose>
                                 <When condition={activeClass === index}>
                                     <ListItemActive
-                                            key={index}
-                                            onClick={() => {
-                                                setActiveClass(index);
-                                                handleDispatch(filterCategory(index));
-                                            }
-                                            }
-                                        >
-                                            {t(`categoriesPizza.${item}`)}
+                                        key={index}
+                                        onClick={() => {
+                                            setActiveClass(index);
+                                            handleDispatch(filterCategory(index));
+                                        }
+                                        }
+                                    >
+                                        {t(`categoriesPizza.${item}`)}
                                     </ListItemActive>
                                 </When>
                                 <Otherwise>
@@ -90,16 +87,18 @@ const Categories = memo(({ handleDispatch, filterView }) => {
             </Choose>
         </CategoriesWrapper>
     )
-});
+};
 
 Categories.propTypes = {
     handleDispatch: PropTypes.func,
-    filterView: PropTypes.string
+    filterView: PropTypes.string,
+    categories: PropTypes.arrayOf(PropTypes.string)
 };
 
 Categories.defaultProps = {
-    handleDispatch: () => {},
-    filterView: 'default'
+    handleDispatch: () => { },
+    filterView: 'default',
+    categories: []
 }
 
-export default Categories;
+export default memo(Categories);

@@ -3,23 +3,21 @@ import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import {addPizzaToCart } from '../../redux/actions';
+import { addPizzaToCart } from '../../redux/actions';
 
 import { Selector, BassicButton, SVG } from '../index';
 import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, IconCustom, Price } from "./StyledComponents";
 import iconSvg from '../../assets/svg/iconSvg';
 
-const PizzaItem = memo(({ pizzaItem }) => {
+const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
 
-    const avaliableTypes = ["thin", "traditional"];
-    const avaliableSizes = ['26', '30', '40'];
+    const dispatch = useDispatch();
+    const { t } = useTranslation();
 
     const [selectType, setSelectType] = useState("thin");
     const [selectSize, setSelectSize] = useState('26');
-    const dispatch = useDispatch();
-    const {t} = useTranslation();
 
-    const orderConfig = (pizzaId) =>({
+    const orderConfig = (pizzaId) => ({
         id: pizzaId,
         imageUrl: pizzaItem?.imageUrl,
         name: pizzaItem?.name,
@@ -39,10 +37,10 @@ const PizzaItem = memo(({ pizzaItem }) => {
             <Title>{t(`pizzaName.${pizzaItem?.name}`)}</Title>
             <SelectorSection>
                 <Selector avaliableItems={avaliableTypes} handleSelect={setSelectType} types={pizzaItem?.types} selectedType={selectType} />
-                <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={pizzaItem?.sizes} selectedType={selectSize} selectorType='size'/>
+                <Selector avaliableItems={avaliableSizes} handleSelect={setSelectSize} types={pizzaItem?.sizes} selectedType={selectSize} selectorType='size' />
             </SelectorSection>
             <BottomSection>
-                <Price>{`${t('common.from')} ${pizzaItem?.price} ₽`}</Price>
+                <Price>{`${t('common.from')} ${t('common.cost', { cost: pizzaItem?.price })}`}</Price>
                 <BassicButton
                     display='flex'
                     padding='10px 20px'
@@ -72,9 +70,8 @@ const PizzaItem = memo(({ pizzaItem }) => {
                 </BassicButton>
             </BottomSection>
         </PizzaBlock>
-
     )
-});
+};
 
 PizzaItem.propTypes = {
     pizzaItem: PropTypes.shape({
@@ -83,13 +80,17 @@ PizzaItem.propTypes = {
         imageUrl: PropTypes.string,
         name: PropTypes.string,
         price: PropTypes.number,
-        sizes: PropTypes.number,
-        types: PropTypes.string
-    })
+        sizes: PropTypes.arrayOf(PropTypes.string),
+        types: PropTypes.arrayOf(PropTypes.string)
+    }),
+    avaliableTypes: PropTypes.arrayOf(PropTypes.string),
+    avaliableSizes: PropTypes.arrayOf(PropTypes.string)
 };
 
 PizzaItem.defaultProps = {
-    cartItem: {}
+    pizzaItem: {},
+    avaliableTypes: [],
+    avaliableSizes: []
 }
 
-export default PizzaItem;
+export default memo(PizzaItem);

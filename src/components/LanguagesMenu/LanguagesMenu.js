@@ -1,23 +1,30 @@
-import React, {useState, useMemo} from "react";
+import React, { useState, useMemo, memo } from "react";
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
-import {LanguagesWrapper, MenuHeader, MenuContent, MenuItem, Img, Title} from './StyledComponents';
+import { LanguagesWrapper, MenuHeader, MenuContent, MenuItem, Img, Title } from './StyledComponents';
 
 const lang = localStorage.getItem('i18nextLng');
 
-const LanguagesMenu = ({menuItems, changleLanguage}) => {
+const LanguagesMenu = ({ menuItems }) => {
+
+    const { i18n } = useTranslation();
 
     const [language, setLanguage] = useState(lang);
     const [toggleMenu, setToggleMenu] = useState(false);
-    
+
+    const changleLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    }
+
     const choosenLanguage = useMemo(() => {
         return menuItems.find(item => item?.lang === language);
-    } , [menuItems, language]); 
+    }, [menuItems, language]);
 
     return (
         <LanguagesWrapper>
             <MenuHeader onClick={() => setToggleMenu(!toggleMenu)}>
-                <Img src={choosenLanguage?.flag}/>
+                <Img src={choosenLanguage?.flag} />
                 <Title>{choosenLanguage?.title}</Title>
             </MenuHeader>
             <MenuContent toggleMenu={toggleMenu}>
@@ -28,7 +35,7 @@ const LanguagesMenu = ({menuItems, changleLanguage}) => {
                             changleLanguage(item?.lang);
                             setLanguage(item?.lang);
                         }}>
-                            <Img src={item?.flag}/>
+                            <Img src={item?.flag} />
                             <Title>{item?.title}</Title>
                         </MenuItem>
                     );
@@ -40,11 +47,7 @@ const LanguagesMenu = ({menuItems, changleLanguage}) => {
 
 LanguagesMenu.propTypes = {
     menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-    changleLanguage: PropTypes.func
+
 };
 
-LanguagesMenu.defaultProps = {
-    changleLanguage: () => {}
-}
-
-export default LanguagesMenu;
+export default memo(LanguagesMenu);

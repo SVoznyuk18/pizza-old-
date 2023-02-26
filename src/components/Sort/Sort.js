@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
+import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { sortBy } from "../../redux/actions";
 
 import { SortWrapper, SortLabel, SortPopUp, SortList, SortItem } from './StyledComponents';
 
-export const Sort = () => {
-    const sort = ["popularity", "price", "alphabet"];
+export const Sort = ({ sort }) => {
+
+    const dispatch = useDispatch();
+    const { t } = useTranslation();
+
     const [activeSortModal, setActiveSortModal] = useState(false);
     const [sortActive, setSortActive] = useState(0);
-    const dispatch = useDispatch();
-    const {t} = useTranslation();
 
     return (
         <SortWrapper
@@ -56,4 +58,12 @@ export const Sort = () => {
     );
 }
 
-export default Sort;
+Sort.propTypes = {
+    sort: PropTypes.arrayOf(PropTypes.string),
+};
+
+Sort.defaultProps = {
+    sort: []
+}
+
+export default memo(Sort);

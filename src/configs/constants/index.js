@@ -87,3 +87,9 @@ export const media = {
     desktop: mediaQuery(breakPoints.DESKTOP),
     desktopL: mediaQuery(breakPoints.DESKTOP_L),
 };
+
+export const CATEGORIES = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
+
+export const AVALIABLE_TYPES = ["thin", "traditional"];
+export const AVALIABLE_SIZES = ['26', '30', '40'];
+export const SORT = ["popularity", "price", "alphabet"];

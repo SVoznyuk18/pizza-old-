@@ -1,52 +1,52 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { formatedTimeArray, setDisableTime } from '../../utils';
 import { ErrorMessage } from '../';
 import { colors } from "../../configs/colors"
-import {Wrapper, Label, Input, WrapperTimeList, TimeList, ListItem} from './StyledComponents';
+import { Wrapper, Label, Input, WrapperTimeList, TimeList, ListItem } from './StyledComponents';
 
 
 const getColor = (error, dirtyFields) => {
     if (error) return colors.errorMessage;
-    if(!error && dirtyFields) return colors.validColor;
+    if (!error && dirtyFields) return colors.validColor;
     return colors.grey;
 }
 
-const TimePicker = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, borderRadius, fontSize, margin, register, validation, dirtyFields, errorMessage, errorMessagemargin, start, end, step, setValue }) => {
+const TimePicker = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, borderRadius, fontSize, margin, register, validation, dirtyFields, errorMessage, errorMessagemargin, start, end, step, setValue }) => {
 
     const [showTimeList, setShowTimeList] = useState(false);
     const timeArray = formatedTimeArray(start, end, step);
 
     const handleHideList = (e) => {
-        if(!(e.target.nodeName === 'LI' || e.target.nodeName === 'INPUT')) setShowTimeList(false);
+        if (!(e.target.nodeName === 'LI' || e.target.nodeName === 'INPUT')) setShowTimeList(false);
     }
 
     useEffect(() => {
         if (showTimeList) {
-          window.addEventListener('click', handleHideList);
+            window.addEventListener('click', handleHideList);
         }
-  
+
         return () => {
-          window.removeEventListener('click', handleHideList);
+            window.removeEventListener('click', handleHideList);
         };
     }, [showTimeList])
 
     return (
-        <Wrapper 
-            borderRadius={borderRadius} 
+        <Wrapper
+            borderRadius={borderRadius}
             width={width}
             margin={margin}
         >
-             <Label 
-                htmlFor={htmlFor} 
+            <Label
+                htmlFor={htmlFor}
                 labelFontSize={labelFontSize}
-                labelMarginBottom={labelMarginBottom} 
+                labelMarginBottom={labelMarginBottom}
                 labelLineHeight={labelLineHeight}
             >
                 {label}
             </Label>
-            <Input 
+            <Input
                 id={id}
                 type={type}
                 autocomplete="off"
@@ -62,21 +62,20 @@ const TimePicker = ({label, htmlFor, labelFontSize, labelMarginBottom, labelLine
                 onClick={() => setShowTimeList(true)}
             />
             <ErrorMessage errorMessagemargin={errorMessagemargin}>{errorMessage}</ErrorMessage>
-            
             <WrapperTimeList showTimeList={showTimeList}>
                 <TimeList>
                     {
-                        timeArray && timeArray.map((time, index ) => {
-                            return <ListItem 
+                        timeArray && timeArray.map((time, index) => {
+                            return <ListItem
                                 disabled={setDisableTime(time.milliseconds)}
-                                key={index} 
+                                key={index}
                                 onClick={
                                     () => {
-                                        if(setDisableTime(time.milliseconds)) {
-                                            setValue(name, `${time.hours} : ${time.minutes}`, {shouldValidate: true});
+                                        if (setDisableTime(time.milliseconds)) {
+                                            setValue(name, `${time.hours} : ${time.minutes}`, { shouldValidate: true });
                                             setShowTimeList(false);
                                         }
-                                    } 
+                                    }
                                 }
                             >
                                 {`${time.hours} : ${time.minutes}`}
@@ -137,14 +136,14 @@ TimePicker.defaultProps = {
     borderRadius: '',
     fontSize: '',
     margin: '',
-    register: () => {},
+    register: () => { },
     dirtyFields: false,
     errorMessage: '',
     errorMessagemargin: '',
     start: '00:00',
     end: '23:59',
     step: 30,
-    setValue: () => {}
+    setValue: () => { }
 }
 
-export default TimePicker;
+export default memo(TimePicker);

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {media} from '../../configs/constants';
 
 export const SortWrapper = styled.div`
     position: relative;

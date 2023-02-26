@@ -37,8 +37,8 @@
     },
     "common": {
         "from": "from",
-        "piece": "pc.",
-        "size": "cm.",
+        "amount": "{{amount}} pc.",
+        "size": " {{size}} cm.",
         "cost": "{{cost}} uah"
     },
     "cart": "Cart",

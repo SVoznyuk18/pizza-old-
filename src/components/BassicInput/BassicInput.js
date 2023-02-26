@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from 'prop-types';
 import { Wrapper, Label, Input } from './StyledComponents';
 
@@ -94,4 +94,4 @@ BassicInput.defaultProps = {
     value: ''
 }
 
-export default BassicInput;
+export default memo(BassicInput);

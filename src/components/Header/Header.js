@@ -1,23 +1,16 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
-import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount} from './StyledComponents';
+import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount } from './StyledComponents';
 
 import logoSvg from '../../assets/svg/pizza-logo.svg';
 import iconSvg from '../../assets/svg/iconSvg';
 import { languages, breakPoints } from '../../configs/constants';
 import { convertCost } from '../../utils';
 
-const Header = ({totalPrice, totalAmount, screenWidth}) => {
-
-    const {t, i18n} = useTranslation();
-
-    const changleLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    }
+const Header = ({ totalPrice, totalAmount, screenWidth }) => {
 
     return (
         <HeaderWrapper>
@@ -32,7 +25,6 @@ const Header = ({totalPrice, totalAmount, screenWidth}) => {
                     </HeaderLogoWrapper>
                 </Link>
             </If>
-           
             <Wrapper>
                 <Link to={"/cart"}>
                     <BassicButton
@@ -44,7 +36,7 @@ const Header = ({totalPrice, totalAmount, screenWidth}) => {
                         backgroundColor="#fe5f1e"
                     >
                         <Cost>{convertCost(totalPrice)}</Cost>
-                        <Delimiter/>
+                        <Delimiter />
                         <IconCustom
                             width='18'
                             height='18'
@@ -60,8 +52,8 @@ const Header = ({totalPrice, totalAmount, screenWidth}) => {
                         <Amount>{totalAmount}</Amount>
                     </BassicButton>
                 </Link>
-                <LanguagesMenu menuItems={languages} changleLanguage={changleLanguage}/>
-            </Wrapper> 
+                <LanguagesMenu menuItems={languages} />
+            </Wrapper>
 
         </HeaderWrapper>
     );

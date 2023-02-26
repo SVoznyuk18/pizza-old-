@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colors } from '../../configs/colors';
-import {media} from '../../configs/constants';
+import { media } from '../../configs/constants';
 
 export const HeaderWrapper = styled.div`
     border-bottom: 1px solid #f6f6f6;
@@ -20,7 +20,6 @@ export const HeaderWrapper = styled.div`
     ${media.mobile} {
         padding: 10px;
     }
-
 `;
 
 export const Cost = styled.div`

@@ -62,8 +62,8 @@ const Cart = () => {
                 </ContentItems>
                 <CartBottom>
                     <CartBottomDetails>
-                        <span> {t('amoutPizzas')} <b>{`${totalAmount} ${t('common.piece')}`}</b> </span>
-                        <span> {t('orderPrice')} <b>{`${totalPrice} ₽`}</b> </span>
+                        <span> {t('amoutPizzas')} <b>{t('common.amount', { amount: totalAmount })}</b> </span>
+                        <span> {t('orderPrice')} <b>{t('common.cost', { cost: totalPrice })}</b> </span>
                     </CartBottomDetails>
                     <CartButtonSection>
                         <Link to="/">

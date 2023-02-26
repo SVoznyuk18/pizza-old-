@@ -53,7 +53,7 @@ export const Img = styled.img`
     margin-right: 15px;
 `;
 
-export const Title  = styled.div`
+export const Title = styled.div`
     font-size: 16px;
 
 `;

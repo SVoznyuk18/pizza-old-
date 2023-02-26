@@ -37,8 +37,8 @@
     },
     "common": {
         "from": "от",
-        "piece": "шт.",
-        "size": "cм.",
+        "amount": " {{amount}} шт.",
+        "size": "{{size}} cм.",
         "cost": "{{cost}} грн"
     },
     "cart": "Корзина",

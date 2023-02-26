@@ -1,15 +1,15 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from 'prop-types';
 
-import {SVG} from '..';
+import { SVG } from '..';
 import iconSvg from '../../assets/svg/iconSvg';
-import {ModalWrapper, ModalContent, CloseButton} from './StyledComponents';
+import { ModalWrapper, ModalContent, CloseButton } from './StyledComponents';
 
-const ModalComponent = ({isOpenModal, onCloseModal, children}) => {
+const ModalComponent = ({ isOpenModal, onCloseModal, children }) => {
     return (
         <ModalWrapper isOpenModal={isOpenModal}>
             <ModalContent>
-                <CloseButton onClick={() => onCloseModal()}>   
+                <CloseButton onClick={() => onCloseModal()}>
                     <SVG
                         width='18'
                         height='18'
@@ -34,7 +34,7 @@ ModalComponent.propTypes = {
 
 ModalComponent.defaultProps = {
     isOpenModal: false,
-    onCloseModal: () => {}
+    onCloseModal: () => { }
 }
 
-export default ModalComponent;
+export default memo(ModalComponent);

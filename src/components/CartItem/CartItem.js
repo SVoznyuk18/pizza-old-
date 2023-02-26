@@ -8,9 +8,8 @@ import iconSvg from '../../assets/svg/iconSvg';
 
 import { colors } from "../../configs/colors";
 
-const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
-    const {t} = useTranslation();
-    console.log(cartItem?.name);
+const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
+    const { t } = useTranslation();
     return (
         <CarItemWrapper>
             <CartImgWrapper>
@@ -21,10 +20,10 @@ const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeleteP
                     alt="Pizza"
                 />
             </CartImgWrapper>
-           
+
             <CartItemInfo>
                 <h3>{t(`pizzaName.${cartItem?.name}`)}</h3>
-                <p> {`${t(`${cartItem?.type}`)}, ${t(`${cartItem?.size}`)} ${t('common.size')}`}</p>
+                <p> {`${t(`pizzaType.${cartItem?.type}`)}, ${t('common.size', { size: cartItem?.size })}`}</p>
             </CartItemInfo>
             <ControlsWrapper>
                 <CountSection>
@@ -79,7 +78,7 @@ const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeleteP
                     </BassicButton>
                 </CountSection>
                 <PriceSection>
-                    <b>{`${cartItem?.amountPizzas * cartItem?.price} ₽`}</b>
+                    <b>{t('common.cost', { cost: cartItem?.amountPizzas * cartItem?.price })}</b>
                 </PriceSection>
                 <RemoveSection>
                     <BassicButton
@@ -108,10 +107,9 @@ const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeleteP
                     </BassicButton>
                 </RemoveSection>
             </ControlsWrapper>
-           
         </CarItemWrapper>
     )
-});
+};
 
 CartItem.propTypes = {
     cartItem: PropTypes.shape({
@@ -135,4 +133,4 @@ CartItem.defaultProps = {
     onDeletePizzaItem: () => { }
 }
 
-export default CartItem;
+export default memo(CartItem);

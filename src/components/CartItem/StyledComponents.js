@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../configs/colors';
-import {media} from '../../configs/constants';
+import { media } from '../../configs/constants';
 
 export const CarItemWrapper = styled.div`
     display: flex;

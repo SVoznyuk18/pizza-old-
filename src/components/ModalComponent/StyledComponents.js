@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { colors } from '../../configs/colors';
 import { media } from '../../configs/constants';
 
-
 export const ModalWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -50,5 +49,4 @@ export const CloseButton = styled.div`
             fill: ${colors.orange};
         }
     }
-    
 `;

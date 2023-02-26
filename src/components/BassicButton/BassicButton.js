@@ -4,28 +4,28 @@ import PropTypes from 'prop-types';
 import { Button } from "./StyledComponents";
 import { colors } from "../../configs/colors";
 
-export const BassicButton = memo((props) => {
-    
+export const BassicButton = (props) => {
+
     const {
         type,
-        display, 
-        alignItems, 
-        justifyContent, 
-        padding, 
-        width, 
+        display,
+        alignItems,
+        justifyContent,
+        padding,
+        width,
         minWidth,
-        height, 
+        height,
         margin,
         backgroundColor,
-        hoverBackgroundColor, 
-        fontSize, 
-        fontWeight, 
-        lineHeight, 
-        color, 
-        hoverColor, 
-        borderColor, 
-        hoverBorderColor, 
-        onClick, 
+        hoverBackgroundColor,
+        fontSize,
+        fontWeight,
+        lineHeight,
+        color,
+        hoverColor,
+        borderColor,
+        hoverBorderColor,
+        onClick,
         children,
         disabled
     } = props;
@@ -56,7 +56,7 @@ export const BassicButton = memo((props) => {
             {children}
         </Button>
     );
-});
+};
 
 BassicButton.propTypes = {
     children: PropTypes.oneOfType([
@@ -108,4 +108,4 @@ BassicButton.defaultProps = {
     disabled: false
 }
 
-export default BassicButton;
+export default memo(BassicButton);

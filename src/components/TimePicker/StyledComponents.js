@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-
 import { colors } from "../../configs/colors";
 
 export const Wrapper = styled.div`
     position: relative;
     height: ${props => props.height};
     width: ${props => props.width};
-    border-radius: ${props => props.borderRadius ? props.borderRadius  : '15px'};
+    border-radius: ${props => props.borderRadius ? props.borderRadius : '15px'};
     margin: ${props => props.margin};
-`; 
+`;
 
 export const Label = styled.div`
     display: inline;
@@ -24,7 +23,7 @@ export const Input = styled.input`
     width: ${props => props.width};
     padding: ${props => props.padding};
     border: solid 1px ${props => props.borderColor};;
-    border-radius: ${props => props.borderRadius ? props.borderRadius  : '15px'};
+    border-radius: ${props => props.borderRadius ? props.borderRadius : '15px'};
     font-size: ${props => props.fontSize}
 `;
 
@@ -47,7 +46,6 @@ export const TimeList = styled.ul`
     background-color: ${colors.greyLine};
 
     &::-webkit-scrollbar-track {
- 
         background-color: ${colors.grey};
         border-radius: 10px;
     }
@@ -75,7 +73,6 @@ export const ListItem = styled.li`
     font-size: 16px;
     font-weight: 800;
     color: ${props => props.disabled ? colors.black : colors.grey};
-
     scroll-snap-align: start;
 
     &: hover {
