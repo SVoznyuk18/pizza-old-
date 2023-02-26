@@ -9,6 +9,7 @@ export const Button = styled.button`
     border-radius: 30px;
     padding: ${props => (props.padding ? props.padding : '10px 20px')} ;
     width: ${props => props.width};
+    min-width: ${props => props.minWidth};
     height: ${props => props.height};
     font-weight: ${props => props.fontWeight};
     font-size: ${props => props.fontSize};
@@ -18,6 +19,7 @@ export const Button = styled.button`
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     border: 1px solid transparent;
     border-color: ${props => props.borderColor};
+    margin: ${props => props.margin};
 
     &:hover {
         background-color: ${props => props.hoverBackgroundColor};

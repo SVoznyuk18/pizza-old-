@@ -28,7 +28,7 @@ function* watchAddPizzaToCart(action) {
 
 function* watchIncreasePizzaAmount(action) {
     try{
-        yield put({type: Types.INC_PIZZA_AMOUNT_SUCCESS, payload: action.payload.id});
+        yield put({type: Types.INC_PIZZA_AMOUNT_SUCCESS, payload: action.payload});
     }catch{
         console.log('should do smt');
     }
@@ -50,10 +50,11 @@ function* watchDecreasePizzaAmount(action) {
 }
 
 function* watchDeletePizzaItem(action) {
+    console.log()
     try{
         yield put({type: Types.DELETE_PIZZA_ITEM_SUCCESS, payload: action.payload.id});
     } catch {
-        console.log('should do smt');
+        console.log('should do watchDeletePizzaItem');
     }
 }
 

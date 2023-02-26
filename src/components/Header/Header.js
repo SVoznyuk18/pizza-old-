@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
-import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper } from './StyledComponents';
+import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount} from './StyledComponents';
 
 import logoSvg from '../../assets/svg/pizza-logo.svg';
 import iconSvg from '../../assets/svg/iconSvg';
 import { languages, breakPoints } from '../../configs/constants';
+import { convertCost } from '../../utils';
 
 const Header = ({totalPrice, totalAmount, screenWidth}) => {
 
@@ -38,11 +39,11 @@ const Header = ({totalPrice, totalAmount, screenWidth}) => {
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
-                        width="175px"
-                        padding="12px 25px"
+                        width='auto'
+                        padding="10px"
                         backgroundColor="#fe5f1e"
                     >
-                        <span>{`${totalPrice} ₽`}</span>
+                        <Cost>{convertCost(totalPrice)}</Cost>
                         <Delimiter/>
                         <IconCustom
                             width='18'
@@ -56,7 +57,7 @@ const Header = ({totalPrice, totalAmount, screenWidth}) => {
                                 path={iconSvg.cart}
                             />
                         </IconCustom>
-                        <span>{totalAmount}</span>
+                        <Amount>{totalAmount}</Amount>
                     </BassicButton>
                 </Link>
                 <LanguagesMenu menuItems={languages} changleLanguage={changleLanguage}/>

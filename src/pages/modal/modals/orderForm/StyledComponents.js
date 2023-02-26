@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../../../configs/constants";
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -12,6 +13,12 @@ export const Title = styled.h3`
     font-weight: 600;
     font-size: 28px;
     line-height: 30px;
+
+    ${media.mobile} {
+        margin: 5px 0 5px 0;
+        font-size: 20px;
+        line-height: 20px;
+    }
 `;
 
 export const ContactSection = styled.div`

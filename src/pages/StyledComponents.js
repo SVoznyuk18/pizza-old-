@@ -40,6 +40,13 @@ export const Cart = styled.div``;
 export const ContainerCart = styled(Container)`
     max-width: 820px;
     margin: 90px auto;
+
+    ${media.tablet} {
+        margin: 40px auto;
+    }
+    ${media.mobile} {
+        margin: 20px auto;
+    }
 `
 
 export const Content = styled.div`
@@ -89,6 +96,14 @@ export const CartTitle = styled.h2`
     display: flex;
     align-items: center;
     font-size: 32px;
+
+    ${media.tablet} {
+        font-size: 24px;
+    }
+    ${media.mobile} {
+        font-size: 24px;
+    }
+
 `;
 
 export const CartTop = styled.div`
@@ -99,6 +114,16 @@ export const CartTop = styled.div`
 
 export const CartBottom = styled.div`
     margin: 50px 0;
+
+    ${media.tablet} {
+        margin: 30px 0;
+    }
+    ${media.mobile} {
+        margin: 15px 0;
+    }
+
+
+    
 `;
 
 export const CartBottomDetails = styled.div`
@@ -113,6 +138,11 @@ export const CartBottomDetails = styled.div`
             color: $orange;
           }
         }
+    }
+
+    ${media.mobile} {
+        flex-direction: column;
+        align-items: center;
     }
 `;
 

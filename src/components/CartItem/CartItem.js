@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from "react-i18next";
 
 import { BassicButton, Img, SVG } from '../index';
-import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom } from './StyledComponents';
+import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom, ControlsWrapper, CartImgWrapper } from './StyledComponents';
 import iconSvg from '../../assets/svg/iconSvg';
 
 import { colors } from "../../configs/colors";
@@ -13,94 +13,102 @@ const CartItem = memo(({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeleteP
     console.log(cartItem?.name);
     return (
         <CarItemWrapper>
-            <Img
-                width="80px"
-                height="80px"
-                margin="0 15px 0 0"
-                src={cartItem?.imageUrl}
-                alt="Pizza"
-            />
+            <CartImgWrapper>
+                <Img
+                    width="100%"
+                    height="100%"
+                    src={cartItem?.imageUrl}
+                    alt="Pizza"
+                />
+            </CartImgWrapper>
+           
             <CartItemInfo>
                 <h3>{t(`pizzaName.${cartItem?.name}`)}</h3>
                 <p> {`${t(`${cartItem?.type}`)}, ${t(`${cartItem?.size}`)} ${t('common.size')}`}</p>
             </CartItemInfo>
-            <CountSection>
-                <BassicButton
-                    width="32px"
-                    height="32px"
-                    padding="initial"
-                    backgroundColor={colors.white}
-                    hoverBackgroundColor={colors.orange}
-                    borderColor={colors.orange}
-                    onClick={() => onDecPizzaAmount(cartItem)}
-                >
-                    <IconCustom
-                        width='100%'
-                        height='100%'
-                        fill={colors.orange}
-                        fillHover={colors.white}
+            <ControlsWrapper>
+                <CountSection>
+                    <BassicButton
+                        width="32px"
+                        height="32px"
+                        padding="initial"
+                        margin="0 10px 0 0 "
+                        backgroundColor={colors.white}
+                        hoverBackgroundColor={colors.orange}
+                        borderColor={colors.orange}
+                        onClick={() => onDecPizzaAmount(cartItem)}
                     >
-                        <SVG
-                            width='10'
-                            height='10'
-                            viewBox='0 0 10 10'
-                            path={iconSvg.minus}
-                        />
-                    </IconCustom>
-                </BassicButton>
-                <b>{cartItem.amountPizzas}</b>
-                <BassicButton
-                    width="32px"
-                    height="32px"
-                    padding="initial"
-                    backgroundColor={colors.white}
-                    hoverBackgroundColor={colors.orange}
-                    borderColor={colors.orange}
-                    onClick={() => onIncPizzaAmount(cartItem)}
-                >
-                    <IconCustom
-                        width='100%'
-                        height='100%'
-                        fill={colors.orange}
-                        fillHover={colors.white}
+                        <IconCustom
+                            width='100%'
+                            height='100%'
+                            fill={colors.orange}
+                            fillHover={colors.white}
+                        >
+                            <SVG
+                                width='10'
+                                height='10'
+                                viewBox='0 0 10 10'
+                                path={iconSvg.minus}
+                            />
+                        </IconCustom>
+                    </BassicButton>
+                    <b>{cartItem.amountPizzas}</b>
+                    <BassicButton
+                        width="32px"
+                        height="32px"
+                        padding="initial"
+                        margin="0 10px 0 10px"
+                        backgroundColor={colors.white}
+                        hoverBackgroundColor={colors.orange}
+                        borderColor={colors.orange}
+                        onClick={() => onIncPizzaAmount(cartItem)}
                     >
-                        <SVG
-                            width='10'
-                            height='10'
-                            viewBox='0 0 10 10'
-                            path={iconSvg.plus}
-                        />
-                    </IconCustom>
-                </BassicButton>
-            </CountSection>
-            <PriceSection>
-                <b>{`${cartItem?.amountPizzas * cartItem?.price} ₽`}</b>
-            </PriceSection>
-            <RemoveSection>
-                <BassicButton
-                    width="32px"
-                    height="32px"
-                    padding="initial"
-                    backgroundColor={colors.white}
-                    hoverBackgroundColor={colors.orange}
-                    borderColor={colors.orange}
-                    onClick={() => onDeletePizzaItem(cartItem)}
-                >
-                    <IconCustom
-                        width='100%'
-                        height='100%'
-                        fill={colors.orange}
-                        fillHover={colors.white}
+                        <IconCustom
+                            width='100%'
+                            height='100%'
+                            fill={colors.orange}
+                            fillHover={colors.white}
+                        >
+                            <SVG
+                                width='10'
+                                height='10'
+                                viewBox='0 0 10 10'
+                                path={iconSvg.plus}
+                            />
+                        </IconCustom>
+                    </BassicButton>
+                </CountSection>
+                <PriceSection>
+                    <b>{`${cartItem?.amountPizzas * cartItem?.price} ₽`}</b>
+                </PriceSection>
+                <RemoveSection>
+                    <BassicButton
+                        width="32px"
+                        height="32px"
+                        padding="initial"
+                        margin="0 0 0 10px"
+                        backgroundColor={colors.white}
+                        hoverBackgroundColor={colors.orange}
+                        borderColor={colors.orange}
+                        onClick={() => onDeletePizzaItem(cartItem)}
                     >
-                        <SVG
-                            width='10'
-                            height='10'
-                            viewBox='0 0 10 10'
-                            path={iconSvg.cancel}
-                        />
-                    </IconCustom>
-                </BassicButton>
-            </RemoveSection>
+                        <IconCustom
+                            width='100%'
+                            height='100%'
+                            fill={colors.orange}
+                            fillHover={colors.white}
+                        >
+                            <SVG
+                                width='10'
+                                height='10'
+                                viewBox='0 0 10 10'
+                                path={iconSvg.cancel}
+                            />
+                        </IconCustom>
+                    </BassicButton>
+                </RemoveSection>
+            </ControlsWrapper>
+           
         </CarItemWrapper>
     )
 });

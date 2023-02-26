@@ -1,5 +1,7 @@
 
 import moment from 'moment';
+import { useTranslation } from 'react-i18next';
+
 import localization from 'moment/locale/uk'
 
 moment().locale("uk", localization);
@@ -71,4 +73,8 @@ export const filteredPizzaSelector = (arrPizza, category, sort) => {
   return filteredPizza;
 }
 
+export const convertCost = (data) => {
+  const {t} = useTranslation();
+  return t('common.cost', {cost: data});
+}
 

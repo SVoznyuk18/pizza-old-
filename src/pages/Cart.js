@@ -8,8 +8,6 @@ import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, C
 import { CartItem, SVG, BassicButton } from '../components/index';
 
 import { MODAL } from '../configs/constants';
-
-
 import iconSvg from '../assets/svg/iconSvg';
 
 const Cart = () => {
@@ -35,18 +33,6 @@ const Cart = () => {
             <ContainerCart>
                 <CartTop>
                     <CartTitle>
-                        <IconCustom
-                            width='100%'
-                            height='100%'
-                            fill='#fff'
-                        >
-                            <SVG
-                                width='18'
-                                height='18'
-                                viewBox='0 0 18 18'
-                                path={iconSvg.cart}
-                            />
-                        </IconCustom>
                         {t('cart')}
                     </CartTitle>
                     <ClearCart onClick={() => dispatch(clearCart())}>
@@ -87,7 +73,7 @@ const Cart = () => {
                                 justifyContent='center'
                                 fontSize='16px'
                                 padding='16px'
-                                width='210px'
+                                minWidth='120px'
                                 color='#CACACA'
                                 hoverColor='#232323'
                                 backgroundColor='#FFFFFF'
@@ -105,7 +91,7 @@ const Cart = () => {
                             justifyContent='center'
                             fontSize='16px'
                             padding='16px'
-                            width='210px'
+                            minWidth='120px'
                             color='#FFFFFF'
                             hoverColor='#232323'
                             backgroundColor='#FE5F1E'

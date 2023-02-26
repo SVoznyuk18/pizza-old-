@@ -32,13 +32,14 @@
     },
     "button": {
         "add": "Add",
-        "back": "Come back",
+        "back": "Back",
         "checkout": "Order"
     },
     "common": {
         "from": "from",
         "piece": "pc.",
-        "size": "cm."
+        "size": "cm.",
+        "cost": "{{cost}} uah"
     },
     "cart": "Cart",
     "cleanCart": "Clean cart",

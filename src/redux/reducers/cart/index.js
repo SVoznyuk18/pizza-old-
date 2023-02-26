@@ -24,13 +24,11 @@ const addPizzaToCartSuccess = (state, action) => {
 };
 
 const increasePizzaAmountSuccess = (state, action) => {
+    console.log('action', action);
     const cart = state.cart;
-    const {id} = action.payload;
     let totalPrice = state.totalPrice;
     let totalAmount = state.totalAmount;
-    const index = cart.findIndex(item => item.id === id);
-
-    console.log('action', action);
+    const index = cart.findIndex(item => item.id === action.payload.id);
 
     if (index !== -1) cart[index].amountPizzas += 1;
 
@@ -83,12 +81,12 @@ const deletePizzaItemSuccess = (state, action) => {
 
     totalPrice = newCart.reduce((accum, item) => {
         return accum + item.price * item.amountPizzas;
-    }, totalPrice);
+    }, 0);
 
     totalAmount = newCart.reduce((accum, item) => {
         return accum + item.amountPizzas;
-    }, totalAmount);
-
+    }, 0);
+ 
     return {
         ...state,
         cart: newCart,

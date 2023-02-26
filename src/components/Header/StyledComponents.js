@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { colors } from '../../configs/colors';
 import {media} from '../../configs/constants';
 
 export const HeaderWrapper = styled.div`
@@ -21,6 +21,26 @@ export const HeaderWrapper = styled.div`
         padding: 10px;
     }
 
+`;
+
+export const Cost = styled.div`
+    font-size: 16px;
+    color: ${colors.black};
+    font-weight: 600;
+
+    ${media.mobile} {
+        font-size: 14px;
+    }
+`;
+
+export const Amount = styled.div`
+    font-size: 16px;
+    color: ${colors.black};
+    font-weight: 600;
+
+    ${media.mobile} {
+        font-size: 14px;
+    }
 `;
 
 export const HeaderLogoWrapper = styled.div`
@@ -73,8 +93,7 @@ export const Delimiter = styled.div`
     width: 1px;
     height: 25px;
     background-color: rgba(255, 255, 255, 0.25);
-    margin-left: 14px;
-    margin-right: 14px;
+    margin: 0 5px;
 `;
 
 export const Wrapper = styled.div`

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { colors } from '../../configs/colors';
+import { media } from '../../configs/constants';
 
 
 export const ModalWrapper = styled.div`
@@ -15,6 +16,10 @@ export const ModalWrapper = styled.div`
     transform: ${props => (props.isOpenModal ? 'scale(1)' : 'none')};
     z-index: ${props => (props.isOpenModal ? '99999' : -'10')};
     opacity: ${props => (props.isOpenModal ? 1 : 0)};
+
+    ${media.mobile} {
+        padding: 10px;
+    }
 `;
 
 export const ModalContent = styled.div`
@@ -24,12 +29,16 @@ export const ModalContent = styled.div`
     padding: 40px;
     background-color: ${colors.white};
     border-radius: 20px;
+
+    ${media.mobile} {
+        padding: 10px;
+    }
 `;
 
 export const CloseButton = styled.div`
     position: absolute;
     top: -20px;
-    right: -25px;
+    right: -8px;
     cursor: pointer;
 
     svg {

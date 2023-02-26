@@ -8,7 +8,7 @@ export const LanguagesWrapper = styled.div`
 `;
 export const MenuHeader = styled.div`
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     padding: 10px 5px;
     width: 100%;

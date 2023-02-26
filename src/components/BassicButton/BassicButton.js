@@ -13,7 +13,9 @@ export const BassicButton = memo((props) => {
         justifyContent, 
         padding, 
         width, 
+        minWidth,
         height, 
+        margin,
         backgroundColor,
         hoverBackgroundColor, 
         fontSize, 
@@ -36,7 +38,9 @@ export const BassicButton = memo((props) => {
             justifyContent={justifyContent}
             padding={padding}
             width={width}
-            height={height} A
+            minWidth={minWidth}
+            height={height}
+            margin={margin}
             backgroundColor={backgroundColor}
             hoverBackgroundColor={hoverBackgroundColor}
             fontSize={fontSize}
@@ -64,7 +68,9 @@ BassicButton.propTypes = {
     alignItems: PropTypes.string,
     justifyContent: PropTypes.string,
     padding: PropTypes.string,
+    margin: PropTypes.string,
     width: PropTypes.string,
+    minWidth: PropTypes.string,
     height: PropTypes.string,
     backgroundColor: PropTypes.string,
     hoverBackgroundColor: PropTypes.string,
@@ -85,7 +91,9 @@ BassicButton.defaultProps = {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0px',
+    margin: '0px',
     width: '130px',
+    minWidth: 'auto',
     height: '40px',
     backgroundColor: colors.background,
     hoverBackgroundColor: colors.orange,
