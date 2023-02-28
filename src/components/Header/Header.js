@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
 import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount } from './StyledComponents';
@@ -8,13 +9,16 @@ import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, H
 import logoSvg from '../../assets/svg/pizza-logo.svg';
 import iconSvg from '../../assets/svg/iconSvg';
 import { languages, breakPoints } from '../../configs/constants';
-import { convertCost } from '../../utils';
+import { convertCost, useWindowSize } from '../../utils';
 
-const Header = ({ totalPrice, totalAmount, screenWidth }) => {
+const Header = ({ totalPrice, totalAmount }) => {
+    
+    const { t } = useTranslation();
+    const size = useWindowSize();
 
     return (
         <HeaderWrapper>
-            <If condition={screenWidth >= breakPoints.TABLET}>
+            <If condition={size.width >= breakPoints.TABLET}>
                 <Link to="/">
                     <HeaderLogoWrapper>
                         <Img width="38px" src={logoSvg} alt="Pizza logo" />
@@ -62,7 +66,6 @@ const Header = ({ totalPrice, totalAmount, screenWidth }) => {
 Header.propTypes = {
     totalPrice: PropTypes.number,
     totalAmount: PropTypes.number,
-    screenWidth: PropTypes.number.isRequired
 };
 
 Header.defaultProps = {

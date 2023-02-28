@@ -19,6 +19,7 @@ export const CartImgWrapper = styled.div`
     width: 80px;
     height: 80px;
     margin: 0 15px 0 0;
+    min-width: 80px;
 
     ${media.tablet} {
         width: 250px;
@@ -31,7 +32,6 @@ export const CartItemInfo = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-
 
     h3 {
         font-weight: bold;
@@ -66,7 +66,6 @@ export const CountSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-   
 
     b {
         font-size: 22px;
@@ -77,7 +76,6 @@ export const RemoveSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
 `;
 
 export const PriceSection = styled.div`
@@ -85,11 +83,10 @@ export const PriceSection = styled.div`
     align-items: center;
     justify-content: center;
 
-
     b {
-    font-weight: bold;
-    font-size: 22px;
-    letter-spacing: 0.01em;
+        font-weight: bold;
+        font-size: 22px;
+        letter-spacing: 0.01em;
     }
 `;
 
