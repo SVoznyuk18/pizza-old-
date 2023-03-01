@@ -5,11 +5,18 @@ import * as Types from '../../../configs/constants';
 
 const getCart = state => state.cart.cart;
 
+function* watchGetCurrentOrder(action) {
+    try{
+        yield put({type: Types.GET_CURRENT_ORDER_SUCCESS, payload: action.payload});
+    } catch(e) {
+        yield  put({type: Types.GET_CURRENT_ORDER_FAILURE, payload: true});
+    }
+}
+
 function* watchAddPizzaToCart(action) {
     try {
         const cart = yield select(getCart);
         const order = action.payload;
-        console.log("order", order);
         if (cart.length !== 0) {
             const index = cart.findIndex(item => item.id === order?.id);
             if (index !== -1) {
@@ -72,4 +79,5 @@ export default function* watchCart() {
     yield takeLatest(Types.DEC_PIZZA_AMOUNT, watchDecreasePizzaAmount);
     yield takeLatest(Types.DELETE_PIZZA_ITEM, watchDeletePizzaItem);
     yield takeLatest(Types.CLEAR_CART, watchClearCart);
+    yield takeLatest(Types.GET_CURRENT_ORDER, watchGetCurrentOrder);
 }

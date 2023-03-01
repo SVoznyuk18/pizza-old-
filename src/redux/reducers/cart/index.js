@@ -1,3 +1,5 @@
+
+
 import * as Types from '../../../configs/constants';
 
 const initialState = {
@@ -6,8 +8,20 @@ const initialState = {
     totalAmount: 0
 }
 
+
+const getCurrentOrderSuccess = (state, action) => {
+    const { cartStorage, totalPriceStorage, totalAmountStorage } = action.payload;
+    return {
+        ...state,
+        cart: cartStorage,
+        totalPrice: totalPriceStorage,
+        totalAmount: totalAmountStorage
+    }
+}
+
 const addPizzaToCartSuccess = (state, action) => {
-    const {price, amountPizzas} = action.payload;
+    const { price, amountPizzas } = action.payload;
+    const cart = action.payload;
     let totalPrice = state.totalPrice;
     let totalAmount = state.totalAmount;
 
@@ -15,16 +29,19 @@ const addPizzaToCartSuccess = (state, action) => {
 
     totalAmount += amountPizzas;
 
+    window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    window.localStorage.setItem('totalAmount', JSON.stringify(totalAmount));
+    window.localStorage.setItem('cart', JSON.stringify([...state.cart, cart]));
+
     return {
         ...state,
-        cart: [...state.cart, action.payload],
+        cart: [...state.cart, cart],
         totalPrice,
         totalAmount
     }
 };
 
 const increasePizzaAmountSuccess = (state, action) => {
-    console.log('action', action);
     const cart = state.cart;
     let totalPrice = state.totalPrice;
     let totalAmount = state.totalAmount;
@@ -39,6 +56,10 @@ const increasePizzaAmountSuccess = (state, action) => {
     totalAmount = cart.reduce((accum, item) => {
         return accum + item.amountPizzas;
     }, 0);
+
+    window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    window.localStorage.setItem('totalAmount', JSON.stringify(totalAmount));
+    window.localStorage.setItem('cart', JSON.stringify(cart));
 
     return {
         ...state,
@@ -64,6 +85,10 @@ const decreasePizzaAmountSuccess = (state, action) => {
         return accum + item.amountPizzas;
     }, totalAmount);
 
+    window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    window.localStorage.setItem('totalAmount', JSON.stringify(totalAmount));
+    window.localStorage.setItem('cart', JSON.stringify(cart));
+
     return {
         ...state,
         cart,
@@ -86,7 +111,11 @@ const deletePizzaItemSuccess = (state, action) => {
     totalAmount = newCart.reduce((accum, item) => {
         return accum + item.amountPizzas;
     }, 0);
- 
+
+    window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    window.localStorage.setItem('totalAmount', JSON.stringify(totalAmount));
+    window.localStorage.setItem('cart', JSON.stringify(newCart));
+
     return {
         ...state,
         cart: newCart,
@@ -96,6 +125,11 @@ const deletePizzaItemSuccess = (state, action) => {
 };
 
 const clearCartSuccess = state => {
+
+    window.localStorage.removeItem('totalPrice');
+    window.localStorage.removeItem('totalAmount');
+    window.localStorage.removeItem('cart');
+
     return {
         ...state,
         cart: [],
@@ -106,6 +140,8 @@ const clearCartSuccess = state => {
 
 const cart = (state = initialState, action) => {
     switch (action.type) {
+        case Types.GET_CURRENT_ORDER_SUCCESS:
+            return getCurrentOrderSuccess(state, action)
         case Types.ADD_PIZZA_TO_CART_SUCCESS:
             return addPizzaToCartSuccess(state, action)
         case Types.INC_PIZZA_AMOUNT_SUCCESS:
@@ -115,7 +151,7 @@ const cart = (state = initialState, action) => {
         case Types.DELETE_PIZZA_ITEM_SUCCESS:
             return deletePizzaItemSuccess(state, action)
         case Types.CLEAR_CART_SUCCESS:
-            return clearCartSuccess(state, action);    
+            return clearCartSuccess(state, action);
         default:
             return state;
     }

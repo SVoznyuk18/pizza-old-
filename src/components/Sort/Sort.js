@@ -1,18 +1,15 @@
 import React, { useState, memo } from "react";
 import PropTypes from 'prop-types';
-import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import { sortBy } from "../../redux/actions";
 
+import { sortBy } from "../../redux/actions";
 import { SortWrapper, SortLabel, SortPopUp, SortList, SortItem } from './StyledComponents';
 
-export const Sort = ({ sort }) => {
+export const Sort = ({ sort, activeSort, handleDispatch }) => {
 
-    const dispatch = useDispatch();
     const { t } = useTranslation();
 
     const [activeSortModal, setActiveSortModal] = useState(false);
-    const [sortActive, setSortActive] = useState(0);
 
     return (
         <SortWrapper
@@ -32,7 +29,7 @@ export const Sort = ({ sort }) => {
                     />
                 </svg>
                 <b>{t('sort.sortTitle')}</b>
-                <span> {t(`sort.${sort[sortActive]}`)}</span>
+                <span> {t(`sort.${activeSort}`)}</span>
             </SortLabel>
             <SortPopUp activePopUp={activeSortModal}>
                 <SortList>
@@ -40,12 +37,9 @@ export const Sort = ({ sort }) => {
                         sort.map((item, index) => {
                             return (
                                 <SortItem
-                                    sortActive={sortActive === index ? true : false}
+                                    sortActive={activeSort === item ? true : false}
                                     key={index}
-                                    onClick={() => {
-                                        setSortActive(index);
-                                        dispatch(sortBy(item));
-                                    }}
+                                    onClick={() => handleDispatch(sortBy(item))}
                                 >
                                     {t(`sort.${item}`)}
                                 </SortItem>
@@ -60,10 +54,13 @@ export const Sort = ({ sort }) => {
 
 Sort.propTypes = {
     sort: PropTypes.arrayOf(PropTypes.string),
+    activeSort: PropTypes.string.isRequired,
+    handleDispatch: PropTypes.func
 };
 
 Sort.defaultProps = {
-    sort: []
+    sort: [],
+    handleDispatch: () => { }
 }
 
 export default memo(Sort);

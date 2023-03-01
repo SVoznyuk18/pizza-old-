@@ -16,23 +16,23 @@ const Main = () => {
     const size = useWindowSize();
 
     const { pizza, pizzaLoading, pizzaError } = useSelector(state => state.pizza);
-    const { idActiveCategory } = useSelector(state => state.filters);
+    const { activeCategory } = useSelector(state => state.filters);
     const { sortBy } = useSelector(state => state.filters);
 
     useEffect(() => {
         dispatch(getPizzaRequest());
     }, [dispatch]);
 
-    const filteredPizza = filteredPizzaSelector(pizza, idActiveCategory, sortBy);
+    const filteredPizza = filteredPizzaSelector(pizza, activeCategory, sortBy);
 
     return (
         <Content>
             <Container>
                 <ContentTop>
-                    <Categories handleDispatch={dispatch} categories={CATEGORIES} filterView={size?.width > breakPoints.TABLET_L ? 'default' : 'popUp'} />
-                    <Sort sort={SORT}/>
+                    <Categories handleDispatch={dispatch} categories={CATEGORIES} activeCategory={activeCategory} filterView={size?.width > breakPoints.TABLET_L ? 'default' : 'popUp'} />
+                    <Sort handleDispatch={dispatch} sort={SORT} activeSort={sortBy} />
                 </ContentTop>
-                <MainTitle>{t(`categoriesPizza.${CATEGORIES[idActiveCategory]}`)}</MainTitle>
+                <MainTitle>{t(`categoriesPizza.${activeCategory}`)}</MainTitle>
                 <Choose>
                     <When condition={pizzaLoading === true && pizzaError === false}>
                         <Spiner />

@@ -5,12 +5,11 @@ import { filterCategory } from '../../redux/actions';
 
 import { CategoriesWrapper, CategoriesLabel, CategoriesListPopUp, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 
-const Categories = ({ handleDispatch, filterView, categories }) => {
+const Categories = ({ handleDispatch, filterView, categories, activeCategory }) => {
     const { t } = useTranslation();
 
-    const [activeClass, setActiveClass] = useState(0);
     const [showList, setShowList] = useState(false);
-    const [categoriesLabel, setCategoriesLabel] = useState(t(`categoriesPizza.all`));
+    const [categoriesLabel, setCategoriesLabel] = useState(t(`categoriesPizza.${activeCategory}`));
 
     return (
         <CategoriesWrapper>
@@ -20,17 +19,14 @@ const Categories = ({ handleDispatch, filterView, categories }) => {
                     <CategoriesListPopUp showList={showList}>
                         {categories.map((item, index) => (
                             <Choose>
-                                <When condition={activeClass === index}>
+                                <When condition={activeCategory === item?.toLowerCase()}>
                                     <ListItemActive
                                         key={index}
-
                                         onClick={() => {
-                                            setActiveClass(index);
-                                            handleDispatch(filterCategory(index));
+                                            handleDispatch(filterCategory(item));
                                             setCategoriesLabel(t(`categoriesPizza.${item}`));
                                             setShowList(false);
-                                        }
-                                        }
+                                        }}
                                     >
                                         {t(`categoriesPizza.${item}`)}
                                     </ListItemActive>
@@ -40,8 +36,7 @@ const Categories = ({ handleDispatch, filterView, categories }) => {
                                         key={index}
                                         showList={showList}
                                         onClick={() => {
-                                            setActiveClass(index);
-                                            handleDispatch(filterCategory(index));
+                                            handleDispatch(filterCategory(item));
                                             setCategoriesLabel(t(`categoriesPizza.${item}`));
                                             setShowList(false);
                                         }}
@@ -57,14 +52,10 @@ const Categories = ({ handleDispatch, filterView, categories }) => {
                     <CategoriesList>
                         {categories.map((item, index) => (
                             <Choose>
-                                <When condition={activeClass === index}>
+                                <When condition={activeCategory === item?.toLowerCase()}>
                                     <ListItemActive
                                         key={index}
-                                        onClick={() => {
-                                            setActiveClass(index);
-                                            handleDispatch(filterCategory(index));
-                                        }
-                                        }
+                                        onClick={() => handleDispatch(filterCategory(item))}
                                     >
                                         {t(`categoriesPizza.${item}`)}
                                     </ListItemActive>
@@ -72,10 +63,7 @@ const Categories = ({ handleDispatch, filterView, categories }) => {
                                 <Otherwise>
                                     <ListItem
                                         key={index}
-                                        onClick={() => {
-                                            setActiveClass(index);
-                                            handleDispatch(filterCategory(index));
-                                        }}
+                                        onClick={() => handleDispatch(filterCategory(item))}
                                     >
                                         {t(`categoriesPizza.${item}`)}
                                     </ListItem>
@@ -92,7 +80,8 @@ const Categories = ({ handleDispatch, filterView, categories }) => {
 Categories.propTypes = {
     handleDispatch: PropTypes.func,
     filterView: PropTypes.string,
-    categories: PropTypes.arrayOf(PropTypes.string)
+    categories: PropTypes.arrayOf(PropTypes.string),
+    activeCategory: PropTypes.string.isRequired
 };
 
 Categories.defaultProps = {

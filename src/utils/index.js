@@ -45,37 +45,39 @@ export const setDisableTime = (currentTime) => {
 
   const milliseconds = convertToMilliseconds(`${hours}:${minutes}`);
 
-  if(milliseconds <= currentTime) return true;
+  if (milliseconds <= currentTime) return true;
 
   return false;
 };
 
 export const filteredPizzaSelector = (arrPizza, category, sort) => {
   let filteredPizza = arrPizza;
-  if (category) {
-      filteredPizza = filteredPizza?.filter(item => item.category === category);
+
+  if (category !== "all") {
+    filteredPizza = filteredPizza?.filter(item => item.category === category);
   }
   if (sort === "popularity") {
-      filteredPizza = filteredPizza?.sort((a, b) => {
-          return b.rating - a.rating;
-      })
+    filteredPizza = filteredPizza?.sort((a, b) => {
+      return b.rating - a.rating;
+    })
   }
   if (sort === "price") {
-      filteredPizza = filteredPizza?.sort((a, b) => {
-          return a.price - b.price;
-      })
+    filteredPizza = filteredPizza?.sort((a, b) => {
+      return a.price - b.price;
+    })
   }
   if (sort === "alphabet") {
-      filteredPizza = filteredPizza?.sort((a, b) => {
-          return a.name[0].localeCompare(b.name[0])
-      })
+    filteredPizza = filteredPizza?.sort((a, b) => {
+      return a.name[0].localeCompare(b.name[0])
+    })
   }
+
   return filteredPizza;
 }
 
 export const convertCost = (data) => {
-  const {t} = useTranslation();
-  return t('common.cost', {cost: data});
+  const { t } = useTranslation();
+  return t('common.cost', { cost: data });
 }
 
 export const useWindowSize = () => {
@@ -103,4 +105,3 @@ export const useWindowSize = () => {
   }, []); // Empty array ensures that effect is only run on mount
   return windowSize;
 }
-

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { handleToggleModal } from "./redux/actions";
+import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "./redux/actions";
 
 import Main from "./pages/Main";
 import { Header } from './components/index';
@@ -15,6 +15,20 @@ function App() {
   const { isOpenModal, modalType, payload } = useSelector(state => state.modal);
   const { totalPrice, totalAmount } = useSelector(state => state.cart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+
+    dispatch(getCurrentOrder({
+      cartStorage: JSON.parse(window.localStorage.getItem('cart')),
+      totalPriceStorage: JSON.parse(window.localStorage.getItem('totalPrice')),
+      totalAmountStorage: JSON.parse(window.localStorage.getItem('totalAmount'))
+    }));
+
+    dispatch(getCurrentFilter({
+      activeCategoryStorage: JSON.parse(window.localStorage.getItem('activeCategory')),
+      sortByStorage: JSON.parse(window.localStorage.getItem('sortBy'))
+    }));
+  }, []);
 
   return (
     <Wrapper>
