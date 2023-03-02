@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import {media} from '../../configs/constants';
+import { media } from 'Configs/constants';
 
 export const CategoriesWrapper = styled.div`
     position: relative;
-
 `;
+
 export const CategoriesLabel = styled.div`
     display: inline-block;
     padding: 13px 0;
@@ -39,13 +39,13 @@ export const CategoriesList = styled.ul`
 `;
 
 export const CategoriesListPopUp = styled(CategoriesList)`
-    display: ${props => props.showList ? 'flex': 'none'};
+    display: ${props => props.showList ? 'flex' : 'none'};
     flex-direction: column;
     position: absolute;
     top: 48px;
     right: -23px;
     background: #ffffff;
-    height: ${props => props.showList ? 'auto': '0px'};
+    height: ${props => props.showList ? 'auto' : '0px'};
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
@@ -73,7 +73,6 @@ export const ListItem = styled.li`
     ${media.desktopL} {
         padding: 13px 15px;
     }
-    
 `;
 
 export const ListItemActive = styled(ListItem)`

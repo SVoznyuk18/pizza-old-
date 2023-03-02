@@ -1,7 +1,7 @@
 import { take } from 'lodash';
 import { takeEvery, put } from 'redux-saga/effects'
 
-import * as Types from '../../../configs/constants';
+import * as Types from 'Configs/constants';
 
 function* watchCurrentFilter(action) {
     try {
@@ -20,7 +20,6 @@ function* watchSortBy(action) {
 }
 
 function* watchFilterCategory(action) {
-    console.log(action)
     try {
         yield put({ type: Types.FILTER_CATEGORY_SUCCESS, payload: action.payload });
     } catch {

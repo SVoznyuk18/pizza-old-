@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { media } from '../../configs/constants';
+import { media } from 'Configs/constants';
+
 export const List = styled.ul`
     margin: 5px;
     display: flex;

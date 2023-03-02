@@ -1,8 +1,8 @@
 import { takeEvery, put, call } from 'redux-saga/effects'
 
-import * as Types from '../../../configs/constants';
+import * as Types from 'Configs/constants';
 
-import { getPizzaApiRequest } from '../../../api/http';
+import { getPizzaApiRequest } from 'Api';
 
 function* watchGetPizzaRequest() {
     try {

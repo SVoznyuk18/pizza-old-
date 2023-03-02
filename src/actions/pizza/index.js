@@ -1,4 +1,4 @@
 
-import * as TYPES from '../../../configs/constants/index';
+import * as TYPES from 'Configs/constants';
 
 export const getPizzaRequest = () => ({ type: TYPES.GET_PIZZA });

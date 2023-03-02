@@ -4,9 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import { BassicButton, Img, SVG } from '../index';
 import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom, ControlsWrapper, CartImgWrapper } from './StyledComponents';
-import iconSvg from '../../assets/svg/iconSvg';
-
-import { colors } from "../../configs/colors";
+import iconSvg from 'Assets/svg/iconSvg';
+import { colors } from "Configs/colors";
 
 const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
     const { t } = useTranslation();

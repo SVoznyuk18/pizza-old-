@@ -4,7 +4,7 @@ import { Wrapper, Label, Input } from './StyledComponents';
 
 import { ErrorMessage } from '../';
 
-import { colors } from "../../configs/colors";
+import { colors } from "Configs/colors";
 
 
 const getColor = (error, dirtyFields) => {

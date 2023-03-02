@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "./redux/actions";
+import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "Actions";
 
 import Main from "./pages/Main";
-import { Header } from './components/index';
+import { Header } from 'Components';
 import { Wrapper } from './pages/StyledComponents';
 import Modal from './pages/modal/Modal';
 import Cart from "./pages/Cart";
@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
 
     dispatch(getCurrentOrder({
-      cartStorage: JSON.parse(window.localStorage.getItem('cart')),
+      cartStorage: JSON.parse(window.localStorage.getItem('cart')) || [],
       totalPriceStorage: JSON.parse(window.localStorage.getItem('totalPrice')),
       totalAmountStorage: JSON.parse(window.localStorage.getItem('totalAmount'))
     }));

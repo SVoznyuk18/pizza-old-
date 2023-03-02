@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { colors } from '../../configs/colors';
-import { media } from '../../configs/constants';
+import { colors } from 'Configs/colors';
+import { media } from 'Configs/constants';
 
 export const PizzaBlock = styled.div`
     width: 350px;
@@ -20,7 +20,6 @@ export const PizzaBlock = styled.div`
         width: 100%;
         margin: 0 0 30px 0;
     }
-    
 `;
 
 export const PizzaImg = styled.img`
@@ -54,7 +53,6 @@ export const BottomSection = styled.div`
     align-items: center;
     justify-content: space-around;
     margin-top: 20px;
-
 `;
 
 export const Price = styled.div`
@@ -66,7 +64,6 @@ export const Price = styled.div`
     ${media.mobile} {
         font-size: 18px;
     }
-
 `;
 
 export const IconCustom = styled.div`

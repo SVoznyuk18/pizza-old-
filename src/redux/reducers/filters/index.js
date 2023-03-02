@@ -1,5 +1,5 @@
 
-import * as Types from '../../../configs/constants';
+import * as Types from 'Configs/constants';
 
 const initialState = {
     activeCategory: 'all',

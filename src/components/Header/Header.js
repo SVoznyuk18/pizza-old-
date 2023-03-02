@@ -6,10 +6,10 @@ import { useTranslation } from "react-i18next";
 import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
 import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount } from './StyledComponents';
 
-import logoSvg from '../../assets/svg/pizza-logo.svg';
-import iconSvg from '../../assets/svg/iconSvg';
-import { languages, breakPoints } from '../../configs/constants';
-import { convertCost, useWindowSize } from '../../utils';
+import logoSvg from 'Assets/svg/pizza-logo.svg';
+import iconSvg from 'Assets/svg/iconSvg';
+import { languages, breakPoints } from 'Configs/constants';
+import { convertCost, useWindowSize } from 'Utils';
 
 const Header = ({ totalPrice, totalAmount }) => {
     

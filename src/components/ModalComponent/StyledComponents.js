@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { colors } from '../../configs/colors';
-import { media } from '../../configs/constants';
+import { colors } from 'Configs/colors';
+import { media } from 'Configs/constants';
 
 export const ModalWrapper = styled.div`
     display: flex;

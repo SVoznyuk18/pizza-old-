@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {media} from '../configs/constants'
+import {media} from 'Configs/constants'
 
 export const Wrapper = styled.div`
     width: calc(100vw - 100px);
@@ -17,7 +17,6 @@ export const Wrapper = styled.div`
         margin: 10px;
         width: calc(100vw - 20px);
     }
-
 `;
 
 export const Container = styled.div`
@@ -30,9 +29,6 @@ export const Container = styled.div`
         margin: 10px;
         padding: 0px 10px;
     }
-
-    
-
 `;
 
 export const Cart = styled.div``;
@@ -80,8 +76,6 @@ export const ContentItems = styled.div`
     ${media.tablet} {
         justify-content: center;
     }
-
-
 `;
 
 export const MainTitle = styled.h2`
@@ -103,7 +97,6 @@ export const CartTitle = styled.h2`
     ${media.mobile} {
         font-size: 24px;
     }
-
 `;
 
 export const CartTop = styled.div`
@@ -121,9 +114,6 @@ export const CartBottom = styled.div`
     ${media.mobile} {
         margin: 15px 0;
     }
-
-
-    
 `;
 
 export const CartBottomDetails = styled.div`
@@ -200,5 +190,3 @@ export const IconCustom = styled.div`
         }
     }
 `;
-
-

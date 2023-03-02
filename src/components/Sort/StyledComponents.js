@@ -34,7 +34,6 @@ export const SortPopUp = styled.div`
     overflow: hidden;
     padding: 10px 0;
     width: 160px;
-
 `;
 
 export const SortList = styled.ul`

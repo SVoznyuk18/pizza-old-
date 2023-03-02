@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import PropTypes from 'prop-types';
 
 import { Button } from "./StyledComponents";
-import { colors } from "../../configs/colors";
+import { colors } from "Configs/colors";
 
 export const BassicButton = (props) => {
 

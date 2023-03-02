@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import PropTypes from 'prop-types';
 
 import { SVG } from '..';
-import iconSvg from '../../assets/svg/iconSvg';
+import iconSvg from 'Assets/svg/iconSvg';
 import { ModalWrapper, ModalContent, CloseButton } from './StyledComponents';
 
 const ModalComponent = ({ isOpenModal, onCloseModal, children }) => {

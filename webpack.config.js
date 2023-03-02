@@ -3,13 +3,23 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
+  resolve: {
+    alias: {
+      Actions: path.resolve(__dirname, './src/actions'),
+      Configs: path.resolve(__dirname, './src/configs'),
+      Components: path.resolve(__dirname, './src/components'),
+      Assets: path.resolve(__dirname, './src/assets'),
+      Utils: path.resolve(__dirname, './src/utils'),
+      Api: path.resolve(__dirname, './src/api'),
+    },
+    extensions: ['.js', '.jsx', '.json']
+  },
   entry: ["@babel/polyfill", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   devServer: {
- 
     historyApiFallback: true,
   },
   plugins: [

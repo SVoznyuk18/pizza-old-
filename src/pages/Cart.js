@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal } from '../redux/actions';
+import { increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal } from 'Actions';
 import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, CartBottomDetails, CartButtonSection, IconCustom, ClearCart } from './StyledComponents';
-import { CartItem, SVG, BassicButton } from '../components/index';
+import { CartItem, SVG, BassicButton } from 'Components';
 
-import { MODAL } from '../configs/constants';
-import iconSvg from '../assets/svg/iconSvg';
+import { MODAL } from 'Configs/constants';
+import iconSvg from 'Assets/svg/iconSvg';
 
 const Cart = () => {
 

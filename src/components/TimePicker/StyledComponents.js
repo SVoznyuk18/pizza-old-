@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "../../configs/colors";
+import { colors } from "Configs/colors";
 
 export const Wrapper = styled.div`
     position: relative;
@@ -60,6 +60,7 @@ export const TimeList = styled.ul`
         background-color: ${colors.orange};
     }  
 `;
+
 export const ListItem = styled.li`
     display: flex;
     justify-content: center;
