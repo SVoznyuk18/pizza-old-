@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "Actions";
-
+import { useLocalStorage } from 'Utils';
 import Main from "./pages/Main";
 import { Header } from 'Components';
 import { Wrapper } from './pages/StyledComponents';
@@ -13,20 +13,22 @@ import Cart from "./pages/Cart";
 function App() {
 
   const { isOpenModal, modalType, payload } = useSelector(state => state.modal);
-  const { totalPrice, totalAmount } = useSelector(state => state.cart);
+  const { cart, totalPrice, totalAmount } = useSelector(state => state.cart);
+  const { activeCategory, sortBy } = useSelector(state => state.filters);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
 
     dispatch(getCurrentOrder({
-      cartStorage: JSON.parse(window.localStorage.getItem('cart')) || [],
-      totalPriceStorage: JSON.parse(window.localStorage.getItem('totalPrice')),
-      totalAmountStorage: JSON.parse(window.localStorage.getItem('totalAmount'))
+      cartStorage: JSON.parse(window.localStorage.getItem('cart')) || cart,
+      totalPriceStorage: JSON.parse(window.localStorage.getItem('totalPrice')) || totalPrice,
+      totalAmountStorage: JSON.parse(window.localStorage.getItem('totalAmount')) || totalAmount
     }));
 
     dispatch(getCurrentFilter({
-      activeCategoryStorage: JSON.parse(window.localStorage.getItem('activeCategory')),
-      sortByStorage: JSON.parse(window.localStorage.getItem('sortBy'))
+      activeCategoryStorage: JSON.parse(window.localStorage.getItem('activeCategory')) || activeCategory,
+      sortByStorage: JSON.parse(window.localStorage.getItem('sortBy')) || sortBy
     }));
   }, []);
 
