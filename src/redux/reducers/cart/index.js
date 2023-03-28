@@ -6,7 +6,6 @@ const initialState = {
     totalAmount: 0
 }
 
-
 const getCurrentOrderSuccess = (state, action) => {
     const { cartStorage, totalPriceStorage, totalAmountStorage } = action.payload;
     return {
@@ -77,11 +76,11 @@ const decreasePizzaAmountSuccess = (state, action) => {
 
     totalPrice = cart.reduce((accum, item) => {
         return accum + item.price * item.amountPizzas;
-    }, totalPrice);
+    }, 0);
 
     totalAmount = cart.reduce((accum, item) => {
         return accum + item.amountPizzas;
-    }, totalAmount);
+    }, 0);
 
     window.localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
     window.localStorage.setItem('totalAmount', JSON.stringify(totalAmount));
