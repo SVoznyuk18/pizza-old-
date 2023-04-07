@@ -21,7 +21,7 @@ const Main = () => {
 
     useEffect(() => {
         dispatch(getPizzaRequest());
-    }, [dispatch]);
+    }, []);
 
     const filteredPizza = filteredPizzaSelector(pizza, activeCategory, sortBy);
 

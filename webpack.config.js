@@ -1,5 +1,6 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
@@ -9,8 +10,7 @@ module.exports = {
       Configs: path.resolve(__dirname, './src/configs'),
       Components: path.resolve(__dirname, './src/components'),
       Assets: path.resolve(__dirname, './src/assets'),
-      Utils: path.resolve(__dirname, './src/utils'),
-      Api: path.resolve(__dirname, './src/api'),
+      Utils: path.resolve(__dirname, './src/utils')
     },
     extensions: ['.js', '.jsx', '.json']
   },
@@ -24,6 +24,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({template: "./public/index.html"}),
+    new MiniCssExtractPlugin({filename: '[name].[contenthash].css'})
   ],
   module: {
     rules: [
@@ -52,28 +53,57 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.(c|sa|sc)ss$/i,
+        use: [
+            MiniCssExtractPlugin.loader, 
+            "css-loader",
+            {
+                loader: 'postcss-loader',
+                options: {
+                    postcssOptions: {
+                        plugins: [require('postcss-preset-env')]
+                    }
+                }
+            }
+        ],
       },
       {
-        test: /\.svg$/,
+        test: /\.woff|woff2|eot|ttf?$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
+      },
+      {
+        test: /\.(jpe?g|png|webp|gif|svg)$/i,
         use: [
           {
-            loader: 'svg-url-loader',
+            loader: 'image-webpack-loader',
             options: {
-              limit: 10000,
-            },
+              mozjpeg: {
+                progressive: true,
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              webp: {
+                quality: 75
+              }
+            }
           },
         ],
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          },
-        ],
-      },
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext]'
+        }
+      }
     ]
   }
 };

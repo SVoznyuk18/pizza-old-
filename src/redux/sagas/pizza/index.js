@@ -1,15 +1,21 @@
-import { takeEvery, put, call } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
+import { collection, getDocs } from "firebase/firestore";
 
 import * as Types from 'Configs/constants';
 
-import { getPizzaApiRequest } from 'Api';
+import { db } from 'Utils/firebase';
 
 function* watchGetPizzaRequest() {
     try {
+        let pizza = [];
         yield put( {type: Types.GET_PIZZA_LOADING, payload: true});
-        const pizza = yield call(getPizzaApiRequest);
+        const querySnapshot = yield getDocs(collection(db, "pizzas"));
+        querySnapshot.forEach((doc) => {
+            pizza = [...pizza, doc.data()]
+        })
         yield put({type: Types.GET_PIZZA_LOADING, payload: false});
-        yield put({type: Types.GET_PIZZA_SUCCESS, payload: pizza.data});
+        yield put({type: Types.GET_PIZZA_SUCCESS, payload: pizza});
+ 
     } catch {
         yield put({type: Types.GET_PIZZA_FAILURE, payload: true});
     }
