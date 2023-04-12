@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "Actions";
-import { useLocalStorage } from 'Utils';
 import Main from "./pages/Main";
 import { Header } from 'Components';
 import { Wrapper } from './pages/StyledComponents';

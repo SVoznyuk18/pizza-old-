@@ -1,19 +1,20 @@
 import React, { useState, useMemo, memo } from "react";
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { useCookies } from 'react-cookie';
 
 import { LanguagesWrapper, MenuHeader, MenuContent, MenuItem, Img, Title } from './StyledComponents';
 
-const lang = localStorage.getItem('i18nextLng');
-
 const LanguagesMenu = ({ menuItems }) => {
 
+    const [langCookies] = useCookies(['i18next']);
+    const langLocalStorage = localStorage.getItem('i18nextLng');
     const { i18n } = useTranslation();
 
-    const [language, setLanguage] = useState(lang);
+    const [language, setLanguage] = useState(langLocalStorage || langCookies.i18next);
     const [toggleMenu, setToggleMenu] = useState(false);
 
-    const changleLanguage = (lng) => {
+    const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
     }
 
@@ -32,7 +33,7 @@ const LanguagesMenu = ({ menuItems }) => {
                     return (
                         <MenuItem key={item?.id} onClick={() => {
                             setToggleMenu(false);
-                            changleLanguage(item?.lang);
+                            changeLanguage(item?.lang);
                             setLanguage(item?.lang);
                         }}>
                             <Img src={item?.flag} />
@@ -47,7 +48,6 @@ const LanguagesMenu = ({ menuItems }) => {
 
 LanguagesMenu.propTypes = {
     menuItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-
 };
 
 export default memo(LanguagesMenu);
