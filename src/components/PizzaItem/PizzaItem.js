@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { addPizzaToCart } from 'Actions';
+import { addPizzaToCart } from 'ActionsRoot';
 
-import { Selector, BassicButton, SVG } from '../index';
+import { Selector, BassicButton, SVG } from 'ComponentsRoot';
 import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, IconCustom, Price } from "./StyledComponents";
-import iconSvg from 'Assets/svg/iconSvg';
+import iconSvg from 'AssetsRoot/svg/iconSvg';
 
 const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
 

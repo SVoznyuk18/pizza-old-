@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 
-import { Img, BassicButton, SVG, LanguagesMenu } from '../index';
+import { Img, BassicButton, SVG, LanguagesMenu } from 'ComponentsRoot';
 import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount } from './StyledComponents';
 
-import logoSvg from 'Assets/svg/pizza-logo.svg';
-import iconSvg from 'Assets/svg/iconSvg';
-import { languages, breakPoints } from 'Configs/constants';
-import { convertCost, useWindowSize } from 'Utils';
+import logoSvg from 'AssetsRoot/svg/pizza-logo.svg';
+import iconSvg from 'AssetsRoot/svg/iconSvg';
+import { languages, breakPoints } from 'ConfigsRoot/constants';
+import { convertCost, useWindowSize } from 'UtilsRoot';
 
 const Header = ({ totalPrice, totalAmount }) => {
     

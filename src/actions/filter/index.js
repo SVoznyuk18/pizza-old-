@@ -1,4 +1,4 @@
-import * as Types from 'Configs/constants';
+import * as Types from 'ConfigsRoot/constants';
 
 export const sortBy = params => ({type: Types.SORT_BY, payload: params});
 

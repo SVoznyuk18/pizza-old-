@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "Configs/colors";
+import { colors } from "ConfigsRoot/colors";
 
 export const LanguagesWrapper = styled.div`
     position: relative;

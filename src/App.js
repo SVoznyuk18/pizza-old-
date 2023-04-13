@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "Actions";
+import { handleToggleModal, getCurrentOrder, getCurrentFilter } from "ActionsRoot";
 import Main from "./pages/Main";
-import { Header } from 'Components';
+import { Layout } from "LayoutRoot";
 import { Wrapper } from './pages/StyledComponents';
 import Modal from './pages/modal/Modal';
 import Cart from "./pages/Cart";
@@ -34,10 +34,11 @@ function App() {
   return (
     <Wrapper>
       <BrowserRouter>
-        <Header totalPrice={totalPrice} totalAmount={totalAmount} />
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="cart" element={<Cart />} />
+          <Route path="/" element={<Layout totalPrice={totalPrice} totalAmount={totalAmount} />}>
+            <Route index element={<Main />} />
+            <Route path="cart" element={<Cart />} />
+          </Route>
         </Routes>
         <Modal
           isOpenModal={isOpenModal}

@@ -6,11 +6,12 @@ module.exports = {
   mode: 'development',
   resolve: {
     alias: {
-      Actions: path.resolve(__dirname, './src/actions'),
-      Configs: path.resolve(__dirname, './src/configs'),
-      Components: path.resolve(__dirname, './src/components'),
-      Assets: path.resolve(__dirname, './src/assets'),
-      Utils: path.resolve(__dirname, './src/utils')
+      ActionsRoot: path.resolve(__dirname, './src/actions'),
+      ConfigsRoot: path.resolve(__dirname, './src/configs'),
+      ComponentsRoot: path.resolve(__dirname, './src/components'),
+      AssetsRoot: path.resolve(__dirname, './src/assets'),
+      UtilsRoot: path.resolve(__dirname, './src/utils'),
+      LayoutRoot: path.resolve(__dirname, './src/layout')
     },
     extensions: ['.js', '.jsx', '.json']
   },

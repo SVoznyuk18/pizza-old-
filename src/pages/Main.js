@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
 
-import { getPizzaRequest } from 'Actions';
-import { filteredPizzaSelector, useWindowSize } from 'Utils';
-import { breakPoints, CATEGORIES, AVALIABLE_TYPES, AVALIABLE_SIZES, SORT } from 'Configs/constants';
+import { getPizzaRequest } from 'ActionsRoot';
+import { filteredPizzaSelector, useWindowSize } from 'UtilsRoot';
+import { breakPoints, CATEGORIES, AVALIABLE_TYPES, AVALIABLE_SIZES, SORT } from 'ConfigsRoot/constants';
 
-import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from 'Components';
+import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from 'ComponentsRoot';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
 
 const Main = () => {

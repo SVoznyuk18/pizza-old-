@@ -1,9 +1,9 @@
 import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 
-import { formatedTimeArray, setDisableTime } from 'Utils';
-import { ErrorMessage } from '../';
-import { colors } from "Configs/colors"
+import { formatedTimeArray, setDisableTime } from 'UtilsRoot';
+import { ErrorMessage } from 'ComponentsRoot';
+import { colors } from "ConfigsRoot/colors"
 import { Wrapper, Label, Input, WrapperTimeList, TimeList, ListItem } from './StyledComponents';
 
 

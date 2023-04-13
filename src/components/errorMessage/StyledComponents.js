@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors } from "Configs/colors";
+import { colors } from "ConfigsRoot/colors";
 
 export const Wrapper = styled.div`
     display: inline;

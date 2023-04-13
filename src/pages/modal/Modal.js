@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { MODAL } from '../../configs/constants';
-import { ModalComponent } from "../../components";
+import { MODAL } from 'ConfigsRoot/constants';
+import { ModalComponent } from "ComponentsRoot";
 import SuccessfullOrder from './modals/successfullOrder/SuccessfullOrder'
 import OrderForm from './modals/orderForm/OrderForm'
 

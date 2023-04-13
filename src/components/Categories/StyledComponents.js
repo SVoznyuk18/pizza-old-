@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media } from 'Configs/constants';
+import { media } from 'ConfigsRoot/constants';
 
 export const CategoriesWrapper = styled.div`
     position: relative;

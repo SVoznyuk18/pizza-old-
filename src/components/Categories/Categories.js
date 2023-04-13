@@ -1,7 +1,7 @@
 import React, { useState, memo } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from 'prop-types';
-import { filterCategory } from 'Actions';
+import { filterCategory } from 'ActionsRoot';
 
 import { CategoriesWrapper, CategoriesLabel, CategoriesListPopUp, CategoriesList, ListItem, ListItemActive } from './StyledComponents';
 

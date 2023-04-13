@@ -1,9 +1,9 @@
 import { takeEvery, put } from 'redux-saga/effects'
 import { collection, getDocs } from "firebase/firestore";
 
-import * as Types from 'Configs/constants';
+import * as Types from 'ConfigsRoot/constants';
 
-import { db } from 'Utils/firebase';
+import { db } from 'UtilsRoot/firebase';
 
 function* watchGetPizzaRequest() {
     try {

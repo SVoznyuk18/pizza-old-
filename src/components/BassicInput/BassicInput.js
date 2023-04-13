@@ -2,9 +2,9 @@ import React, { memo } from "react";
 import PropTypes from 'prop-types';
 import { Wrapper, Label, Input } from './StyledComponents';
 
-import { ErrorMessage } from '../';
+import { ErrorMessage } from 'ComponentsRoot';
 
-import { colors } from "Configs/colors";
+import { colors } from "ConfigsRoot/colors";
 
 
 const getColor = (error, dirtyFields) => {

@@ -2,7 +2,7 @@ import React, { useState, memo } from "react";
 import PropTypes from 'prop-types';
 import { useTranslation } from "react-i18next";
 
-import { sortBy } from "Actions";
+import { sortBy } from "ActionsRoot";
 import { SortWrapper, SortLabel, SortPopUp, SortList, SortItem } from './StyledComponents';
 
 export const Sort = ({ sort, activeSort, handleDispatch }) => {

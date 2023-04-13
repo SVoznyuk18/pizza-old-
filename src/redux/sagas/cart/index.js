@@ -1,7 +1,7 @@
 
 import { put, select, takeLatest } from 'redux-saga/effects'
 
-import * as Types from 'Configs/constants';
+import * as Types from 'ConfigsRoot/constants';
 
 const getCart = state => state.cart.cart;
 

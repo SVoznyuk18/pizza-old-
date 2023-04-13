@@ -1,4 +1,4 @@
-import * as Types from 'Configs/constants';
+import * as Types from 'ConfigsRoot/constants';
 
 export const addPizzaToCart = params => ({type: Types.ADD_PIZZA_TO_CART, payload: params});
 

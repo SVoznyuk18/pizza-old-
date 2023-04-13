@@ -1,7 +1,7 @@
 import { take } from 'lodash';
 import { takeEvery, put } from 'redux-saga/effects'
 
-import * as Types from 'Configs/constants';
+import * as Types from 'ConfigsRoot/constants';
 
 function* watchCurrentFilter(action) {
     try {

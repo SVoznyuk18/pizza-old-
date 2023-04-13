@@ -2,10 +2,10 @@ import React, { memo } from "react";
 import PropTypes from 'prop-types';
 import { useTranslation } from "react-i18next";
 
-import { BassicButton, Img, SVG } from '../index';
+import { BassicButton, Img, SVG } from 'ComponentsRoot';
+import iconSvg from 'AssetsRoot/svg/iconSvg';
+import { colors } from "ConfigsRoot/colors";
 import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom, ControlsWrapper, CartImgWrapper } from './StyledComponents';
-import iconSvg from 'Assets/svg/iconSvg';
-import { colors } from "Configs/colors";
 
 const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
     const { t } = useTranslation();
