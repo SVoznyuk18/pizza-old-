@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
+import { media } from "ConfigsRoot/constants";
 import { colors } from "ConfigsRoot/colors";
 
 export const Wrapper = styled.div`
+    display: inline-flex;
+    flex-direction: column;
     position: relative;
-    height: ${props => props.height};
-    width: ${props => props.width};
-    border-radius: ${props => props.borderRadius ? props.borderRadius : '15px'};
-    margin: ${props => props.margin};
+
+    ${media.mobileS} {
+        width: 100%;
+    }
 `;
 
 export const Label = styled.div`
@@ -16,6 +19,14 @@ export const Label = styled.div`
     margin-bottom: ${props => props.labelMarginBottom};
     line-height: ${props => props.labelLineHeight};
     font-weight: 600;
+
+    ${media.mobile} {
+        font-size: 14px;
+    }
+
+    ${media.mobileS} {
+        font-size: 12px;
+    }
 `;
 
 export const Input = styled.input`
@@ -24,7 +35,17 @@ export const Input = styled.input`
     padding: ${props => props.padding};
     border: solid 1px ${props => props.borderColor};;
     border-radius: ${props => props.borderRadius ? props.borderRadius : '15px'};
-    font-size: ${props => props.fontSize}
+    font-size: ${props => props.fontSize};
+
+    ${media.mobile} {
+        height: 30px;
+        font-size: 14px;
+    }
+
+    ${media.mobileS} {
+        width: 100%;
+        font-size: 12px;
+    }
 `;
 
 export const WrapperTimeList = styled.div`
@@ -35,15 +56,17 @@ export const WrapperTimeList = styled.div`
     margin-top: 3px;
     overflow: hidden;
     border-radius: 10px;
+    z-index: 9999;
 `;
 
 export const TimeList = styled.ul`
-    width: 120px;
+    width: 100px;
     height: 200px;
     overflow: auto;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     background-color: ${colors.greyLine};
+    
 
     &::-webkit-scrollbar-track {
         background-color: ${colors.grey};
@@ -59,6 +82,10 @@ export const TimeList = styled.ul`
 	    border-radius: 10px;
         background-color: ${colors.orange};
     }  
+
+    ${media.mobile} {
+        height: 100px;
+    }
 `;
 
 export const ListItem = styled.li`
@@ -78,5 +105,10 @@ export const ListItem = styled.li`
 
     &: hover {
         background-color: ${props => (props.disabled ? colors.grey : 'transparent')};
+    }
+
+    ${media.mobile} {
+        font-size: 12px;
+        height: 30px !important;
     }
 `;

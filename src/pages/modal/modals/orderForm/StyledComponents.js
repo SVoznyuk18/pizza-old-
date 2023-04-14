@@ -12,12 +12,14 @@ export const Title = styled.h3`
     margin: ${props => props.margin};
     font-weight: 600;
     font-size: 28px;
-    line-height: 30px;
 
     ${media.mobile} {
-        margin: 5px 0 5px 0;
-        font-size: 20px;
-        line-height: 20px;
+        margin: 0;
+        font-size: 16px;
+    }
+
+    ${media.mobileS} {
+        font-size: 14px;
     }
 `;
 
@@ -27,16 +29,31 @@ export const ContactSection = styled.div`
     justify-content: space-between;
     align-items: start;
     flex-direction: column;
+    
+
 `;
 
 export const AddressSection = styled(ContactSection)`
     width: 100%;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-between;
+
+    ${media.mobileS} {
+        flex-direction: column;
+    }
 `;
 
 export const TimeSection = styled(AddressSection)`
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    ${media.mobileS} {
+        flex-direction: column;
+    }
 `;
 
 export const Form = styled.form`
@@ -52,7 +69,7 @@ export const StyledInput = styled.input`
     width: ${props => props.width};
     padding: ${props => props.padding};
     border: solid 1px ${props => props.borderColor};;
-    border-radius: ${props => props.borderRadius ? props.borderRadius  : '15px'};
+    border-radius: ${props => props.borderRadius ? props.borderRadius : '15px'};
     font-size: ${props => props.fontSize}
 `;
 
@@ -66,4 +83,8 @@ export const Label = styled.div`
     margin-bottom: ${props => props.labelMarginBottom};
     line-height: ${props => props.labelLineHeight};
     font-weight: 600;
+
+    ${media.mobile} {
+        font-size: 14px;
+    }
 `;

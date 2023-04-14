@@ -35,7 +35,7 @@ const TimePicker = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLin
     return (
         <Wrapper
             borderRadius={borderRadius}
-            width={width}
+            // width={width}
             margin={margin}
         >
             <Label
@@ -51,9 +51,9 @@ const TimePicker = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLin
                 type={type}
                 autocomplete="off"
                 name={name}
-                placeholder={placeholder}
                 width={width}
                 height={height}
+                placeholder={placeholder}
                 padding={padding}
                 borderRadius={borderRadius}
                 fontSize={fontSize}

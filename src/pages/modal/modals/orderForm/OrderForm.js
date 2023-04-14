@@ -1,17 +1,15 @@
 import React from "react";
 import { useForm, Controller } from 'react-hook-form';
-import DatePicker from "react-datepicker";
 import { useTranslation } from "react-i18next";
 
 import { Wrapper, Title, Form, ContactSection, AddressSection, TimeSection, StyledInput, DatePickerWrapper, Label } from './StyledComponents';
-import { BassicInput, BassicButton, TimePicker } from '../../../../components';
-import { colors } from "../../../../configs/colors";
+import { BassicInput, BassicButton, TimePicker, DatePicker } from 'ComponentsRoot';
 
 const OrderForm = () => {
 
     const { t } = useTranslation();
 
-    const { register, handleSubmit, setValue, control, formState: { errors, dirtyFields }, reset } = useForm({ mode: 'all', defaultValues: { date: new Date() } });
+    const { register, handleSubmit, setValue, control, formState: { errors, dirtyFields }, reset } = useForm({ mode: 'all' });
 
     const onSubmit = (data) => {
         console.log(data);
@@ -44,6 +42,7 @@ const OrderForm = () => {
                         dirtyFields={dirtyFields?.name}
                         errorMessagemargin='5px'
                         errorMessage={errors?.name && errors?.name?.message}
+                        required
                     />
                     <BassicInput
                         label={t('form.labelPhone')}
@@ -127,7 +126,7 @@ const OrderForm = () => {
                         placeholder={t('form.placeholderHouse')}
                         width='150px'
                         height='40px'
-                        margin='0 10px 5px 0'
+                        margin='0 0 5px'
                         padding='5px 10px 5px 10px'
                         borderRadius='15px'
                         fontSize='16px'
@@ -175,7 +174,7 @@ const OrderForm = () => {
                         start='00:00'
                         end='23:59'
                         step={30}
-                        width='120px'
+                        width='150px'
                         height='40px'
                         padding='5px 10px 5px 10px'
                         margin='0 10px 5px 0'
@@ -188,42 +187,28 @@ const OrderForm = () => {
                         errorMessagemargin='5px'
                         errorMessage={errors?.time && errors?.time?.message}
                     />
-                    <DatePickerWrapper width='120px'>
-                        <Label
-                            htmlFor='date'
-                            labelFontSize='16px'
-                            labelMarginBottom='5px'
-                            labelLineHeight='16px'
-                        >
-                            {t('form.labelDate')}
-                        </Label>
-                        <Controller
-                            control={control}
-                            name='date'
-                            render={({ field }) => (
-                                <DatePicker
-                                    customInput={<StyledInput
-                                        width='120px'
-                                        height='40px'
-                                        margin='0 0 5px'
-                                        padding='5px 10px 5px 10px'
-                                        borderRadius='15px'
-                                        fontSize='16px'
-                                        borderColor={colors.grey}
-                                    />}
-                                    dateFormat="d MMM yyyy"
-                                    minDate={new Date()}
-                                    selected={field.value}
-                                    showTimeSelect={false}
-                                    todayButton="Today"
-                                    dropdownMode="select"
-                                    placeholderText={t('form.placeholderDate')}
-                                    shouldCloseOnSelect
-                                    onChange={(date) => field.onChange(date)}
-                                />
-                            )}
-                        />
-                    </DatePickerWrapper>
+                    <DatePicker
+                        label={t('form.labelDate')}
+                        htmlFor='date'
+                        labelFontSize='16px'
+                        labelMarginBottom='5px'
+                        labelLineHeight='16px'
+                        name='date'
+                        id='date'
+                        width='150px'
+                        height='40px'
+                        margin='0 0 5px'
+                        padding='5px 10px 5px 10px'
+                        borderRadius='15px'
+                        fontSize='16px'
+                        placeholder={t('form.placeholderDate')}
+                        control={control}
+                        register={register}
+                        validation={{ required: t('form.errorMessage.required') }}
+                        dirtyFields={dirtyFields?.date}
+                        errorMessage={errors?.date && errors?.date?.message}
+
+                    />
                 </TimeSection>
                 <BassicButton
                     type='submit'

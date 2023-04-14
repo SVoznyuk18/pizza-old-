@@ -14,5 +14,6 @@ import BassicInput from './BassicInput/BassicInput';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import TimePicker from './TimePicker/TimePicker';
 import LanguagesMenu from './LanguagesMenu/LanguagesMenu';
+import DatePickerSection from './DatePicker/DatePicker';
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker };

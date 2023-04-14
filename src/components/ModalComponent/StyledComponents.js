@@ -24,24 +24,29 @@ export const ModalWrapper = styled.div`
 export const ModalContent = styled.div`
     position: relative;
     width: 500px;
-    min-height: 300px;
     padding: 40px;
     background-color: ${colors.white};
     border-radius: 20px;
+ 
 
     ${media.mobile} {
         padding: 10px;
+    }
+
+    ${media.mobileS} {
+        height: 450px;
+        overflow: scroll;
     }
 `;
 
 export const CloseButton = styled.div`
     position: absolute;
-    top: -20px;
-    right: -8px;
+    top: 5px;
+    right: 5px;
     cursor: pointer;
 
     svg {
-        fill: ${colors.white};
+        fill: ${colors.black};
     }
 
     &: hover {

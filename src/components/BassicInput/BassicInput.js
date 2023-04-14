@@ -6,14 +6,14 @@ import { ErrorMessage } from 'ComponentsRoot';
 
 import { colors } from "ConfigsRoot/colors";
 
-
 const getColor = (error, dirtyFields) => {
     if (error) return colors.errorMessage;
     if (!error && dirtyFields) return colors.validColor;
     return colors.grey;
 }
 
-const BassicInput = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, margin, borderRadius, register, validation, dirtyFields, errorMessage, errorMessagemargin, errorFontSize, value }) => {
+const BassicInput = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, margin, borderRadius, register, validation, dirtyFields, errorMessage, errorMessagemargin, errorFontSize }) => {
+
     return (
         <Wrapper width={width} margin={margin}>
             <Label
@@ -31,7 +31,6 @@ const BassicInput = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLi
                 placeholder={placeholder}
                 width={width}
                 height={height}
-                value={value}
                 padding={padding}
                 borderRadius={borderRadius}
                 borderColor={getColor(errorMessage, dirtyFields)}
@@ -58,17 +57,11 @@ BassicInput.propTypes = {
     margin: PropTypes.string,
     borderRadius: PropTypes.string,
     register: PropTypes.func,
-    validation: PropTypes.objectOf({
-        required: PropTypes.string,
-        minLength: PropTypes.object,
-        pattern: PropTypes.object,
-        min: PropTypes.object
-    }).isRequired,
+    validation: PropTypes.object,
     dirtyFields: PropTypes.bool,
     errorMessage: PropTypes.string,
     errorMessagemargin: PropTypes.string,
     errorFontSize: PropTypes.string,
-    value: PropTypes.string
 };
 
 BassicInput.defaultProps = {
@@ -91,7 +84,6 @@ BassicInput.defaultProps = {
     errorMessage: '',
     errorMessagemargin: '',
     errorFontSize: '',
-    value: ''
 }
 
 export default memo(BassicInput);

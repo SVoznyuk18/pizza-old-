@@ -1,0 +1,65 @@
+import React from "react";
+import { Controller } from 'react-hook-form';
+import DatePicker from "react-datepicker";
+
+import { ErrorMessage } from 'ComponentsRoot';
+import { Wrapper, Label, StyledInput } from './StyledComponents';
+import { colors } from "ConfigsRoot/colors";
+
+const getColor = (error, dirtyFields) => {
+    if (error) return colors.errorMessage;
+    if (!error && dirtyFields) return colors.validColor;
+    return colors.grey;
+}
+
+const DatePickerSection = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, label, control, name, id, type, width, height, padding, borderRadius, placeholder, register, validation, dirtyFields, errorMessagemargin, errorFontSize, errorMessage }) => {
+
+    return (
+        <Wrapper>
+            <Label
+                htmlFor={htmlFor}
+                labelFontSize={labelFontSize}
+                labelMarginBottom={labelMarginBottom}
+                labelLineHeight={labelLineHeight}
+            >
+                {label}
+            </Label>
+            <Controller
+                control={control}
+                name={name}
+                render={({ field }) => (
+                    <DatePicker
+                        customInput={<StyledInput
+                            id={id}
+                            type={type}
+                            name={name}
+                            width={width}
+                            height={height}
+                            padding={padding}
+                            borderRadius={borderRadius}
+                            borderColor={getColor(errorMessage, dirtyFields)}
+                            {...register(name, validation)}
+                        />}
+                        dateFormat="d MMM yyyy"
+                        minDate={new Date()}
+                        selected={field.value}
+                        showTimeSelect={false}
+                        todayButton="Today"
+                        dropdownMode="select"
+                        placeholderText={placeholder}
+                        shouldCloseOnSelect
+                        // validation={{ required: t('form.errorMessage.required') }}
+                        // errorMessagemargin='5px'
+                        // errorMessage={errors?.time && errors?.time?.message}
+
+                        onChange={(date) => field.onChange(date)}
+                    />
+                )}
+            />
+            <ErrorMessage errorMessagemargin={errorMessagemargin} errorFontSize={errorFontSize} >{errorMessage}</ErrorMessage>
+        </Wrapper>
+
+    );
+}
+
+export default DatePickerSection;
