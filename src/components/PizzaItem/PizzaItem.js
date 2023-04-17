@@ -79,7 +79,7 @@ PizzaItem.propTypes = {
         id: PropTypes.number,
         imageUrl: PropTypes.string,
         name: PropTypes.string,
-        price: PropTypes.number,
+        price: PropTypes.string,
         sizes: PropTypes.arrayOf(PropTypes.string),
         types: PropTypes.arrayOf(PropTypes.string)
     }),

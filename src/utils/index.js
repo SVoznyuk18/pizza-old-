@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
+import { doc, getDoc } from "firebase/firestore";
 
 import localization from 'moment/locale/uk'
 
@@ -104,4 +105,14 @@ export const useWindowSize = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []); // Empty array ensures that effect is only run on mount
   return windowSize;
+}
+
+
+export const getAutorization = async(db, uid) => {
+  const docRef = doc(db, "autorization", uid);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const {id, email, role} = docSnap.data().shema;
+    return {id, email, role};
+  }
 }

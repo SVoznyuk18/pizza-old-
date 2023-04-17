@@ -11,7 +11,7 @@
     "sort": {
         "sortTitle": "Сортування за:",
         "popularity": "популярності",
-        "price": "ціні",
+        "price": "ціною",
         "alphabet": "алфавіту"
     },
     "pizzaType": {

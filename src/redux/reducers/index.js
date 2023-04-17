@@ -4,12 +4,14 @@ import cart from "./cart";
 import filters from "./filters";
 import pizza from "./pizza";
 import modal from './modal';
+import login from "./login";
 
 const reducer = combineReducers({
     pizza,
     cart,
     filters,
-    modal
+    modal,
+    login
 })
 
 export default reducer
