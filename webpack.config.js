@@ -25,7 +25,7 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new HTMLWebpackPlugin({template: "./public/index.html"}),
+    new HTMLWebpackPlugin({template: "./public/index.html", favicon: './public/favicon.ico'}),
     new MiniCssExtractPlugin({filename: '[name].[contenthash].css'})
   ],
   module: {
