@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 
 import { addPizzaToCart } from 'ActionsRoot';
 
-import { Selector, BassicButton, SVG } from 'ComponentsRoot';
-import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, IconCustom, Price } from "./StyledComponents";
+import { Selector, BassicButton, SvgIcon } from 'ComponentsRoot';
+import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, Price } from "./StyledComponents";
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 
 const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
@@ -52,20 +52,17 @@ const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
                     fontSize='18px'
                     onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
                 >
-                    <IconCustom
-                        width='12px'
-                        height='12px'
+                
+                    <SvgIcon
+                        width='14px'
+                        height='14px'
+                        viewBox='0 0 10 10'
+                        path={iconSvg.plus}
                         fill='#EB5A1E'
                         fillHover='#fff'
                         margin='0 2px 0 0'
-                    >
-                        <SVG
-                            width='12'
-                            height='12'
-                            viewBox='0 0 10 10'
-                            path={iconSvg.plus}
-                        />
-                    </IconCustom>
+                    />
+               
                     {t('button.add')}
                 </BassicButton>
             </BottomSection>

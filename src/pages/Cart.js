@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal } from 'ActionsRoot';
-import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, CartBottomDetails, CartButtonSection, IconCustom, ClearCart } from './StyledComponents';
-import { CartItem, SVG, BassicButton } from 'ComponentsRoot';
+import { Content, ContainerCart, CartTitle, CartTop, ContentItems, CartBottom, CartBottomDetails, CartButtonSection, ClearCart } from './StyledComponents';
+import { CartItem, SvgIcon, BassicButton } from 'ComponentsRoot';
 
 import { MODAL } from 'ConfigsRoot/constants';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
@@ -36,20 +36,17 @@ const Cart = () => {
                         {t('cart')}
                     </CartTitle>
                     <ClearCart onClick={() => dispatch(clearCart())}>
-                        <IconCustom
-                            width='20'
-                            height='20'
-                            fill='#fff'
-                            strokeHover='#373737'
-                            stroke='#B6B6B6'
-                        >
-                            <SVG
+                  
+                            <SvgIcon
                                 width='20'
                                 height='20'
                                 viewBox='0 0 20 20'
                                 path={iconSvg.trash}
+                                fill='#fff'
+                                strokeHover='#373737'
+                                stroke='#B6B6B6'
                             />
-                        </IconCustom>
+                      
                         <span>{t('cleanCart')}</span>
                     </ClearCart>
                 </CartTop>

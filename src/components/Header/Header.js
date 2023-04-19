@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 
-import { Img, BassicButton, SVG, LanguagesMenu } from 'ComponentsRoot';
-import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, IconCustom, Delimiter, Wrapper, Cost, Amount, UserContainer, UserName,  } from './StyledComponents';
+import { Img, BassicButton, SvgIcon, LanguagesMenu } from 'ComponentsRoot';
+import { HeaderWrapper, HeaderLogoWrapper, HeaderLogoDescription, HeaderTitle, HeaderSubTitle, Delimiter, Wrapper, Cost, Amount, UserContainer, UserName } from './StyledComponents';
 
 import { logout } from "ActionsRoot";
 import logoSvg from 'AssetsRoot/svg/pizza-logo.svg';
@@ -69,18 +69,13 @@ const Header = ({ totalPrice, totalAmount }) => {
                             >
                                 <Cost>{t('common.cost', { cost: totalPrice })}</Cost>
                                 <Delimiter />
-                                <IconCustom
-                                    width='18'
-                                    height='18'
-                                    margin='0px 8px 1px 0px'
-                                >
-                                    <SVG
-                                        width='18'
-                                        height='18'
+                                    <SvgIcon
+                                        width='18px'
+                                        height='18px'
                                         viewBox='0 0 18 18'
                                         path={iconSvg.cart}
+                                        margin='0px 8px 1px 0px'
                                     />
-                                </IconCustom>
                                 <Amount>{totalAmount}</Amount>
                             </BassicButton>
                         </Link>

@@ -69,25 +69,6 @@ export const HeaderSubTitle = styled.p`
     color: #7B7B7B;
 `;
 
-export const IconCustom = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: ${props => props.margin};
-    width: ${props => props.width};
-    height: ${props => props.height};
-
-    svg {
-        fill: ${props => props.fill};
-    }
-
-    &:hover {
-        svg {
-            fill: ${props => props.fillHover};
-        }
-    }
-`;
-
 export const Delimiter = styled.div`
     width: 1px;
     height: 25px;

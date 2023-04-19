@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 import { addPizzaToCart } from 'ActionsRoot';
 
-import {Table, BassicButton, SVG} from 'ComponentsRoot';
+import {Table, BassicButton, SvgIcon} from 'ComponentsRoot';
 import {ButtonSection} from './StyledComponents';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 
@@ -29,7 +29,7 @@ const CreateNewManager = () => {
                     onClick={()=> {}}
                 >
                    
-                        <SVG
+                        <SvgIcon
                             width='12'
                             height='12'
                             viewBox='0 0 10 10'

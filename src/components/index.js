@@ -6,7 +6,7 @@ import Img from './Img/Img';
 import PizzaItem from './PizzaItem/PizzaItem';
 import Selector from './Selector/Selector';
 import Sort from './Sort/Sort';
-import SVG from './SVG/SVG';
+import SvgIcon from './SvgIcon/SvgIcon';
 import ErrorPage from './ErrorPage/ErrorPage';
 import Spiner from './Spiner/Spiner';
 import ModalComponent from './ModalComponent/ModalComponent';
@@ -19,4 +19,4 @@ import LoginForm from './LoginForm/LoginForm';
 import Tabs from './Tabs/Tabs';
 import Table from './Table/Table';
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SVG, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table };

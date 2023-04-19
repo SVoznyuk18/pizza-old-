@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import PropTypes from 'prop-types';
 
-import { SVG } from 'ComponentsRoot';
+import { SvgIcon } from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 import { ModalWrapper, ModalContent, CloseButton } from './StyledComponents';
 
@@ -10,7 +10,7 @@ const ModalComponent = ({ isOpenModal, onCloseModal, children }) => {
         <ModalWrapper isOpenModal={isOpenModal}>
             <ModalContent>
                 <CloseButton onClick={() => onCloseModal()}>
-                    <SVG
+                    <SvgIcon
                         width='18'
                         height='18'
                         viewBox='0 0 9 9'

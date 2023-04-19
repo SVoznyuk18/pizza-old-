@@ -89,21 +89,3 @@ export const PriceSection = styled.div`
         letter-spacing: 0.01em;
     }
 `;
-
-export const IconCustom = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: ${props => props.width};
-    height: ${props => props.height};
-
-    svg {
-        fill: ${props => props.fill};
-    }
-
-    &:hover {
-        svg {
-            fill: ${props => props.fillHover};
-        }
-    }
-`;

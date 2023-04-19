@@ -2,10 +2,10 @@ import React, { memo } from "react";
 import PropTypes from 'prop-types';
 import { useTranslation } from "react-i18next";
 
-import { BassicButton, Img, SVG } from 'ComponentsRoot';
+import { BassicButton, Img, SvgIcon } from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 import { colors } from "ConfigsRoot/colors";
-import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, IconCustom, ControlsWrapper, CartImgWrapper } from './StyledComponents';
+import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, ControlsWrapper, CartImgWrapper } from './StyledComponents';
 
 const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
     const { t } = useTranslation();
@@ -19,7 +19,6 @@ const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaI
                     alt="Pizza"
                 />
             </CartImgWrapper>
-
             <CartItemInfo>
                 <h3>{t(`pizzaName.${cartItem?.name}`)}</h3>
                 <p> {`${t(`pizzaType.${cartItem?.type}`)}, ${t('common.size', { size: cartItem?.size })}`}</p>
@@ -36,19 +35,14 @@ const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaI
                         borderColor={colors.orange}
                         onClick={() => onDecPizzaAmount(cartItem)}
                     >
-                        <IconCustom
+                        <SvgIcon
                             width='100%'
-                            height='100%'
+                            height='10px'
+                            viewBox='0 0 10 10'
+                            path={iconSvg.minus}
                             fill={colors.orange}
                             fillHover={colors.white}
-                        >
-                            <SVG
-                                width='10'
-                                height='10'
-                                viewBox='0 0 10 10'
-                                path={iconSvg.minus}
-                            />
-                        </IconCustom>
+                        />
                     </BassicButton>
                     <b>{cartItem.amountPizzas}</b>
                     <BassicButton
@@ -61,19 +55,14 @@ const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaI
                         borderColor={colors.orange}
                         onClick={() => onIncPizzaAmount(cartItem)}
                     >
-                        <IconCustom
+                        <SvgIcon
                             width='100%'
-                            height='100%'
+                            height='10px'
+                            viewBox='0 0 10 10'
+                            path={iconSvg.plus}
                             fill={colors.orange}
                             fillHover={colors.white}
-                        >
-                            <SVG
-                                width='10'
-                                height='10'
-                                viewBox='0 0 10 10'
-                                path={iconSvg.plus}
-                            />
-                        </IconCustom>
+                        />
                     </BassicButton>
                 </CountSection>
                 <PriceSection>
@@ -90,19 +79,14 @@ const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaI
                         borderColor={colors.orange}
                         onClick={() => onDeletePizzaItem(cartItem)}
                     >
-                        <IconCustom
+                        <SvgIcon
                             width='100%'
-                            height='100%'
+                            height='10px'
+                            viewBox='0 0 10 10'
+                            path={iconSvg.cancel}
                             fill={colors.orange}
                             fillHover={colors.white}
-                        >
-                            <SVG
-                                width='10'
-                                height='10'
-                                viewBox='0 0 10 10'
-                                path={iconSvg.cancel}
-                            />
-                        </IconCustom>
+                        />
                     </BassicButton>
                 </RemoveSection>
             </ControlsWrapper>
