@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Icon } from "./StyledComponents";
 
-const Img = ({ src, alt, width, height, margin }) => {
+const Img = ({ src, alt, width, height, margin, borderRadius }) => {
     return (
         <Icon
             src={src}
@@ -11,6 +11,7 @@ const Img = ({ src, alt, width, height, margin }) => {
             width={width}
             height={height}
             margin={margin}
+            borderRadius={borderRadius}
         />
     );
 }
@@ -20,7 +21,8 @@ Img.propTypes = {
     alt: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
-    margin: PropTypes.string
+    margin: PropTypes.string,
+    borderRadius: PropTypes.string
 }
 
 Img.defaultProps = {
@@ -28,7 +30,8 @@ Img.defaultProps = {
     alt: '',
     width: '',
     height: '',
-    margin: ''
+    margin: '',
+    borderRadius: ''
 }
 
 export default memo(Img);

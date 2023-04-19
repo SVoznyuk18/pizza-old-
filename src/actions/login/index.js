@@ -4,4 +4,4 @@ export const login = params => ({type: Types.LOGIN, payload: params});
 
 export const getCurrentAuth = params => ({type: Types.GET_CURRENT_AUTH, payload: params})
 
-export const LogoutAdmin = () => ({type: Types.LOGOUT_ADMIN});
+export const logout = () => ({type: Types.LOGOUT});

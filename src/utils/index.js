@@ -112,7 +112,7 @@ export const getAutorization = async(db, uid) => {
   const docRef = doc(db, "autorization", uid);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    const {id, email, role} = docSnap.data().shema;
-    return {id, email, role};
+    const {id, email, role, name} = docSnap.data().shema;
+    return {id, email, role, name};
   }
 }

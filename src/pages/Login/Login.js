@@ -11,12 +11,10 @@ import { LoginForm } from 'ComponentsRoot';
 
 const Login = () => {
     const navigate = useNavigate();
-    const location = useLocation();
     const dispatch = useDispatch();
-    const {role, accessToken} = useSelector(state => state.login);
+    const {role} = useSelector(state => state.login);
     const auth = getAuth();
     const { reset } = useForm({ mode: 'all' });
-    const fromPage = location?.state?.from?.pathname || '/';
 
 
     const handleLogin = (data) => {
@@ -27,7 +25,6 @@ const Login = () => {
                 // Signed in 
                 const {accessToken, uid} = userCredential.user;
                 dispatch(login({accessToken, uid}));
-                navigate(fromPage, { replace: true });
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -36,10 +33,10 @@ const Login = () => {
     }
 
     useEffect(() => {
-        if (role, accessToken) {
-            navigate(fromPage, { replace: true });
+        if (role) {
+            navigate('/admin', { replace: true });
         }
-    }, [role, accessToken])
+    }, [role])
 
     return (
 

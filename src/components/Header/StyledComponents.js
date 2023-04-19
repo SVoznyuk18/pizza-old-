@@ -104,3 +104,17 @@ export const Wrapper = styled.div`
         width: 100%;
     }
 `;
+
+export const UserContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 180px;
+
+
+`;
+
+export const UserName = styled.h4`
+    font-size: 16px;
+`;
+

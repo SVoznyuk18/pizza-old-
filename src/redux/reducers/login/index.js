@@ -4,23 +4,36 @@ const initialState = {
     accessToken: '',
     id: '',
     email: '',
-    role: ''
+    role: '',
+    name: ''
 }
 
 const loginSuccess = (state, action) => {
-    const {accessToken, id, email, role} = action.payload;
+    const {accessToken, id, email, role, name} = action.payload;
     window.localStorage.setItem('auth', JSON.stringify(action.payload));
     return {
-        ...state, accessToken, id, email, role
+        ...state, accessToken, id, email, role, name
     }
 }
 
 const getCurrentAuthSuccess = (state, action) => {
-    const {accessToken, id, email, role} = action.payload;
+    const {accessToken, id, email, role, name} = action.payload;
     return {
-        ...state, accessToken, id, email, role
+        ...state, accessToken, id, email, role, name
     }
 
+}
+
+const logoutAuthSuccess = (state, action) => {
+    window.localStorage.removeItem('auth');
+    return{
+        ...state, 
+        accessToken: '',
+        id: '',
+        email: '',
+        role: '',
+        name: ''
+    }
 }
 
 const login = (state = initialState, action) => {
@@ -29,6 +42,8 @@ const login = (state = initialState, action) => {
             return loginSuccess(state, action);
         case Types.GET_CURRENT_AUTH_SUCCESS:
             return getCurrentAuthSuccess(state, action);
+        case Types.LOGOUT_SUCCESS:
+            return logoutAuthSuccess(state, action)
         default:
             return state;
     }

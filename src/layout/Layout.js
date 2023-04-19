@@ -3,10 +3,10 @@ import { Outlet } from "react-router-dom";
 
 import { Header } from "ComponentsRoot";
 
-const Layout = ({totalPrice, totalAmount}) => {
+const Layout = ({totalPrice, totalAmount, accessToken, email, name, }) => {
     return (
         <>
-            <Header totalPrice={totalPrice} totalAmount={totalAmount}/>
+            <Header totalPrice={totalPrice} totalAmount={totalAmount} accessToken={accessToken}/>
             <Outlet/>
         </>
     )
