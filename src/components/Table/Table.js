@@ -34,15 +34,15 @@ const Table = () => {
     return (
         <TableContent>
             <TableHeader>
-                {header && header.map(item => (
-                    <TableHeaderItem>{item}</TableHeaderItem>
+                {header && header.map((item, index) => (
+                    <TableHeaderItem key={index}>{item}</TableHeaderItem>
                 ))}
             </TableHeader>
           
                 {
                     docData && docData.map(item => (
-                        <TableRow>
-                             <TableRowItem>{item.name}</TableRowItem>
+                        <TableRow key={item.id}>
+                            <TableRowItem>{item.name}</TableRowItem>
                             <TableRowItem>{item.email}</TableRowItem>
                             <TableRowItem><Img width='35px' height='35px' borderRadius='50%' src={item.userAvatar} alt='avatar'/></TableRowItem>
                             <TableRowItem>{item.role}</TableRowItem>

@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { getPizzaRequest } from 'ActionsRoot';
 import { filteredPizzaSelector, useWindowSize } from 'UtilsRoot';
 import { breakPoints, CATEGORIES, AVALIABLE_TYPES, AVALIABLE_SIZES, SORT } from 'ConfigsRoot/constants';
+import { colors } from 'ConfigsRoot/colors'
 
 import { Categories, Sort, PizzaItem, Spiner, ErrorPage } from 'ComponentsRoot';
 import { Content, Container, ContentTop, MainTitle, ContentItems } from './StyledComponents';
@@ -35,7 +36,12 @@ const Main = () => {
                 <MainTitle>{t(`categoriesPizza.${activeCategory}`)}</MainTitle>
                 <Choose>
                     <When condition={pizzaLoading === true && pizzaError === false}>
-                        <Spiner />
+                        <Spiner
+                            width='200px'
+                            height='200px'
+                            viewBox='0 0 100 100'
+                            fill={colors.orange}
+                            style={{ margin: '0 auto', background: 'none', display: 'block' }} />
                     </When>
                     <When condition={pizzaLoading === false && pizzaError === false && !!filteredPizza.length}>
                         <ContentItems>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { doc, getDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import localization from 'moment/locale/uk'
 
@@ -108,11 +109,30 @@ export const useWindowSize = () => {
 }
 
 
-export const getAutorization = async(db, uid) => {
+export const getAutorization = async (db, uid) => {
   const docRef = doc(db, "autorization", uid);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
-    const {id, email, role, name} = docSnap.data().shema;
-    return {id, email, role, name};
+    const { id, email, role, name } = docSnap.data().shema;
+    return { id, email, role, name };
   }
+}
+
+
+//upload image to firestore
+export const uploadFiles = async (file, folderFirestore, fileName, setLoadingFile, setLoadingError, setLoadedFile) => {
+  setLoadingFile(true);
+  setLoadingError(false);
+
+  const storage = getStorage();
+  const spaceRef = ref(storage, `${folderFirestore}/${fileName}`);
+
+  uploadBytes(spaceRef, file)
+    .then((snapshot) => {
+      setLoadingFile(false);
+      setLoadedFile(true);
+    })
+    .catch((error) => {
+      loadingError(true);
+    });
 }

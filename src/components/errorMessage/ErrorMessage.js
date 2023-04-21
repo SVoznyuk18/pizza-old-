@@ -16,7 +16,7 @@ ErrorMessage.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.string,
-    ]).isRequired,
+    ])
 }
 
 ErrorMessage.defaultProps = {

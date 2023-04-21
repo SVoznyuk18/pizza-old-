@@ -18,5 +18,6 @@ import DatePickerSection from './DatePicker/DatePicker';
 import LoginForm from './LoginForm/LoginForm';
 import Tabs from './Tabs/Tabs';
 import Table from './Table/Table';
+import FileUploader from './FileUploader/FileUploader';
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table , FileUploader};

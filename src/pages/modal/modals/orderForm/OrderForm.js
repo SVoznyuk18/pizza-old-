@@ -1,8 +1,8 @@
 import React from "react";
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from "react-i18next";
 
-import { Wrapper, Title, Form, ContactSection, AddressSection, TimeSection, StyledInput, DatePickerWrapper, Label } from './StyledComponents';
+import { Wrapper, Title, Form, ContactSection, AddressSection, TimeSection } from './StyledComponents';
 import { BassicInput, BassicButton, TimePicker, DatePicker } from 'ComponentsRoot';
 
 const OrderForm = () => {
@@ -207,7 +207,6 @@ const OrderForm = () => {
                         validation={{ required: t('form.errorMessage.required') }}
                         dirtyFields={dirtyFields?.date}
                         errorMessage={errors?.date && errors?.date?.message}
-
                     />
                 </TimeSection>
                 <BassicButton

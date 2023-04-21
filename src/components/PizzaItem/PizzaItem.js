@@ -43,8 +43,8 @@ const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
                 <Price>{`${t('common.from')} ${t('common.cost', { cost: pizzaItem?.price })}`}</Price>
                 <BassicButton
                     display='flex'
-                    padding='10px 20px'
-                    width='130px'
+                    padding='10px'
+                    width='auto'
                     backgroundColor="#ffff"
                     alignItems='center'
                     justifyContent='space-evenly'
@@ -52,15 +52,14 @@ const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
                     fontSize='18px'
                     onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
                 >
-                
                     <SvgIcon
                         width='14px'
                         height='14px'
-                        viewBox='0 0 10 10'
+                        viewBox='0 0 9.6 9.6'
                         path={iconSvg.plus}
                         fill='#EB5A1E'
                         fillHover='#fff'
-                        margin='0 2px 0 0'
+                        margin='0 5px 0 0'
                     />
                
                     {t('button.add')}

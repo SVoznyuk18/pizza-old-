@@ -2,9 +2,10 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 
-import { addPizzaToCart } from 'ActionsRoot';
+import { handleToggleModal } from 'ActionsRoot';
+import { MODAL } from 'ConfigsRoot/constants';
 
-import {Table, BassicButton, SvgIcon} from 'ComponentsRoot';
+import {Table, BassicButton, SvgIcon, FileUploader} from 'ComponentsRoot';
 import {ButtonSection} from './StyledComponents';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 
@@ -17,26 +18,26 @@ const CreateNewManager = () => {
     
         <>
         <ButtonSection>
+            {/* <FileUploader/> */}
             <BassicButton
                     display='flex'
-                    padding='10px 20px'
-                    width='130px'
+                    padding='10px'
+                    width='auto'
                     backgroundColor="#ffff"
                     alignItems='center'
                     justifyContent='space-evenly'
                     fontWeight={600}
                     fontSize='18px'
-                    onClick={()=> {}}
+                    onClick={() => dispatch(handleToggleModal(true, MODAL.NEW_MANAGER_FORM))}
                 >
-                   
-                        <SvgIcon
-                            width='12'
-                            height='12'
-                            viewBox='0 0 10 10'
-                            fill='#EB5A1E'
-                            path={iconSvg.plus}
-                        />
-                
+                    <SvgIcon
+                        width='14px'
+                        height='14px'
+                        viewBox='0 0 9.6 9.6'
+                        fill='#EB5A1E'
+                        path={iconSvg.plus}
+                        margin='0 5px 0 0'
+                    />
                     {t('button.add')}
                 </BassicButton>
 
