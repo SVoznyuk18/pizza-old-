@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
-import { doc, getDoc } from "firebase/firestore";
+
+import { doc, getDoc, setDoc, collection, getDocs, deleteDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import localization from 'moment/locale/uk'
 
@@ -135,4 +137,23 @@ export const uploadFiles = async (file, folderFirestore, fileName, setLoadingFil
     .catch((error) => {
       loadingError(true);
     });
+}
+
+export const createNewUser = async (db, collectionName, documentName, data) => {
+  await setDoc(doc(db, collectionName, documentName), data);
+}
+
+export const getDocuments = async (db, collectionName) => {
+  let documents = [];
+  const querySnapshot = await getDocs(collection(db, collectionName));
+
+  querySnapshot.forEach((document) => {
+    documents = [...documents, document.data()]
+  })
+
+  return documents;
+}
+
+export const deleteUser = async (db, collectionName, id) => {
+  await deleteDoc(doc(db, collectionName, id));
 }

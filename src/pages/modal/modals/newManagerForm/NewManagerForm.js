@@ -13,7 +13,7 @@ const NewManagerForm = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const { register, handleSubmit, setValue, formState: { errors, dirtyFields }, reset, clearErrors  } = useForm();
+    const { register, handleSubmit, setValue, formState: { errors, dirtyFields }, reset, clearErrors } = useForm();
 
     const onSubmit = (data) => {
 
@@ -92,6 +92,29 @@ const NewManagerForm = () => {
                     dirtyFields={dirtyFields?.email}
                     errorMessagemargin='5px'
                     errorMessage={errors?.email && errors?.email?.message}
+                />
+
+                <BassicInput
+                    label='password'
+                    htmlFor='password'
+                    labelFontSize='16px'
+                    labelMarginBottom='5px'
+                    labelLineHeight='16px'
+                    id='password'
+                    type='password'
+                    name='password'
+                    placeholder={t('form.placeholderEmail')}
+                    width='100%'
+                    height='40px'
+                    margin='0 0 5px'
+                    padding='5px 10px 5px 10px'
+                    borderRadius='15px'
+                    fontSize='16px'
+                    register={register}
+                    validation={{ required: t('form.errorMessage.required'), minLength: { value: 5, message: t('form.errorMessage.moreCharacters', { count: 5 }) } }}
+                    dirtyFields={dirtyFields?.password}
+                    errorMessagemargin='5px'
+                    errorMessage={errors?.password && errors?.password?.message}
                 />
                 <BassicInput
                     label='role'

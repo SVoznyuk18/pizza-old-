@@ -1,8 +1,8 @@
 import React from "react";
 
-import {Tabs} from 'ComponentsRoot';
-import {CreateNewCart, CreteNewManager, Orders} from 'ContainersRoot';
-import {Container} from './StyledComponents';
+import { Tabs } from 'ComponentsRoot';
+import { CreateNewCart, ManagersList, Orders } from 'ContainersRoot';
+import { Container } from './StyledComponents';
 
 const Admin = () => {
 
@@ -13,24 +13,24 @@ const Admin = () => {
                     [
                         {
                             id: 0,
-                            label: 'create new manager',
-                            content: <CreteNewManager/>
+                            label: 'Managers',
+                            content: <ManagersList />
                         },
                         {
                             id: 1,
                             label: 'create new cart',
-                            content: <CreateNewCart/>
+                            content: <CreateNewCart />
                         },
                         {
                             id: 2,
                             label: 'Orders',
-                            content: <Orders/>
+                            content: <Orders />
                         }
                     ]
                 }
             />
         </Container>
-        
+
     )
 }
 

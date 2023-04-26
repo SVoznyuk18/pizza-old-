@@ -1,60 +1,48 @@
-import React from "react";
+import React, { memo } from "react";
 
-import {Img} from 'ComponentsRoot';
+import { Img } from 'ComponentsRoot';
 
-import {TableContent, TableHeader, TableHeaderItem, TableRow, TableRowItem} from './StyledComponents';
+import { TableContent, TableHeader, TableHeaderItem, TableRow, TableRowItem } from './StyledComponents';
+import { SvgIcon } from 'ComponentsRoot';
+import iconSvg from 'AssetsRoot/svg/iconSvg';
+import { colors } from "ConfigsRoot/colors"
 
-const header = ['email', 'name', 'userAvatar', 'role', 'Действия'];
+const header = ['name', 'email', 'phone', 'userAvatar', 'role', 'tools'];
 
-const docData =[
-    {
-        email: 'admin@gmail.com',
-        name: 'Admin Admin',
-        id: 1,
-        userAvatar: 'https://firebasestorage.googleapis.com/v0/b/vozniuk-pizza.appspot.com/o/Pizza%2Fpepperoni.jpg?alt=media&token=290479c0-8277-4532-8447-781fb6144971',
-        role: 'admin'
-    },
-    {
-        email: 'serg@gmail.com',
-        name: 'Serhii Vozniuk',
-        id: 2,
-        userAvatar: 'https://firebasestorage.googleapis.com/v0/b/vozniuk-pizza.appspot.com/o/Pizza%2Fpepperoni.jpg?alt=media&token=290479c0-8277-4532-8447-781fb6144971',
-        role: 'manager'
-    },
-    {
-        email: 'adriy@gmail.com',
-        name: 'Aadriy Admin',
-        id: 3,
-        userAvatar: 'https://firebasestorage.googleapis.com/v0/b/vozniuk-pizza.appspot.com/o/Pizza%2Fpepperoni.jpg?alt=media&token=290479c0-8277-4532-8447-781fb6144971',
-        role: 'manager'
-    }
-]
-
-const Table = () => {
+const Table = ({ tableData, handleDelete }) => {
     return (
         <TableContent>
             <TableHeader>
-                {header && header.map((item, index) => (
+                {header && header?.map((item, index) => (
                     <TableHeaderItem key={index}>{item}</TableHeaderItem>
                 ))}
             </TableHeader>
-          
-                {
-                    docData && docData.map(item => (
-                        <TableRow key={item.id}>
-                            <TableRowItem>{item.name}</TableRowItem>
-                            <TableRowItem>{item.email}</TableRowItem>
-                            <TableRowItem><Img width='35px' height='35px' borderRadius='50%' src={item.userAvatar} alt='avatar'/></TableRowItem>
-                            <TableRowItem>{item.role}</TableRowItem>
-                            <TableRowItem>Tools</TableRowItem>
-                        </TableRow>
-                    ))
-                }
-                
-           
+
+            {
+                tableData && tableData.map(item => (
+                    <TableRow key={item?.id}>
+                        <TableRowItem>{item?.name}</TableRowItem>
+                        <TableRowItem>{item?.email}</TableRowItem>
+                        <TableRowItem>{item?.phone}</TableRowItem>
+                        <TableRowItem><Img width='35px' height='35px' borderRadius='50%' src={item?.avatarUrl} alt='avatar' /></TableRowItem>
+                        <TableRowItem>{item?.role}</TableRowItem>
+                        <TableRowItem>
+                            <SvgIcon
+                                width='20px'
+                                height='20px'
+                                viewBox='0 0 490 490'
+                                fill={colors.green}
+                                path={iconSvg.check}
+                                handleClick={() => handleDelete(item?.id)}
+                            />
+
+                        </TableRowItem>
+                    </TableRow>
+                ))
+            }
         </TableContent>
-   
+
     )
 }
 
-export default Table;
+export default memo(Table);

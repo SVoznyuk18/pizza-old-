@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, memo } from "react";
 
 import { TabsWrapper, TabsNav, Tab, TabsContent } from './StyledComponents';
 
@@ -9,11 +9,11 @@ const Tabs = ({ tabs }) => {
     return (
         <TabsWrapper>
             <TabsNav>
-                {tabs.length > 0 && tabs.map(tab => (
+                {tabs?.length > 0 && tabs?.map(tab => (
                     <Tab
-                        key={tab.id}
-                        isActive={tab.id === activeTab}
-                        onClick={() => setActiveTab(tab.id)}
+                        key={tab?.id}
+                        isActive={tab?.id === activeTab}
+                        onClick={() => setActiveTab(tab?.id)}
                     >
                         {tab?.label}
                     </Tab>
@@ -22,11 +22,11 @@ const Tabs = ({ tabs }) => {
             </TabsNav>
             <TabsContent>
                 {
-                    tabs.length > 0 && tabs.map(tab => {
-                        if (activeTab === tab.id) {
+                    tabs?.length > 0 && tabs?.map(tab => {
+                        if (activeTab === tab?.id) {
                             return (
-                                <Fragment key={tab.id}>
-                                    {tab.content}
+                                <Fragment key={tab?.id}>
+                                    {tab?.content}
                                 </Fragment>
                             )
                         }
@@ -38,4 +38,4 @@ const Tabs = ({ tabs }) => {
 
     );
 }
-export default Tabs;
+export default memo(Tabs);

@@ -1,9 +1,9 @@
 import React, { memo } from "react";
 import PropTypes from 'prop-types';
 
-import {Svg} from './StyledComponents';
+import { Svg } from './StyledComponents';
 
-const SvgIcon = memo(({ width, height, viewBox, fill, path, fillHover, margin, stroke, strokeHover }) => {
+const SvgIcon = memo(({ width, height, viewBox, fill, path, fillHover, margin, stroke, strokeHover, handleClick }) => {
     return (
         <Svg
             width={width}
@@ -15,6 +15,7 @@ const SvgIcon = memo(({ width, height, viewBox, fill, path, fillHover, margin, s
             fillHover={fillHover}
             stroke={stroke}
             strokeHover={strokeHover}
+            onClick={handleClick}
         >
             <path
                 d={path}
@@ -32,7 +33,8 @@ SvgIcon.propTypes = {
     path: PropTypes.string.isRequired,
     fillHover: PropTypes.string,
     stroke: PropTypes.string,
-    strokeHover: PropTypes.string
+    strokeHover: PropTypes.string,
+    handleClick: PropTypes.func
 };
 
 SvgIcon.defaultProps = {
@@ -43,7 +45,8 @@ SvgIcon.defaultProps = {
     fill: '',
     fillHover: '',
     stroke: '',
-    strokeHover: ''
+    strokeHover: '',
+    handleClick: () => { }
 };
 
 export default SvgIcon;

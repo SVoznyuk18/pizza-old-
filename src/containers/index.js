@@ -1,5 +1,5 @@
 import CreateNewCart from "./CreateNewCart/CreateNewCart";
-import CreteNewManager from "./CreateNewManager/CreateNewManager";
+import ManagersList from "./ManagersList/ManagersList";
 import Orders from './Orders/Orders';
 
-export {CreateNewCart, CreteNewManager, Orders};
+export {CreateNewCart, ManagersList, Orders};
