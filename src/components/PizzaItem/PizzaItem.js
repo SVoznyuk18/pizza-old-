@@ -6,10 +6,11 @@ import { useTranslation } from "react-i18next";
 import { addPizzaToCart } from 'ActionsRoot';
 
 import { Selector, BassicButton, SvgIcon } from 'ComponentsRoot';
-import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, Price } from "./StyledComponents";
+import { PizzaBlock, PizzaImg, Title, SelectorSection, BottomSection, Price, EditWrapper } from "./StyledComponents";
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 
-const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
+
+const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes, editProduct }) => {
 
     const dispatch = useDispatch();
     const { t } = useTranslation();
@@ -41,30 +42,57 @@ const PizzaItem = ({ pizzaItem, avaliableTypes, avaliableSizes }) => {
             </SelectorSection>
             <BottomSection>
                 <Price>{`${t('common.from')} ${t('common.cost', { cost: pizzaItem?.price })}`}</Price>
-                <BassicButton
-                    display='flex'
-                    padding='10px'
-                    width='auto'
-                    backgroundColor="#ffff"
-                    alignItems='center'
-                    justifyContent='space-evenly'
-                    fontWeight={600}
-                    fontSize='18px'
-                    onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
-                >
-                    <SvgIcon
-                        width='14px'
-                        height='14px'
-                        viewBox='0 0 9.6 9.6'
-                        path={iconSvg.plus}
-                        fill='#EB5A1E'
-                        fillHover='#fff'
-                        margin='0 5px 0 0'
-                    />
-               
-                    {t('button.add')}
-                </BassicButton>
+                <If condition={!editProduct}>
+                    <BassicButton
+                        display='flex'
+                        padding='10px'
+                        width='auto'
+                        backgroundColor="#ffff"
+                        alignItems='center'
+                        justifyContent='space-evenly'
+                        fontWeight={600}
+                        fontSize='18px'
+                        onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
+                    >
+                        <SvgIcon
+                            width='14px'
+                            height='14px'
+                            viewBox='0 0 9.6 9.6'
+                            path={iconSvg.plus}
+                            fill='#EB5A1E'
+                            fillHover='#fff'
+                            margin='0 5px 0 0'
+                        />
+                        {t('button.add')}
+                    </BassicButton>
+                </If>
             </BottomSection>
+            <If condition={editProduct}>
+                <EditWrapper>
+                    <BassicButton
+                        display='flex'
+                        padding='10px'
+                        width='auto'
+                        backgroundColor="#ffff"
+                        alignItems='center'
+                        justifyContent='space-evenly'
+                        fontWeight={600}
+                        fontSize='18px'
+                    // onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
+                    >
+                        <SvgIcon
+                            width='14px'
+                            height='14px'
+                            viewBox='0 0 9.6 9.6'
+                            path={iconSvg.plus}
+                            fill='#EB5A1E'
+                            fillHover='#fff'
+                            margin='0 5px 0 0'
+                        />
+                        {t('button.add')}
+                    </BassicButton>
+                </EditWrapper>
+            </If>
         </PizzaBlock>
     )
 };
@@ -80,13 +108,15 @@ PizzaItem.propTypes = {
         types: PropTypes.arrayOf(PropTypes.string)
     }),
     avaliableTypes: PropTypes.arrayOf(PropTypes.string),
-    avaliableSizes: PropTypes.arrayOf(PropTypes.string)
+    avaliableSizes: PropTypes.arrayOf(PropTypes.string),
+    editProduct: PropTypes.bool
 };
 
 PizzaItem.defaultProps = {
     pizzaItem: {},
     avaliableTypes: [],
-    avaliableSizes: []
+    avaliableSizes: [],
+    editProduct: false
 }
 
 export default memo(PizzaItem);

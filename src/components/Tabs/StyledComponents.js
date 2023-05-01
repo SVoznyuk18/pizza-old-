@@ -24,6 +24,7 @@ export const Tab = styled.div`
 `;
 
 export const TabsContent = styled.div`
+    padding: 40px 0 0;
     width: 100%;
-    height: 100vh;
+    height: auto;
 `;

@@ -3,6 +3,7 @@ import { colors } from 'ConfigsRoot/colors';
 import { media } from 'ConfigsRoot/constants';
 
 export const PizzaBlock = styled.div`
+    position: relative;
     width: 350px;
     min-width: 260px;
     margin: 0 10px 65px 10px;
@@ -63,5 +64,25 @@ export const Price = styled.div`
 
     ${media.mobile} {
         font-size: 18px;
+    }
+`;
+
+export const EditWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    opacity: 0;
+    border-radius: 15px;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        opacity: 1;
     }
 `;

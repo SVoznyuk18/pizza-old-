@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {media} from 'ConfigsRoot/constants'
+import { media } from 'ConfigsRoot/constants'
 
 export const Wrapper = styled.div`
     width: calc(100vw - 100px);

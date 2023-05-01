@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Tabs } from 'ComponentsRoot';
-import { CreateNewCart, ManagersList, Orders } from 'ContainersRoot';
+import { AddNewProduct, ManagersList, Orders } from 'ContainersRoot';
 import { Container } from './StyledComponents';
 
 const Admin = () => {
@@ -18,8 +18,8 @@ const Admin = () => {
                         },
                         {
                             id: 1,
-                            label: 'create new cart',
-                            content: <CreateNewCart />
+                            label: 'Add New Product',
+                            content: <AddNewProduct />
                         },
                         {
                             id: 2,
