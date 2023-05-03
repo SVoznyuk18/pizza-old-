@@ -2,8 +2,8 @@ import React from "react";
 import { Controller } from 'react-hook-form';
 import DatePicker from "react-datepicker";
 
-import { ErrorMessage } from 'ComponentsRoot';
-import { Wrapper, Label, StyledInput } from './StyledComponents';
+import { ErrorMessage, Label } from 'ComponentsRoot';
+import { Wrapper, StyledInput } from './StyledComponents';
 import { colors } from "ConfigsRoot/colors";
 
 const getColor = (error, dirtyFields) => {
@@ -21,9 +21,8 @@ const DatePickerSection = ({ htmlFor, labelFontSize, labelMarginBottom, labelLin
                 labelFontSize={labelFontSize}
                 labelMarginBottom={labelMarginBottom}
                 labelLineHeight={labelLineHeight}
-            >
-                {label}
-            </Label>
+                label={label}
+            />
             <Controller
                 control={control}
                 name={name}

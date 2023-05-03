@@ -2,9 +2,9 @@ import React, { useState, useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { formatedTimeArray, setDisableTime } from 'UtilsRoot';
-import { ErrorMessage } from 'ComponentsRoot';
+import { ErrorMessage, Label } from 'ComponentsRoot';
 import { colors } from "ConfigsRoot/colors"
-import { Wrapper, Label, Input, WrapperTimeList, TimeList, ListItem } from './StyledComponents';
+import { Wrapper, Input, WrapperTimeList, TimeList, ListItem } from './StyledComponents';
 
 
 const getColor = (error, dirtyFields) => {
@@ -35,7 +35,6 @@ const TimePicker = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLin
     return (
         <Wrapper
             borderRadius={borderRadius}
-            // width={width}
             margin={margin}
         >
             <Label
@@ -43,9 +42,8 @@ const TimePicker = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLin
                 labelFontSize={labelFontSize}
                 labelMarginBottom={labelMarginBottom}
                 labelLineHeight={labelLineHeight}
-            >
-                {label}
-            </Label>
+                label={label}
+            />
             <Input
                 id={id}
                 type={type}

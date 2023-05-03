@@ -7,9 +7,9 @@ import iconSvg from 'AssetsRoot/svg/iconSvg';
 import { colors } from "ConfigsRoot/colors"
 
 import { Input, FilePickerWrapper } from './StyledComponents';
-import { SvgIcon, Spiner, BassicButton, ErrorMessage } from 'ComponentsRoot';
+import { SvgIcon, Spiner, BassicButton, ErrorMessage, Label } from 'ComponentsRoot';
 
-const FileUploader = ({ name, id, register, setValue, validation, errorMessagemargin, errorMessage, errorFontSize, clearErrors  }) => {
+const FileUploader = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, label, name, id, register, setValue, validation, errorMessagemargin, errorMessage, errorFontSize, clearErrors }) => {
 
     const [loadingFile, setLoadingFile] = useState(false);
     const [loadingError, setLoadingError] = useState(false);
@@ -39,13 +39,20 @@ const FileUploader = ({ name, id, register, setValue, validation, errorMessagema
     return (
         <>
             <FilePickerWrapper>
+                <Label
+                    htmlFor={htmlFor}
+                    labelFontSize={labelFontSize}
+                    labelMarginBottom={labelMarginBottom}
+                    labelLineHeight={labelLineHeight}
+                    label={label}
+                />
                 <Input
                     type='file'
                     accept='image/*, .png, .jpg, .gif, .web'
                     id={id}
                     name={name}
                     {...rest}
-                    ref={(e) => {filePicker.current = e}}
+                    ref={(e) => { filePicker.current = e }}
                     onChange={handleChange}
                 />
                 <BassicButton

@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 import PropTypes from 'prop-types';
-import { Wrapper, Label, Input } from './StyledComponents';
+import { Wrapper, Input } from './StyledComponents';
 
-import { ErrorMessage } from 'ComponentsRoot';
+import { ErrorMessage, Label } from 'ComponentsRoot';
 
 import { colors } from "ConfigsRoot/colors";
 
@@ -13,7 +13,6 @@ const getColor = (error, dirtyFields) => {
 }
 
 const BassicInput = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, id, type, name, placeholder, width, height, padding, margin, borderRadius, register, validation, dirtyFields, errorMessage, errorMessagemargin, errorFontSize }) => {
-
     return (
         <Wrapper width={width} margin={margin}>
             <Label
@@ -21,9 +20,8 @@ const BassicInput = ({ label, htmlFor, labelFontSize, labelMarginBottom, labelLi
                 labelFontSize={labelFontSize}
                 labelMarginBottom={labelMarginBottom}
                 labelLineHeight={labelLineHeight}
-            >
-                {label}
-            </Label>
+                label={label}
+            />
             <Input
                 id={id}
                 type={type}

@@ -141,6 +141,11 @@ const NewManagerForm = () => {
                 <FileUploader
                     name='avatarUrl'
                     id='avatarUrl'
+                    label='avatarUrl'
+                    htmlFor='date'
+                    labelFontSize='16px'
+                    labelMarginBottom='5px'
+                    labelLineHeight='16px'
                     register={register}
                     setValue={setValue}
                     validation={{ required: t('form.errorMessage.required') }}

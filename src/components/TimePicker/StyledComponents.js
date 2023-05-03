@@ -13,22 +13,6 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const Label = styled.div`
-    display: inline;
-    font-size: ${props => props.labelFontSize};
-    margin-bottom: ${props => props.labelMarginBottom};
-    line-height: ${props => props.labelLineHeight};
-    font-weight: 600;
-
-    ${media.mobile} {
-        font-size: 14px;
-    }
-
-    ${media.mobileS} {
-        font-size: 12px;
-    }
-`;
-
 export const Input = styled.input`
     height: ${props => props.height};
     width: ${props => props.width};

@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 
+import { Label } from 'ComponentsRoot';
 
 import { Wrapper, InputWrapper } from './StyledComponents';
 
-const CheckboxInput = ({ name, register, setValue, validation, clearErrors, checboxItems }) => {
+const CheckboxInput = ({ name, register, setValue, validation, clearErrors, checboxItems, labelFontSize, labelMarginBottom, labelLineHeight, label }) => {
 
     const checkboxRef = useRef();
 
@@ -28,30 +29,48 @@ const CheckboxInput = ({ name, register, setValue, validation, clearErrors, chec
     useEffect(() => {
         setValue(name, checkboxValue)
 
-        if(checkboxValue.length !== 0) clearErrors(name);
+        if (checkboxValue.length !== 0) clearErrors(name);
 
     }, [checkboxValue])
 
     return (
         <Wrapper>
-            {
-                checboxItems && checboxItems.map(item => (
-                    <InputWrapper key={item}>
-                        <input
-                            type="checkbox"
+            <Label
+                labelFontSize={labelFontSize}
+                labelMarginBottom={labelMarginBottom}
+                labelLineHeight={labelLineHeight}
+                label={label}
+            />
+            <InputWrapper>
+                {
+                    checboxItems && checboxItems.map(item => (
+                        <>
+                            <input
+                                type="checkbox"
 
-                            id={item}
-                            name={name}
-                            value={item}
-                            {...rest}
-                            ref={(e) => { checkboxRef.current = e }}
-                            onChange={handleChange}
+                                id={item}
+                                name={name}
+                                value={item}
+                                {...rest}
+                                ref={(e) => { checkboxRef.current = e }}
+                                onChange={handleChange}
 
-                        />
-                        <label htmlFor={item}>{item}</label>
-                    </InputWrapper>
-                ))
-            }
+                            />
+                            <Label
+                                htmlFor={item}
+                                labelFontSize={labelFontSize}
+                                labelMarginBottom='0px'
+                                labelLineHeight={labelLineHeight}
+                                label={item}
+                            ></Label>
+                        </>
+
+
+
+                    ))
+                }
+            </InputWrapper>
+
         </Wrapper>
     )
 }

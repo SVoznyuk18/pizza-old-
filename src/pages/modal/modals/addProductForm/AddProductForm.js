@@ -30,6 +30,10 @@ const AddProductForm = ({ }) => {
                 register={register}
                 clearErrors={clearErrors}
                 checboxItems={AVALIABLE_TYPES}
+                label='Pizza types'
+                labelFontSize='16px'
+                labelMarginBottom='10px'
+                labelLineHeight='16px'
             />
 
             <CheckboxInput
@@ -39,6 +43,10 @@ const AddProductForm = ({ }) => {
                 register={register}
                 clearErrors={clearErrors}
                 checboxItems={AVALIABLE_SIZES}
+                label='Pizza sizes'
+                labelFontSize='16px'
+                labelMarginBottom='10px'
+                labelLineHeight='16px'
             />
 
             <BassicButton
