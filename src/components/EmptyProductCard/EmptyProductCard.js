@@ -7,7 +7,7 @@ import { BassicButton, SvgIcon } from 'ComponentsRoot';
 import { EmptyBlock } from './StyledComponents';
 
 
-const EmptyProductCard = () => {
+const EmptyProductCard = ({onToggleModal}) => {
 
     const { t } = useTranslation();
 
@@ -22,7 +22,7 @@ const EmptyProductCard = () => {
                 justifyContent='space-evenly'
                 fontWeight={600}
                 fontSize='18px'
-                // onClick={() => dispatch(addPizzaToCart(orderConfig(`${pizzaItem?.id}_${selectSize}_${selectType}`)))}
+                onClick={() => onToggleModal()}
             >
                 <SvgIcon
                     width='14px'

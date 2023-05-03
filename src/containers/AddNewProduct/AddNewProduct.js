@@ -18,14 +18,13 @@ const AddNewProduct = () => {
         dispatch(getPizzaRequest());
     }, []);
 
-    console.log('pizza',pizza)
     return(
 
        <Wrapper>
             {pizza.length && pizza.map(item => {
                 return (<PizzaItem key={item.id} pizzaItem={item} avaliableTypes={AVALIABLE_TYPES} avaliableSizes={AVALIABLE_SIZES} editProduct />)
             })}
-            <EmptyProductCard/>
+            <EmptyProductCard onToggleModal={() => dispatch(handleToggleModal(true, MODAL.ADD_NEW_PRODUCT))}/>
        </Wrapper>
     )
 }

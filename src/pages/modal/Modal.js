@@ -6,6 +6,7 @@ import { ModalComponent } from "ComponentsRoot";
 import SuccessfullOrder from './modals/successfullOrder/SuccessfullOrder';
 import OrderForm from './modals/orderForm/OrderForm';
 import NewManagerForm from './modals/newManagerForm/NewManagerForm';
+import AddProductForm from './modals/addProductForm/AddProductForm';
 
 /* eslint-disable react/prop-types */
 const RenderModal = ({ modalType, ...props }) => {
@@ -18,6 +19,8 @@ const RenderModal = ({ modalType, ...props }) => {
             return <OrderForm {...props} />
         case MODAL.NEW_MANAGER_FORM:
             return <NewManagerForm {...props} />
+        case MODAL.ADD_NEW_PRODUCT:
+            return <AddProductForm {...props} />
         default:
             return <></>;
     }
