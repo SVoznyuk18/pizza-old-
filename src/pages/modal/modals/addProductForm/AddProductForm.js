@@ -34,6 +34,7 @@ const AddProductForm = ({ }) => {
                 labelFontSize='16px'
                 labelMarginBottom='10px'
                 labelLineHeight='16px'
+                errorMessage={errors?.types && errors?.types?.message}
             />
 
             <CheckboxInput
@@ -47,6 +48,7 @@ const AddProductForm = ({ }) => {
                 labelFontSize='16px'
                 labelMarginBottom='10px'
                 labelLineHeight='16px'
+                errorMessage={errors?.sizes && errors?.sizes?.message}
             />
 
             <BassicButton

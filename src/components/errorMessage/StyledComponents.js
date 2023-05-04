@@ -5,7 +5,7 @@ import { media } from 'ConfigsRoot/constants';
 
 export const Wrapper = styled.div`
     display: inline;
-    margin-top: 5px;
+    margin: ${props => props.margin || '5px 0 0'};
 
     ${media.mobile} {
         margin-top: 0;

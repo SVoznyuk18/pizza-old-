@@ -12,7 +12,7 @@ const getColor = (error, dirtyFields) => {
     return colors.grey;
 }
 
-const DatePickerSection = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, label, control, name, id, type, width, height, padding, borderRadius, placeholder, register, validation, dirtyFields, errorMessagemargin, errorFontSize, errorMessage }) => {
+const DatePickerSection = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, label, control, name, id, type, width, height, padding, borderRadius, placeholder, register, validation, dirtyFields, errorMessagemargin, errorMessage }) => {
 
     return (
         <Wrapper>
@@ -55,7 +55,7 @@ const DatePickerSection = ({ htmlFor, labelFontSize, labelMarginBottom, labelLin
                     />
                 )}
             />
-            <ErrorMessage errorMessagemargin={errorMessagemargin} errorFontSize={errorFontSize} >{errorMessage}</ErrorMessage>
+            <ErrorMessage>{errorMessage}</ErrorMessage>
         </Wrapper>
 
     );

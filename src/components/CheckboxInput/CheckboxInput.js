@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 
-import { Label } from 'ComponentsRoot';
+import { Label, ErrorMessage } from 'ComponentsRoot';
 
-import { Wrapper, InputWrapper } from './StyledComponents';
+import { Wrapper, CheckboxGroup, CheckboxBlock } from './StyledComponents';
 
-const CheckboxInput = ({ name, register, setValue, validation, clearErrors, checboxItems, labelFontSize, labelMarginBottom, labelLineHeight, label }) => {
+const CheckboxInput = ({ name, register, setValue, validation, clearErrors, checboxItems, labelFontSize, labelMarginBottom, labelLineHeight, label, errorMessage }) => {
 
     const checkboxRef = useRef();
 
@@ -41,20 +41,18 @@ const CheckboxInput = ({ name, register, setValue, validation, clearErrors, chec
                 labelLineHeight={labelLineHeight}
                 label={label}
             />
-            <InputWrapper>
+            <CheckboxGroup>
                 {
                     checboxItems && checboxItems.map(item => (
-                        <>
+                        <CheckboxBlock key={item}>
                             <input
                                 type="checkbox"
-
                                 id={item}
                                 name={name}
                                 value={item}
                                 {...rest}
                                 ref={(e) => { checkboxRef.current = e }}
                                 onChange={handleChange}
-
                             />
                             <Label
                                 htmlFor={item}
@@ -63,13 +61,11 @@ const CheckboxInput = ({ name, register, setValue, validation, clearErrors, chec
                                 labelLineHeight={labelLineHeight}
                                 label={item}
                             ></Label>
-                        </>
-
-
-
+                        </CheckboxBlock>
                     ))
                 }
-            </InputWrapper>
+            </CheckboxGroup>
+            <ErrorMessage>{errorMessage}</ErrorMessage>
 
         </Wrapper>
     )

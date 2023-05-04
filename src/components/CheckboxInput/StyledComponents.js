@@ -12,13 +12,20 @@ export const Wrapper = styled.div`
 
 `;
 
-export const InputWrapper = styled.div`
+export const CheckboxGroup = styled.div`
     display flex;
     margin-right: 10px;
     align-items: center;
     justify-content: center;
 
     input {
-        margin: 0 5px 0 10px;
+        margin-right: 5px;
     }
 `;
+
+export const CheckboxBlock = styled.div`
+    display flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+`
