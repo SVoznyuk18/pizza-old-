@@ -9,7 +9,7 @@ import { colors } from "ConfigsRoot/colors"
 import { Input, FilePickerWrapper } from './StyledComponents';
 import { SvgIcon, Spiner, BassicButton, ErrorMessage, Label } from 'ComponentsRoot';
 
-const FileUploader = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, label, name, id, register, setValue, validation, errorMessagemargin, errorMessage, errorFontSize, clearErrors }) => {
+const FileUploader = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeight, label, name, storageFolder, id, register, setValue, validation, errorMessagemargin, errorMessage, errorFontSize, clearErrors }) => {
 
     const [loadingFile, setLoadingFile] = useState(false);
     const [loadingError, setLoadingError] = useState(false);
@@ -22,7 +22,7 @@ const FileUploader = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeig
     const getImgURL = async (folderFirebase, fileName) => {
         const storage = getStorage();
         const url = await getDownloadURL(refFirebase(storage, `${folderFirebase}/${fileName}`));
-        setValue('avatarUrl', url);
+        setValue(name, url);
     }
 
     const handlePicker = () => {
@@ -31,9 +31,9 @@ const FileUploader = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeig
 
     const handleChange = (e) => {
         const file = e.target.files[0];
-        uploadFiles(file, 'UsersAvatar', file.name, setLoadingFile, setLoadingError, setLoadedFile)
-        getImgURL('UsersAvatar', file.name);
-        clearErrors('avatarUrl');
+        uploadFiles(file, storageFolder, file.name, setLoadingFile, setLoadingError, setLoadedFile)
+        getImgURL(storageFolder, file.name);
+        clearErrors(name);
     }
 
     return (

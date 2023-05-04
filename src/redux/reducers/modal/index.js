@@ -2,7 +2,7 @@ import * as Types from 'ConfigsRoot/constants';
 
 const initialState = {
     isOpenModal: false,
-    modalType: '',
+    modalType: null,
     params: null
 }
 

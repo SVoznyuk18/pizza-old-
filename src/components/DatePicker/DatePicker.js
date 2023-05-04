@@ -57,7 +57,6 @@ const DatePickerSection = ({ htmlFor, labelFontSize, labelMarginBottom, labelLin
             />
             <ErrorMessage>{errorMessage}</ErrorMessage>
         </Wrapper>
-
     );
 }
 

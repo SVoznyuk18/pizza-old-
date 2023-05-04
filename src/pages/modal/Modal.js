@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { MODAL } from 'ConfigsRoot/constants';
 import { ModalComponent } from "ComponentsRoot";
-import SuccessfullOrder from './modals/successfullOrder/SuccessfullOrder';
+import SuccessModal from './modals/successModal/SuccessModal';
 import OrderForm from './modals/orderForm/OrderForm';
 import NewManagerForm from './modals/newManagerForm/NewManagerForm';
 import AddProductForm from './modals/addProductForm/AddProductForm';
@@ -11,8 +11,8 @@ import AddProductForm from './modals/addProductForm/AddProductForm';
 /* eslint-disable react/prop-types */
 const RenderModal = ({ modalType, ...props }) => {
     switch (modalType) {
-        case MODAL.SUCCESSFULL_ORDER:
-            return <SuccessfullOrder {...props} />
+        case MODAL.SUCCESS_MODAL:
+            return <SuccessModal {...props} />
         // case MODAL.FAILURE_ORDER:
         //     return <FailureOrder {...props}/>    
         case MODAL.ORDER_FORM:

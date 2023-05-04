@@ -140,6 +140,7 @@ const NewManagerForm = () => {
                 />
                 <FileUploader
                     name='avatarUrl'
+                    storageFolder='UsersAvatar'
                     id='avatarUrl'
                     label='avatarUrl'
                     htmlFor='date'

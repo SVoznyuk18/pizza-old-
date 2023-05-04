@@ -12,7 +12,6 @@ const OrderForm = () => {
     const { register, handleSubmit, setValue, control, formState: { errors, dirtyFields }, reset } = useForm({ mode: 'all' });
 
     const onSubmit = (data) => {
-        console.log(data);
         reset();
     }
 

@@ -1,8 +1,7 @@
 import { takeEvery, takeLatest, put } from 'redux-saga/effects'
 
-
 import * as Types from 'ConfigsRoot/constants';
-import { createNewUser, saveNewUser, getDocuments, deleteUser } from 'UtilsRoot';
+import { createNewDocument, saveNewUser, getDocuments, deleteUser } from 'UtilsRoot';
 import { db } from 'UtilsRoot/firebase';
 
 
@@ -19,7 +18,7 @@ function* watchCreateNewManager(action) {
             password
         }
         yield put({ type: Types.GET_MANAGERS_LOADING, payload: true });
-        yield createNewUser(db, 'managers', `${name}-${email}`, data);
+        yield createNewDocument(db, 'managers', `${name}-${email}`, data);
 
         const managers = yield getDocuments(db, 'managers');
         yield put({ type: Types.GET_MANAGERS_SUCCESS, payload: { managers } });
@@ -28,7 +27,6 @@ function* watchCreateNewManager(action) {
     } catch {
 
     }
-
 }
 
 function* watchGetManagers() {

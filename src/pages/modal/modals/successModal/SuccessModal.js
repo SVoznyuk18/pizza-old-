@@ -2,7 +2,7 @@ import React from "react";
 
 import {Wrapper} from './StyledComponents';
 
-const SuccessfullOrder = () => {
+const SuccessModal = () => {
     return (
         <Wrapper>
             Succesfull
@@ -11,4 +11,4 @@ const SuccessfullOrder = () => {
     )
 };
 
-export default SuccessfullOrder;
+export default SuccessModal;

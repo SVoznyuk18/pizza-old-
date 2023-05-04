@@ -139,7 +139,7 @@ export const uploadFiles = async (file, folderFirestore, fileName, setLoadingFil
     });
 }
 
-export const createNewUser = async (db, collectionName, documentName, data) => {
+export const createNewDocument = async (db, collectionName, documentName, data) => {
   await setDoc(doc(db, collectionName, documentName), data);
 }
 

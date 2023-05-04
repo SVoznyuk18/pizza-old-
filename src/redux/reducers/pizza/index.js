@@ -28,6 +28,7 @@ const getPizzaFailure = (state, action) => {
     }
 }
 
+
 const pizza = (state = initialState, action) => {
     switch (action.type) {
         case Types.GET_PIZZA_SUCCESS:
