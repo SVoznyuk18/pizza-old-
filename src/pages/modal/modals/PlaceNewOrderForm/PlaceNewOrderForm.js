@@ -1,17 +1,21 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 
+import {placeNewOrder} from 'ActionsRoot';
 import { Wrapper, Title, Form, ContactSection, AddressSection, TimeSection } from './StyledComponents';
 import { BassicInput, BassicButton, TimePicker, DatePicker } from 'ComponentsRoot';
 
-const OrderForm = () => {
+const PlaceNewOrderForm = () => {
 
     const { t } = useTranslation();
+    const dispatch = useDispatch();
 
     const { register, handleSubmit, setValue, control, formState: { errors, dirtyFields }, reset } = useForm({ mode: 'all' });
 
     const onSubmit = (data) => {
+        dispatch(placeNewOrder(data));
         reset();
     }
 
@@ -226,4 +230,4 @@ const OrderForm = () => {
     )
 };
 
-export default OrderForm;
+export default PlaceNewOrderForm;

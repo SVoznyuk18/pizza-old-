@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { MODAL } from 'ConfigsRoot/constants';
 import { ModalComponent } from "ComponentsRoot";
 import SuccessModal from './modals/successModal/SuccessModal';
-import OrderForm from './modals/orderForm/OrderForm';
+import PlaceNewOrderForm from './modals/PlaceNewOrderForm/PlaceNewOrderForm';
 import NewManagerForm from './modals/newManagerForm/NewManagerForm';
 import AddProductForm from './modals/addProductForm/AddProductForm';
 
@@ -16,7 +16,7 @@ const RenderModal = ({ modalType, ...props }) => {
         // case MODAL.FAILURE_ORDER:
         //     return <FailureOrder {...props}/>    
         case MODAL.ORDER_FORM:
-            return <OrderForm {...props} />
+            return <PlaceNewOrderForm {...props} />
         case MODAL.NEW_MANAGER_FORM:
             return <NewManagerForm {...props} />
         case MODAL.ADD_NEW_PRODUCT:

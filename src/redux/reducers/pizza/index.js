@@ -7,7 +7,6 @@ const initialState = {
 }
 
 const getPizzaSuccess = (state, action) => {
-    console.log('state', state);
     return {
         ...state,
         pizza: action.payload

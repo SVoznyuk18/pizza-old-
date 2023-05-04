@@ -57,7 +57,6 @@ function* watchDecreasePizzaAmount(action) {
 }
 
 function* watchDeletePizzaItem(action) {
-    console.log()
     try{
         yield put({type: Types.DELETE_PIZZA_ITEM_SUCCESS, payload: action.payload.id});
     } catch {

@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
 import { fork, all } from 'redux-saga/effects';
 import reducer from './reducers';
-import { watchPizza, watchFilter, watchCart, watchLogin, watchUsers } from './sagas';
+import { watchPizza, watchFilter, watchCart, watchLogin, watchUsers, watchOrder } from './sagas';
 
 const rootSaga = function* () {
   yield all([
@@ -10,7 +10,8 @@ const rootSaga = function* () {
     fork(watchFilter),
     fork(watchCart),
     fork(watchLogin),
-    fork(watchUsers)
+    fork(watchUsers),
+    fork(watchOrder)
   ]);
 }
 
