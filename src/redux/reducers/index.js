@@ -6,6 +6,7 @@ import pizza from "./pizza";
 import modal from './modal';
 import login from "./login";
 import users from "./users";
+import orders from './orders';
 
 const reducer = combineReducers({
     pizza,
@@ -13,7 +14,8 @@ const reducer = combineReducers({
     filters,
     modal,
     login,
-    users
+    users,
+    orders
 })
 
 export default reducer

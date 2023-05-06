@@ -19,7 +19,7 @@ const ManagersList = () => {
         console.log('render');
         dispatch(getManagers());
 
-    }, []);
+    }, [dispatch]);
 
     const onDeleteManager = (id) => {
         dispatch(deleteManager({ id }));

@@ -5,6 +5,6 @@ import { addPizzaToCart, increasePizzaAmount, decreasePizzaAmount, deletePizzaIt
 import { handleToggleModal } from './modal';
 import { login, logout, getCurrentAuth } from './login';
 import { createNewManager, getManagers, deleteManager } from './users';
-import { placeNewOrder } from './order';
+import { placeNewOrder, getOrders } from './orders';
 
-export { getPizzaRequest, sortBy, filterCategory, addPizzaToCart, increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal, getCurrentOrder, getCurrentFilter, login, logout, getCurrentAuth, createNewManager, getManagers, deleteManager, createNewProduct, placeNewOrder };
+export { getPizzaRequest, sortBy, filterCategory, addPizzaToCart, increasePizzaAmount, decreasePizzaAmount, deletePizzaItem, clearCart, handleToggleModal, getCurrentOrder, getCurrentFilter, login, logout, getCurrentAuth, createNewManager, getManagers, deleteManager, createNewProduct, placeNewOrder, getOrders };

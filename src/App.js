@@ -40,7 +40,6 @@ function App() {
         currentAuth: JSON.parse(window.localStorage.getItem('auth'))
       }))
     }
-    
   }, []);
 
   return (
@@ -54,7 +53,6 @@ function App() {
               <PrivatPage>
                 <Admin />
               </PrivatPage>
-
             }/>
             <Route path="login" element={<Login/>}/>
           </Route>
