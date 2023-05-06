@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Accordion } from 'ComponentsRoot';
+import { OredersWrapper } from './StyledComponents';
 
 const Orders = () => {
-    return(
-        <h1>Orders</h1>
+    const [toggleOpenContent, setToggleOpenContent] = useState(null);
+    
+    return (
+        <>
+            <h1>orders</h1>
+            <Accordion
+                isOpen={() => }
+            />
+        </>
+
     )
 }
 

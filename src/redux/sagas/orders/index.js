@@ -14,6 +14,7 @@ function* watchPlaceNewOrder(action) {
         const { apartment, date, email, house, name, phone, street, time } = action.payload;
         const { cart, totalPrice, totalAmount } = yield select(getCart);
         const orderConfig = {
+            orderId: uuidv4(),
             clientInfo: {
                 name, 
                 phone,
@@ -27,7 +28,8 @@ function* watchPlaceNewOrder(action) {
             orderInfo: {
                 totalPrice,
                 totalAmount,
-                order: cart
+                order: cart,
+                // orderStatus: 
             }
         }
         
@@ -51,6 +53,6 @@ function* watchPlaceNewOrder(action) {
     }
 }
 
-export default function* watchOrder() {
+export default function* watchOrders() {
     yield takeLatest(Types.PLACE_NEW_ORDER, watchPlaceNewOrder);
 }

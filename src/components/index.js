@@ -22,6 +22,7 @@ import FileUploader from './FileUploader/FileUploader';
 import EmptyProductCard from './EmptyProductCard/EmptyProductCard'
 import CheckboxInput from './CheckboxInput/CheckboxInput'
 import LabelComponent from './Label/Label';
+import Accordion from './Accordion/Accordion'
 
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table, FileUploader, EmptyProductCard,CheckboxInput, LabelComponent as Label };
+export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table, FileUploader, EmptyProductCard,CheckboxInput, LabelComponent as Label, Accordion };
