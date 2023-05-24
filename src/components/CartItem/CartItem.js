@@ -7,27 +7,28 @@ import iconSvg from 'AssetsRoot/svg/iconSvg';
 import { colors } from "ConfigsRoot/colors";
 import { CarItemWrapper, CartItemInfo, CountSection, PriceSection, RemoveSection, ControlsWrapper, CartImgWrapper } from './StyledComponents';
 
-const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
+const CartItem = ({ cartItem, type, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaItem }) => {
     const { t } = useTranslation();
     return (
-        <CarItemWrapper>
-            <CartImgWrapper>
+        <CarItemWrapper type={type}>
+            <CartImgWrapper type={type}>
                 <Img
                     width="100%"
                     height="100%"
                     src={cartItem?.imageUrl}
                     alt="Pizza"
+                    
                 />
             </CartImgWrapper>
-            <CartItemInfo>
+            <CartItemInfo type={type}>
                 <h3>{t(`pizzaName.${cartItem?.name}`)}</h3>
                 <p> {`${t(`pizzaType.${cartItem?.type}`)}, ${t('common.size', { size: cartItem?.size })}`}</p>
             </CartItemInfo>
-            <ControlsWrapper>
-                <CountSection>
+            <ControlsWrapper type={type}>
+                <CountSection type={type}>
                     <BassicButton
-                        width="32px"
-                        height="32px"
+                        width={type === 'orders' ? '20px' : '32px'}
+                        height={type === 'orders' ? '20px' : '32px'}
                         padding="initial"
                         margin="0 10px 0 0 "
                         backgroundColor={colors.white}
@@ -46,8 +47,8 @@ const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaI
                     </BassicButton>
                     <b>{cartItem.amountPizzas}</b>
                     <BassicButton
-                        width="32px"
-                        height="32px"
+                        width={type === 'orders' ? '20px' : '32px'}
+                        height={type === 'orders' ? '20px' : '32px'}
                         padding="initial"
                         margin="0 10px 0 10px"
                         backgroundColor={colors.white}
@@ -65,13 +66,13 @@ const CartItem = ({ cartItem, onIncPizzaAmount, onDecPizzaAmount, onDeletePizzaI
                         />
                     </BassicButton>
                 </CountSection>
-                <PriceSection>
+                <PriceSection type={type}>
                     <b>{t('common.cost', { cost: cartItem?.amountPizzas * cartItem?.price })}</b>
                 </PriceSection>
                 <RemoveSection>
                     <BassicButton
-                        width="32px"
-                        height="32px"
+                        width={type === 'orders' ? '20px' : '32px'}
+                        height={type === 'orders' ? '20px' : '32px'}
                         padding="initial"
                         margin="0 0 0 10px"
                         backgroundColor={colors.white}
@@ -113,7 +114,8 @@ CartItem.defaultProps = {
     cartItem: {},
     onIncPizzaAmount: () => { },
     onDecPizzaAmount: () => { },
-    onDeletePizzaItem: () => { }
+    onDeletePizzaItem: () => { },
+    type: 'orders'
 }
 
 export default memo(CartItem);

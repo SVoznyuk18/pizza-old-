@@ -5,7 +5,6 @@ import { AddNewProduct, ManagersList, Orders } from 'ContainersRoot';
 import { Container } from './StyledComponents';
 
 const Admin = () => {
-console.log('admin')
     return (
         <Container>
             <Tabs

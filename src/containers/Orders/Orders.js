@@ -18,8 +18,6 @@ const Orders = () => {
         dispatch(getOrders());
     }, [dispatch]);
 
-    console.log('orders', orders);
-
     return (
         <>
             <h1>orders</h1>

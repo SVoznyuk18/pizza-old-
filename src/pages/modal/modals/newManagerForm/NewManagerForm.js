@@ -88,7 +88,7 @@ const NewManagerForm = () => {
                     borderRadius='15px'
                     fontSize='16px'
                     register={register}
-                    validation={{ required: t('form.errorMessage.required'), pattern: { value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: t('form.errorMessage.wrongEmail') } }}
+                    validation={{ required: t('form.errorMessage.required'),  pattern: { value: /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/, message: t('form.errorMessage.wrongEmail') } }}
                     dirtyFields={dirtyFields?.email}
                     errorMessagemargin='5px'
                     errorMessage={errors?.email && errors?.email?.message}
