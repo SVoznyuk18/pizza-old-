@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 
 import {getOrders} from 'ActionsRoot';
 
-import { Accordion } from 'ComponentsRoot';
-import { OredersWrapper } from './StyledComponents';
+import { Accordion, CartItem } from 'ComponentsRoot';
+import { OrdersContainer, Order, OrderInfoSection, OrderInfoItem, OrderCartSection, OrderPriceSection } from './StyledComponents';
 
 const Orders = () => {
     const [activeId, setActiveId] = useState(null);
@@ -19,8 +19,7 @@ const Orders = () => {
     }, [dispatch]);
 
     return (
-        <>
-            <h1>orders</h1>
+        <OrdersContainer>
             <Choose>
                 <When condition={orders.length > 0}>
                     {orders.map(order => (
@@ -28,15 +27,45 @@ const Orders = () => {
                             key={order?.orderId}
                             isOpen={order?.orderId === activeId}
                             setActiveId={setActiveId}
+                            header={
+                                [order?.clientInfo?.name, order?.clientInfo?.phone, order?.clientInfo?.email, order?.orderInfo?.orderStatus]
+                            }
                             order={order}
-                        />
+                        >
+                            <Order>
+                                <OrderInfoSection>
+                                    <OrderInfoItem>{`name: ${order?.clientInfo?.name}`}</OrderInfoItem>
+                                    <OrderInfoItem>{`phone: ${order?.clientInfo?.phone}`}</OrderInfoItem>
+                                    <OrderInfoItem>{`email: ${order?.clientInfo?.email}`}</OrderInfoItem>
+                                    <OrderInfoItem>{`delivery date ${order?.clientInfo?.time}`}</OrderInfoItem>
+                                    <OrderInfoItem>{`Adress ${order?.clientInfo?.street} street., ${order?.clientInfo?.house}, ${order?.clientInfo?.apartment}, ap`}</OrderInfoItem>
+                                </OrderInfoSection>
+                                <OrderCartSection>
+                                    {
+                                        order?.orderInfo?.order.map((item, index) => {
+                                            return <CartItem 
+                                                key={index}
+                                                cartItem={item} 
+                                                // onIncPizzaAmount={onIncPizzaAmount} 
+                                                // onDecPizzaAmount={onDecPizzaAmount} 
+                                                // onDeletePizzaItem={onDeletePizzaItem} 
+                                            />
+                                        })
+                                    }
+                                </OrderCartSection>
+                                <OrderPriceSection>
+                                    <span> {t('amoutPizzas')} <b>{t('common.amount', { amount: order?.orderInfo?.totalAmount })}</b></span>
+                                    <span> {t('orderPrice')} <b>{t('common.cost', { cost: order?.orderInfo?.totalPrice })}</b> </span>
+                                </OrderPriceSection>
+                            </Order>
+                        </Accordion>
                     ))}
                 </When>
                 <Otherwise>
 
                 </Otherwise>
             </Choose>
-        </>
+        </OrdersContainer>
     )
 }
 

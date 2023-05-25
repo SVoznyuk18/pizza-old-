@@ -25,6 +25,8 @@ const ManagersList = () => {
         dispatch(deleteManager({ id }));
     };
 
+    const header = ['name', 'email', 'phone', 'userAvatar', 'role', 'tools'];
+
     return (
         <>
             <ButtonSection>
@@ -56,7 +58,7 @@ const ManagersList = () => {
                     <Spiner />
                 </When>
                 <Otherwise>
-                    <Table tableData={managers} handleDelete={onDeleteManager} />
+                    <Table tableData={managers} handleDelete={onDeleteManager} header={header}/>
                 </Otherwise>
             </Choose>
         </>

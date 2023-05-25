@@ -7,6 +7,7 @@ export const AccordionWrapper = styled.div`
 `;
 
 export const AccordionItem = styled.div`
+
     width: 100%;
     margin-bottom: 25px;
     border-radius: 15px;
@@ -26,7 +27,8 @@ export const AccordionHeader = styled.div`
 `;
 
 export const HeaderItem = styled.div`
-    
+    width: 25%;
+    text-align: center;
 `;
 
 export const AccordionBody = styled.div`
@@ -43,35 +45,3 @@ export const AccordionContent = styled.div`
 `;
 
 
-export const Order = styled.div`
-`; 
-export const OrderInfoSection = styled.section`
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: column;
-`;
-
-export const OrderInfoItem = styled.div`
-
-    font-size: 16px;
-    margin-bottom: 20px;
-
-`;
-export const OrderCartSection = styled.section``;
-export const OrderPriceSection = styled.section`
-    display: flex;
-    justify-content: ;
-
-    span {
-        font-size: 16px;
-
-        &:last-of-type {
-            margin-left: 20px;
-            b {
-
-                color: ${colors.orange};
-            }
-        }
-    }
-`;

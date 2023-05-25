@@ -7,9 +7,7 @@ import { SvgIcon } from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 import { colors } from "ConfigsRoot/colors"
 
-const header = ['name', 'email', 'phone', 'userAvatar', 'role', 'tools'];
-
-const Table = ({ tableData, handleDelete }) => {
+const Table = ({ tableData, handleDelete, header }) => {
     return (
         <TableContent>
             <TableHeader>
@@ -17,7 +15,6 @@ const Table = ({ tableData, handleDelete }) => {
                     <TableHeaderItem key={index}>{item}</TableHeaderItem>
                 ))}
             </TableHeader>
-
             {
                 tableData && tableData.map(item => (
                     <TableRow key={item?.id}>
