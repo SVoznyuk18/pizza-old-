@@ -1,6 +1,6 @@
 import React, { useRef, useState, } from "react";
 
-import { getStorage, ref as refFirebase, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getStorage, ref as refFirebase, getDownloadURL } from "firebase/storage";
 
 import { uploadFiles } from 'UtilsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
@@ -17,7 +17,7 @@ const FileUploader = ({ htmlFor, labelFontSize, labelMarginBottom, labelLineHeig
 
     const filePicker = useRef();
 
-    const { ref, ...rest } = register(name, validation);
+    const {...rest } = register(name, validation);
 
     const getImgURL = async (folderFirebase, fileName) => {
         const storage = getStorage();

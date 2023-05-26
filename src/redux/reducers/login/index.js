@@ -1,18 +1,19 @@
 import * as Types from 'ConfigsRoot/constants';
 
 const initialState = {
-    accessToken: '',
     id: '',
     email: '',
     role: '',
-    name: ''
+    name: '',
+    phone: '',
+    avatarUrl: ''
 }
 
 const loginSuccess = (state, action) => {
-    const {accessToken, id, email, role, name} = action.payload;
+    const {avatarUrl, email, id, name, phone, role} = action.payload;
     window.localStorage.setItem('auth', JSON.stringify(action.payload));
     return {
-        ...state, accessToken, id, email, role, name
+        ...state, avatarUrl, email, id, name, phone, role
     }
 }
 
@@ -24,7 +25,7 @@ const getCurrentAuthSuccess = (state, action) => {
 
 }
 
-const logoutAuthSuccess = (state, action) => {
+const logoutAuthSuccess = (state) => {
     window.localStorage.removeItem('auth');
     return{
         ...state, 

@@ -1,15 +1,14 @@
-import { takeLatest, put } from 'redux-saga/effects'
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import { takeLatest, put, call } from 'redux-saga/effects'
 
 import * as Types from 'ConfigsRoot/constants';
+import { login } from 'UtilsRoot'
 import { db } from 'UtilsRoot/firebase';
-import { getAutorization } from 'UtilsRoot';
 
 function* watchLoginRequest(action) {
     try{
-        const {accessToken, uid} = action.payload;
-        const {id, email, role, name} = yield getAutorization(db, uid);
-        yield put({type: Types.LOGIN_SUCCESS, payload: {accessToken, id, email, role, name}});
+        const {userEmail, userPassword} = action.payload;
+        const {avatarUrl, email, id, name, phone, role } = yield call(login, db, 'managers', userEmail, userPassword);
+        yield put({type: Types.LOGIN_SUCCESS, payload: {avatarUrl, email, id, name, phone, role }});
  
     }catch {
     

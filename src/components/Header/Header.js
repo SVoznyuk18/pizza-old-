@@ -20,7 +20,7 @@ import { colors } from 'ConfigsRoot/colors';
 const Header = ({ totalPrice, totalAmount }) => {
 
     const dispatch = useDispatch();
-    const { role, accessToken, email, name } = useSelector(state => state.login);
+    const { role, name } = useSelector(state => state.login);
     const { t } = useTranslation();
     const size = useWindowSize();
     const location = useLocation();
@@ -40,7 +40,7 @@ const Header = ({ totalPrice, totalAmount }) => {
             </If>
             <Wrapper>
                 <Choose>
-                    <When condition={!!accessToken && location.pathname === '/admin'}>
+                    <When condition={!!role && location.pathname === '/admin'}>
                         <UserContainer>
                             <Img width="40px" borderRadius='100%' src={adminIcon} alt='img'/>
                             <UserName>{name}</UserName>

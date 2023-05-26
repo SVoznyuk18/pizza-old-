@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 
-import { doc, getDoc, setDoc, collection, getDocs, deleteDoc } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc, setDoc, collection, getDocs, deleteDoc, query, where } from "firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 import localization from 'moment/locale/uk'
 
@@ -110,17 +109,6 @@ export const useWindowSize = () => {
   return windowSize;
 }
 
-
-export const getAutorization = async (db, uid) => {
-  const docRef = doc(db, "autorization", uid);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    const { id, email, role, name } = docSnap.data().shema;
-    return { id, email, role, name };
-  }
-}
-
-
 //upload image to firestore
 export const uploadFiles = async (file, folderFirestore, fileName, setLoadingFile, setLoadingError, setLoadedFile) => {
   setLoadingFile(true);
@@ -161,11 +149,23 @@ export const getDocument = async (db, collectionName, documentId) => {
   if (docSnap.exists()) {
     console.log("Document data:", docSnap.data());
   } else {
-    // docSnap.data() will be undefined in this case
     console.log("No such document!");
   }
 }
 
 export const deleteUser = async (db, collectionName, id) => {
   await deleteDoc(doc(db, collectionName, id));
+}
+
+export const login = async (db, collectionName, email, password) => {
+  let user = {};
+  const citiesRef = collection(db, collectionName);
+  const q = query(citiesRef, where("email", "==", email), where("password", "==", password));
+  const querySnapshot = await getDocs(q);
+
+  querySnapshot.forEach((doc) => {
+    user = { ...user, ...doc.data()};
+  });
+
+  return user;
 }
