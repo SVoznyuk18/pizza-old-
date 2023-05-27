@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { colors } from "ConfigsRoot/colors";
+import styled from 'styled-components';
+import { colors } from 'ConfigsRoot/colors';
 
 export const LanguagesWrapper = styled.div`
     position: relative;
@@ -26,7 +26,7 @@ export const MenuContent = styled.ul`
     left: 0;
     width: 100px;
     background-color: ${colors.greyLine};
-    height: ${props => props.toggleMenu ? 'auto' : '0px'};
+    height: ${(props) => (props.toggleMenu ? 'auto' : '0px')};
     border-radius: 15px;
     transition: height 0.5s;
     overflow: hidden;
@@ -55,5 +55,4 @@ export const Img = styled.img`
 
 export const Title = styled.div`
     font-size: 16px;
-
 `;
