@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 import { colors } from 'ConfigsRoot/colors';
 import { media } from 'ConfigsRoot/constants';

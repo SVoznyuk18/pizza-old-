@@ -24,7 +24,7 @@ const AddNewProduct = () => {
             {pizza.length && pizza.map(item => {
                 return (<PizzaItem key={item.id} pizzaItem={item} avaliableTypes={AVALIABLE_TYPES} avaliableSizes={AVALIABLE_SIZES} editProduct />)
             })}
-            <EmptyProductCard onToggleModal={() => dispatch(handleToggleModal(true, MODAL.ADD_NEW_PRODUCT))}/>
+            <EmptyProductCard handleOpenModal={() => dispatch(handleToggleModal(true, MODAL.ADD_NEW_PRODUCT))}/>
        </Wrapper>
     )
 }
