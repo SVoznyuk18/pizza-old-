@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import { colors } from "ConfigsRoot/colors";
+import { colors } from 'ConfigsRoot/colors';
 
 export const AccordionWrapper = styled.div`
   width: 100%;
@@ -32,9 +32,7 @@ export const AccordionBody = styled.div`
   padding: 0 20px 0;
   overflow: hidden;
 
-  ${(props) =>
-    props.isShowBody &&
-    css`
+  ${(props) => props.isShowBody && css`
       padding: 0 20px 20px;
       height: auto;
     `}
