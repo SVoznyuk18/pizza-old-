@@ -16,7 +16,12 @@ module.exports = {
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true,
+          "modules": true,
+          "experimentalObjectRestSpread": true
+        }
     },
     "plugins": [
         "react", "jsx-control-statements"
@@ -35,13 +40,4 @@ module.exports = {
         "react/jsx-no-undef": [ 2, { "allowGlobals": true }]
     },
     "parser": "@babel/eslint-parser",
-    "parserOptions": {
-        "ecmaVersion": 8,
-        "sourceType": "module",
-        "ecmaFeatures": {
-          "jsx": true,
-          "modules": true,
-          "experimentalObjectRestSpread": true
-        }
-    }
 }
