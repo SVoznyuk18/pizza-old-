@@ -1,14 +1,14 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components';
 import { colors } from 'ConfigsRoot/colors';
 import { media } from 'ConfigsRoot/constants';
 
-export const CarItemWrapper = styled.div`
+export const CartItemWrapper = styled.div`
     display: flex;
     width: 100%;
     border-top: 1px solid ${colors.greyLine};
     padding-top: 30px;
 
-    ${props => props.type === 'orders' && css`
+    ${(props) => props.type === 'orders' && css`
         padding-top: 5px;
     `}
 
@@ -30,7 +30,7 @@ export const CartImgWrapper = styled.div`
         height: 250px;
         margin: 0 auto;
     }
-    ${props => props.type === 'orders' && css`
+    ${(props) => props.type === 'orders' && css`
         width: 40px;
         height: 40px;
         min-width: 40px;
@@ -65,7 +65,7 @@ export const CartItemInfo = styled.div`
         }
     }
 
-    ${props => props.type === 'orders' && css`
+    ${(props) => props.type === 'orders' && css`
         h3 {
             font-size: 16px;
             line-height: 16px;
@@ -88,7 +88,7 @@ export const ControlsWrapper = styled.div`
     display: flex;
     justify-content: center;
 
-    ${props => props.type === 'orders' && css`
+    ${(props) => props.type === 'orders' && css`
         justify-content: flex-start;
     `}
     ${media.tablet} {
@@ -105,7 +105,7 @@ export const CountSection = styled.div`
         font-size: 22px;
     }
 
-    ${props => props.type === 'orders' && css`
+    ${(props) => props.type === 'orders' && css`
         b {
             font-size: 14px;
         }
@@ -129,7 +129,7 @@ export const PriceSection = styled.div`
         letter-spacing: 0.01em;
     }
 
-    ${props => props.type === 'orders' && css`
+    ${(props) => props.type === 'orders' && css`
         b {
             font-size: 14px;
         }

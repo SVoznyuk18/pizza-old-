@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   AccordionWrapper,
   AccordionHeader,
   AccordionBody,
   HeaderItem,
-} from "./StyledComponents";
+} from './StyledComponents';
 
 const Accordion = ({ header, children }) => {
   const [isShowBody, setIsShowBody] = useState(false);
@@ -14,10 +14,10 @@ const Accordion = ({ header, children }) => {
   return (
     <AccordionWrapper>
       <AccordionHeader onClick={() => setIsShowBody(!isShowBody)}>
-        {header &&
-          header.map((headerItem, index) => (
-            <HeaderItem key={index}>{headerItem}</HeaderItem>
-          ))}
+        {header && header.map((headerItem, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <HeaderItem key={index}>{headerItem}</HeaderItem>
+        ))}
       </AccordionHeader>
       <AccordionBody isShowBody={isShowBody}>{children}</AccordionBody>
     </AccordionWrapper>
