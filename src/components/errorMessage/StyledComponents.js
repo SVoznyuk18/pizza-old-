@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { colors } from "ConfigsRoot/colors";
+import { colors } from 'ConfigsRoot/colors';
 import { media } from 'ConfigsRoot/constants';
 
 export const Wrapper = styled.div`
     display: inline;
-    margin: ${props => props.margin || '5px 0 0'};
+    margin: ${(props) => props.margin || '5px 0 0'};
 
     ${media.mobile} {
         margin-top: 0;
