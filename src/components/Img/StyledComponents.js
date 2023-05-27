@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Icon = styled.img`
-    width: ${props => props.width};
-    height: ${props => props.height};
-    margin: ${props => props.margin};
-    border-radius: ${props => props.borderRadius}
+export const ImgWrapper = styled.img`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  margin: ${(props) => props.margin};
+  border-radius: ${(props) => props.borderRadius};
 `;
