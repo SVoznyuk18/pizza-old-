@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 
 import {
   AccordionWrapper,
@@ -14,9 +15,8 @@ const Accordion = ({ header, children }) => {
   return (
     <AccordionWrapper>
       <AccordionHeader onClick={() => setIsShowBody(!isShowBody)}>
-        {header && header.map((headerItem, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <HeaderItem key={index}>{headerItem}</HeaderItem>
+        {header && header.map((headerItem) => (
+          <HeaderItem key={uuidv4()}>{headerItem}</HeaderItem>
         ))}
       </AccordionHeader>
       <AccordionBody isShowBody={isShowBody}>{children}</AccordionBody>
