@@ -1,7 +1,4 @@
-import styled from "styled-components";
-
-import { colors } from 'ConfigsRoot/colors';
-import { media } from 'ConfigsRoot/constants';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -9,7 +6,6 @@ export const Wrapper = styled.div`
     flex-direction: column;
     align-items: start;
     margin-bottom: 20px;
-
 `;
 
 export const CheckboxGroup = styled.div`
@@ -28,4 +24,4 @@ export const CheckboxBlock = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 10px;
-`
+`;
