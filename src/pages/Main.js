@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from "react-i18next";
 
-import { getPizzaRequest } from 'ActionsRoot';
+import { getPizzaRequest, addPizzaToCart } from 'ActionsRoot';
 import { filteredPizzaSelector, useWindowSize } from 'UtilsRoot';
 import { breakPoints, CATEGORIES, AVALIABLE_TYPES, AVALIABLE_SIZES, SORT } from 'ConfigsRoot/constants';
 import { colors } from 'ConfigsRoot/colors'
@@ -26,6 +26,10 @@ const Main = () => {
 
     const filteredPizza = filteredPizzaSelector(pizza, activeCategory, sortBy);
 
+    const handleAddPizzaToCart = (params) => {
+        dispatch(addPizzaToCart(params));
+    }
+
     return (
         <Content>
             <Container>
@@ -46,7 +50,7 @@ const Main = () => {
                     <When condition={pizzaLoading === false && pizzaError === false && !!filteredPizza.length}>
                         <ContentItems>
                             {filteredPizza && filteredPizza.map(item => {
-                                return <PizzaItem key={item.id} pizzaItem={item} avaliableTypes={AVALIABLE_TYPES} avaliableSizes={AVALIABLE_SIZES} />
+                                return <PizzaItem key={item.id} pizzaItem={item} avaliableTypes={AVALIABLE_TYPES} avaliableSizes={AVALIABLE_SIZES} handleAddPizzaToCart={handleAddPizzaToCart}/>
                             })}
                         </ContentItems>
                     </When>
