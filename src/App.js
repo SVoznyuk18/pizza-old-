@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 
-import { handleToggleModal, getCurrentOrder, getCurrentFilter, getCurrentAuth } from "ActionsRoot";
+import { handleToggleModal, getCurrentOrder, getCurrentFilter, getCurrentAuth, logout } from "ActionsRoot";
 import Main from "./pages/Main";
 import { Layout } from "LayoutRoot";
 import { Wrapper } from './pages/StyledComponents';
@@ -23,7 +23,6 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     dispatch(getCurrentOrder({
       cartStorage: JSON.parse(window.localStorage.getItem('cart')) || cart,
       totalPriceStorage: JSON.parse(window.localStorage.getItem('totalPrice')) || totalPrice,
@@ -42,11 +41,12 @@ function App() {
     }
   }, []);
 
+
   return (
     <Wrapper>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout totalPrice={totalPrice} totalAmount={totalAmount}/>}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Main />} />
             <Route path="cart" element={<Cart />} />
             <Route path="admin" element={

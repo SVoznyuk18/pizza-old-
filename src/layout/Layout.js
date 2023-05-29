@@ -1,13 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import { Header } from "ComponentsRoot";
+import { Header } from "ContainersRoot";
 
-const Layout = ({totalPrice, totalAmount, accessToken, email, name, }) => {
+const Layout = () => {
     return (
         <>
-            <Header totalPrice={totalPrice} totalAmount={totalAmount} accessToken={accessToken}/>
-            <Outlet/>
+            <Header />
+            <Outlet />
         </>
     )
 }

@@ -1,7 +1,6 @@
 import BassicButton from './BassicButton/BassicButton';
 import CartItem from './CartItem/CartItem';
 import Categories from './Categories/Categories';
-import Header from './Header/Header';
 import Img from './Img/Img';
 import PizzaItem from './PizzaItem/PizzaItem';
 import Selector from './Selector/Selector';
@@ -25,4 +24,4 @@ import LabelComponent from './Label/Label';
 import Accordion from './Accordion/Accordion'
 
 
-export { BassicButton, CartItem, Categories, Header, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table, FileUploader, EmptyProductCard,CheckboxInput, LabelComponent as Label, Accordion };
+export { BassicButton, CartItem, Categories, Img, PizzaItem, Selector, Sort, SvgIcon, ErrorPage, Spiner, ModalComponent, BassicInput, ErrorMessage, TimePicker, LanguagesMenu, DatePickerSection as DatePicker, LoginForm, Tabs, Table, FileUploader, EmptyProductCard,CheckboxInput, LabelComponent as Label, Accordion };

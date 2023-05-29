@@ -6,7 +6,7 @@ const initialState = {
     role: '',
     name: '',
     phone: '',
-    avatarUrl: ''
+    avatarUrl: '',
 }
 
 const loginSuccess = (state, action) => {
@@ -18,9 +18,9 @@ const loginSuccess = (state, action) => {
 }
 
 const getCurrentAuthSuccess = (state, action) => {
-    const {accessToken, id, email, role, name} = action.payload;
+    const {id, email, role, name} = action.payload;
     return {
-        ...state, accessToken, id, email, role, name
+        ...state, id, email, role, name
     }
 
 }
@@ -28,12 +28,11 @@ const getCurrentAuthSuccess = (state, action) => {
 const logoutAuthSuccess = (state) => {
     window.localStorage.removeItem('auth');
     return{
-        ...state, 
-        accessToken: '',
+        ...state,
         id: '',
         email: '',
         role: '',
-        name: ''
+        name: '',
     }
 }
 
