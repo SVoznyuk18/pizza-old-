@@ -11,8 +11,7 @@ import {
   LanguagesMenu,
 } from 'ComponentsRoot';
 import { colors } from 'ConfigsRoot/colors';
-import { useWindowSize } from 'UtilsRoot';
-import { languages, breakPoints } from 'ConfigsRoot/constants';
+import { languages } from 'ConfigsRoot/constants';
 import { logout } from 'ActionsRoot';
 import logoSvg from 'AssetsRoot/svg/pizza-logo.svg';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
@@ -34,11 +33,10 @@ import {
 const Header = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const size = useWindowSize();
   const location = useLocation();
 
   const { totalPrice, totalAmount } = useSelector((state) => state.cart);
-  const { login } = useSelector((state) => state);
+  const { role, name } = useSelector((state) => state.login);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -46,23 +44,19 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <If condition={size.width >= breakPoints.TABLET}>
-        <Link to="/">
-          <HeaderLogoWrapper>
-            <Img width="38px" src={logoSvg} alt="Pizza logo" />
-            <HeaderLogoDescription>
-              <HeaderTitle>Pizza</HeaderTitle>
-              <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
-            </HeaderLogoDescription>
-          </HeaderLogoWrapper>
-        </Link>
-      </If>
+      <HeaderLogoWrapper to="/">
+        <Img width="38px" src={logoSvg} alt="Pizza logo" />
+        <HeaderLogoDescription>
+          <HeaderTitle>Pizza</HeaderTitle>
+          <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
+        </HeaderLogoDescription>
+      </HeaderLogoWrapper>
       <Wrapper>
         <Choose>
-          <When condition={!!login?.role && location.pathname === '/admin'}>
+          <When condition={!!role && location.pathname === '/admin'}>
             <UserContainer>
               <Img width="40px" borderRadius="100" src={adminIcon} alt="img" />
-              <UserName>{login?.name}</UserName>
+              <UserName>{name}</UserName>
               <BassicButton
                 display="flex"
                 alignItems="center"

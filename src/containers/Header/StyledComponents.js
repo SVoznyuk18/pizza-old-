@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { colors } from 'ConfigsRoot/colors';
 import { media } from 'ConfigsRoot/constants';
 
@@ -42,8 +43,14 @@ export const Amount = styled.div`
   }
 `;
 
-export const HeaderLogoWrapper = styled.div`
+export const HeaderLogoWrapper = styled(Link)`
   display: flex;  
+
+  ${media.tablet} {
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+  }
 `;
 
 export const HeaderLogoDescription = styled.div`
@@ -82,7 +89,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 
   ${media.tablet} {
-      width: 100%;
+    width: 100%;
   }
 `;
 
