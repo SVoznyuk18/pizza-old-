@@ -1,13 +1,13 @@
-import React, { memo } from "react";
-import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import {
   List,
   ListItem,
   ListItemActive,
   ListItemDisable,
-} from "./StyledComponents";
+} from './StyledComponents';
 
 const Selector = ({
   avaliableItems,
@@ -20,27 +20,25 @@ const Selector = ({
 
   return (
     <List>
-      {avaliableItems &&
-        avaliableItems.map((type) => (
-          // eslint-disable-next-line react/jsx-key
-          <Choose>
-            <When condition={!types.includes(type)}>
-              <ListItemDisable key={type} onClick={() => handleSelect(type)}>
-                {selectorType ? type : t(`pizzaType.${type}`)}
-              </ListItemDisable>
-            </When>
-            <When condition={selectedType === type}>
-              <ListItemActive key={type} onClick={() => handleSelect(type)}>
-                {selectorType ? type : t(`pizzaType.${type}`)}
-              </ListItemActive>
-            </When>
-            <Otherwise>
-              <ListItem key={type} onClick={() => handleSelect(type)}>
-                {selectorType ? type : t(`pizzaType.${type}`)}
-              </ListItem>
-            </Otherwise>
-          </Choose>
-        ))}
+      {avaliableItems && avaliableItems.map((type) => (
+        <Choose>
+          <When condition={!types.includes(type)}>
+            <ListItemDisable key={type} onClick={() => handleSelect(type)}>
+              {selectorType ? type : t(`pizzaType.${type}`)}
+            </ListItemDisable>
+          </When>
+          <When condition={selectedType === type}>
+            <ListItemActive key={type} onClick={() => handleSelect(type)}>
+              {selectorType ? type : t(`pizzaType.${type}`)}
+            </ListItemActive>
+          </When>
+          <Otherwise>
+            <ListItem key={type} onClick={() => handleSelect(type)}>
+              {selectorType ? type : t(`pizzaType.${type}`)}
+            </ListItem>
+          </Otherwise>
+        </Choose>
+      ))}
     </List>
   );
 };
@@ -57,8 +55,8 @@ Selector.defaultProps = {
   avaliableItems: [],
   handleSelect: () => {},
   types: [],
-  selectedType: "",
-  selectorType: "",
+  selectedType: '',
+  selectorType: '',
 };
 
 export default memo(Selector);
