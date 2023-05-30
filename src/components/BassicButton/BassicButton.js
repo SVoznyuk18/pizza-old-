@@ -7,7 +7,6 @@ import { Button } from './StyledComponents';
 export const BassicButton = (props) => {
   const {
     type,
-    display,
     alignItems,
     justifyContent,
     padding,
@@ -32,7 +31,6 @@ export const BassicButton = (props) => {
   return (
     <Button
       type={type}
-      display={display}
       alignItems={alignItems}
       justifyContent={justifyContent}
       padding={padding}
@@ -63,7 +61,6 @@ BassicButton.propTypes = {
     PropTypes.node,
   ]).isRequired,
   type: PropTypes.string,
-  display: PropTypes.string,
   alignItems: PropTypes.string,
   justifyContent: PropTypes.string,
   padding: PropTypes.string,
@@ -86,7 +83,6 @@ BassicButton.propTypes = {
 
 BassicButton.defaultProps = {
   type: 'button',
-  display: 'block',
   alignItems: 'center',
   justifyContent: 'center',
   padding: '0px',

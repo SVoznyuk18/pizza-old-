@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  display: ${(props) => (props.display ? props.display : 'inline-block')};
+  display: inline-flex;
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
   background-color: ${(props) => props.backgroundColor};
