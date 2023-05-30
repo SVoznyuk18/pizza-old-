@@ -1,6 +1,4 @@
-import AddNewProduct from './AddNewProduct/AddNewProduct';
-import ManagersList from './ManagersList/ManagersList';
-import Orders from './Orders/Orders';
 import Header from './Header/Header';
+import Admin from './Admin/Admin';
 
-export { AddNewProduct, ManagersList, Orders, Header };
+export { Header, Admin };

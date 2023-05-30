@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 const PrivatPage = ({ children }) => {
     const location = useLocation();
     const { role, accessToken } = useSelector(state => state.login);
-    console.log('role', role);
 
     if (!role && !accessToken) {
 

@@ -27,11 +27,11 @@ function* watchCreateNewProduct(action) {
             category,
             imageUrl,
             name,
-            price,
-            rating,
+            price: +price,
+            rating: +rating,
             id: `${name}-${category}`,
             sizes,
-            types
+            types,
         }
         yield put({ type: Types.GET_PIZZA_LOADING, payload: true });
         yield createNewDocument(db, 'pizzas', `${name}-${category}`, data);

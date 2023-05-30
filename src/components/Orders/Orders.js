@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
+// import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { getOrders } from 'ActionsRoot';
+// import { getOrders } from 'ActionsRoot';
+// eslint-disable-next-line import/no-cycle
 import { Accordion, CartItem } from 'ComponentsRoot';
 import {
   OrdersContainer,
@@ -13,15 +15,9 @@ import {
   OrderPriceSection,
 } from './StyledComponents';
 
-const Orders = () => {
-  const dispatch = useDispatch();
+const Orders = ({ orders }) => {
+  // const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { orders } = useSelector((state) => state.orders);
-
-  useEffect(() => {
-    dispatch(getOrders());
-  }, [dispatch]);
-
   return (
     <OrdersContainer>
       <Choose>
@@ -83,4 +79,37 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+Orders.propTypes = {
+  orders: PropTypes.arrayOf(PropTypes.shape({
+    clientInfo: PropTypes.shape({
+      house: PropTypes.string,
+      apartment: PropTypes.string,
+      email: PropTypes.string,
+      phone: PropTypes.string,
+      time: PropTypes.string,
+      name: PropTypes.string,
+      date: PropTypes.shape({
+        seconds: PropTypes.number,
+        nanoseconds: PropTypes.number,
+      }),
+      street: PropTypes.string,
+    }),
+    orderId: PropTypes.string,
+    orderInfo: PropTypes.shape({
+      order: PropTypes.arrayOf(PropTypes.shape({
+        amountPizzas: PropTypes.number,
+        imageUrl: PropTypes.string,
+        price: PropTypes.number,
+        type: PropTypes.string,
+        size: PropTypes.string,
+        name: PropTypes.string,
+        id: PropTypes.string,
+      })),
+      totalAmount: PropTypes.number,
+      orderStatus: PropTypes.string,
+      totalPrice: PropTypes.number,
+    }),
+  })).isRequired,
+};
+
+export default memo(Orders);

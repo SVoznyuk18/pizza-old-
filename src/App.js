@@ -9,11 +9,11 @@ import {
   getCurrentAuth,
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
+import { Admin } from 'ContainersRoot';
 import Main from './pages/Main';
 import { Wrapper } from './pages/StyledComponents';
 import Modal from './pages/modal/Modal';
 import Cart from './pages/Cart';
-import Admin from './pages/Admin/Admin';
 import Login from './pages/Login/Login';
 import PrivatPage from './hoc/PrivatPage';
 

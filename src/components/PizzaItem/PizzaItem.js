@@ -122,7 +122,7 @@ const PizzaItem = ({
 PizzaItem.propTypes = {
   pizzaItem: PropTypes.shape({
     amountPizzas: PropTypes.number,
-    id: PropTypes.number,
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imageUrl: PropTypes.string,
     name: PropTypes.string,
     price: PropTypes.number,
