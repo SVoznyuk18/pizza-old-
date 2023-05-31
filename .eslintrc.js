@@ -37,6 +37,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'react/function-component-definition': 0,
     'react/jsx-filename-extension': 0,
+    'max-len': ['error', { code: 200 }],
   },
   parser: '@babel/eslint-parser',
   settings: {

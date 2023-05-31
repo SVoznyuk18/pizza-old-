@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +47,7 @@ const CartItem = ({
             backgroundColor={colors.white}
             hoverBackgroundColor={colors.orange}
             borderColor={colors.orange}
-            onClick={() => onDecPizzaAmount(data)}
+            onClick={onDecPizzaAmount}
           >
             <SvgIcon
               width="100%"
@@ -66,7 +67,7 @@ const CartItem = ({
             backgroundColor={colors.white}
             hoverBackgroundColor={colors.orange}
             borderColor={colors.orange}
-            onClick={() => onIncPizzaAmount(data)}
+            onClick={onIncPizzaAmount}
           >
             <SvgIcon
               width="100%"
@@ -92,7 +93,7 @@ const CartItem = ({
             backgroundColor={colors.white}
             hoverBackgroundColor={colors.orange}
             borderColor={colors.orange}
-            onClick={() => onDeletePizzaItem(data)}
+            onClick={onDeletePizzaItem}
           >
             <SvgIcon
               width="100%"

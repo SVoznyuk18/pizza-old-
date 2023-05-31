@@ -62,17 +62,15 @@ const Cart = () => {
           </ClearCart>
         </CartTop>
         <ContentItems>
-          {cart.map((item, index) => {
-            return (
-              <CartItem
-                key={index}
-                data={item}
-                onIncPizzaAmount={onIncPizzaAmount}
-                onDecPizzaAmount={onDecPizzaAmount}
-                onDeletePizzaItem={onDeletePizzaItem}
-              />
-            );
-          })}
+          {cart.map((item, index) => (
+            <CartItem
+              key={index}
+              data={item}
+              onIncPizzaAmount={() => onIncPizzaAmount(item)}
+              onDecPizzaAmount={() => onDecPizzaAmount(item)}
+              onDeletePizzaItem={() => onDeletePizzaItem(item)}
+            />
+          ))}
         </ContentItems>
         <CartBottom>
           <CartBottomDetails>

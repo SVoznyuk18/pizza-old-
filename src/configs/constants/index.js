@@ -27,7 +27,7 @@ export const ADD_PIZZA_TO_CART = 'ADD_PIZZA_TO_CART';
 export const ADD_PIZZA_TO_CART_SUCCESS = 'ADD_PIZZA_TO_CART_SUCCESS';
 export const ADD_PIZZA_TO_CART_FAILURE = 'ADD_PIZZA_TO_CART_FAILURE';
 
-export const UPDATE_PIZZA_CART_ITEM_ = 'UPDATE_PIZZA_CART_ITEM';
+export const UPDATE_PIZZA_CART_ITEM = 'UPDATE_PIZZA_CART_ITEM';
 export const UPDATE_PIZZA_CART_ITEM_SUCCESS = 'UPDATE_PIZZA_CART_ITEM_SUCCESS';
 
 export const INC_PIZZA_AMOUNT = 'INC_PIZZA_AMOUNT';
@@ -52,8 +52,8 @@ export const LOGIN = 'LOGIN';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-export const GET_CURRENT_AUTH = 'GET_CURRENT_AUTH'
-export const GET_CURRENT_AUTH_SUCCESS = 'GET_CURRENT_AUTH_SUCCESS'
+export const GET_CURRENT_AUTH = 'GET_CURRENT_AUTH';
+export const GET_CURRENT_AUTH_SUCCESS = 'GET_CURRENT_AUTH_SUCCESS';
 
 export const LOGOUT = 'LOGOUT';
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
@@ -68,13 +68,13 @@ export const GET_MANAGERS_SUCCESS = 'GET_MANAGERS_SUCCESS';
 export const GET_MANAGERS_LOADING = 'GET_MANAGERS_LOADING';
 export const GET_MANAGERS_FAILURE = 'GET_MANAGERS_FAILURE';
 
-export const DELETE_MANAGER = 'DELETE_MANAGER'
-export const DELETE_MANAGER_SUCCESS = 'DELETE_MANAGER_SUCCESS'
-export const DELETE_MANAGER_FAILURE = 'DELETE_MANAGER_FAILURE'
+export const DELETE_MANAGER = 'DELETE_MANAGER';
+export const DELETE_MANAGER_SUCCESS = 'DELETE_MANAGER_SUCCESS';
+export const DELETE_MANAGER_FAILURE = 'DELETE_MANAGER_FAILURE';
 
 export const CREATE_NEW_PRODUCT = 'CREATE_NEW_PRODUCT';
 export const CREATE_NEW_PRODUCT_SUCCESS = 'CREATE_NEW_PRODUCT_SUCCESS';
-export const CREATE_NEW_PRODUCT_FAILURE = 'CREATE_NEW_PRODUCT_FAILURE'
+export const CREATE_NEW_PRODUCT_FAILURE = 'CREATE_NEW_PRODUCT_FAILURE';
 
 export const PLACE_NEW_ORDER = 'PLACE_NEW_ORDER';
 export const PLACE_NEW_ORDER_SUCCESS = 'PLACE_NEW_ORDER_SUCCESS';
@@ -83,60 +83,63 @@ export const PLACE_NEW_ORDER_FAILURE = 'PLACE_NEW_ORDER_FAILURE';
 export const GET_ORDERS = 'GET_ORDERS';
 export const GET_ORDERS_SUCCESS = 'GET_ORDERS_SUCCESS';
 export const GET_ORDERS_LOADING = 'GET_ORDERS_LOADING';
-export const GET_ORDERS_FAILURE = "GET_ORDERS_FAILURE";
+export const GET_ORDERS_FAILURE = 'GET_ORDERS_FAILURE';
 
+export const INCREASE_PIZZA_AMOUNT_PLACED_ORDER = 'INCREASE_PIZZA_AMOUNT_PLACED_ORDER';
+export const DECREASE_PIZZA_AMOUNT_PLACED_ORDER = 'DECREASE_PIZZA_AMOUNT_PLACED_ORDER';
+export const DELETE_PIZZA_AMOUNT_PLACED_ORDER = 'DELETE_PIZZA_AMOUNT_PLACED_ORDER';
 
 export const MODAL = Object.freeze({
-    SUCCESS_MODAL: 'SUCCESS_MODAL',
-    FAILURE_MODAL: 'FAILURE_MODAL',
-    ORDER_FORM: 'ORDER_FORM',
-    NEW_MANAGER_FORM: 'NEW_MANAGER_FORM',
-    ADD_NEW_PRODUCT: 'ADD_NEW_PRODUCT'
+  SUCCESS_MODAL: 'SUCCESS_MODAL',
+  FAILURE_MODAL: 'FAILURE_MODAL',
+  ORDER_FORM: 'ORDER_FORM',
+  NEW_MANAGER_FORM: 'NEW_MANAGER_FORM',
+  ADD_NEW_PRODUCT: 'ADD_NEW_PRODUCT',
 });
 
 export const languages = [
-    {
-        id: 1,
-        lang: "ua",
-        title: "UA",
-        flag: UA
-    },
-    {
-        id: 2,
-        lang: "ru",
-        title: "RU",
-        flag: RU
-    },
-    {
-        id: 3,
-        lang: "en",
-        title: "EN",
-        flag: EN
-    }
+  {
+    id: 1,
+    lang: 'ua',
+    title: 'UA',
+    flag: UA,
+  },
+  {
+    id: 2,
+    lang: 'ru',
+    title: 'RU',
+    flag: RU,
+  },
+  {
+    id: 3,
+    lang: 'en',
+    title: 'EN',
+    flag: EN,
+  },
 ];
 
 export const breakPoints = {
-    MOBILE_S: 375,
-    MOBILE: 576,
-    TABLET: 768,
-    TABLET_L: 992,
-    DESKTOP: 1024,
-    DESKTOP_L: 1200,
+  MOBILE_S: 375,
+  MOBILE: 576,
+  TABLET: 768,
+  TABLET_L: 992,
+  DESKTOP: 1024,
+  DESKTOP_L: 1200,
 };
 
 const mediaQuery = (width) => `@media screen and (max-width: ${width - 1}px)`;
 
 export const media = {
-    mobileS: mediaQuery(breakPoints.MOBILE_S),
-    mobile: mediaQuery(breakPoints.MOBILE),
-    tablet: mediaQuery(breakPoints.TABLET),
-    tabletL: mediaQuery(breakPoints.TABLET_L),
-    desktop: mediaQuery(breakPoints.DESKTOP),
-    desktopL: mediaQuery(breakPoints.DESKTOP_L),
+  mobileS: mediaQuery(breakPoints.MOBILE_S),
+  mobile: mediaQuery(breakPoints.MOBILE),
+  tablet: mediaQuery(breakPoints.TABLET),
+  tabletL: mediaQuery(breakPoints.TABLET_L),
+  desktop: mediaQuery(breakPoints.DESKTOP),
+  desktopL: mediaQuery(breakPoints.DESKTOP_L),
 };
 
-export const CATEGORIES = ["all", "meat", "vegetarian", "grill", "spicy", "calzone"];
+export const CATEGORIES = ['all', 'meat', 'vegetarian', 'grill', 'spicy', 'calzone'];
 
-export const AVALIABLE_TYPES = ["thin", "traditional"];
+export const AVALIABLE_TYPES = ['thin', 'traditional'];
 export const AVALIABLE_SIZES = ['26', '30', '40'];
-export const SORT = ["popularity", "price", "alphabet"];
+export const SORT = ['popularity', 'price', 'alphabet'];

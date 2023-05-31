@@ -143,15 +143,14 @@ export const getDocuments = async (db, collectionName) => {
 }
 
 export const getDocument = async (db, collectionName, documentId) => {
-  const docRef = doc(db, collectionName, documentId);
-  const docSnap = await getDoc(docRef);
-
-  if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
-  } else {
-    console.log("No such document!");
+  try {
+    const docRef = doc(db, collectionName, documentId);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) return docSnap.data();
+  } catch {
+    return 'errror';
   }
-}
+};
 
 export const deleteUser = async (db, collectionName, id) => {
   await deleteDoc(doc(db, collectionName, id));

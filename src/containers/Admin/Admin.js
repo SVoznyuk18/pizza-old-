@@ -6,6 +6,9 @@ import {
   // deleteManager,
   getOrders,
   getPizzaRequest,
+  increasePizzaAmountPlacedOrder,
+  decreasePizzaAmountPlacedOrder,
+  deletePizzaAmountPlacedOrder,
 } from 'ActionsRoot';
 import {
   Tabs,
@@ -28,6 +31,18 @@ const Admin = () => {
     dispatch(getOrders());
     dispatch(getPizzaRequest());
   }, []);
+
+  const handleIncreasePizzaAmount = (orderId) => {
+    dispatch(increasePizzaAmountPlacedOrder(orderId));
+  };
+
+  const handleDecreasePizzaAmount = (orderId) => {
+    dispatch(decreasePizzaAmountPlacedOrder(orderId));
+  };
+
+  const handleDeletePizzaAmount = (orderId) => {
+    dispatch(deletePizzaAmountPlacedOrder(orderId));
+  };
 
   return (
     <Container>
@@ -57,6 +72,9 @@ const Admin = () => {
               label: 'Orders',
               content: <Orders
                 orders={orders}
+                handleIncreasePizzaAmount={handleIncreasePizzaAmount}
+                handleDecreasePizzaAmount={handleDecreasePizzaAmount}
+                handleDeletePizzaAmount={handleDeletePizzaAmount}
               />,
             },
           ]

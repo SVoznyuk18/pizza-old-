@@ -1,9 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-// import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-// import { getOrders } from 'ActionsRoot';
 // eslint-disable-next-line import/no-cycle
 import { Accordion, CartItem } from 'ComponentsRoot';
 import {
@@ -15,9 +13,14 @@ import {
   OrderPriceSection,
 } from './StyledComponents';
 
-const Orders = ({ orders }) => {
-  // const dispatch = useDispatch();
+const Orders = ({
+  orders,
+  handleIncreasePizzaAmount,
+  handleDecreasePizzaAmount,
+  handleDeletePizzaAmount,
+}) => {
   const { t } = useTranslation();
+
   return (
     <OrdersContainer>
       <Choose>
@@ -41,15 +44,15 @@ const Orders = ({ orders }) => {
                   <OrderInfoItem>{`Adress ${order?.clientInfo?.street} street., ${order?.clientInfo?.house}, ${order?.clientInfo?.apartment}, ap`}</OrderInfoItem>
                 </OrderInfoSection>
                 <OrderCartSection>
-                  {order?.orderInfo?.order.map((item, index) => (
+                  {order?.orderInfo?.orderItems.map((item, index) => (
                     <CartItem
                       // eslint-disable-next-line react/no-array-index-key
                       key={index}
                       data={item}
                       type="orders"
-                      // onIncPizzaAmount={onIncPizzaAmount}
-                      // onDecPizzaAmount={onDecPizzaAmount}
-                      // onDeletePizzaItem={onDeletePizzaItem}
+                      onIncPizzaAmount={() => handleIncreasePizzaAmount({ orderId: order?.orderId, productId: item.id })}
+                      onDecPizzaAmount={() => handleDecreasePizzaAmount({ orderId: order?.orderId, productId: item.id })}
+                      onDeletePizzaItem={() => handleDeletePizzaAmount({ orderId: order?.orderId, productId: item.id })}
                     />
                   ))}
                 </OrderCartSection>
@@ -110,6 +113,15 @@ Orders.propTypes = {
       totalPrice: PropTypes.number,
     }),
   })).isRequired,
+  handleIncreasePizzaAmount: PropTypes.func,
+  handleDecreasePizzaAmount: PropTypes.func,
+  handleDeletePizzaAmount: PropTypes.func,
+};
+
+Orders.defaultProps = {
+  handleIncreasePizzaAmount: () => {},
+  handleDecreasePizzaAmount: () => {},
+  handleDeletePizzaAmount: () => {},
 };
 
 export default memo(Orders);

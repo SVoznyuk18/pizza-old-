@@ -73,7 +73,7 @@ const PizzaItem = ({
             justifyContent="space-evenly"
             fontWeight={600}
             fontSize="18px"
-            onClick={() => handleAddPizzaToCart(orderConfig(uuidv4()))}
+            onClick={() => handleAddPizzaToCart(orderConfig(`${pizzaItem?.name}_${selectSize}_${selectType}`))}
           >
             <SvgIcon
               width="14px"
