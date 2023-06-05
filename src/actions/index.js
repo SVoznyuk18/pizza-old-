@@ -8,7 +8,7 @@ import {
   clearCart,
   getCurrentOrder,
 } from './cart';
-import { handleToggleModal } from './modal';
+import { toggleModal } from './modal';
 import { loginRequest, logout, getCurrentAuth } from './login';
 import { createNewManager, getManagers, deleteManager } from './users';
 import {
@@ -28,7 +28,7 @@ export {
   decreasePizzaAmount,
   deletePizzaItem,
   clearCart,
-  handleToggleModal,
+  toggleModal,
   getCurrentOrder,
   getCurrentFilter,
   loginRequest,

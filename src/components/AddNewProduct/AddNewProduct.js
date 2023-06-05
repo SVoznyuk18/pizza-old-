@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { handleToggleModal } from 'ActionsRoot';
+import { toggleModal } from 'ActionsRoot';
 import { MODAL, AVALIABLE_TYPES, AVALIABLE_SIZES } from 'ConfigsRoot/constants';
 // eslint-disable-next-line import/no-cycle
 import { PizzaItem, EmptyProductCard } from 'ComponentsRoot';
@@ -24,7 +24,7 @@ const AddNewProduct = ({ pizza, pizzaLoading, pizzaError }) => {
       ))}
       <EmptyProductCard
         handleOpenModal={
-          () => dispatch(handleToggleModal(true, MODAL.ADD_NEW_PRODUCT))
+          () => dispatch(toggleModal(true, MODAL.ADD_NEW_PRODUCT))
         }
       />
     </Wrapper>

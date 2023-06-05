@@ -8,7 +8,7 @@ import {
   decreasePizzaAmount,
   deletePizzaItem,
   clearCart,
-  handleToggleModal,
+  toggleModal,
 } from "ActionsRoot";
 import {
   Content,
@@ -118,7 +118,7 @@ const Cart = () => {
               hoverBorderColor="#FE5F1E"
               fontWeight={600}
               onClick={() =>
-                dispatch(handleToggleModal(true, MODAL.ORDER_FORM))
+                dispatch(toggleModal(true, MODAL.ORDER_FORM))
               }
             >
               {t("button.checkout")}

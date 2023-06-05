@@ -3,7 +3,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from 'react-redux';
 
-import { handleToggleModal, createNewManager } from 'ActionsRoot';
+import { toggleModal, createNewManager } from 'ActionsRoot';
 
 import { Wrapper, Form } from './StyledComponents';
 import { BassicInput, BassicButton, FileUploader } from 'ComponentsRoot';

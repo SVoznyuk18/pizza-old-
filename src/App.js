@@ -3,22 +3,19 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
-  handleToggleModal,
   getCurrentOrder,
   getCurrentFilter,
   getCurrentAuth,
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
-import { Admin } from 'ContainersRoot';
+import { Admin, Modal } from 'ContainersRoot';
 import Main from './pages/Main';
 import { Wrapper } from './pages/StyledComponents';
-import Modal from './pages/modal/Modal';
 import Cart from './pages/Cart';
 import Login from './pages/Login/Login';
 import PrivatPage from './hoc/PrivatPage';
 
 function App() {
-  const { isOpenModal, modalType, payload } = useSelector((state) => state.modal);
   const { cart, totalPrice, totalAmount } = useSelector((state) => state.cart);
   const { activeCategory, sortBy } = useSelector((state) => state.filters);
   const dispatch = useDispatch();
@@ -56,12 +53,7 @@ function App() {
             <Route path="login" element={<Login />} />
           </Route>
         </Routes>
-        <Modal
-          isOpenModal={isOpenModal}
-          modalType={modalType}
-          payload={payload}
-          closeModal={() => dispatch(handleToggleModal(false, modalType))}
-        />
+        <Modal />
       </BrowserRouter>
     </Wrapper>
   );

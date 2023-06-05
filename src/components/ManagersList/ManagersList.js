@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { handleToggleModal, deleteManager } from 'ActionsRoot';
+import { toggleModal, deleteManager } from 'ActionsRoot';
 import { MODAL } from 'ConfigsRoot/constants';
 
 import {
@@ -34,7 +34,7 @@ const ManagersList = ({ headerArr, managers, loadingManager }) => {
           justifyContent="space-evenly"
           fontWeight={600}
           fontSize="18px"
-          onClick={() => dispatch(handleToggleModal(true, MODAL.NEW_MANAGER_FORM))}
+          onClick={() => dispatch(toggleModal(true, MODAL.NEW_MANAGER_FORM))}
         >
           <SvgIcon
             width="14px"

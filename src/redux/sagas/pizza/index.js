@@ -1,7 +1,7 @@
 import { takeEvery, put, takeLatest , call, select, delay} from 'redux-saga/effects'
 
 import { createNewDocument, saveNewUser, getDocuments, deleteUser } from 'UtilsRoot'
-import { handleToggleModal, createNewProduct } from 'ActionsRoot';
+import { toggleModal, createNewProduct } from 'ActionsRoot';
 import * as Types from 'ConfigsRoot/constants';
 import { db } from 'UtilsRoot/firebase';
 

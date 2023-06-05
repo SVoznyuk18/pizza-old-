@@ -5,14 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Wrapper, Form } from './StyledComponents';
 import { AVALIABLE_SIZES, AVALIABLE_TYPES } from 'ConfigsRoot/constants';
-import { handleToggleModal, createNewProduct } from 'ActionsRoot';
+import { toggleModal, createNewProduct } from 'ActionsRoot';
 
 import { BassicInput, BassicButton, FileUploader, CheckboxInput } from 'ComponentsRoot';
 
-
-
-const AddProductForm = ({ }) => {
-
+const AddProductForm = () => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const { register, handleSubmit, setValue, formState: { errors, dirtyFields }, reset, clearErrors } = useForm();
@@ -25,7 +22,6 @@ const AddProductForm = ({ }) => {
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
-
             <BassicInput
                 label='name'
                 htmlFor='name'

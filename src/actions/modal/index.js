@@ -1,3 +1,3 @@
-import * as Types from 'ConfigsRoot/constants'
+import * as Types from 'ConfigsRoot/constants';
 
-export const handleToggleModal = (isOpenModal, modalType, payload) => ({type: Types.MODAL_SHOW, payload: {isOpenModal, modalType, payload}});
+export const toggleModal = (isOpenModal, modalType, payload) => ({ type: Types.MODAL_SHOW, payload: { isOpenModal, modalType, payload } });

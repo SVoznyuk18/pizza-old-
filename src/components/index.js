@@ -11,7 +11,6 @@ import Sort from './Sort/Sort';
 import SvgIcon from './SvgIcon/SvgIcon';
 import ErrorPage from './ErrorPage/ErrorPage';
 import Spiner from './Spiner/Spiner';
-import ModalComponent from './ModalComponent/ModalComponent';
 import BassicInput from './BassicInput/BassicInput';
 import ErrorMessage from './ErrorMessage/ErrorMessage';
 import TimePicker from './TimePicker/TimePicker';
@@ -40,7 +39,6 @@ export {
   SvgIcon,
   ErrorPage,
   Spiner,
-  ModalComponent,
   BassicInput,
   ErrorMessage,
   TimePicker,
