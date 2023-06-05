@@ -22,16 +22,17 @@ const BassicInput = ({
   type,
   name,
   placeholder,
-  width, height,
+  width,
+  height,
   padding,
   margin,
   borderRadius,
+  fontSize,
   register,
   validation,
   dirtyFields,
   errorMessage,
   errorMessagemargin,
-  errorFontSize,
 }) => (
   <Wrapper width={width} margin={margin}>
     <Label
@@ -51,12 +52,12 @@ const BassicInput = ({
       padding={padding}
       borderRadius={borderRadius}
       borderColor={getColor(errorMessage, dirtyFields)}
+      fontSize={fontSize}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...register(name, validation)}
     />
     <ErrorMessage
       errorMessagemargin={errorMessagemargin}
-      errorFontSize={errorFontSize}
     >
       {errorMessage}
     </ErrorMessage>
@@ -78,6 +79,7 @@ BassicInput.propTypes = {
   padding: PropTypes.string,
   margin: PropTypes.string,
   borderRadius: PropTypes.string,
+  fontSize: PropTypes.string,
   register: PropTypes.func,
   validation: PropTypes.shape({
     required: PropTypes.string,
@@ -97,29 +99,28 @@ BassicInput.propTypes = {
   dirtyFields: PropTypes.bool,
   errorMessage: PropTypes.string,
   errorMessagemargin: PropTypes.string,
-  errorFontSize: PropTypes.string,
 };
 
 BassicInput.defaultProps = {
   label: '',
   htmlFor: '',
   labelFontSize: '16px',
-  labelMarginBottom: '',
-  labelLineHeight: '',
+  labelMarginBottom: '5px',
+  labelLineHeight: '16px',
   id: '',
   type: '',
   name: '',
   placeholder: '',
-  width: '',
-  height: '',
-  padding: '',
-  margin: '',
-  borderRadius: '',
+  width: '100%',
+  height: '40px',
+  padding: '5px 10px 5px 10px',
+  margin: '0 0 5px',
+  borderRadius: '15px',
+  fontSize: '16px',
   register: () => { },
   dirtyFields: false,
   errorMessage: '',
-  errorMessagemargin: '',
-  errorFontSize: '',
+  errorMessagemargin: '5px',
 };
 
 export default memo(BassicInput);
