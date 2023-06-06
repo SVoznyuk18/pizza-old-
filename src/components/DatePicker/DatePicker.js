@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Controller } from 'react-hook-form';
 import DatePicker from 'react-datepicker';
 import PropTypes from 'prop-types';
@@ -117,4 +117,4 @@ DatePickerSection.defaultProps = {
   errorMessage: '',
 };
 
-export default DatePickerSection;
+export default memo(DatePickerSection);
