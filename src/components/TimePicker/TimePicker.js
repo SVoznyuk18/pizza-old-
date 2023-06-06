@@ -107,7 +107,7 @@ TimePicker.propTypes = {
         required: PropTypes.string,
         minLength: PropTypes.object,
         pattern: PropTypes.object,
-        min: PropTypes.object
+        min: PropTypes.object,
     }).isRequired,
     dirtyFields: PropTypes.bool,
     errorMessage: PropTypes.string,
@@ -115,33 +115,33 @@ TimePicker.propTypes = {
     start: PropTypes.string,
     end: PropTypes.string,
     step: PropTypes.number,
-    setValue: PropTypes.func
+    setValue: PropTypes.func,
 }
 
 TimePicker.defaultProps = {
     label: '',
     htmlFor: '',
-    labelFontSize: '16px',
-    labelMarginBottom: '5px',
-    labelLineHeight: '16px',
+    labelFontSize: '14px',
+    labelMarginBottom: '3px',
+    labelLineHeight: '14px',
     id: '',
     type: '',
     name: '',
     placeholder: '',
     width: '150px',
-    height: '40px',
+    height: '30px',
     padding: '5px 10px 5px 10px',
     borderRadius: '15px',
-    fontSize: '16px',
+    fontSize: '14px',
     margin: '0 10px 5px 0',
     register: () => { },
     dirtyFields: false,
     errorMessage: '',
-    errorMessagemargin: '5px',
+    errorMessagemargin: '0 0 0 5px',
     start: '00:00',
     end: '23:59',
     step: 30,
-    setValue: () => { }
+    setValue: () => { },
 }
 
 export default memo(TimePicker);

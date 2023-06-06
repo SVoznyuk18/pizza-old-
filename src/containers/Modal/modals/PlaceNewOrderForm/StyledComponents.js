@@ -9,17 +9,20 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h3`
-  margin: 20px 0 10px 0;
+  margin: 10px 0 10px 0;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 18px;
+  line-height: 18px;
 
   ${media.mobile} {
-      margin: 0;
-      font-size: 16px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 16px;
   }
 
   ${media.mobileS} {
-      font-size: 14px;
+    font-size: 14px;
+    line-height: 14px;
   }
 `;
 
@@ -47,7 +50,7 @@ export const TimeSection = styled(AddressSection)`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   ${media.mobileS} {
     flex-direction: column;

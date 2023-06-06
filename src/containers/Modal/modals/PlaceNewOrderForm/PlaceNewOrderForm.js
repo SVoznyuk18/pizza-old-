@@ -153,17 +153,8 @@ const PlaceNewOrderForm = () => {
           <DatePicker
             label={t('form.labelDate')}
             htmlFor="date"
-            labelFontSize="16px"
-            labelMarginBottom="5px"
-            labelLineHeight="16px"
             name="date"
             id="date"
-            width="150px"
-            height="40px"
-            margin="0 0 5px"
-            padding="5px 10px 5px 10px"
-            borderRadius="15px"
-            fontSize="16px"
             placeholder={t('form.placeholderDate')}
             control={control}
             register={register}
@@ -176,6 +167,7 @@ const PlaceNewOrderForm = () => {
           type="submit"
           padding="10px 20px"
           width="130px"
+          height="30px"
           backgroundColor="#ffff"
           alignItems="center"
           justifyContent="center"

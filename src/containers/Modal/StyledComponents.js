@@ -24,10 +24,10 @@ export const ModalWrapper = styled.div`
 export const ModalContent = styled.div`
   position: relative;
   width: 500px;
-  padding: 40px;
+  height: auto;
+  padding: 20px 40px;
   background-color: ${colors.white};
   border-radius: 20px;
-
 
   ${media.mobile} {
     padding: 10px;

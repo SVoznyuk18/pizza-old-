@@ -35,7 +35,7 @@ export const Input = styled.input`
 export const WrapperTimeList = styled.div`
     display: ${props => props.showTimeList ? 'block' : 'none'};
     position: absolute;
-    top: 58px;
+    top: 44px;
     left: 0;
     margin-top: 3px;
     overflow: hidden;
@@ -45,7 +45,7 @@ export const WrapperTimeList = styled.div`
 
 export const TimeList = styled.ul`
     width: 100px;
-    height: 200px;
+    height: 100px;
     overflow: auto;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
@@ -76,9 +76,9 @@ export const ListItem = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 5px 10px;
+    padding: 5px;
     width: 100%;
-    height: 50px !important;
+    height: 25px !important;
     border-left: 1px solid ${colors.grey};
     border-bottom: 1px solid ${colors.grey};
     cursor: ${props => props.disabled ? 'pointer' : 'auto'} ;
