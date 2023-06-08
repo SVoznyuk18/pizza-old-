@@ -20,6 +20,7 @@ import {
   CartBottomDetails,
   CartButtonSection,
   ClearCart,
+  Container,
 } from "./StyledComponents";
 import { CartItem, SvgIcon, BassicButton } from "ComponentsRoot";
 

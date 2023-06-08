@@ -8,11 +8,10 @@ import {
   getCurrentAuth,
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
-import { Admin, Modal } from 'ContainersRoot';
+import { Admin, Modal, Login } from 'ContainersRoot';
 import Main from './pages/Main';
 import { Wrapper } from './pages/StyledComponents';
 import Cart from './pages/Cart';
-import Login from './pages/Login/Login';
 import PrivatPage from './hoc/PrivatPage';
 
 function App() {
