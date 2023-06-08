@@ -8,9 +8,15 @@ import {
   getCurrentAuth,
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
-import { Admin, Modal, Login, Cart } from 'ContainersRoot';
-import Main from './pages/Main';
-import { Wrapper } from './pages/StyledComponents';
+import {
+  Admin,
+  Modal,
+  Login,
+  Cart,
+  Main,
+} from 'ContainersRoot';
+// eslint-disable-next-line import/no-unresolved
+import { Wrapper } from 'StyledComponentsRoot';
 import PrivatPage from './hoc/PrivatPage';
 
 function App() {

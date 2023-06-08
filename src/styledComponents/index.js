@@ -31,20 +31,6 @@ export const Container = styled.div`
   }
 `;
 
-// export const Cart = styled.div``;
-
-// export const ContainerCart = styled(Container)`
-//   max-width: 820px;
-//   margin: 90px auto;
-
-//   ${media.tablet} {
-//     margin: 40px auto;
-//   }
-//   ${media.mobile} {
-//     margin: 20px auto;
-//   }
-// `;
-
 export const Content = styled.div`
   padding: 40px 0;
   ${media.tablet} {
