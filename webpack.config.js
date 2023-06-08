@@ -13,9 +13,10 @@ module.exports = {
       UtilsRoot: path.resolve(__dirname, './src/utils'),
       LayoutRoot: path.resolve(__dirname, './src/layout'),
       HocRoot: path.resolve(__dirname, './src/hoc'),
-      ContainersRoot: path.resolve(__dirname, './src/containers')
+      ContainersRoot: path.resolve(__dirname, './src/containers'),
+      StyledComponentsRoot: path.resolve(__dirname, './src/styledComponents'),
     },
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.jsx', '.json'],
   },
   entry: ["@babel/polyfill", "./src/index.js"],
   output: {

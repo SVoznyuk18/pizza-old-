@@ -1,7 +1,7 @@
-import React, { memo } from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { useTranslation } from "react-i18next";
+import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import {
   increasePizzaAmount,
@@ -9,23 +9,21 @@ import {
   deletePizzaItem,
   clearCart,
   toggleModal,
-} from "ActionsRoot";
+} from 'ActionsRoot';
+import { CartItem, SvgIcon, BassicButton } from 'ComponentsRoot';
+// eslint-disable-next-line import/no-unresolved
+import { Container, Content } from 'StyledComponentsRoot';
+import { MODAL } from 'ConfigsRoot/constants';
+import iconSvg from 'AssetsRoot/svg/iconSvg';
 import {
-  Content,
-  ContainerCart,
   CartTitle,
   CartTop,
-  ContentItems,
+  CartList,
   CartBottom,
   CartBottomDetails,
   CartButtonSection,
   ClearCart,
-  Container,
-} from "./StyledComponents";
-import { CartItem, SvgIcon, BassicButton } from "ComponentsRoot";
-
-import { MODAL } from "ConfigsRoot/constants";
-import iconSvg from "AssetsRoot/svg/iconSvg";
+} from './StyledComponents';
 
 const Cart = () => {
   const { cart, totalPrice, totalAmount } = useSelector((state) => state.cart);
@@ -46,9 +44,9 @@ const Cart = () => {
 
   return (
     <Content>
-      <ContainerCart>
+      <Container>
         <CartTop>
-          <CartTitle>{t("cart")}</CartTitle>
+          <CartTitle>{t('cart')}</CartTitle>
           <ClearCart onClick={() => dispatch(clearCart())}>
             <SvgIcon
               width="20"
@@ -59,12 +57,13 @@ const Cart = () => {
               strokeHover="#373737"
               stroke="#B6B6B6"
             />
-            <span>{t("cleanCart")}</span>
+            <span>{t('cleanCart')}</span>
           </ClearCart>
         </CartTop>
-        <ContentItems>
+        <CartList>
           {cart.map((item, index) => (
             <CartItem
+              // eslint-disable-next-line react/no-array-index-key
               key={index}
               data={item}
               onIncPizzaAmount={() => onIncPizzaAmount(item)}
@@ -72,17 +71,21 @@ const Cart = () => {
               onDeletePizzaItem={() => onDeletePizzaItem(item)}
             />
           ))}
-        </ContentItems>
+        </CartList>
         <CartBottom>
           <CartBottomDetails>
             <span>
-              {" "}
-              {t("amoutPizzas")}{" "}
-              <b>{t("common.amount", { amount: totalAmount })}</b>{" "}
+              {' '}
+              {t('amoutPizzas')}
+              {' '}
+              <b>{t('common.amount', { amount: totalAmount })}</b>
+              {' '}
             </span>
             <span>
-              {" "}
-              {t("orderPrice")} <b>{t("common.cost", { cost: totalPrice })}</b>{" "}
+              {' '}
+              {t('orderPrice')}
+              <b>{t('common.cost', { cost: totalPrice })}</b>
+              {' '}
             </span>
           </CartBottomDetails>
           <CartButtonSection>
@@ -95,14 +98,14 @@ const Cart = () => {
                 padding="16px"
                 minWidth="120px"
                 color="#CACACA"
-                hoverColor="#232323"
+                hoverColor="232323"
                 backgroundColor="#FFFFFF"
                 hoverBackgroundColor="#f6f6f6"
                 borderColor="#D3D3D3"
                 hoverBorderColor="#f6f6f6"
                 fontWeight={600}
               >
-                {t("button.back")}
+                {t('button.back')}
               </BassicButton>
             </Link>
             <BassicButton
@@ -118,15 +121,13 @@ const Cart = () => {
               hoverBackgroundColor="#FFFFFF"
               hoverBorderColor="#FE5F1E"
               fontWeight={600}
-              onClick={() =>
-                dispatch(toggleModal(true, MODAL.ORDER_FORM))
-              }
+              onClick={() => dispatch(toggleModal(true, MODAL.ORDER_FORM))}
             >
-              {t("button.checkout")}
+              {t('button.checkout')}
             </BassicButton>
           </CartButtonSection>
         </CartBottom>
-      </ContainerCart>
+      </Container>
     </Content>
   );
 };
