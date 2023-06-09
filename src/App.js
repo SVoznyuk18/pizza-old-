@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useEffect, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,16 +9,18 @@ import {
   getCurrentAuth,
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
-import {
-  Admin,
-  Modal,
-  Login,
-  Cart,
-  Main,
-} from 'ContainersRoot';
+import { Modal, Main } from 'ContainersRoot';
+import { PrivatPage, LazyLoad } from 'HocRoot';
 // eslint-disable-next-line import/no-unresolved
 import { Wrapper } from 'StyledComponentsRoot';
-import PrivatPage from './hoc/PrivatPage';
+
+const Cart = lazy(() => import('ContainersRoot/Cart/Cart'));
+const Admin = lazy(() => import('ContainersRoot/Admin/Admin'));
+const Login = lazy(() => import('ContainersRoot/Login/Login'));
+
+const LazyCart = (props) => <LazyLoad component={Cart} {...props} />;
+const LazyAdmin = (props) => <LazyLoad component={Admin} {...props} />;
+const LazyLogin = (props) => <LazyLoad component={Login} {...props} />;
 
 function App() {
   const { cart, totalPrice, totalAmount } = useSelector((state) => state.cart);
@@ -49,12 +52,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Main />} />
-            <Route path="cart" element={<Cart />} />
+            <Route path="cart" element={<LazyCart />} />
             <Route
               path="admin"
-              element={<PrivatPage><Admin /></PrivatPage>}
+              element={<PrivatPage><LazyAdmin /></PrivatPage>}
             />
-            <Route path="login" element={<Login />} />
+            <Route path="login" element={<LazyLogin />} />
           </Route>
         </Routes>
         <Modal />

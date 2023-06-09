@@ -41,12 +41,16 @@ module.exports = {
     'max-len': ['error', { code: 200 }],
     'import/no-unresolved': 'off',
     'global-require': 0,
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      jsx: 'never',
+    }],
   },
   parser: '@babel/eslint-parser',
   settings: {
     'import/resolver': {
       webpack: {
-        config: 'webpack.config.js',
+        config: 'webpack.common.js',
       },
     },
   },
