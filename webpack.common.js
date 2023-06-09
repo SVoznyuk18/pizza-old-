@@ -1,6 +1,9 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const mode = process.env.NODE_ENV || 'development';
+const devMode = mode === 'development';
 
 module.exports = {
   mode: 'development',
@@ -18,7 +21,7 @@ module.exports = {
     },
     extensions: ['.js', '.jsx', '.json'],
   },
-  entry: ["@babel/polyfill", "./src/index.js"],
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -27,8 +30,8 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new HTMLWebpackPlugin({template: "./public/index.html", favicon: './public/favicon.ico'}),
-    new MiniCssExtractPlugin({filename: '[name].[contenthash].css'})
+    new HTMLWebpackPlugin({ template: './public/index.html', favicon: './public/favicon.ico' }),
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
   ],
   module: {
     rules: [
@@ -39,10 +42,10 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }]
-            ]
-          }
-        }
+              ['@babel/preset-env', { targets: 'defaults' }],
+            ],
+          },
+        },
       },
       {
         test: /\.m?jsx$/,
@@ -51,32 +54,25 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: [
-              ["@babel/preset-react", '@babel/preset-env']
-            ]
-          }
-        }
+              ['@babel/preset-react', '@babel/preset-env'],
+            ],
+          },
+        },
       },
       {
         test: /\.(c|sa|sc)ss$/i,
         use: [
-            MiniCssExtractPlugin.loader, 
-            "css-loader",
-            {
-                loader: 'postcss-loader',
-                options: {
-                    postcssOptions: {
-                        plugins: [require('postcss-preset-env')]
-                    }
-                }
-            }
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
         ],
       },
       {
         test: /\.woff|woff2|eot|ttf?$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[name][ext]'
-        }
+          filename: 'fonts/[name][ext]',
+        },
       },
       {
         test: /\.(jpe?g|png|webp|gif|svg)$/i,
@@ -92,22 +88,22 @@ module.exports = {
               },
               pngquant: {
                 quality: [0.65, 0.90],
-                speed: 4
+                speed: 4,
               },
               gifsicle: {
                 interlaced: false,
               },
               webp: {
-                quality: 75
-              }
-            }
+                quality: 75,
+              },
+            },
           },
         ],
         type: 'asset/resource',
         generator: {
-          filename: 'img/[name][ext]'
-        }
-      }
-    ]
-  }
+          filename: 'img/[name][ext]',
+        },
+      },
+    ],
+  },
 };

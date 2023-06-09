@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    node: true,
     'jsx-control-statements/jsx-control-statements': true,
   },
   ecmaFeatures: {
@@ -38,6 +39,8 @@ module.exports = {
     'react/function-component-definition': 0,
     'react/jsx-filename-extension': 0,
     'max-len': ['error', { code: 200 }],
+    'import/no-unresolved': 'off',
+    'global-require': 0,
   },
   parser: '@babel/eslint-parser',
   settings: {
