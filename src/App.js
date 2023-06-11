@@ -10,6 +10,7 @@ import {
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
 import { Modal, Main } from 'ContainersRoot';
+import { Portal } from 'ComponentsRoot';
 import { PrivatPage, LazyLoad } from 'HocRoot';
 // eslint-disable-next-line import/no-unresolved
 import { Wrapper } from 'StyledComponentsRoot';
@@ -47,22 +48,26 @@ function App() {
   }, []);
 
   return (
-    <Wrapper>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Main />} />
-            <Route path="cart" element={<LazyCart />} />
-            <Route
-              path="admin"
-              element={<PrivatPage><LazyAdmin /></PrivatPage>}
-            />
-            <Route path="login" element={<LazyLogin />} />
-          </Route>
-        </Routes>
+    <>
+      <Wrapper>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Main />} />
+              <Route path="cart" element={<LazyCart />} />
+              <Route
+                path="admin"
+                element={<PrivatPage><LazyAdmin /></PrivatPage>}
+              />
+              <Route path="login" element={<LazyLogin />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </Wrapper>
+      <Portal>
         <Modal />
-      </BrowserRouter>
-    </Wrapper>
+      </Portal>
+    </>
   );
 }
 

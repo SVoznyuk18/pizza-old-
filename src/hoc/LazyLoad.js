@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Suspense } from 'react';
-import PropTypes, { oneOfType } from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { Spiner } from 'ComponentsRoot';
 
@@ -11,7 +11,7 @@ const LazyLoad = ({ component: Component, ...rest }) => (
 );
 
 LazyLoad.propTypes = {
-  component: oneOfType([
+  component: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.elementType,
   ]).isRequired,

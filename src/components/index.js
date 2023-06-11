@@ -27,6 +27,7 @@ import Accordion from './Accordion/Accordion';
 import ManagersList from './ManagersList/ManagersList';
 import Orders from './Orders/Orders';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
+import Portal from './Portal/Portal';
 
 export {
   BassicButton,
@@ -55,4 +56,5 @@ export {
   ManagersList,
   Orders,
   AddNewProduct,
+  Portal,
 };
