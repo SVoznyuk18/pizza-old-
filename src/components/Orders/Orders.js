@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 // eslint-disable-next-line import/no-cycle
-import { Accordion, CartItem } from 'ComponentsRoot';
+import { Accordion, CartItem, RadioButton } from 'ComponentsRoot';
 import {
   OrdersContainer,
   Order,
@@ -18,6 +18,8 @@ const Orders = ({
   handleIncreasePizzaAmount,
   handleDecreasePizzaAmount,
   handleDeletePizzaAmount,
+  handleChangeOrderStatus,
+  radioItems,
 }) => {
   const { t } = useTranslation();
 
@@ -72,6 +74,11 @@ const Orders = ({
                     </b>
                   </span>
                 </OrderPriceSection>
+                <RadioButton
+                  currentOrderStatus={order?.orderInfo?.orderStatus}
+                  radioItems={radioItems}
+                  onChancheOrderStatus={(orderStatus) => handleChangeOrderStatus(order?.orderId, orderStatus)}
+                />
               </Order>
             </Accordion>
           ))}
@@ -113,15 +120,18 @@ Orders.propTypes = {
       totalPrice: PropTypes.number,
     }),
   })).isRequired,
+  radioItems: PropTypes.arrayOf(PropTypes.string).isRequired,
   handleIncreasePizzaAmount: PropTypes.func,
   handleDecreasePizzaAmount: PropTypes.func,
   handleDeletePizzaAmount: PropTypes.func,
+  handleChangeOrderStatus: PropTypes.func,
 };
 
 Orders.defaultProps = {
   handleIncreasePizzaAmount: () => {},
   handleDecreasePizzaAmount: () => {},
   handleDeletePizzaAmount: () => {},
+  handleChangeOrderStatus: () => {},
 };
 
 export default memo(Orders);

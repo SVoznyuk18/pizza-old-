@@ -17,6 +17,7 @@ import {
   increasePizzaAmountPlacedOrder,
   decreasePizzaAmountPlacedOrder,
   deletePizzaAmountPlacedOrder,
+  changeOrderStatus,
 } from './orders';
 
 export {
@@ -43,4 +44,5 @@ export {
   increasePizzaAmountPlacedOrder,
   decreasePizzaAmountPlacedOrder,
   deletePizzaAmountPlacedOrder,
+  changeOrderStatus,
 };

@@ -182,10 +182,30 @@ function* watchDeletePizzaAmountPlacedOrder(action) {
   }
 }
 
+function* watchChangeOrderStatus(action) {
+  try {
+    const { orderId, orderStatus } = action.payload;
+    const order = yield call(getDocument, db, 'orders', orderId);
+
+    const orderConfig = {
+      ...order,
+      orderInfo: {
+        ...order?.orderInfo,
+        orderStatus,
+      },
+    };
+    yield call(createNewDocument, db, 'orders', orderId, orderConfig);
+    yield put({ type: Types.GET_ORDERS });
+  } catch {
+    console.log('errr watchChangeOrderStatus');
+  }
+}
+
 export default function* watchOrders() {
   yield takeLatest(Types.PLACE_NEW_ORDER, watchPlaceNewOrder);
   yield takeLatest(Types.GET_ORDERS, watchGetOrders);
   yield takeLatest(Types.INCREASE_PIZZA_AMOUNT_PLACED_ORDER, watchIncresePizzaAmountPlacedOrder);
   yield takeLatest(Types.DECREASE_PIZZA_AMOUNT_PLACED_ORDER, watchDecreasePizzaAmountPlacedOrder);
   yield takeLatest(Types.DELETE_PIZZA_AMOUNT_PLACED_ORDER, watchDeletePizzaAmountPlacedOrder);
+  yield takeLatest(Types.CHANGE_ORDER_STATUS, watchChangeOrderStatus);
 }

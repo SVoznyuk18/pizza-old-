@@ -9,3 +9,5 @@ export const increasePizzaAmountPlacedOrder = (params) => ({ type: Types.INCREAS
 export const decreasePizzaAmountPlacedOrder = (params) => ({ type: Types.DECREASE_PIZZA_AMOUNT_PLACED_ORDER, payload: params });
 
 export const deletePizzaAmountPlacedOrder = (params) => ({ type: Types.DELETE_PIZZA_AMOUNT_PLACED_ORDER, payload: params });
+
+export const changeOrderStatus = (params) => ({ type: Types.CHANGE_ORDER_STATUS, payload: params });

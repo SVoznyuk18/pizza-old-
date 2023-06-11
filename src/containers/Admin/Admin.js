@@ -9,6 +9,7 @@ import {
   increasePizzaAmountPlacedOrder,
   decreasePizzaAmountPlacedOrder,
   deletePizzaAmountPlacedOrder,
+  changeOrderStatus,
 } from 'ActionsRoot';
 import {
   Tabs,
@@ -19,6 +20,7 @@ import {
 import { Container } from './StyledComponents';
 
 const header = ['name', 'email', 'phone', 'userAvatar', 'role', 'tools'];
+const radioItems = ['ordered', 'cooking', 'preparing order', 'delivered', 'done'];
 
 const Admin = () => {
   const dispatch = useDispatch();
@@ -42,6 +44,10 @@ const Admin = () => {
 
   const handleDeletePizzaAmount = (orderId) => {
     dispatch(deletePizzaAmountPlacedOrder(orderId));
+  };
+
+  const handleChangeOrderStatus = (orderId, orderStatus) => {
+    dispatch(changeOrderStatus({ orderId, orderStatus }));
   };
 
   return (
@@ -75,6 +81,8 @@ const Admin = () => {
                 handleIncreasePizzaAmount={handleIncreasePizzaAmount}
                 handleDecreasePizzaAmount={handleDecreasePizzaAmount}
                 handleDeletePizzaAmount={handleDeletePizzaAmount}
+                handleChangeOrderStatus={handleChangeOrderStatus}
+                radioItems={radioItems}
               />,
             },
           ]

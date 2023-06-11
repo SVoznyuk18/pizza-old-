@@ -28,6 +28,7 @@ import ManagersList from './ManagersList/ManagersList';
 import Orders from './Orders/Orders';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
 import Portal from './Portal/Portal';
+import RadioButton from './RadioButton/RadioButton';
 
 export {
   BassicButton,
@@ -57,4 +58,5 @@ export {
   Orders,
   AddNewProduct,
   Portal,
+  RadioButton,
 };
