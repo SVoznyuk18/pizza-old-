@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';

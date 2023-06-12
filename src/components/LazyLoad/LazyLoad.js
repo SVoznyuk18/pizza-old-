@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';

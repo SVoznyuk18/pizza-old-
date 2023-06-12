@@ -20,6 +20,9 @@ const Login = () => {
     if (role === 'admin') {
       navigate('/admin', { replace: true });
     }
+    if (role === 'manager') {
+      navigate('/manager', { replace: true });
+    }
   }, [role]);
 
   return (

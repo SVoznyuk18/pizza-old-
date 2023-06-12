@@ -17,7 +17,6 @@ module.exports = {
       LayoutRoot: path.resolve(__dirname, './src/layout'),
       ContainersRoot: path.resolve(__dirname, './src/containers'),
       StyledComponentsRoot: path.resolve(__dirname, './src/styledComponents'),
-      HocRoot: path.resolve(__dirname, './src/hoc'),
     },
     extensions: ['.js', '.jsx', '.json'],
   },

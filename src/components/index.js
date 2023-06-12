@@ -29,6 +29,8 @@ import Orders from './Orders/Orders';
 import AddNewProduct from './AddNewProduct/AddNewProduct';
 import Portal from './Portal/Portal';
 import RadioButton from './RadioButton/RadioButton';
+import LazyLoad from './LazyLoad/LazyLoad';
+import PrivatPage from './PrivatPage/PrivatPage';
 
 export {
   BassicButton,
@@ -59,4 +61,6 @@ export {
   AddNewProduct,
   Portal,
   RadioButton,
+  LazyLoad,
+  PrivatPage,
 };

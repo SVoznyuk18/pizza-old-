@@ -10,22 +10,20 @@ import {
 } from 'ActionsRoot';
 import { Layout } from 'LayoutRoot';
 import { Modal, Main } from 'ContainersRoot';
-import { Portal } from 'ComponentsRoot';
-import { PrivatPage, LazyLoad } from 'HocRoot';
+import { Portal, PrivatPage, LazyLoad } from 'ComponentsRoot';
 // eslint-disable-next-line import/no-unresolved
 import { Wrapper } from 'StyledComponentsRoot';
 
 const Cart = lazy(() => import('ContainersRoot/Cart/Cart'));
-const Admin = lazy(() => import('ContainersRoot/Admin/Admin'));
 const Login = lazy(() => import('ContainersRoot/Login/Login'));
 
 const LazyCart = (props) => <LazyLoad component={Cart} {...props} />;
-const LazyAdmin = (props) => <LazyLoad component={Admin} {...props} />;
 const LazyLogin = (props) => <LazyLoad component={Login} {...props} />;
 
 function App() {
   const { cart, totalPrice, totalAmount } = useSelector((state) => state.cart);
   const { activeCategory, sortBy } = useSelector((state) => state.filters);
+  const { role } = useSelector((state) => state.login);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,7 +55,11 @@ function App() {
               <Route path="cart" element={<LazyCart />} />
               <Route
                 path="admin"
-                element={<PrivatPage><LazyAdmin /></PrivatPage>}
+                element={<PrivatPage role={role} />}
+              />
+              <Route
+                path="manager"
+                element={<PrivatPage role={role} />}
               />
               <Route path="login" element={<LazyLogin />} />
             </Route>

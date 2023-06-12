@@ -17,7 +17,7 @@ import {
   Orders,
   AddNewProduct,
 } from 'ComponentsRoot';
-import { Container } from './StyledComponents';
+import { Container } from 'StyledComponentsRoot';
 
 const header = ['name', 'email', 'phone', 'userAvatar', 'role', 'tools'];
 const radioItems = ['ordered', 'cooking', 'preparing order', 'delivered', 'done'];

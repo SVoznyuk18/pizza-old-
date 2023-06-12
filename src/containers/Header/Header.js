@@ -53,7 +53,7 @@ const Header = () => {
       </HeaderLogoWrapper>
       <Wrapper>
         <Choose>
-          <When condition={!!role && location.pathname === '/admin'}>
+          <When condition={role && (location.pathname === '/manager' || location.pathname === '/admin')}>
             <UserContainer>
               <Img width="40px" borderRadius="100" src={adminIcon} alt="img" />
               <UserName>{name}</UserName>

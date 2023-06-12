@@ -27,18 +27,18 @@ const Table = ({ tableData, handleDelete, header }) => {
                             <SvgIcon
                                 width='20px'
                                 height='20px'
-                                viewBox='0 0 490 490'
-                                fill={colors.green}
-                                path={iconSvg.check}
+                                viewBox="0 0 20 20"
+                                path={iconSvg.trash}
+                                fill="#fff"
+                                strokeHover="#373737"
+                                stroke="#B6B6B6"
                                 handleClick={() => handleDelete(item?.id)}
                             />
-
                         </TableRowItem>
                     </TableRow>
                 ))
             }
         </TableContent>
-
     )
 }
 
