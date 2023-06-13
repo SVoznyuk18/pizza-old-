@@ -121,6 +121,7 @@ const Cart = () => {
               hoverBackgroundColor="#FFFFFF"
               hoverBorderColor="#FE5F1E"
               fontWeight={600}
+              disabled={cart.length === 0}
               onClick={() => dispatch(toggleModal(true, MODAL.ORDER_FORM))}
             >
               {t('button.checkout')}
