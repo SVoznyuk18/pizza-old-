@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
@@ -23,11 +24,13 @@ const Orders = ({
 }) => {
   const { t } = useTranslation();
 
+  const sortedOrders = Array.isArray(orders) && orders.sort((a, b) => b?.orderInfo?.timeStamp - a?.orderInfo?.timeStamp);
+
   return (
     <OrdersContainer>
       <Choose>
-        <When condition={orders.length > 0}>
-          {orders.map((order) => (
+        <When condition={sortedOrders.length > 0}>
+          {sortedOrders.map((order) => (
             <Accordion
               key={order?.orderId}
               header={[

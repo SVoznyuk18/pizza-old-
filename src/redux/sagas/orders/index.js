@@ -21,6 +21,7 @@ function* watchPlaceNewOrder(action) {
     } = action.payload;
     const { cart, totalPrice, totalAmount } = yield select(getCart);
     const id = uuidv4();
+    const timeStamp = Date.now();
     const orderConfig = {
       orderId: id,
       clientInfo: {
@@ -38,6 +39,7 @@ function* watchPlaceNewOrder(action) {
         totalAmount,
         orderItems: cart,
         orderStatus: 'ordered',
+        timeStamp,
       },
     };
 
