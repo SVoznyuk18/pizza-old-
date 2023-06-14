@@ -15,7 +15,10 @@ import { languages } from 'ConfigsRoot/constants';
 import { logout } from 'ActionsRoot';
 import logoSvg from 'AssetsRoot/svg/pizza-logo.svg';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
-import adminIcon from 'AssetsRoot/admin.png';
+import defaultAvatar from 'AssetsRoot/img/defaultAvatar.png';
+import loadingImg from 'AssetsRoot/svg/spinerLoading.svg';
+import errorImg from 'AssetsRoot/img/noImage.png';
+
 import {
   HeaderWrapper,
   HeaderLogoWrapper,
@@ -36,7 +39,7 @@ const Header = () => {
   const location = useLocation();
 
   const { totalPrice, totalAmount } = useSelector((state) => state.cart);
-  const { role, name } = useSelector((state) => state.login);
+  const { role, name, avatarUrl } = useSelector((state) => state.login);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -45,7 +48,13 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <HeaderLogoWrapper to="/">
-        <Img width="38px" src={logoSvg} alt="Pizza logo" />
+        <Img
+          width="38px"
+          src={logoSvg}
+          errorImg={errorImg}
+          loadingImg={loadingImg}
+          alt="Pizza logo"
+        />
         <HeaderLogoDescription>
           <HeaderTitle>Pizza</HeaderTitle>
           <HeaderSubTitle>{t('headerTitle')}</HeaderSubTitle>
@@ -55,7 +64,14 @@ const Header = () => {
         <Choose>
           <When condition={role && (location.pathname === '/manager' || location.pathname === '/admin')}>
             <UserContainer>
-              <Img width="40px" borderRadius="100" src={adminIcon} alt="img" />
+              <Img
+                width="40px"
+                borderRadius="100"
+                src={avatarUrl}
+                errorImg={defaultAvatar}
+                loadingImg={loadingImg}
+                alt="img"
+              />
               <UserName>{name}</UserName>
               <BassicButton
                 display="flex"

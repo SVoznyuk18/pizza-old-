@@ -23,10 +23,6 @@ export const PizzaBlock = styled.div`
   }
 `;
 
-export const PizzaImg = styled.img`
-  width: ${(props) => (props.width ? props.width : '260px')};
-`;
-
 export const Title = styled.h4`
   font-size: 24px;
   font-weight: 900;

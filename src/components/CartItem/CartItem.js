@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 // eslint-disable-next-line import/no-cycle
 import { BassicButton, Img, SvgIcon } from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
+import errorImg from 'AssetsRoot/img/noImage.png';
+import loadingImg from 'AssetsRoot/svg/spinerLoading.svg';
 import { colors } from 'ConfigsRoot/colors';
 import {
   CartItemWrapper,
@@ -29,7 +31,14 @@ const CartItem = ({
   return (
     <CartItemWrapper type={type}>
       <CartImgWrapper type={type}>
-        <Img width="100%" height="100%" src={data?.imageUrl} alt="Pizza" />
+        <Img
+          width="100%"
+          height="100%"
+          src={data?.imageUrl}
+          errorImg={errorImg}
+          loadingImg={loadingImg}
+          alt={`pizza_${data?.name}_${data?.size}`}
+        />
       </CartImgWrapper>
       <CartItemInfo type={type}>
         <h3>{t(`pizzaName.${data?.name}`)}</h3>

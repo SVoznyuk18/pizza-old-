@@ -1,10 +1,10 @@
 import React, { memo } from "react";
 
-import { Img } from 'ComponentsRoot';
-
 import { TableContent, TableHeader, TableHeaderItem, TableRow, TableRowItem } from './StyledComponents';
-import { SvgIcon } from 'ComponentsRoot';
+import { SvgIcon, Img } from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
+import defaultAvatar from 'AssetsRoot/img/defaultAvatar.png';
+import loadingImg from 'AssetsRoot/svg/spinerLoading.svg';
 import { colors } from "ConfigsRoot/colors"
 
 const Table = ({ tableData, handleDelete, header }) => {
@@ -21,7 +21,7 @@ const Table = ({ tableData, handleDelete, header }) => {
                         <TableRowItem>{item?.name}</TableRowItem>
                         <TableRowItem>{item?.email}</TableRowItem>
                         <TableRowItem>{item?.phone}</TableRowItem>
-                        <TableRowItem><Img width='35px' height='35px' borderRadius='50%' src={item?.avatarUrl} alt='avatar' /></TableRowItem>
+                        <TableRowItem><Img width='35px' height='35px' borderRadius='50%' src={item?.avatarUrl} loadingImg={loadingImg} errorImg={defaultAvatar} alt='avatar' /></TableRowItem>
                         <TableRowItem>{item?.role}</TableRowItem>
                         <TableRowItem>
                             <SvgIcon

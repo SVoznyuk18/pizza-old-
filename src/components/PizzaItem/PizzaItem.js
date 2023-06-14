@@ -1,14 +1,18 @@
 import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { v4 as uuidv4 } from 'uuid';
-
 // eslint-disable-next-line import/no-cycle
-import { Selector, BassicButton, SvgIcon } from 'ComponentsRoot';
+import {
+  Selector,
+  BassicButton,
+  SvgIcon,
+  Img,
+} from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
+import errorImg from 'AssetsRoot/img/noImage.png';
+import loadingImg from 'AssetsRoot/svg/spinerLoading.svg';
 import {
   PizzaBlock,
-  PizzaImg,
   Title,
   SelectorSection,
   BottomSection,
@@ -40,9 +44,11 @@ const PizzaItem = ({
 
   return (
     <PizzaBlock>
-      <PizzaImg
+      <Img
         src={pizzaItem?.imageUrl}
         alt={`pizza ${pizzaItem?.name}`}
+        errorImg={errorImg}
+        loadingImg={loadingImg}
         width="100%"
       />
       <Title>{t(`pizzaName.${pizzaItem?.name}`)}</Title>
