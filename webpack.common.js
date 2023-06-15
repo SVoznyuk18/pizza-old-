@@ -3,6 +3,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const Dotenv = require('dotenv-webpack');
 
 const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
@@ -33,6 +34,7 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({ template: './public/index.html', favicon: './public/favicon.ico' }),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+    new Dotenv(),
     new BundleAnalyzerPlugin(),
   ],
   module: {
