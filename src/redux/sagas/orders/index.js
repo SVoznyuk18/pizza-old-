@@ -3,8 +3,12 @@ import { put, takeLatest, call, select, delay } from 'redux-saga/effects';
 import { v4 as uuidv4 } from 'uuid';
 
 import * as Types from 'ConfigsRoot/constants';
-import { createNewDocument, getDocuments, getDocument } from 'UtilsRoot';
-import { db } from 'UtilsRoot/firebase';
+import {
+  createNewDocument,
+  getDocuments,
+  getDocument,
+  db,
+} from 'UtilsRoot';
 
 const getCart = (state) => state.cart;
 const getModalType = (state) => state.modal.modalType;

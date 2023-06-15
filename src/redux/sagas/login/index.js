@@ -2,8 +2,7 @@
 import { takeLatest, put, call } from 'redux-saga/effects';
 
 import * as Types from 'ConfigsRoot/constants';
-import { login } from 'UtilsRoot';
-import { db } from 'UtilsRoot/firebase';
+import { login, db } from 'UtilsRoot';
 
 function* watchLoginRequest(action) {
   try {

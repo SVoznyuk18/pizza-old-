@@ -2,8 +2,7 @@
 import { takeLatest, put } from 'redux-saga/effects';
 
 import * as Types from 'ConfigsRoot/constants';
-import { createNewDocument, getDocuments, deleteUser } from 'UtilsRoot';
-import { db } from 'UtilsRoot/firebase';
+import { createNewDocument, getDocuments, deleteUser, db } from 'UtilsRoot';
 
 function* watchCreateNewManager(action) {
   try {

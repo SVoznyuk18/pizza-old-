@@ -18,6 +18,13 @@ const firebaseConfig = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.FIREBASE_APP_ID,
+  // apiKey: "AIzaSyDz34Ldsq52QQQWjpMIRmEhp7BlANe26sE",
+  // authDomain: "vozniuk-pizza.firebaseapp.com",
+  // projectId: "vozniuk-pizza",
+  // storageBucket: "vozniuk-pizza.appspot.com",
+  // messagingSenderId: "493155731486",
+  // appId: "1:493155731486:web:c02f096d9290a76e83860f",
+
 };
   // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -60,8 +67,8 @@ export const login = async (dataBase, collectionName, email, password) => {
   const q = query(citiesRef, where('email', '==', email), where('password', '==', password));
   const querySnapshot = await getDocs(q);
 
-  querySnapshot.forEach(() => {
-    user = { ...user, ...doc.data() };
+  querySnapshot.forEach((document) => {
+    user = { ...user, ...document.data() };
   });
 
   return user;

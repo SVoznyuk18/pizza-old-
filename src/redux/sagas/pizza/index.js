@@ -1,9 +1,8 @@
 /* eslint-disable object-curly-newline */
 import { put, takeLatest, select, delay } from 'redux-saga/effects';
 
-import { createNewDocument, getDocuments } from 'UtilsRoot';
+import { createNewDocument, getDocuments, db } from 'UtilsRoot';
 import * as Types from 'ConfigsRoot/constants';
-import { db } from 'UtilsRoot/firebase';
 
 const getModalType = (state) => state.modal.modalType;
 
