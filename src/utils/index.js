@@ -1,28 +1,31 @@
 import { useState, useEffect } from 'react';
-import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 
-import { doc, getDoc, setDoc, collection, getDocs, deleteDoc, query, where } from "firebase/firestore";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
-
-import localization from 'moment/locale/uk'
-
-moment().locale("uk", localization);
+import {
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  getDocs,
+  deleteDoc,
+  query,
+  where,
+} from 'firebase/firestore';
+import { getStorage, ref, uploadBytes } from 'firebase/storage';
 
 const formatTime = (time) => {
   if (time < 10) return `0${time}`;
-
   return `${time}`;
 };
 
 const convertToMilliseconds = (time) => {
+  // eslint-disable-next-line no-unsafe-optional-chaining
   const milliseconds = time?.split(':')[0] * 60 * 60 * 1000 + time?.split(':')[1] * 60 * 1000;
   return milliseconds;
-}
+};
 
 export const formatedTimeArray = (start, end, step) => {
-
-  let timeInterval = [];
+  const timeInterval = [];
   const startTime = convertToMilliseconds(start);
   const endTime = convertToMilliseconds(end);
   const stepMilliseconds = step * 60 * 1000;
@@ -31,12 +34,11 @@ export const formatedTimeArray = (start, end, step) => {
     timeInterval.push(ts);
   }
 
-  const intervalArray = timeInterval?.map(intervalItem => {
+  const intervalArray = timeInterval?.map((intervalItem) => {
+    const minutes = (intervalItem / (1000 * 60)) % 60;
+    const hours = Math.trunc((intervalItem / (1000 * 60 * 60)) % 24);
 
-    const hours = moment.duration(intervalItem).hours();
-    const minutes = moment.duration(intervalItem).minutes();
-
-    return { hours: formatTime(hours), minutes: formatTime(minutes), milliseconds: intervalItem }
+    return { hours: formatTime(hours), minutes: formatTime(minutes), milliseconds: intervalItem };
   });
 
   return intervalArray;
@@ -56,32 +58,26 @@ export const setDisableTime = (currentTime) => {
 export const filteredPizzaSelector = (arrPizza, category, sort) => {
   let filteredPizza = arrPizza;
 
-  if (category !== "all") {
-    filteredPizza = filteredPizza?.filter(item => item.category === category);
+  if (category !== 'all') {
+    filteredPizza = filteredPizza?.filter((item) => item.category === category);
   }
-  if (sort === "popularity") {
-    filteredPizza = filteredPizza?.sort((a, b) => {
-      return b.rating - a.rating;
-    })
+  if (sort === 'popularity') {
+    filteredPizza = filteredPizza?.sort((a, b) => b.rating - a.rating);
   }
-  if (sort === "price") {
-    filteredPizza = filteredPizza?.sort((a, b) => {
-      return a.price - b.price;
-    })
+  if (sort === 'price') {
+    filteredPizza = filteredPizza?.sort((a, b) => a.price - b.price);
   }
-  if (sort === "alphabet") {
-    filteredPizza = filteredPizza?.sort((a, b) => {
-      return a.name[0].localeCompare(b.name[0])
-    })
+  if (sort === 'alphabet') {
+    filteredPizza = filteredPizza?.sort((a, b) => a.name[0].localeCompare(b.name[0]));
   }
 
   return filteredPizza;
-}
+};
 
 export const convertCost = (data) => {
   const { t } = useTranslation();
   return t('common.cost', { cost: data });
-}
+};
 
 export const useWindowSize = () => {
   // Initialize state with undefined width/height so server and client renders match
@@ -100,16 +96,15 @@ export const useWindowSize = () => {
       });
     }
     // Add event listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     // Call handler right away so state gets updated with initial window size
     handleResize();
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []); // Empty array ensures that effect is only run on mount
   return windowSize;
-}
+};
 
-//upload image to firestore
 export const uploadFiles = async (file, folderFirestore, fileName, setLoadingFile, setLoadingError, setLoadedFile) => {
   setLoadingFile(true);
   setLoadingError(false);
@@ -118,30 +113,31 @@ export const uploadFiles = async (file, folderFirestore, fileName, setLoadingFil
   const spaceRef = ref(storage, `${folderFirestore}/${fileName}`);
 
   uploadBytes(spaceRef, file)
-    .then((snapshot) => {
+    .then(() => {
       setLoadingFile(false);
       setLoadedFile(true);
     })
-    .catch((error) => {
-      loadingError(true);
+    .catch(() => {
+      setLoadingError(true);
     });
-}
+};
 
 export const createNewDocument = async (db, collectionName, documentName, data) => {
   await setDoc(doc(db, collectionName, documentName), data);
-}
+};
 
 export const getDocuments = async (db, collectionName) => {
   let documents = [];
   const querySnapshot = await getDocs(collection(db, collectionName));
 
   querySnapshot.forEach((document) => {
-    documents = [...documents, document.data()]
-  })
+    documents = [...documents, document.data()];
+  });
 
   return documents;
-}
+};
 
+// eslint-disable-next-line consistent-return
 export const getDocument = async (db, collectionName, documentId) => {
   try {
     const docRef = doc(db, collectionName, documentId);
@@ -154,17 +150,17 @@ export const getDocument = async (db, collectionName, documentId) => {
 
 export const deleteUser = async (db, collectionName, id) => {
   await deleteDoc(doc(db, collectionName, id));
-}
+};
 
 export const login = async (db, collectionName, email, password) => {
   let user = {};
   const citiesRef = collection(db, collectionName);
-  const q = query(citiesRef, where("email", "==", email), where("password", "==", password));
+  const q = query(citiesRef, where('email', '==', email), where('password', '==', password));
   const querySnapshot = await getDocs(q);
 
-  querySnapshot.forEach((doc) => {
-    user = { ...user, ...doc.data()};
+  querySnapshot.forEach(() => {
+    user = { ...user, ...doc.data() };
   });
 
   return user;
-}
+};
