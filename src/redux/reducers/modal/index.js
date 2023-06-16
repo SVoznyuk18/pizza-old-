@@ -2,8 +2,8 @@ import * as Types from 'ConfigsRoot/constants';
 
 const initialState = {
   isOpenModal: false,
-  modalType: null,
-  params: null,
+  modalType: '',
+  params: { },
 };
 
 const handleToggleModal = (state, action) => {

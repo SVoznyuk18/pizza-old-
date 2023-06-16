@@ -24,7 +24,7 @@ function* watchCreateNewManager(action) {
 
     yield put({ type: Types.GET_MANAGERS_LOADING, payload: false });
   } catch {
-    console.log('error watchCreateNewManager');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -48,6 +48,7 @@ function* watchDeleteManager(action) {
     yield put({ type: Types.GET_MANAGERS_LOADING, payload: false });
   } catch {
     yield put({ type: Types.DELETE_MANAGER_FAILURE, payload: true });
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 

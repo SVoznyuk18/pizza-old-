@@ -29,6 +29,7 @@ function* watchAddPizzaToCart(action) {
     }
   } catch {
     yield put({ type: Types.ADD_PIZZA_TO_CART_FAILURE, payload: true });
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -37,6 +38,7 @@ function* watchIncreasePizzaAmount(action) {
     yield put({ type: Types.INC_PIZZA_AMOUNT_SUCCESS, payload: action.payload });
   } catch {
     console.log('should do smt');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -51,6 +53,7 @@ function* watchDecreasePizzaAmount(action) {
     }
   } catch {
     console.log('should do smt');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -59,6 +62,7 @@ function* watchDeletePizzaItem(action) {
     yield put({ type: Types.DELETE_PIZZA_ITEM_SUCCESS, payload: action.payload.id });
   } catch {
     console.log('should do watchDeletePizzaItem');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -67,6 +71,7 @@ function* watchClearCart() {
     yield put({ type: Types.CLEAR_CART_SUCCESS });
   } catch {
     console.log('should do smt');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 

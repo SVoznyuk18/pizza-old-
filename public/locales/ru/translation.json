@@ -1,76 +1,80 @@
 {
-    "headerTitle": "Cамая вкусная пицца во вселенной",
-    "categoriesPizza": {
-        "all": "Все",
-        "meat": "Мясные",
-        "vegetarian": "Вегетарианская",
-        "grill": "Гриль",
-        "spicy": "Острые",
-        "calzone": "Кальцоне"
-    },
-    "sort": {
-        "sortTitle": "Сортировка по:",
-        "popularity": "популярности",
-        "price": "цене",
-        "alphabet": "алфавиту"
-    },
-    "pizzaType": {
-        "thin": "тонкое",
-        "traditional": "традиционное"
-    },
-    "pizzaName": {
-        "pepperoniFresh": "Пепперони Фреш с перцем",
-        "cheese": "Сырная",
-        "barbecuChicken": "Цыпленок барбекю",
-        "sweetSourChicken": "Кисло-сладкий цыпленок",
-        "cheeseburger": "Чизбургер-пицца",
-        "crazyPepperoni": "Крэйзи пепперони",
-        "pepperoni": "Пепперони",
-        "margarita": "Маргарита",
-        "fourSeasons": "Четыре сезона",
-        "vegetablesAndMushrooms": "Овощи и грибы"
-    },
-    "button": {
-        "add": "Добавить",
-        "back": "Назад",
-        "checkout": "Заказать"
-    },
-    "common": {
-        "from": "от",
-        "amount": " {{amount}} шт.",
-        "size": "{{size}} cм.",
-        "cost": "{{cost}} грн"
-    },
-    "cart": "Корзина",
-    "cleanCart": "Очистить корзину",
-    "amoutPizzas": "Всего пицц:",
-    "orderPrice": "Сумма заказа:",
-    "form": {
-        "titleContacts": "Контакты",
-        "titleAddress": "Адрес",
-        "titleTime": "Дата и время",
-        "labelName": "Имя",
-        "placeholderName": "Имя",
-        "labelPhone": "Телефон",
-        "placeholderPhone": "Телефон",
-        "labelEmail": "Email",
-        "placeholderEmail": "email",
-        "labelStreet": "Улица",
-        "placeholderStreet": "улица",
-        "labelHouse": "Дом",
-        "placeholderHouse": "Дом",
-        "labelApartment": "Квартира",
-        "placeholderApartment": "Квартира",
-        "labelTime": "Время",
-        "placeholderTime": "Время",
-        "labelDate": "Дата",
-        "placeholderDate": "Нажмите, чтобы выбрать день",
-        "errorMessage": {
-            "required": "Обязательное поле",
-            "moreCharacters": "Должно быть более {{count}} символов",
-            "moreNumber": "Должно быть число больше чем {{count}}",
-            "wrongPhone": "Неправильный формат номера телефона",
-            "wrongEmail": "Неправильный формат email"
-        }  
+  "headerTitle": "Cамая вкусная пицца во вселенной",
+  "categoriesPizza": {
+    "all": "Все",
+    "meat": "Мясные",
+    "vegetarian": "Вегетарианская",
+    "grill": "Гриль",
+    "spicy": "Острые",
+    "calzone": "Кальцоне"
+  },
+  "sort": {
+    "sortTitle": "Сортировка по:",
+    "popularity": "популярности",
+    "price": "цене",
+    "alphabet": "алфавиту"
+  },
+  "pizzaType": {
+    "thin": "тонкое",
+    "traditional": "традиционное"
+  },
+  "pizzaName": {
+    "pepperoniFresh": "Пепперони Фреш с перцем",
+    "cheese": "Сырная",
+    "barbecuChicken": "Цыпленок барбекю",
+    "sweetSourChicken": "Кисло-сладкий цыпленок",
+    "cheeseburger": "Чизбургер-пицца",
+    "crazyPepperoni": "Крэйзи пепперони",
+    "pepperoni": "Пепперони",
+    "margarita": "Маргарита",
+    "fourSeasons": "Четыре сезона",
+    "vegetablesAndMushrooms": "Овощи и грибы"
+  },
+  "button": {
+    "add": "Добавить",
+    "back": "Назад",
+    "checkout": "Заказать"
+  },
+  "common": {
+    "from": "от",
+    "amount": " {{amount}} шт.",
+    "size": "{{size}} cм.",
+    "cost": "{{cost}} грн"
+  },
+  "cart": "Корзина",
+  "cleanCart": "Очистить корзину",
+  "amoutPizzas": "Всего пицц:",
+  "orderPrice": "Сумма заказа:",
+  "form": {
+    "titleContacts": "Контакты",
+    "titleAddress": "Адрес",
+    "titleTime": "Дата и время",
+    "labelName": "Имя",
+    "placeholderName": "Имя",
+    "labelPhone": "Телефон",
+    "placeholderPhone": "Телефон",
+    "labelEmail": "Email",
+    "placeholderEmail": "email",
+    "labelStreet": "Улица",
+    "placeholderStreet": "улица",
+    "labelHouse": "Дом",
+    "placeholderHouse": "Дом",
+    "labelApartment": "Квартира",
+    "placeholderApartment": "Квартира",
+    "labelTime": "Время",
+    "placeholderTime": "Время",
+    "labelDate": "Дата",
+    "placeholderDate": "Нажмите, чтобы выбрать день",
+    "errorMessage": {
+      "required": "Обязательное поле",
+      "moreCharacters": "Должно быть более {{count}} символов",
+      "moreNumber": "Должно быть число больше чем {{count}}",
+      "wrongPhone": "Неправильный формат номера телефона",
+      "wrongEmail": "Неправильный формат email"
     }
+  },
+  "modal": {
+    "success": "Успех",
+    "failure": "Что-то пошло не так. Пожалуйста, попробуйте еще раз"
+  }
 }

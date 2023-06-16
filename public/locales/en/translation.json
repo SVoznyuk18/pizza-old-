@@ -1,76 +1,80 @@
 {
-    "headerTitle": "The most delicious pizza in the universe",
-    "categoriesPizza": {
-        "all": "All",
-        "meat": "Meat",
-        "vegetarian": "Vegetarian",
-        "grill": "Grill",
-        "spicy": "Spicy",
-        "calzone": "Calzone"
-    },
-    "sort": {
-        "sortTitle": "Sort by:",
-        "popularity": "popularity",
-        "price": "price",
-        "alphabet": "alphabet"
-    },
-    "pizzaType": {
-        "thin": "thin",
-        "traditional": "traditional"
-    },
-    "pizzaName": {
-        "pepperoniFresh": "Pepperoni Fresh with pepper",
-        "cheese": "Cheese",
-        "barbecuChicken": "Barbecue chicken",
-        "sweetSourChicken": "Sweet and sour chicken",
-        "cheeseburger": "Cheeseburger pizza",
-        "crazyPepperoni": "Crazy pepperoni",
-        "pepperoni": "Pepperoni",
-        "margarita": "Margarita",
-        "fourSeasons": "Four seasons",
-        "vegetablesAndMushrooms": "Vegetables and mushrooms"
-    },
-    "button": {
-        "add": "Add",
-        "back": "Back",
-        "checkout": "Order"
-    },
-    "common": {
-        "from": "from",
-        "amount": "{{amount}} pc.",
-        "size": " {{size}} cm.",
-        "cost": "{{cost}} uah"
-    },
-    "cart": "Cart",
-    "cleanCart": "Clean cart",
-    "amoutPizzas": "Total pizzas:",
-    "orderPrice": "Order price:",
-    "form": {
-        "titleContacts": "Contacts",
-        "titleAddress": "Address",
-        "titleTime": "Date and time",
-        "labelName": "Name",
-        "placeholderName": "Name",
-        "labelPhone": "Telephone",
-        "placeholderPhone": "Telephone",
-        "labelEmail": "Email",
-        "placeholderEmail": "email",
-        "labelStreet": "Street",
-        "placeholderStreet": "Street",
-        "labelHouse": "House",
-        "placeholderHouse": "House",
-        "labelApartment": "Apartment",
-        "placeholderApartment": "Apartment",
-        "labelTime": "Time",
-        "placeholderTime": "Time",
-        "labelDate": "Date",
-        "placeholderDate": "Click to select a day",
-        "errorMessage": {
-            "required": "Required field",
-            "moreCharacters": "Must be more than {{count}} characters",
-            "moreNumber": "Must be a number greater than {{count}}",
-            "wrongPhone": "Invalid phone number format",
-            "wrongEmail": "Invalid email format"
-        }  
+  "headerTitle": "The most delicious pizza in the universe",
+  "categoriesPizza": {
+    "all": "All",
+    "meat": "Meat",
+    "vegetarian": "Vegetarian",
+    "grill": "Grill",
+    "spicy": "Spicy",
+    "calzone": "Calzone"
+  },
+  "sort": {
+    "sortTitle": "Sort by:",
+    "popularity": "popularity",
+    "price": "price",
+    "alphabet": "alphabet"
+  },
+  "pizzaType": {
+    "thin": "thin",
+    "traditional": "traditional"
+  },
+  "pizzaName": {
+    "pepperoniFresh": "Pepperoni Fresh with pepper",
+    "cheese": "Cheese",
+    "barbecuChicken": "Barbecue chicken",
+    "sweetSourChicken": "Sweet and sour chicken",
+    "cheeseburger": "Cheeseburger pizza",
+    "crazyPepperoni": "Crazy pepperoni",
+    "pepperoni": "Pepperoni",
+    "margarita": "Margarita",
+    "fourSeasons": "Four seasons",
+    "vegetablesAndMushrooms": "Vegetables and mushrooms"
+  },
+  "button": {
+    "add": "Add",
+    "back": "Back",
+    "checkout": "Order"
+  },
+  "common": {
+    "from": "from",
+    "amount": "{{amount}} pc.",
+    "size": " {{size}} cm.",
+    "cost": "{{cost}} uah"
+  },
+  "cart": "Cart",
+  "cleanCart": "Clean cart",
+  "amoutPizzas": "Total pizzas:",
+  "orderPrice": "Order price:",
+  "form": {
+    "titleContacts": "Contacts",
+    "titleAddress": "Address",
+    "titleTime": "Date and time",
+    "labelName": "Name",
+    "placeholderName": "Name",
+    "labelPhone": "Telephone",
+    "placeholderPhone": "Telephone",
+    "labelEmail": "Email",
+    "placeholderEmail": "email",
+    "labelStreet": "Street",
+    "placeholderStreet": "Street",
+    "labelHouse": "House",
+    "placeholderHouse": "House",
+    "labelApartment": "Apartment",
+    "placeholderApartment": "Apartment",
+    "labelTime": "Time",
+    "placeholderTime": "Time",
+    "labelDate": "Date",
+    "placeholderDate": "Click to select a day",
+    "errorMessage": {
+      "required": "Required field",
+      "moreCharacters": "Must be more than {{count}} characters",
+      "moreNumber": "Must be a number greater than {{count}}",
+      "wrongPhone": "Invalid phone number format",
+      "wrongEmail": "Invalid email format"
     }
+  },
+  "modal": {
+    "success": "Success",
+    "failure": "Something went wrong. Please, try again"
+  }
 }

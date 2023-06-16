@@ -1,7 +1,6 @@
 // eslint-disable-next-line object-curly-newline
 import { put, takeLatest, call, select, delay } from 'redux-saga/effects';
 import { v4 as uuidv4 } from 'uuid';
-
 import * as Types from 'ConfigsRoot/constants';
 import {
   createNewDocument,
@@ -52,17 +51,17 @@ function* watchPlaceNewOrder(action) {
     yield put({ type: Types.CLEAR_CART_SUCCESS });
 
     yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: false, modalType: null, payload: null } });
-    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.SUCCESS_MODAL, payload: { message: 'placeNewOrderSuccess', status: 'success' } } });
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'success' } } });
 
     yield delay(5000);
 
     const modalType = yield select(getModalType);
 
-    if (modalType === Types.MODAL.SUCCESS_MODAL) {
+    if (modalType === Types.MODAL.STATUS_MODAL) {
       yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: false, modalType: null, payload: null } });
     }
   } catch {
-    console.log('error watchPlaceNewOrder');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -73,7 +72,6 @@ function* watchGetOrders() {
     yield put({ type: Types.GET_ORDERS_SUCCESS, payload: { orders } });
     yield put({ type: Types.GET_ORDERS_LOADING, payload: false });
   } catch {
-    console.log('watchGetOrders error');
     yield put({ type: Types.GET_ORDERS_FAILURE, payload: 'get orders error' });
   }
 }
@@ -112,7 +110,7 @@ function* watchIncresePizzaAmountPlacedOrder(action) {
     yield call(createNewDocument, db, 'orders', orderId, orderConfig);
     yield put({ type: Types.GET_ORDERS });
   } catch {
-    console.log('watchIncPizzaAmountPlacedOrder error');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -150,7 +148,7 @@ function* watchDecreasePizzaAmountPlacedOrder(action) {
     yield call(createNewDocument, db, 'orders', orderId, orderConfig);
     yield put({ type: Types.GET_ORDERS });
   } catch {
-    console.log('errr watchDecPizzaAmountPlacedOrder');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -183,7 +181,7 @@ function* watchDeletePizzaAmountPlacedOrder(action) {
     yield call(createNewDocument, db, 'orders', orderId, orderConfig);
     yield put({ type: Types.GET_ORDERS });
   } catch {
-    console.log('errr watchDelPizzaAmountPlacedOrder');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -202,7 +200,7 @@ function* watchChangeOrderStatus(action) {
     yield call(createNewDocument, db, 'orders', orderId, orderConfig);
     yield put({ type: Types.GET_ORDERS });
   } catch {
-    console.log('errr watchChangeOrderStatus');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 

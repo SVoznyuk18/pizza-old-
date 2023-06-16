@@ -10,7 +10,7 @@ function* watchLoginRequest(action) {
     const { avatarUrl, email, id, name, phone, role } = yield call(login, db, 'managers', userEmail, userPassword);
     yield put({ type: Types.LOGIN_SUCCESS, payload: { avatarUrl, email, id, name, phone, role } });
   } catch {
-    console.log('error watchLoginRequest');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -27,7 +27,7 @@ function* watchLogout() {
   try {
     yield put({ type: Types.LOGOUT_SUCCESS });
   } catch {
-    console.log('error watchLogout');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 

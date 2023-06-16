@@ -7,7 +7,7 @@ import { MODAL } from 'ConfigsRoot/constants';
 import { SvgIcon } from 'ComponentsRoot';
 import iconSvg from 'AssetsRoot/svg/iconSvg';
 
-import SuccessModal from './modals/SuccessModal/SuccessModal';
+import StatusModal from './modals/StatusModal/StatusModal';
 import PlaceNewOrderForm from './modals/PlaceNewOrderForm/PlaceNewOrderForm';
 import NewManagerForm from './modals/NewManagerForm/NewManagerForm';
 import AddProductForm from './modals/AddProductForm/AddProductForm';
@@ -17,8 +17,8 @@ import { ModalWrapper, ModalContent, CloseButton } from './StyledComponents';
 /* eslint-disable react/prop-types */
 const RenderModal = ({ modalType, ...props }) => {
   switch (modalType) {
-    case MODAL.SUCCESS_MODAL:
-      return <SuccessModal {...props} />;
+    case MODAL.STATUS_MODAL:
+      return <StatusModal {...props} />;
     case MODAL.ORDER_FORM:
       return <PlaceNewOrderForm {...props} />;
     case MODAL.NEW_MANAGER_FORM:
@@ -31,7 +31,7 @@ const RenderModal = ({ modalType, ...props }) => {
 };
 
 const Modal = () => {
-  const { isOpenModal, modalType, payload } = useSelector((state) => state.modal);
+  const { isOpenModal, modalType, params } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
   // eslint-disable-next-line no-shadow
@@ -50,7 +50,7 @@ const Modal = () => {
             path={iconSvg.cancel}
           />
         </CloseButton>
-        <RenderModal modalType={modalType} onCloseModal={handleCloseModal} payload={payload} />
+        <RenderModal modalType={modalType} onCloseModal={handleCloseModal} params={params} />
       </ModalContent>
     </ModalWrapper>
   );

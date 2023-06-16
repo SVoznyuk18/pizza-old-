@@ -15,6 +15,7 @@ function* watchSortBy(action) {
     yield put({ type: Types.SORT_BY_SUCCESS, payload: action.payload });
   } catch {
     yield put({ type: Types.SORT_BY_FAILURE, payload: true });
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
@@ -23,6 +24,7 @@ function* watchFilterCategory(action) {
     yield put({ type: Types.FILTER_CATEGORY_SUCCESS, payload: action.payload });
   } catch {
     yield put({ type: Types.FILTER_CATEGORY_FAILURE, payload: action.payload });
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 

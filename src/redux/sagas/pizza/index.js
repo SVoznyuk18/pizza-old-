@@ -48,7 +48,7 @@ function* watchCreateNewProduct(action) {
       yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: false, modalType: null, payload: null } });
     }
   } catch {
-    console.log('error watchCreateNewProduct');
+    yield put({ type: Types.MODAL_SHOW, payload: { isOpenModal: true, modalType: Types.MODAL.STATUS_MODAL, params: { status: 'failure' } } });
   }
 }
 
